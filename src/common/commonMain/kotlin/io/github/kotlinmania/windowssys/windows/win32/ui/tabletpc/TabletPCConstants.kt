@@ -901,8 +901,6 @@ public val DOCKED_BOTTOM: VisualState = 3
 
 public val DOCKED_TOP: VisualState = 2
 
-public val DYNAMIC_RENDERER: Guid = Guid.fromU128(U128(0xecd32aea746f4dcbuL, 0xbf68082757faff18uL))
-
 public val EM_GETDRAWATTR: UInt = 1541u
 
 public val EM_GETFACTOID: UInt = 1549u
@@ -1360,56 +1358,6 @@ public val GESTURE_UP_LEFT_LONG: UInt = 61540u
 public val GESTURE_UP_RIGHT: UInt = 61545u
 
 public val GESTURE_UP_RIGHT_LONG: UInt = 61541u
-
-public val GUID_DYNAMIC_RENDERER_CACHED_DATA: Guid = Guid.fromU128(U128(0xbf531b9225bf4a95uL, 0x89ad0e476b34b4f5uL))
-
-public val GUID_GESTURE_DATA: Guid = Guid.fromU128(U128(0x41e4ec0f26aa455auL, 0x9aa52cd36cf63fb9uL))
-
-public val GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: Guid = Guid.fromU128(U128(0x82dec5c7f6ba4906uL, 0x894f66d68dfc456cuL))
-
-public val GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: Guid = Guid.fromU128(U128(0x29123b48828410buL, 0xb250a0536595e5dcuL))
-
-public val GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: Guid = Guid.fromU128(U128(0x8b7fefc496aa4bfeuL, 0xac268a5f0be07bf5uL))
-
-public val GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: Guid = Guid.fromU128(U128(0x2585b91049b4750uL, 0x9615df8948ab3c9cuL))
-
-public val GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: Guid = Guid.fromU128(U128(0xe706c80457f04f00uL, 0x8a0c853d57789be9uL))
-
-public val GUID_PACKETPROPERTY_GUID_HEIGHT: Guid = Guid.fromU128(U128(0xe61858d2e4474218uL, 0x9d3f18865c203df4uL))
-
-public val GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: Guid = Guid.fromU128(U128(0x7307502df9f44e18uL, 0xb3f22ce1b1a3610cuL))
-
-public val GUID_PACKETPROPERTY_GUID_PACKET_STATUS: Guid = Guid.fromU128(U128(0x6e0e07bfafe74cf7uL, 0x87d1af6446208418uL))
-
-public val GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: Guid = Guid.fromU128(U128(0x7f7e57b7be374be1uL, 0xa3567a84160e1893uL))
-
-public val GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: Guid = Guid.fromU128(U128(0x5d5d5e566ba94c5buL, 0x9fb0851c91714e56uL))
-
-public val GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: Guid = Guid.fromU128(U128(0x78a81b5609354493uL, 0xbaae00541a8a16c4uL))
-
-public val GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: Guid = Guid.fromU128(U128(0x6da4488b524441ecuL, 0x905b32d89ab80809uL))
-
-public val GUID_PACKETPROPERTY_GUID_TIMER_TICK: Guid = Guid.fromU128(U128(0x436510c5fed345d1uL, 0x8b7671d3ea7a829duL))
-
-public val GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: Guid = Guid.fromU128(U128(0xd32496013b241e4uL, 0xace67ae9d43d2d3buL))
-
-public val GUID_PACKETPROPERTY_GUID_WIDTH: Guid = Guid.fromU128(U128(0xbaabe94d271248f5uL, 0xbe9d8f8b5ea0711auL))
-
-public val GUID_PACKETPROPERTY_GUID_X: Guid = Guid.fromU128(U128(0x598a6a8f52c04ba0uL, 0x93afaf357411a561uL))
-
-public val GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: Guid = Guid.fromU128(U128(0xa8d07b3a8bf040b0uL, 0x95a9b80a6bb787bfuL))
-
-public val GUID_PACKETPROPERTY_GUID_Y: Guid = Guid.fromU128(U128(0xb53f9f7504e04498uL, 0xa7eec30dbb5a9011uL))
-
-public val GUID_PACKETPROPERTY_GUID_YAW_ROTATION: Guid = Guid.fromU128(U128(0x6a8499807c3a45b7uL, 0xaa8290a262950e89uL))
-
-public val GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: Guid = Guid.fromU128(U128(0xe9323891d7743afuL, 0xac005b950d6d4b2duL))
-
-public val GUID_PACKETPROPERTY_GUID_Z: Guid = Guid.fromU128(U128(0x735adb300ebb4788uL, 0xa0e40f316490055duL))
-
-public val GESTURE_RECOGNIZER: Guid = Guid.fromU128(U128(0xea30c654c62c441fuL, 0xac0095f9a196782cuL))
-
-public val HANDWRITTEN_TEXT_INSERTION: Guid = Guid.fromU128(U128(0x9f074ee2e6e94d8auL, 0xa047eb5b5c3c55dauL))
 
 public val IAG_ALL_GESTURES: InkApplicationGesture = 0
 
@@ -1921,47 +1869,13 @@ public val IN_PLACE_STATE_EXPANDED: InPlaceState = 2
 
 public val IN_PLACE_STATE_HOVER_TARGET: InPlaceState = 1
 
-public val INK: Guid = Guid.fromU128(U128(0x13de4a428d214c8euL, 0xbf9c8f69cb068fcauL))
-
-public val INK_COLLECTOR: Guid = Guid.fromU128(U128(0x43fb1553ad744ee8uL, 0x88e43e6daac915dbuL))
-
 public val INK_COLLECTOR_CLIP_INK_TO_MARGIN: Int = 0
 
 public val INK_COLLECTOR_DEFAULT_MARGIN: Int = -2147483648.toInt()
 
-public val INK_DISP: Guid = Guid.fromU128(U128(0x937c1a34151d4610uL, 0x9ca6a8cc9bdb5d83uL))
-
-public val INK_DIVIDER: Guid = Guid.fromU128(U128(0x8854f6a046834ae7uL, 0x9191752fe64612c3uL))
-
-public val INK_DRAWING_ATTRIBUTES: Guid = Guid.fromU128(U128(0xd8bf32a205a544c3uL, 0xb3aa5e80ac7d2576uL))
-
-public val INK_EDIT: Guid = Guid.fromU128(U128(0xe5ca59f557c44dd8uL, 0x9bd61deeedd27af4uL))
-
 public val INK_MAX_TRANSPARENCY_VALUE: Int = 255
 
 public val INK_MIN_TRANSPARENCY_VALUE: Int = 0
-
-public val INK_OVERLAY: Guid = Guid.fromU128(U128(0x65d00646cde34a88uL, 0x91636769f0f1a97duL))
-
-public val INK_PICTURE: Guid = Guid.fromU128(U128(0x4a1e553fe364fdeuL, 0x865e344194e69424uL))
-
-public val INK_RECOGNIZER_CONTEXT: Guid = Guid.fromU128(U128(0xaac46a3792294fc0uL, 0x8cce4497569bf4d1uL))
-
-public val INK_RECOGNIZER_GUIDE: Guid = Guid.fromU128(U128(0x8770d941a63a4671uL, 0xa3752855a18eba73uL))
-
-public val INK_RECOGNIZERS: Guid = Guid.fromU128(U128(0x9fd4e808f6e64e65uL, 0x98d3aa39054c1255uL))
-
-public val INK_RECTANGLE: Guid = Guid.fromU128(U128(0x43b07326aae04b62uL, 0xa83d5fd768b7353cuL))
-
-public val INK_RENDERER: Guid = Guid.fromU128(U128(0x9c1cc6e4d7eb4eebuL, 0x909115a7c8791ed9uL))
-
-public val INK_STROKES: Guid = Guid.fromU128(U128(0x48f491bc240e4860uL, 0xb079a1e94d3d2c86uL))
-
-public val INK_TABLETS: Guid = Guid.fromU128(U128(0x6e4fcb12510a4d40uL, 0x93041da10ae9147cuL))
-
-public val INK_TRANSFORM: Guid = Guid.fromU128(U128(0xe3d5d93c16634a78uL, 0xa1a722375dfebaeeuL))
-
-public val INK_WORD_LIST: Guid = Guid.fromU128(U128(0x9de85094f71f44f1uL, 0x847115a2fa76fcf3uL))
 
 public val INTERACTION_MODE_DOCKED_BOTTOM: InteractionMode = 3
 
@@ -2043,8 +1957,6 @@ public val MICUIELEMENT_RESULTPANEL_BACKGROUND: Micuielement = 512
 
 public val MIDDLE_BUTTON: MouseButton = 4
 
-public val MATH_INPUT_CONTROL: Guid = Guid.fromU128(U128(0xc561816c14d84090uL, 0x830c98d994b21c7buL))
-
 public val NO_BUTTON: MouseButton = 0
 
 public val NUM_FLICK_DIRECTIONS: UInt = 8u
@@ -2098,10 +2010,6 @@ public val PANEL_INPUT_AREA_CHARACTER_PAD: PanelInputArea = 3
 public val PANEL_INPUT_AREA_KEYBOARD: PanelInputArea = 1
 
 public val PANEL_INPUT_AREA_WRITING_PAD: PanelInputArea = 2
-
-public val PEN_INPUT_PANEL: Guid = Guid.fromU128(U128(0xf744e4961b5a489euL, 0x81dcfbd7ac6298a8uL))
-
-public val PEN_INPUT_PANEL_INTERNAL: Guid = Guid.fromU128(U128(0x802b1fb9056b4720uL, 0xb0cc80d23b71171euL))
 
 public val RECOCONF_HIGHCONFIDENCE: UInt = 1u
 
@@ -2217,8 +2125,6 @@ public val RTSLT_SYNC_EVENT_LOCK: RealTimeStylusLockType = 2
 
 public val RTSLT_SYNC_OBJ_LOCK: RealTimeStylusLockType = 11
 
-public val REAL_TIME_STYLUS: Guid = Guid.fromU128(U128(0xe26b366df99843ceuL, 0x836fcb6d904432b0uL))
-
 public val SAFE_PARTIAL: UInt = 1u
 
 public val SCROLLDIRECTION_DOWN: Scrolldirection = 1
@@ -2287,10 +2193,6 @@ public val STR_GUID_YTILTORIENTATION: Pcwstr = w("{0E932389-1D77-43AF-AC00-5B950
 
 public val STR_GUID_Z: Pcwstr = w("{735ADB30-0EBB-4788-A0E4-0F316490055D}")
 
-public val SKETCH_INK: Guid = Guid.fromU128(U128(0xf0291081e87c4e07uL, 0x97daa0a03761e586uL))
-
-public val STROKE_BUILDER: Guid = Guid.fromU128(U128(0xe810cee76e514cb0uL, 0xaa3a0b985b70daf7uL))
-
 public val SYNC_STYLUS_QUEUE: StylusQueue = 1
 
 public val TABLET_DISABLE_FLICKFALLBACKKEYS: UInt = 1048576u
@@ -2351,10 +2253,6 @@ public val TPMU_RADIANS: TabletPropertyMetricUnit = 4
 
 public val TPMU_SECONDS: TabletPropertyMetricUnit = 5
 
-public val TEXT_INPUT_PANEL: Guid = Guid.fromU128(U128(0xf9b189d7228b4f2buL, 0x8650b97f59e02c8cuL))
-
-public val TIP_AUTO_COMPLETE_CLIENT: Guid = Guid.fromU128(U128(0x807c1e6c1d00453fuL, 0xb920b61bb7cdd997uL))
-
 public val WM_TABLET_ADDED: UInt = 712u
 
 public val WM_TABLET_DEFBASE: UInt = 704u
@@ -2388,3 +2286,105 @@ public val RTF_RIGHT: SelAlignmentConstants = 1
 public val RTF_THREE_D: AppearanceConstants = 1
 
 public val RTF_VERTICAL: ScrollBarsConstants = 2
+
+public val DYNAMIC_RENDERER: Guid = Guid.fromU128(U128(0xecd32aea746f4dcbuL, 0xbf68082757faff18uL))
+
+public val GUID_DYNAMIC_RENDERER_CACHED_DATA: Guid = Guid.fromU128(U128(0xbf531b9225bf4a95uL, 0x89ad0e476b34b4f5uL))
+
+public val GUID_GESTURE_DATA: Guid = Guid.fromU128(U128(0x41e4ec0f26aa455auL, 0x9aa52cd36cf63fb9uL))
+
+public val GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: Guid = Guid.fromU128(U128(0x82dec5c7f6ba4906uL, 0x894f66d68dfc456cuL))
+
+public val GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: Guid = Guid.fromU128(U128(0x29123b48828410buL, 0xb250a0536595e5dcuL))
+
+public val GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: Guid = Guid.fromU128(U128(0x8b7fefc496aa4bfeuL, 0xac268a5f0be07bf5uL))
+
+public val GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: Guid = Guid.fromU128(U128(0x2585b91049b4750uL, 0x9615df8948ab3c9cuL))
+
+public val GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: Guid = Guid.fromU128(U128(0xe706c80457f04f00uL, 0x8a0c853d57789be9uL))
+
+public val GUID_PACKETPROPERTY_GUID_HEIGHT: Guid = Guid.fromU128(U128(0xe61858d2e4474218uL, 0x9d3f18865c203df4uL))
+
+public val GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: Guid = Guid.fromU128(U128(0x7307502df9f44e18uL, 0xb3f22ce1b1a3610cuL))
+
+public val GUID_PACKETPROPERTY_GUID_PACKET_STATUS: Guid = Guid.fromU128(U128(0x6e0e07bfafe74cf7uL, 0x87d1af6446208418uL))
+
+public val GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: Guid = Guid.fromU128(U128(0x7f7e57b7be374be1uL, 0xa3567a84160e1893uL))
+
+public val GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: Guid = Guid.fromU128(U128(0x5d5d5e566ba94c5buL, 0x9fb0851c91714e56uL))
+
+public val GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: Guid = Guid.fromU128(U128(0x78a81b5609354493uL, 0xbaae00541a8a16c4uL))
+
+public val GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: Guid = Guid.fromU128(U128(0x6da4488b524441ecuL, 0x905b32d89ab80809uL))
+
+public val GUID_PACKETPROPERTY_GUID_TIMER_TICK: Guid = Guid.fromU128(U128(0x436510c5fed345d1uL, 0x8b7671d3ea7a829duL))
+
+public val GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: Guid = Guid.fromU128(U128(0xd32496013b241e4uL, 0xace67ae9d43d2d3buL))
+
+public val GUID_PACKETPROPERTY_GUID_WIDTH: Guid = Guid.fromU128(U128(0xbaabe94d271248f5uL, 0xbe9d8f8b5ea0711auL))
+
+public val GUID_PACKETPROPERTY_GUID_X: Guid = Guid.fromU128(U128(0x598a6a8f52c04ba0uL, 0x93afaf357411a561uL))
+
+public val GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: Guid = Guid.fromU128(U128(0xa8d07b3a8bf040b0uL, 0x95a9b80a6bb787bfuL))
+
+public val GUID_PACKETPROPERTY_GUID_Y: Guid = Guid.fromU128(U128(0xb53f9f7504e04498uL, 0xa7eec30dbb5a9011uL))
+
+public val GUID_PACKETPROPERTY_GUID_YAW_ROTATION: Guid = Guid.fromU128(U128(0x6a8499807c3a45b7uL, 0xaa8290a262950e89uL))
+
+public val GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: Guid = Guid.fromU128(U128(0xe9323891d7743afuL, 0xac005b950d6d4b2duL))
+
+public val GUID_PACKETPROPERTY_GUID_Z: Guid = Guid.fromU128(U128(0x735adb300ebb4788uL, 0xa0e40f316490055duL))
+
+public val GESTURE_RECOGNIZER: Guid = Guid.fromU128(U128(0xea30c654c62c441fuL, 0xac0095f9a196782cuL))
+
+public val HANDWRITTEN_TEXT_INSERTION: Guid = Guid.fromU128(U128(0x9f074ee2e6e94d8auL, 0xa047eb5b5c3c55dauL))
+
+public val INK: Guid = Guid.fromU128(U128(0x13de4a428d214c8euL, 0xbf9c8f69cb068fcauL))
+
+public val INK_COLLECTOR: Guid = Guid.fromU128(U128(0x43fb1553ad744ee8uL, 0x88e43e6daac915dbuL))
+
+public val INK_DISP: Guid = Guid.fromU128(U128(0x937c1a34151d4610uL, 0x9ca6a8cc9bdb5d83uL))
+
+public val INK_DIVIDER: Guid = Guid.fromU128(U128(0x8854f6a046834ae7uL, 0x9191752fe64612c3uL))
+
+public val INK_DRAWING_ATTRIBUTES: Guid = Guid.fromU128(U128(0xd8bf32a205a544c3uL, 0xb3aa5e80ac7d2576uL))
+
+public val INK_EDIT: Guid = Guid.fromU128(U128(0xe5ca59f557c44dd8uL, 0x9bd61deeedd27af4uL))
+
+public val INK_OVERLAY: Guid = Guid.fromU128(U128(0x65d00646cde34a88uL, 0x91636769f0f1a97duL))
+
+public val INK_PICTURE: Guid = Guid.fromU128(U128(0x4a1e553fe364fdeuL, 0x865e344194e69424uL))
+
+public val INK_RECOGNIZER_CONTEXT: Guid = Guid.fromU128(U128(0xaac46a3792294fc0uL, 0x8cce4497569bf4d1uL))
+
+public val INK_RECOGNIZER_GUIDE: Guid = Guid.fromU128(U128(0x8770d941a63a4671uL, 0xa3752855a18eba73uL))
+
+public val INK_RECOGNIZERS: Guid = Guid.fromU128(U128(0x9fd4e808f6e64e65uL, 0x98d3aa39054c1255uL))
+
+public val INK_RECTANGLE: Guid = Guid.fromU128(U128(0x43b07326aae04b62uL, 0xa83d5fd768b7353cuL))
+
+public val INK_RENDERER: Guid = Guid.fromU128(U128(0x9c1cc6e4d7eb4eebuL, 0x909115a7c8791ed9uL))
+
+public val INK_STROKES: Guid = Guid.fromU128(U128(0x48f491bc240e4860uL, 0xb079a1e94d3d2c86uL))
+
+public val INK_TABLETS: Guid = Guid.fromU128(U128(0x6e4fcb12510a4d40uL, 0x93041da10ae9147cuL))
+
+public val INK_TRANSFORM: Guid = Guid.fromU128(U128(0xe3d5d93c16634a78uL, 0xa1a722375dfebaeeuL))
+
+public val INK_WORD_LIST: Guid = Guid.fromU128(U128(0x9de85094f71f44f1uL, 0x847115a2fa76fcf3uL))
+
+public val MATH_INPUT_CONTROL: Guid = Guid.fromU128(U128(0xc561816c14d84090uL, 0x830c98d994b21c7buL))
+
+public val PEN_INPUT_PANEL: Guid = Guid.fromU128(U128(0xf744e4961b5a489euL, 0x81dcfbd7ac6298a8uL))
+
+public val PEN_INPUT_PANEL_INTERNAL: Guid = Guid.fromU128(U128(0x802b1fb9056b4720uL, 0xb0cc80d23b71171euL))
+
+public val REAL_TIME_STYLUS: Guid = Guid.fromU128(U128(0xe26b366df99843ceuL, 0x836fcb6d904432b0uL))
+
+public val SKETCH_INK: Guid = Guid.fromU128(U128(0xf0291081e87c4e07uL, 0x97daa0a03761e586uL))
+
+public val STROKE_BUILDER: Guid = Guid.fromU128(U128(0xe810cee76e514cb0uL, 0xaa3a0b985b70daf7uL))
+
+public val TEXT_INPUT_PANEL: Guid = Guid.fromU128(U128(0xf9b189d7228b4f2buL, 0x8650b97f59e02c8cuL))
+
+public val TIP_AUTO_COMPLETE_CLIENT: Guid = Guid.fromU128(U128(0x807c1e6c1d00453fuL, 0xb920b61bb7cdd997uL))

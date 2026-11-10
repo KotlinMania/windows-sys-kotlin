@@ -4,6 +4,84 @@ import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
+public val DEVPROPID_FIRST_USABLE: UInt = 2u
+
+public val DEVPROP_FALSE: DevpropBoolean = 0u.toUByte()
+
+public val DEVPROP_MASK_TYPE: UInt = 4095u
+
+public val DEVPROP_MASK_TYPEMOD: UInt = 61440u
+
+public val DEVPROP_STORE_SYSTEM: Devpropstore = 0
+
+public val DEVPROP_STORE_USER: Devpropstore = 1
+
+public val DEVPROP_TRUE: DevpropBoolean = 255u.toUByte()
+
+public val DEVPROP_TYPEMOD_ARRAY: Devproptype = 4096u
+
+public val DEVPROP_TYPEMOD_LIST: Devproptype = 8192u
+
+public val DEVPROP_TYPE_BINARY: Devproptype = 4099u
+
+public val DEVPROP_TYPE_BOOLEAN: Devproptype = 17u
+
+public val DEVPROP_TYPE_BYTE: Devproptype = 3u
+
+public val DEVPROP_TYPE_CURRENCY: Devproptype = 14u
+
+public val DEVPROP_TYPE_DATE: Devproptype = 15u
+
+public val DEVPROP_TYPE_DECIMAL: Devproptype = 12u
+
+public val DEVPROP_TYPE_DEVPROPKEY: Devproptype = 21u
+
+public val DEVPROP_TYPE_DEVPROPTYPE: Devproptype = 22u
+
+public val DEVPROP_TYPE_DOUBLE: Devproptype = 11u
+
+public val DEVPROP_TYPE_EMPTY: Devproptype = 0u
+
+public val DEVPROP_TYPE_ERROR: Devproptype = 23u
+
+public val DEVPROP_TYPE_FILETIME: Devproptype = 16u
+
+public val DEVPROP_TYPE_FLOAT: Devproptype = 10u
+
+public val DEVPROP_TYPE_GUID: Devproptype = 13u
+
+public val DEVPROP_TYPE_INT16: Devproptype = 4u
+
+public val DEVPROP_TYPE_INT32: Devproptype = 6u
+
+public val DEVPROP_TYPE_INT64: Devproptype = 8u
+
+public val DEVPROP_TYPE_NTSTATUS: Devproptype = 24u
+
+public val DEVPROP_TYPE_NULL: Devproptype = 1u
+
+public val DEVPROP_TYPE_SBYTE: Devproptype = 2u
+
+public val DEVPROP_TYPE_SECURITY_DESCRIPTOR: Devproptype = 19u
+
+public val DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: Devproptype = 20u
+
+public val DEVPROP_TYPE_STRING: Devproptype = 18u
+
+public val DEVPROP_TYPE_STRING_INDIRECT: Devproptype = 25u
+
+public val DEVPROP_TYPE_STRING_LIST: Devproptype = 8210u
+
+public val DEVPROP_TYPE_UINT16: Devproptype = 5u
+
+public val DEVPROP_TYPE_UINT32: Devproptype = 7u
+
+public val DEVPROP_TYPE_UINT64: Devproptype = 9u
+
+public val MAX_DEVPROP_TYPE: UInt = 25u
+
+public val MAX_DEVPROP_TYPEMOD: UInt = 8192u
+
 public val DEVPKEY_DEV_QUERY_OBJECT_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x13673f42a3d649f6uL, 0xb4daae46e0c5237cuL)), pid = 2u)
 
 public val DEVPKEY_DEVICE_CLASS_CHARACTERISTICS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4321918bf69e470duL, 0xa5de4d88c75ad24buL)), pid = 29u)
@@ -399,81 +477,3 @@ public val DEVPKEY_DRV_PKG_MODEL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(
 public val DEVPKEY_DRV_PKG_VENDOR_WEB_SITE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcf73bb513abf44a2uL, 0x85e09a3dc7a12132uL)), pid = 3u)
 
 public val DEVPKEY_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL)), pid = 10u)
-
-public val DEVPROPID_FIRST_USABLE: UInt = 2u
-
-public val DEVPROP_FALSE: DevpropBoolean = 0u.toUByte()
-
-public val DEVPROP_MASK_TYPE: UInt = 4095u
-
-public val DEVPROP_MASK_TYPEMOD: UInt = 61440u
-
-public val DEVPROP_STORE_SYSTEM: Devpropstore = 0
-
-public val DEVPROP_STORE_USER: Devpropstore = 1
-
-public val DEVPROP_TRUE: DevpropBoolean = 255u.toUByte()
-
-public val DEVPROP_TYPEMOD_ARRAY: Devproptype = 4096u
-
-public val DEVPROP_TYPEMOD_LIST: Devproptype = 8192u
-
-public val DEVPROP_TYPE_BINARY: Devproptype = 4099u
-
-public val DEVPROP_TYPE_BOOLEAN: Devproptype = 17u
-
-public val DEVPROP_TYPE_BYTE: Devproptype = 3u
-
-public val DEVPROP_TYPE_CURRENCY: Devproptype = 14u
-
-public val DEVPROP_TYPE_DATE: Devproptype = 15u
-
-public val DEVPROP_TYPE_DECIMAL: Devproptype = 12u
-
-public val DEVPROP_TYPE_DEVPROPKEY: Devproptype = 21u
-
-public val DEVPROP_TYPE_DEVPROPTYPE: Devproptype = 22u
-
-public val DEVPROP_TYPE_DOUBLE: Devproptype = 11u
-
-public val DEVPROP_TYPE_EMPTY: Devproptype = 0u
-
-public val DEVPROP_TYPE_ERROR: Devproptype = 23u
-
-public val DEVPROP_TYPE_FILETIME: Devproptype = 16u
-
-public val DEVPROP_TYPE_FLOAT: Devproptype = 10u
-
-public val DEVPROP_TYPE_GUID: Devproptype = 13u
-
-public val DEVPROP_TYPE_INT16: Devproptype = 4u
-
-public val DEVPROP_TYPE_INT32: Devproptype = 6u
-
-public val DEVPROP_TYPE_INT64: Devproptype = 8u
-
-public val DEVPROP_TYPE_NTSTATUS: Devproptype = 24u
-
-public val DEVPROP_TYPE_NULL: Devproptype = 1u
-
-public val DEVPROP_TYPE_SBYTE: Devproptype = 2u
-
-public val DEVPROP_TYPE_SECURITY_DESCRIPTOR: Devproptype = 19u
-
-public val DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: Devproptype = 20u
-
-public val DEVPROP_TYPE_STRING: Devproptype = 18u
-
-public val DEVPROP_TYPE_STRING_INDIRECT: Devproptype = 25u
-
-public val DEVPROP_TYPE_STRING_LIST: Devproptype = 8210u
-
-public val DEVPROP_TYPE_UINT16: Devproptype = 5u
-
-public val DEVPROP_TYPE_UINT32: Devproptype = 7u
-
-public val DEVPROP_TYPE_UINT64: Devproptype = 9u
-
-public val MAX_DEVPROP_TYPE: UInt = 25u
-
-public val MAX_DEVPROP_TYPEMOD: UInt = 8192u

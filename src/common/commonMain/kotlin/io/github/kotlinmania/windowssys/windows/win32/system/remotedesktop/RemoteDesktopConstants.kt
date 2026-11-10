@@ -48,8 +48,6 @@ public val AA_UNTRUSTED: AATrustClassID = 0
 
 public val ACQUIRE_TARGET_LOCK_TIMEOUT: UInt = 300000u
 
-public val A_DS_TS_USER_EX: Guid = Guid.fromU128(U128(0xe2e9cae61e7b4b8euL, 0xbabde9bf6292ac29uL))
-
 public val ALLOW_ONLY_SDR_SERVERS: PolicyAttributeType = 7
 
 public val CHANNEL_BUFFER_SIZE: UInt = 65535u
@@ -157,10 +155,6 @@ public val CLIENT_MESSAGE_CONNECTION_ERROR: ClientMessageType = 2
 public val CLIENT_MESSAGE_CONNECTION_INVALID: ClientMessageType = 0
 
 public val CLIENT_MESSAGE_CONNECTION_STATUS: ClientMessageType = 1
-
-public val CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: Guid = Guid.fromU128(U128(0x4b150580fea44d3cuL, 0x9de47433a66618f7uL))
-
-public val CONNECTION_PROPERTY_IDLE_TIME_WARNING: Guid = Guid.fromU128(U128(0x693f7ff50c4e4d17uL, 0xb8e01f70325e5d58uL))
 
 public val CONNECTION_REQUEST_CANCELLED: ConnectionChangeNotification = 5
 
@@ -334,14 +328,6 @@ public val PRODUCTINFO_COMPANYNAME_LENGTH: UInt = 256u
 
 public val PRODUCTINFO_PRODUCTID_LENGTH: UInt = 4u
 
-public val PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: Guid = Guid.fromU128(U128(0xcdfd28ed0b94c1fuL, 0xa5eb6d1f6c6535b9uL))
-
-public val PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: Guid = Guid.fromU128(U128(0xed2c3fda338d4d3fuL, 0x81a3e767310d908euL))
-
-public val PROPERTY_TYPE_GET_FAST_RECONNECT: Guid = Guid.fromU128(U128(0x6212d75700434862uL, 0x99c39f3059ac2a3buL))
-
-public val PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: Guid = Guid.fromU128(U128(0x197c427a01354b6duL, 0x9c5ee6579a0ab625uL))
-
 public val PROVISIONING_PLUGIN: PluginType = 32
 
 public val PASSWORD_ENCODING_UTF16BE: PasswordEncodingType = 2
@@ -355,8 +341,6 @@ public val PNP_REDIRECTION_DISABLED: PolicyAttributeType = 6
 public val PORT_REDIRECTION_DISABLED: PolicyAttributeType = 4
 
 public val PRINTER_REDIRECTION_DISABLED: PolicyAttributeType = 3
-
-public val RDCLIENT_BITMAP_RENDER_SERVICE: Guid = Guid.fromU128(U128(0xe4cc08cb942e4b19uL, 0x8504bd5a89a747f5uL))
 
 public val RDV_TASK_STATUS_APPLYING: RdvTaskStatus = 3
 
@@ -544,8 +528,6 @@ public val TSSD_ADDR_I_PV6: TssdAddrV46Type = 6
 
 public val TSSD_ADDR_UNDEFINED: TssdAddrV46Type = 0
 
-public val TS_USER_EX_INTERFACES: Guid = Guid.fromU128(U128(0x910dd01df8c11d1uL, 0xae2700c04fa35813uL))
-
 public val TS_SB_SORT_BY_NAME: TsSbSortBy = 1
 
 public val TS_SB_SORT_BY_NONE: TsSbSortBy = 0
@@ -659,8 +641,6 @@ public val WRDS_PERF_ENABLE_ENHANCED_GRAPHICS: UInt = 16u
 public val WRDS_PERF_ENABLE_FONT_SMOOTHING: UInt = 128u
 
 public val WRDS_PROTOCOL_NAME_LENGTH: UInt = 8u
-
-public val WRDS_SERVICE_ID_GRAPHICS_GUID: Guid = Guid.fromU128(U128(0xd2993f4d02cf4280uL, 0x8c481624b44f8706uL))
 
 public val WRDS_SETTING_LEVEL_1: WrdsSettingLevel = 1
 
@@ -1020,14 +1000,6 @@ public val WTS_PROTOCOL_TYPE_ICA: UInt = 1u
 
 public val WTS_PROTOCOL_TYPE_RDP: UInt = 2u
 
-public val WTS_QUERY_ALLOWED_INITIAL_APP: Guid = Guid.fromU128(U128(0xc77d1b305be14c6buL, 0xa0e1bd6d2e5c9fccuL))
-
-public val WTS_QUERY_AUDIOENUM_DLL: Guid = Guid.fromU128(U128(0x9bf4fa97c8834c2auL, 0x80ab5a39c9af00dbuL))
-
-public val WTS_QUERY_LOGON_SCREEN_SIZE: Guid = Guid.fromU128(U128(0x8b8e0fe708044a0euL, 0xb2798660b1df0049uL))
-
-public val WTS_QUERY_MF_FORMAT_SUPPORT: Guid = Guid.fromU128(U128(0x41869ad063324dc8uL, 0x95d5db749e2f1d94uL))
-
 public val WTS_SECURITY_ALL_ACCESS: WtsSecurityFlags = 983999u
 
 public val WTS_SECURITY_CONNECT: WtsSecurityFlags = 256u
@@ -1089,5 +1061,33 @@ public val WTS_WSD_POWEROFF: UInt = 8u
 public val WTS_WSD_REBOOT: UInt = 4u
 
 public val WTS_WSD_SHUTDOWN: UInt = 2u
+
+public val A_DS_TS_USER_EX: Guid = Guid.fromU128(U128(0xe2e9cae61e7b4b8euL, 0xbabde9bf6292ac29uL))
+
+public val CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: Guid = Guid.fromU128(U128(0x4b150580fea44d3cuL, 0x9de47433a66618f7uL))
+
+public val CONNECTION_PROPERTY_IDLE_TIME_WARNING: Guid = Guid.fromU128(U128(0x693f7ff50c4e4d17uL, 0xb8e01f70325e5d58uL))
+
+public val PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: Guid = Guid.fromU128(U128(0xcdfd28ed0b94c1fuL, 0xa5eb6d1f6c6535b9uL))
+
+public val PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: Guid = Guid.fromU128(U128(0xed2c3fda338d4d3fuL, 0x81a3e767310d908euL))
+
+public val PROPERTY_TYPE_GET_FAST_RECONNECT: Guid = Guid.fromU128(U128(0x6212d75700434862uL, 0x99c39f3059ac2a3buL))
+
+public val PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: Guid = Guid.fromU128(U128(0x197c427a01354b6duL, 0x9c5ee6579a0ab625uL))
+
+public val RDCLIENT_BITMAP_RENDER_SERVICE: Guid = Guid.fromU128(U128(0xe4cc08cb942e4b19uL, 0x8504bd5a89a747f5uL))
+
+public val TS_USER_EX_INTERFACES: Guid = Guid.fromU128(U128(0x910dd01df8c11d1uL, 0xae2700c04fa35813uL))
+
+public val WRDS_SERVICE_ID_GRAPHICS_GUID: Guid = Guid.fromU128(U128(0xd2993f4d02cf4280uL, 0x8c481624b44f8706uL))
+
+public val WTS_QUERY_ALLOWED_INITIAL_APP: Guid = Guid.fromU128(U128(0xc77d1b305be14c6buL, 0xa0e1bd6d2e5c9fccuL))
+
+public val WTS_QUERY_AUDIOENUM_DLL: Guid = Guid.fromU128(U128(0x9bf4fa97c8834c2auL, 0x80ab5a39c9af00dbuL))
+
+public val WTS_QUERY_LOGON_SCREEN_SIZE: Guid = Guid.fromU128(U128(0x8b8e0fe708044a0euL, 0xb2798660b1df0049uL))
+
+public val WTS_QUERY_MF_FORMAT_SUPPORT: Guid = Guid.fromU128(U128(0x41869ad063324dc8uL, 0x95d5db749e2f1d94uL))
 
 public val WORKSPACE: Guid = Guid.fromU128(U128(0x4f1dfca63aad48e1uL, 0x84064bc21a501d7cuL))

@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
@@ -473,8 +471,6 @@ public val DISPIDMASK: UInt = 65535u
 public val DT_ILS: DirectoryType = 2
 
 public val DT_NTDS: DirectoryType = 1
-
-public val DISPATCH_MAPPER: Guid = Guid.fromU128(U128(0xe9225296c75911d1uL, 0xa02b00c04fb6809fuL))
 
 public val FDS_NOTSUPPORTED: FullduplexSupport = 1
 
@@ -1868,8 +1864,6 @@ public val ME_TSP_DATA: MspEvent = 2
 
 public val ME_TTS_TERMINAL_EVENT: MspEvent = 5
 
-public val MCAST_ADDRESS_ALLOCATION: Guid = Guid.fromU128(U128(0xdf0daef2a28911d1uL, 0x8697006008b0e5d2uL))
-
 public val OPENTNEFSTREAM: Pcstr = s("OpenTnefStream")
 
 public val OPENTNEFSTREAMEX: Pcstr = s("OpenTnefStreamEx")
@@ -2508,10 +2502,6 @@ public val RENDBIND_DEFAULTPASSWORD: UInt = 8u
 
 public val RENDBIND_DEFAULTUSERNAME: UInt = 4u
 
-public val RENDEZVOUS: Guid = Guid.fromU128(U128(0xf1029e5bcb5b11d0uL, 0x8d5900c04fd91ac0uL))
-
-public val REQUEST_MAKE_CALL: Guid = Guid.fromU128(U128(0xac48ffe0f8c411d1uL, 0xa03000c04fb6809fuL))
-
 public val STRINGFORMAT_ASCII: UInt = 1u
 
 public val STRINGFORMAT_BINARY: UInt = 4u
@@ -2531,8 +2521,6 @@ public val STRM_RUNNING: UInt = 4u
 public val STRM_STOPPED: UInt = 16u
 
 public val STRM_TERMINALSELECTED: UInt = 1u
-
-public val TAPI: Guid = Guid.fromU128(U128(0x21d6d48ea88b11d0uL, 0x83dd00aa003ccabduL))
 
 public val TAPIERR_CONNECTED: Int = 0
 
@@ -3005,3 +2993,13 @@ public val TSPI_LINERELEASEUSERUSERINFO: UInt = 602u
 public val TSPI_LINEREMOVEFROMCONFERENCE: UInt = 543u
 
 public val TSPI_LINESECURECALL: UInt = 544u
+
+public val TSPI_LINESELECTEXTVERSION: UInt = 545u
+
+public val TSPI_LINESENDUSERUSERINFO: UInt = 546u
+
+public val TSPI_LINESETAPPSPECIFIC: UInt = 547u
+
+public val TSPI_LINESETCALLHUBTRACKING: UInt = 605u
+
+public val TSPI_LINESETCALLPARAMS: UInt = 548u

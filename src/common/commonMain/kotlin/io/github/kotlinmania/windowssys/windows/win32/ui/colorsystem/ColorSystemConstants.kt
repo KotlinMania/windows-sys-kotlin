@@ -91,8 +91,6 @@ public val BM_X_G3CHQUADS: Bmformat = 772
 
 public val BM_X_RGBQUADS: Bmformat = 8
 
-public val CATID_WCS_PLUGIN: Guid = Guid.fromU128(U128(0xa0b402e08240405fuL, 0x8a168a5b4df2f0dduL))
-
 public val CMM_DESCRIPTION: UInt = 5u
 
 public val CMM_DLL_VERSION: UInt = 3u
@@ -356,3 +354,5 @@ public val WCS_ICCONLY: Int = 65536
 public val WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WcsProfileManagementScope = 1
 
 public val WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WcsProfileManagementScope = 0
+
+public val CATID_WCS_PLUGIN: Guid = Guid.fromU128(U128(0xa0b402e08240405fuL, 0x8a168a5b4df2f0dduL))

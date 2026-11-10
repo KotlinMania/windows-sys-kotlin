@@ -145,8 +145,6 @@ public val CLFS_SCAN_INIT: UByte = 1u.toUByte()
 
 public val CLFS_SCAN_INITIALIZED: UByte = 16u.toUByte()
 
-public val CLSID_DISK_QUOTA_CONTROL: Guid = Guid.fromU128(U128(0x7988b571ec8911cfuL, 0x9c0000aa00a14f56uL))
-
 public val COMPRESSION_FORMAT_DEFAULT: CompressionFormat = 1u.toUShort()
 
 public val COMPRESSION_FORMAT_LZNT1: CompressionFormat = 2u.toUShort()
@@ -1409,60 +1407,6 @@ public val OPEN_EXISTING: FileCreationDisposition = 3u
 
 public val OBJECT_ID_TYPE: FileIdType = 1
 
-public val PARTITION_BASIC_DATA_GUID: Guid = Guid.fromU128(U128(0xebd0a0a2b9e54433uL, 0x87c068b6b72699c7uL))
-
-public val PARTITION_BSP_GUID: Guid = Guid.fromU128(U128(0x57434f534df945b9uL, 0x8e9e2370f006457cuL))
-
-public val PARTITION_CLUSTER_GUID: Guid = Guid.fromU128(U128(0xdb97dba908404baeuL, 0x97f0ffb9a327c7e1uL))
-
-public val PARTITION_DPP_GUID: Guid = Guid.fromU128(U128(0x57434f5394cb43f0uL, 0xa533d73c10cfa57duL))
-
-public val PARTITION_ENTRY_UNUSED_GUID: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
-
-public val PARTITION_LDM_DATA_GUID: Guid = Guid.fromU128(U128(0xaf9b60a014314f62uL, 0xbc683311714a69aduL))
-
-public val PARTITION_LDM_METADATA_GUID: Guid = Guid.fromU128(U128(0x5808c8aa7e8f42e0uL, 0x85d2e1e90434cfb3uL))
-
-public val PARTITION_LEGACY_BL_GUID: Guid = Guid.fromU128(U128(0x424ca0e27cb24fb9uL, 0x8143c52a99398bc6uL))
-
-public val PARTITION_LEGACY_BL_GUID_BACKUP: Guid = Guid.fromU128(U128(0x424c3e6cd79f49cbuL, 0x935d36d71467a288uL))
-
-public val PARTITION_MAIN_OS_GUID: Guid = Guid.fromU128(U128(0x57434f538f45405euL, 0x8a23186d8a4330d3uL))
-
-public val PARTITION_MSFT_RECOVERY_GUID: Guid = Guid.fromU128(U128(0xde94bba406d14d40uL, 0xa16abfd50179d6acuL))
-
-public val PARTITION_MSFT_RESERVED_GUID: Guid = Guid.fromU128(U128(0xe3c9e3160b5c4db8uL, 0x817df92df00215aeuL))
-
-public val PARTITION_MSFT_SNAPSHOT_GUID: Guid = Guid.fromU128(U128(0xcaddebf144004de8uL, 0xb10312117dcf3ccfuL))
-
-public val PARTITION_OS_DATA_GUID: Guid = Guid.fromU128(U128(0x57434f5323f244d5uL, 0xa83067bbdaa609f9uL))
-
-public val PARTITION_PATCH_GUID: Guid = Guid.fromU128(U128(0x8967a68696aa6aa8uL, 0x9589a84256541090uL))
-
-public val PARTITION_PRE_INSTALLED_GUID: Guid = Guid.fromU128(U128(0x57434f537fe04196uL, 0x9b42427b51643484uL))
-
-public val PARTITION_SBL_CACHE_HDD_GUID: Guid = Guid.fromU128(U128(0x3aaa829ebfc4e7euL, 0xaac9c4d76c63b24buL))
-
-public val PARTITION_SBL_CACHE_SSD_GUID: Guid = Guid.fromU128(U128(0xeeff8352dd2a44dbuL, 0xae83bee1cf7481dcuL))
-
-public val PARTITION_SBL_CACHE_SSD_RESERVED_GUID: Guid = Guid.fromU128(U128(0xdcc0c7c155ad4f17uL, 0x9d434bc776e0117euL))
-
-public val PARTITION_SERVICING_FILES_GUID: Guid = Guid.fromU128(U128(0x57434f53432e4014uL, 0xae4c8deaa9c0006auL))
-
-public val PARTITION_SERVICING_METADATA_GUID: Guid = Guid.fromU128(U128(0x57434f53c6914a05uL, 0xbb4e703dafd229ceuL))
-
-public val PARTITION_SERVICING_RESERVE_GUID: Guid = Guid.fromU128(U128(0x57434f534b81460buL, 0xa319ffb6fe136d14uL))
-
-public val PARTITION_SERVICING_STAGING_ROOT_GUID: Guid = Guid.fromU128(U128(0x57434f53e84d4e84uL, 0xaaf3ecbbbd04b9dfuL))
-
-public val PARTITION_SPACES_DATA_GUID: Guid = Guid.fromU128(U128(0xe7addcb4dc344539uL, 0x9a76ebbd07be6f7euL))
-
-public val PARTITION_SPACES_GUID: Guid = Guid.fromU128(U128(0xe75caf8ff6804ceeuL, 0xafa3b001e56efc2duL))
-
-public val PARTITION_SYSTEM_GUID: Guid = Guid.fromU128(U128(0xc12a7328f81f11d2uL, 0xba4b00a0c93ec93buL))
-
-public val PARTITION_WINDOWS_SYSTEM_GUID: Guid = Guid.fromU128(U128(0x57434f53e3e34631uL, 0xa5c526d2243873aauL))
-
 public val PERM_FILE_CREATE: FileInfoFlagsPermissions = 4u
 
 public val PERM_FILE_READ: FileInfoFlagsPermissions = 1u
@@ -1992,3 +1936,59 @@ public val WRITE_DAC: FileAccessRights = 262144u
 public val WRITE_OWNER: FileAccessRights = 524288u
 
 public val FT_TYPES_DEFINITION: UInt = 1u
+
+public val CLSID_DISK_QUOTA_CONTROL: Guid = Guid.fromU128(U128(0x7988b571ec8911cfuL, 0x9c0000aa00a14f56uL))
+
+public val PARTITION_BASIC_DATA_GUID: Guid = Guid.fromU128(U128(0xebd0a0a2b9e54433uL, 0x87c068b6b72699c7uL))
+
+public val PARTITION_BSP_GUID: Guid = Guid.fromU128(U128(0x57434f534df945b9uL, 0x8e9e2370f006457cuL))
+
+public val PARTITION_CLUSTER_GUID: Guid = Guid.fromU128(U128(0xdb97dba908404baeuL, 0x97f0ffb9a327c7e1uL))
+
+public val PARTITION_DPP_GUID: Guid = Guid.fromU128(U128(0x57434f5394cb43f0uL, 0xa533d73c10cfa57duL))
+
+public val PARTITION_ENTRY_UNUSED_GUID: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
+
+public val PARTITION_LDM_DATA_GUID: Guid = Guid.fromU128(U128(0xaf9b60a014314f62uL, 0xbc683311714a69aduL))
+
+public val PARTITION_LDM_METADATA_GUID: Guid = Guid.fromU128(U128(0x5808c8aa7e8f42e0uL, 0x85d2e1e90434cfb3uL))
+
+public val PARTITION_LEGACY_BL_GUID: Guid = Guid.fromU128(U128(0x424ca0e27cb24fb9uL, 0x8143c52a99398bc6uL))
+
+public val PARTITION_LEGACY_BL_GUID_BACKUP: Guid = Guid.fromU128(U128(0x424c3e6cd79f49cbuL, 0x935d36d71467a288uL))
+
+public val PARTITION_MAIN_OS_GUID: Guid = Guid.fromU128(U128(0x57434f538f45405euL, 0x8a23186d8a4330d3uL))
+
+public val PARTITION_MSFT_RECOVERY_GUID: Guid = Guid.fromU128(U128(0xde94bba406d14d40uL, 0xa16abfd50179d6acuL))
+
+public val PARTITION_MSFT_RESERVED_GUID: Guid = Guid.fromU128(U128(0xe3c9e3160b5c4db8uL, 0x817df92df00215aeuL))
+
+public val PARTITION_MSFT_SNAPSHOT_GUID: Guid = Guid.fromU128(U128(0xcaddebf144004de8uL, 0xb10312117dcf3ccfuL))
+
+public val PARTITION_OS_DATA_GUID: Guid = Guid.fromU128(U128(0x57434f5323f244d5uL, 0xa83067bbdaa609f9uL))
+
+public val PARTITION_PATCH_GUID: Guid = Guid.fromU128(U128(0x8967a68696aa6aa8uL, 0x9589a84256541090uL))
+
+public val PARTITION_PRE_INSTALLED_GUID: Guid = Guid.fromU128(U128(0x57434f537fe04196uL, 0x9b42427b51643484uL))
+
+public val PARTITION_SBL_CACHE_HDD_GUID: Guid = Guid.fromU128(U128(0x3aaa829ebfc4e7euL, 0xaac9c4d76c63b24buL))
+
+public val PARTITION_SBL_CACHE_SSD_GUID: Guid = Guid.fromU128(U128(0xeeff8352dd2a44dbuL, 0xae83bee1cf7481dcuL))
+
+public val PARTITION_SBL_CACHE_SSD_RESERVED_GUID: Guid = Guid.fromU128(U128(0xdcc0c7c155ad4f17uL, 0x9d434bc776e0117euL))
+
+public val PARTITION_SERVICING_FILES_GUID: Guid = Guid.fromU128(U128(0x57434f53432e4014uL, 0xae4c8deaa9c0006auL))
+
+public val PARTITION_SERVICING_METADATA_GUID: Guid = Guid.fromU128(U128(0x57434f53c6914a05uL, 0xbb4e703dafd229ceuL))
+
+public val PARTITION_SERVICING_RESERVE_GUID: Guid = Guid.fromU128(U128(0x57434f534b81460buL, 0xa319ffb6fe136d14uL))
+
+public val PARTITION_SERVICING_STAGING_ROOT_GUID: Guid = Guid.fromU128(U128(0x57434f53e84d4e84uL, 0xaaf3ecbbbd04b9dfuL))
+
+public val PARTITION_SPACES_DATA_GUID: Guid = Guid.fromU128(U128(0xe7addcb4dc344539uL, 0x9a76ebbd07be6f7euL))
+
+public val PARTITION_SPACES_GUID: Guid = Guid.fromU128(U128(0xe75caf8ff6804ceeuL, 0xafa3b001e56efc2duL))
+
+public val PARTITION_SYSTEM_GUID: Guid = Guid.fromU128(U128(0xc12a7328f81f11d2uL, 0xba4b00a0c93ec93buL))
+
+public val PARTITION_WINDOWS_SYSTEM_GUID: Guid = Guid.fromU128(U128(0x57434f53e3e34631uL, 0xa5c526d2243873aauL))

@@ -27,35 +27,7 @@ public val ACTIVITY_CONTENT_NONE: OpenServiceActivityContentType = -1
 
 public val ACTIVITY_CONTENT_SELECTION: OpenServiceActivityContentType = 1
 
-public val ANCHOR_CLICK: Guid = Guid.fromU128(U128(0x13d5413c33b911d2uL, 0x95a700c04f8ecb02uL))
-
-public val CATID_MS_OFFICE_ANTI_VIRUS: Guid = Guid.fromU128(U128(0x56ffcc30d39811d0uL, 0xb2ae00a0c908fa49uL))
-
-public val C_DEVICE_RECT: Guid = Guid.fromU128(U128(0x3050f6d498b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val C_DOWNLOAD_BEHAVIOR: Guid = Guid.fromU128(U128(0x3050f5be98b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val C_HEADER_FOOTER: Guid = Guid.fromU128(U128(0x3050f6cd98b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val C_LAYOUT_RECT: Guid = Guid.fromU128(U128(0x3050f66498b511cfuL, 0xbb8200aa00bdce0buL))
-
 public val COLOR_NO_TRANSPARENT: UInt = 4294967295u
-
-public val C_PERSIST_DATA_PEER: Guid = Guid.fromU128(U128(0x3050f48798b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val C_PERSIST_HISTORY: Guid = Guid.fromU128(U128(0x3050f4c898b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val C_PERSIST_SHORTCUT: Guid = Guid.fromU128(U128(0x3050f4c698b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val C_PERSIST_SNAPSHOT: Guid = Guid.fromU128(U128(0x3050f4c998b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val C_PERSIST_USER_DATA: Guid = Guid.fromU128(U128(0x3050f48e98b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val CO_DITHER_TO_RGB8: Guid = Guid.fromU128(U128(0xa860ce50391011d0uL, 0x86fc00a0c913f750uL))
-
-public val CO_MAP_MIME_TO_CLSID: Guid = Guid.fromU128(U128(0x30c3b08030fb11d0uL, 0xb72400aa006c1a01uL))
-
-public val CO_SNIFF_STREAM: Guid = Guid.fromU128(U128(0x6a01fda030df11d0uL, 0xb72400aa006c1a01uL))
 
 public val DISPID_ACTIVEXFILTERINGENABLED: UInt = 61u
 
@@ -515,10 +487,6 @@ public val FRAMEOPTIONS_SCROLL_NO: FrameoptionsFlags = 2
 
 public val FRAMEOPTIONS_SCROLL_YES: FrameoptionsFlags = 1
 
-public val HOME_PAGE: Guid = Guid.fromU128(U128(0x766bf2aed65011d1uL, 0x981100c04fc31d2euL))
-
-public val HOME_PAGE_SETTING: Guid = Guid.fromU128(U128(0x374cede0873a4c4fuL, 0xbc86bcc8cf5116a3uL))
-
 public val IECMDID_ARG_CLEAR_FORMS_ALL: UInt = 0u
 
 public val IECMDID_ARG_CLEAR_FORMS_ALL_BUT_PASSWORDS: UInt = 1u
@@ -552,8 +520,6 @@ public val IELAUNCHOPTION_LOCK_ENGINE: IelaunchoptionFlags = 8
 public val IELAUNCHOPTION_SCRIPTDEBUG: IelaunchoptionFlags = 1
 
 public val IEPROCESS_MODULE_NAME: Pcwstr = w("IERtUtil.dll")
-
-public val IE_WEB_DRIVER_MANAGER: Guid = Guid.fromU128(U128(0x90314af2525047b3uL, 0x89d86295fc23bc22uL))
 
 public val IE_USE_OE_MAIL_HKEY: Int = -2147483647
 
@@ -592,10 +558,6 @@ public val INTERNETEXPLORERCONFIGURATION_HOST: Internetexplorerconfiguration = 1
 public val INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: Internetexplorerconfiguration = 2
 
 public val INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: Internetexplorerconfiguration = 4
-
-public val INTELLI_FORMS: Guid = Guid.fromU128(U128(0x613ab92e16bf11d2uL, 0xbca500c04fd929dbuL))
-
-public val INTERNET_EXPLORER_MANAGER: Guid = Guid.fromU128(U128(0xdf4fcc34067a4e0auL, 0x83524a1a5095346euL))
 
 public val LINKSBAND: UInt = 4u
 
@@ -636,12 +598,6 @@ public val OS_E_GPDISABLED: OpenServiceErrors = -1072886820
 public val OS_E_NOTFOUND: OpenServiceErrors = -2147287038
 
 public val OS_E_NOTSUPPORTED: OpenServiceErrors = -2147467231
-
-public val OPEN_SERVICE_ACTIVITY_MANAGER: Guid = Guid.fromU128(U128(0xc5efd80350f843cduL, 0x9ab8aafc1394c9e0uL))
-
-public val OPEN_SERVICE_MANAGER: Guid = Guid.fromU128(U128(0x98870b639ea480buL, 0xb8b5dd0167c4db59uL))
-
-public val PEER_FACTORY: Guid = Guid.fromU128(U128(0x3050f4cf98b511cfuL, 0xbb8200aa00bdce0buL))
 
 public val REGSTRA_VAL_STARTPAGE: Pcstr = s("Start Page")
 
@@ -1048,5 +1004,49 @@ public val MSOSL_MEDIUM: UInt = 2u
 public val MSOSL_NONE: UInt = 1u
 
 public val MSOSL_UNDEFINED: UInt = 0u
+
+public val ANCHOR_CLICK: Guid = Guid.fromU128(U128(0x13d5413c33b911d2uL, 0x95a700c04f8ecb02uL))
+
+public val CATID_MS_OFFICE_ANTI_VIRUS: Guid = Guid.fromU128(U128(0x56ffcc30d39811d0uL, 0xb2ae00a0c908fa49uL))
+
+public val C_DEVICE_RECT: Guid = Guid.fromU128(U128(0x3050f6d498b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val C_DOWNLOAD_BEHAVIOR: Guid = Guid.fromU128(U128(0x3050f5be98b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val C_HEADER_FOOTER: Guid = Guid.fromU128(U128(0x3050f6cd98b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val C_LAYOUT_RECT: Guid = Guid.fromU128(U128(0x3050f66498b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val C_PERSIST_DATA_PEER: Guid = Guid.fromU128(U128(0x3050f48798b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val C_PERSIST_HISTORY: Guid = Guid.fromU128(U128(0x3050f4c898b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val C_PERSIST_SHORTCUT: Guid = Guid.fromU128(U128(0x3050f4c698b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val C_PERSIST_SNAPSHOT: Guid = Guid.fromU128(U128(0x3050f4c998b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val C_PERSIST_USER_DATA: Guid = Guid.fromU128(U128(0x3050f48e98b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val CO_DITHER_TO_RGB8: Guid = Guid.fromU128(U128(0xa860ce50391011d0uL, 0x86fc00a0c913f750uL))
+
+public val CO_MAP_MIME_TO_CLSID: Guid = Guid.fromU128(U128(0x30c3b08030fb11d0uL, 0xb72400aa006c1a01uL))
+
+public val CO_SNIFF_STREAM: Guid = Guid.fromU128(U128(0x6a01fda030df11d0uL, 0xb72400aa006c1a01uL))
+
+public val HOME_PAGE: Guid = Guid.fromU128(U128(0x766bf2aed65011d1uL, 0x981100c04fc31d2euL))
+
+public val HOME_PAGE_SETTING: Guid = Guid.fromU128(U128(0x374cede0873a4c4fuL, 0xbc86bcc8cf5116a3uL))
+
+public val IE_WEB_DRIVER_MANAGER: Guid = Guid.fromU128(U128(0x90314af2525047b3uL, 0x89d86295fc23bc22uL))
+
+public val INTELLI_FORMS: Guid = Guid.fromU128(U128(0x613ab92e16bf11d2uL, 0xbca500c04fd929dbuL))
+
+public val INTERNET_EXPLORER_MANAGER: Guid = Guid.fromU128(U128(0xdf4fcc34067a4e0auL, 0x83524a1a5095346euL))
+
+public val OPEN_SERVICE_ACTIVITY_MANAGER: Guid = Guid.fromU128(U128(0xc5efd80350f843cduL, 0x9ab8aafc1394c9e0uL))
+
+public val OPEN_SERVICE_MANAGER: Guid = Guid.fromU128(U128(0x98870b639ea480buL, 0xb8b5dd0167c4db59uL))
+
+public val PEER_FACTORY: Guid = Guid.fromU128(U128(0x3050f4cf98b511cfuL, 0xbb8200aa00bdce0buL))
 
 public val WFOLDERS: Guid = Guid.fromU128(U128(0xbae31f9a1b8111d2uL, 0xa97a00c04f8ecb02uL))

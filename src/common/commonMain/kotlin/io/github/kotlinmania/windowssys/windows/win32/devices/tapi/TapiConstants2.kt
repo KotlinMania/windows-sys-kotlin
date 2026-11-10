@@ -1,14 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
-public val TSPI_LINESELECTEXTVERSION: UInt = 545u
-
-public val TSPI_LINESENDUSERUSERINFO: UInt = 546u
-
-public val TSPI_LINESETAPPSPECIFIC: UInt = 547u
-
-public val TSPI_LINESETCALLHUBTRACKING: UInt = 605u
-
-public val TSPI_LINESETCALLPARAMS: UInt = 548u
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val TSPI_LINESETCURRENTLOCATION: UInt = 600u
 
@@ -163,3 +156,13 @@ public val PRIO_HIGH: UInt = 1u
 public val PRIO_LOW: UInt = 3u
 
 public val PRIO_NORM: UInt = 2u
+
+public val DISPATCH_MAPPER: Guid = Guid.fromU128(U128(0xe9225296c75911d1uL, 0xa02b00c04fb6809fuL))
+
+public val MCAST_ADDRESS_ALLOCATION: Guid = Guid.fromU128(U128(0xdf0daef2a28911d1uL, 0x8697006008b0e5d2uL))
+
+public val RENDEZVOUS: Guid = Guid.fromU128(U128(0xf1029e5bcb5b11d0uL, 0x8d5900c04fd91ac0uL))
+
+public val REQUEST_MAKE_CALL: Guid = Guid.fromU128(U128(0xac48ffe0f8c411d1uL, 0xa03000c04fb6809fuL))
+
+public val TAPI: Guid = Guid.fromU128(U128(0x21d6d48ea88b11d0uL, 0x83dd00aa003ccabduL))

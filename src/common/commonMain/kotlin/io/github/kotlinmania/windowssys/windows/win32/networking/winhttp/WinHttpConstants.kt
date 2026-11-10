@@ -1299,8 +1299,6 @@ public val WIN_HTTP_RECEIVE_RESPONSE_HEADERS_END: WinhttpRequestTimeEntry = 25
 
 public val WIN_HTTP_RECEIVE_RESPONSE_START: WinhttpRequestTimeEntry = 22
 
-public val WIN_HTTP_REQUEST: Guid = Guid.fromU128(U128(0x2087c2f42cef4953uL, 0xa8ab66779b670495uL))
-
 public val WIN_HTTP_REQUEST_HEADERS_COMPRESSED_SIZE: WinhttpRequestStatEntry = 7
 
 public val WIN_HTTP_REQUEST_HEADERS_SIZE: WinhttpRequestStatEntry = 6
@@ -1404,3 +1402,5 @@ public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG3START: WinhttpRequestTimeEntry = 13
 public val WIN_HTTP_TLS_HANDSHAKE_SERVER_LEG1SIZE: WinhttpRequestStatEntry = 3
 
 public val WIN_HTTP_TLS_HANDSHAKE_SERVER_LEG2SIZE: WinhttpRequestStatEntry = 5
+
+public val WIN_HTTP_REQUEST: Guid = Guid.fromU128(U128(0x2087c2f42cef4953uL, 0xa8ab66779b670495uL))

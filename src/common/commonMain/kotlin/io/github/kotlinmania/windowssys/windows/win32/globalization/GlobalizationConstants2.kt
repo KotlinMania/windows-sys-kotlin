@@ -4,32 +4,6 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 
-public val UDAT_FULL: UDateFormatStyle = 0
-
-public val UDAT_FULL_RELATIVE: UDateFormatStyle = 128
-
-public val UDAT_GENERIC_TZ: Pcstr = s("vvvv")
-
-public val UDAT_HOUR: Pcstr = s("j")
-
-public val UDAT_HOUR0_FIELD: UDateFormatField = 16
-
-public val UDAT_HOUR1_FIELD: UDateFormatField = 15
-
-public val UDAT_HOUR24: Pcstr = s("H")
-
-public val UDAT_HOUR24_MINUTE: Pcstr = s("Hm")
-
-public val UDAT_HOUR24_MINUTE_SECOND: Pcstr = s("Hms")
-
-public val UDAT_HOUR_MINUTE: Pcstr = s("jm")
-
-public val UDAT_HOUR_MINUTE_SECOND: Pcstr = s("jms")
-
-public val UDAT_HOUR_OF_DAY0_FIELD: UDateFormatField = 5
-
-public val UDAT_HOUR_OF_DAY1_FIELD: UDateFormatField = 4
-
 public val UDAT_JULIAN_DAY_FIELD: UDateFormatField = 21
 
 public val UDAT_LOCALIZED_CHARS: UDateFormatSymbolType = 6
@@ -3003,3 +2977,29 @@ public val WC_ERR_INVALID_CHARS: UInt = 128u
 public val WC_NO_BEST_FIT_CHARS: UInt = 1024u
 
 public val WC_SEPCHARS: UInt = 32u
+
+public val WORDLIST_TYPE_ADD: WordlistType = 1
+
+public val WORDLIST_TYPE_AUTOCORRECT: WordlistType = 3
+
+public val WORDLIST_TYPE_EXCLUDE: WordlistType = 2
+
+public val WORDLIST_TYPE_IGNORE: WordlistType = 0
+
+public val WEEK_UNIT: CaldatetimeDateunit = 3
+
+public val YEAR_UNIT: CaldatetimeDateunit = 1
+
+public val SID_ARABIC: Scriptcontf = 9
+
+public val SID_ARMENIAN: Scriptcontf = 7
+
+public val SID_ASCII_LATIN: Scriptcontf = 3
+
+public val SID_ASCII_SYM: Scriptcontf = 2
+
+public val SID_BENGALI: Scriptcontf = 11
+
+public val SID_BOPOMOFO: Scriptcontf = 25
+
+public val SID_BRAILLE: Scriptcontf = 31

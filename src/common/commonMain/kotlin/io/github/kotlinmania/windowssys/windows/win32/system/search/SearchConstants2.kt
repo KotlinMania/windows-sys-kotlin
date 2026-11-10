@@ -1,96 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-
-public val EVENT_INDEXER_REG_MISSING: Int = -1073734796
-
-public val EVENT_INDEXER_REMOVED_PROJECT: Int = -1073734753
-
-public val EVENT_INDEXER_REMOVE_DSS_FAILED: Int = -1073734801
-
-public val EVENT_INDEXER_REMOVE_DSS_SUCCEEDED: Int = 7020
-
-public val EVENT_INDEXER_RESET_FOR_CORRUPTION: Int = -1073734784
-
-public val EVENT_INDEXER_SCHEMA_COPY_ERROR: Int = -1073734823
-
-public val EVENT_INDEXER_SHUTDOWN: Int = 1073748866
-
-public val EVENT_INDEXER_STARTED: Int = 1073748824
-
-public val EVENT_INDEXER_VERIFY_PROP_ACCOUNT: Int = -1073734768
-
-public val EVENT_LEARN_COMPILE_FAILED: Int = -2147480583
-
-public val EVENT_LEARN_CREATE_DB_FAILED: Int = -2147480584
-
-public val EVENT_LEARN_PROPAGATION_COPY_FAILED: Int = -2147480585
-
-public val EVENT_LEARN_PROPAGATION_FAILED: Int = -2147480582
-
-public val EVENT_LOCAL_GROUPS_CACHE_FLUSHED: Int = 1073744920
-
-public val EVENT_LOCAL_GROUP_NOT_EXPANDED: Int = 1073744919
-
-public val EVENT_NOTIFICATION_FAILURE: Int = -1073738745
-
-public val EVENT_NOTIFICATION_FAILURE_SCOPE_EXCEEDED_LOGGING: Int = -2147480568
-
-public val EVENT_NOTIFICATION_RESTORED: Int = 1073744905
-
-public val EVENT_NOTIFICATION_RESTORED_SCOPE_EXCEEDED_LOGGING: Int = -2147480566
-
-public val EVENT_NOTIFICATION_THREAD_EXIT_FAILED: Int = -1073738725
-
-public val EVENT_OUTOFMEMORY: Int = -1073740817
-
-public val EVENT_PERF_COUNTERS_ALREADY_EXISTS: Int = -2147473626
-
-public val EVENT_PERF_COUNTERS_NOT_LOADED: Int = -2147473628
-
-public val EVENT_PERF_COUNTERS_REGISTRY_TROUBLE: Int = -2147473627
-
-public val EVENT_PROTOCOL_HOST_FORCE_TERMINATE: Int = -2147473625
-
-public val EVENT_REG_VERSION: Int = -1073738790
-
-public val EVENT_SSSEARCH_CREATE_PATH_RULES_FAILED: Int = -2147482634
-
-public val EVENT_SSSEARCH_CSM_SAVE_FAILED: Int = -1073740805
-
-public val EVENT_SSSEARCH_DATAFILES_MOVE_FAILED: Int = -1073740808
-
-public val EVENT_SSSEARCH_DATAFILES_MOVE_ROLLBACK_ERRORS: Int = -2147482630
-
-public val EVENT_SSSEARCH_DATAFILES_MOVE_SUCCEEDED: Int = 1073742841
-
-public val EVENT_SSSEARCH_DROPPED_EVENTS: Int = -2147482633
-
-public val EVENT_SSSEARCH_SETUP_CLEANUP_FAILED: Int = -1073740813
-
-public val EVENT_SSSEARCH_SETUP_CLEANUP_STARTED: Int = -2147482640
-
-public val EVENT_SSSEARCH_SETUP_CLEANUP_SUCCEEDED: Int = 1073742834
-
-public val EVENT_SSSEARCH_SETUP_FAILED: Int = -1073740818
-
-public val EVENT_SSSEARCH_SETUP_SUCCEEDED: Int = 1073742829
-
-public val EVENT_SSSEARCH_STARTED: Int = 1073742827
-
-public val EVENT_SSSEARCH_STARTING_SETUP: Int = 1073742828
-
-public val EVENT_SSSEARCH_STOPPED: Int = 1073742837
-
-public val EVENT_STS_INIT_SECURITY_FAILED: Int = -2147480554
-
-public val EVENT_SYSTEM_EXCEPTION: Int = -2147482595
 
 public val EVENT_TRANSACTION_READ: Int = -1073738809
 
@@ -375,8 +289,6 @@ public val FTE_S_RESUME: Int = 276014
 public val FTE_S_STATUS_CHANGE_REQUEST: Int = 276011
 
 public val FTE_S_TRY_TO_FLUSH: Int = 276055
-
-public val FILTER_REGISTRATION: Guid = Guid.fromU128(U128(0x9e175b8df52a11d8uL, 0xb9a5505054503030uL))
 
 public val GENERATE_METHOD_PREFIXMATCH: UInt = 1u
 
@@ -808,8 +720,6 @@ public val INET_S_AGENT_INCREASED_CACHE_SIZE: Hresult = 0xC0F90u.toInt()
 
 public val INET_S_AGENT_PART_FAIL: Hresult = 0xC0F81u.toInt()
 
-public val INTERVAL: Guid = Guid.fromU128(U128(0xd957171f4bf94de2uL, 0xbcd5c70a7ca55836uL))
-
 public val JET_GET_PROP_STORE_ERROR: Int = -1073732822
 
 public val JET_INIT_ERROR: Int = -1073732824
@@ -933,8 +843,6 @@ public val LOCKMODE_EXCLUSIVE: Lockmodeenum = 1
 public val LOCKMODE_INVALID: Lockmodeenum = 0
 
 public val LOCKMODE_SHARED: Lockmodeenum = 2
-
-public val LEAF_CONDITION: Guid = Guid.fromU128(U128(0x52f15c895a1748e1uL, 0xbbcd46a3f89c7cc2uL))
 
 public val MAXNAME: UInt = 129u
 
@@ -1294,16 +1202,6 @@ public val MINFATALERR: UInt = 20u
 
 public val MIN_USER_DATATYPE: UInt = 256u
 
-public val MSDAINITIALIZE: Guid = Guid.fromU128(U128(0x2206cdb019c111d1uL, 0x89e000c04fd7a829uL))
-
-public val MSDAORA: Guid = Guid.fromU128(U128(0xe8cc4cbefdff11d0uL, 0xb86500a0c9081c1duL))
-
-public val MSDAORA8: Guid = Guid.fromU128(U128(0x7f06a373dd6a43dbuL, 0xb4e01fc121e5e62buL))
-
-public val MSDAORA8_ERROR: Guid = Guid.fromU128(U128(0x7f06a374dd6a43dbuL, 0xb4e01fc121e5e62buL))
-
-public val MSDAORA_ERROR: Guid = Guid.fromU128(U128(0xe8cc4cbffdff11d0uL, 0xb86500a0c9081c1duL))
-
 public val MSG_CI_CORRUPT_INDEX_COMPONENT: Hresult = 0x4000102Au.toInt()
 
 public val MSG_CI_CREATE_SEVER_ITEM_FAILED: Hresult = 0x80001048u.toInt()
@@ -1393,8 +1291,6 @@ public val NOTESPH_S_IGNORE_ID: Int = 271874
 public val NOTESPH_S_LISTKNOWNFIELDS: Int = 271888
 
 public val NOT_N_PARSE_ERROR: Hresult = 0x8092Eu.toInt()
-
-public val NEGATION_CONDITION: Guid = Guid.fromU128(U128(0x8de9c74c605a4acduL, 0xbee32b222aa2d23duL))
 
 public val OCC_INVALID: UInt = 4294967295u
 
@@ -1537,8 +1433,6 @@ public val OSPXFER_COMPLETE: Ospxfer = 0
 public val OSPXFER_ERROR: Ospxfer = 2
 
 public val OSP_INDEX_LABEL: UInt = 0u
-
-public val PDPO: Guid = Guid.fromU128(U128(0xccb4ec60b9dc11d1uL, 0xac8000a0c9034873uL))
 
 public val PEOPLE_IMPORT_E_CANONICALURL_TOOLONG: Int = -2147205110
 
@@ -1712,12 +1606,6 @@ public val PRTH_S_TRY_IMPERSONATING: Int = 266789
 
 public val PRTH_S_USE_ROSEBUD: Int = 266772
 
-public val PSGUID_CHARACTERIZATION: Guid = Guid.fromU128(U128(0x560c36c0503a11cfuL, 0xbaa100004c752a9auL))
-
-public val PSGUID_QUERY_METADATA: Guid = Guid.fromU128(U128(0x624c936093d011cfuL, 0xa78700004c752752uL))
-
-public val PSGUID_STORAGE: Guid = Guid.fromU128(U128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL))
-
 public val PWPROP_OSPVALUE: UInt = 2u
 
 public val QPMO_APPEND_LCID_TO_LOCALIZED_PATH: QueryParserManagerOption = 4
@@ -1832,10 +1720,6 @@ public val QUERY_SORTXDESCEND: UInt = 3u
 
 public val QUERY_VALIDBITS: UInt = 3u
 
-public val QUERY_PARSER: Guid = Guid.fromU128(U128(0xb72f8fd80fab4dd9uL, 0xbdbf245a6ce1485buL))
-
-public val QUERY_PARSER_MANAGER: Guid = Guid.fromU128(U128(0x5088b39a29b44d9duL, 0x82454ee289222f66uL))
-
 public val REXSPH_E_DUPLICATE_PROPERTY: Int = -2147207927
 
 public val REXSPH_E_INVALID_CALL: Int = -2147207936
@@ -1897,8 +1781,6 @@ public val RT_PROPERTY: UInt = 5u
 public val RT_PROXIMITY: UInt = 6u
 
 public val RT_VECTOR: UInt = 7u
-
-public val ROOT_BINDER: Guid = Guid.fromU128(U128(0xff151822b0bf11d1uL, 0xa80d000000000000uL))
 
 public val SCHEMA_E_ADDSTOPWORDS: Int = -2147218420
 
@@ -3007,3 +2889,119 @@ public val SQL_CONVERT_WVARCHAR: UInt = 126u
 public val SQL_COPT_SS_ANSI_NPW: UInt = 1218u
 
 public val SQL_COPT_SS_ANSI_OEM: UInt = 1206u
+
+public val SQL_COPT_SS_ATTACHDBFILENAME: UInt = 1221u
+
+public val SQL_COPT_SS_BASE: UInt = 1200u
+
+public val SQL_COPT_SS_BASE_EX: UInt = 1240u
+
+public val SQL_COPT_SS_BCP: UInt = 1219u
+
+public val SQL_COPT_SS_BROWSE_CACHE_DATA: UInt = 1245u
+
+public val SQL_COPT_SS_BROWSE_CONNECT: UInt = 1241u
+
+public val SQL_COPT_SS_BROWSE_SERVER: UInt = 1242u
+
+public val SQL_COPT_SS_CONCAT_NULL: UInt = 1222u
+
+public val SQL_COPT_SS_CONNECTION_DEAD: UInt = 1244u
+
+public val SQL_COPT_SS_ENCRYPT: UInt = 1223u
+
+public val SQL_COPT_SS_EX_MAX_USED: UInt = 1246u
+
+public val SQL_COPT_SS_FALLBACK_CONNECT: UInt = 1210u
+
+public val SQL_COPT_SS_INTEGRATED_SECURITY: UInt = 1203u
+
+public val SQL_COPT_SS_MAX_USED: UInt = 1223u
+
+public val SQL_COPT_SS_PERF_DATA: UInt = 1211u
+
+public val SQL_COPT_SS_PERF_DATA_LOG: UInt = 1212u
+
+public val SQL_COPT_SS_PERF_DATA_LOG_NOW: UInt = 1216u
+
+public val SQL_COPT_SS_PERF_QUERY: UInt = 1215u
+
+public val SQL_COPT_SS_PERF_QUERY_INTERVAL: UInt = 1213u
+
+public val SQL_COPT_SS_PERF_QUERY_LOG: UInt = 1214u
+
+public val SQL_COPT_SS_PRESERVE_CURSORS: UInt = 1204u
+
+public val SQL_COPT_SS_QUOTED_IDENT: UInt = 1217u
+
+public val SQL_COPT_SS_REMOTE_PWD: UInt = 1201u
+
+public val SQL_COPT_SS_RESET_CONNECTION: UInt = 1246u
+
+public val SQL_COPT_SS_TRANSLATE: UInt = 1220u
+
+public val SQL_COPT_SS_USER_DATA: UInt = 1205u
+
+public val SQL_COPT_SS_USE_PROC_FOR_PREP: UInt = 1202u
+
+public val SQL_COPT_SS_WARN_ON_CP_ERROR: UInt = 1243u
+
+public val SQL_CORRELATION_NAME: UInt = 74u
+
+public val SQL_CO_AF: Int = 2
+
+public val SQL_CO_DEFAULT: Int = 0
+
+public val SQL_CO_FFO: Int = 1
+
+public val SQL_CO_FIREHOSE_AF: Int = 4
+
+public val SQL_CO_OFF: Int = 0
+
+public val SQL_CP_DEFAULT: UInt = 0u
+
+public val SQL_CP_DRIVER_AWARE: UInt = 3u
+
+public val SQL_CP_MATCH_DEFAULT: UInt = 0u
+
+public val SQL_CP_OFF: UInt = 0u
+
+public val SQL_CP_ONE_PER_DRIVER: UInt = 1u
+
+public val SQL_CP_ONE_PER_HENV: UInt = 2u
+
+public val SQL_CP_RELAXED_MATCH: UInt = 1u
+
+public val SQL_CP_STRICT_MATCH: UInt = 0u
+
+public val SQL_CREATE_ASSERTION: UInt = 127u
+
+public val SQL_CREATE_CHARACTER_SET: UInt = 128u
+
+public val SQL_CREATE_COLLATION: UInt = 129u
+
+public val SQL_CREATE_DOMAIN: UInt = 130u
+
+public val SQL_CREATE_SCHEMA: UInt = 131u
+
+public val SQL_CREATE_TABLE: UInt = 132u
+
+public val SQL_CREATE_TRANSLATION: UInt = 133u
+
+public val SQL_CREATE_VIEW: UInt = 134u
+
+public val SQL_CR_CLOSE: UInt = 1u
+
+public val SQL_CR_DELETE: UInt = 0u
+
+public val SQL_CR_PRESERVE: UInt = 2u
+
+public val SQL_CS_AUTHORIZATION: Int = 2
+
+public val SQL_CS_CREATE_SCHEMA: Int = 1
+
+public val SQL_CS_DEFAULT_CHARACTER_SET: Int = 4
+
+public val SQL_CTR_CREATE_TRANSLATION: Int = 1
+
+public val SQL_CT_COLUMN_COLLATION: Int = 2048

@@ -2,12 +2,6 @@ package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
 import io.github.kotlinmania.windowssys.core.Hresult
 
-public val MM_AZTECH_AUX_MIC: UInt = 403u
-
-public val MM_AZTECH_DSP16_FMSYNTH: UInt = 68u
-
-public val MM_AZTECH_DSP16_WAVEIN: UInt = 65u
-
 public val MM_AZTECH_DSP16_WAVEOUT: UInt = 66u
 
 public val MM_AZTECH_DSP16_WAVESYNTH: UInt = 70u
@@ -3001,3 +2995,9 @@ public val NS_E_BKGDOWNLOAD_FAILED_TO_CREATE_TEMPFILE: Hresult = 0xC00D1262u.toI
 public val NS_E_BKGDOWNLOAD_INVALIDJOBSIGNATURE: Hresult = 0xC00D1261u.toInt()
 
 public val NS_E_BKGDOWNLOAD_INVALID_FILE_NAME: Hresult = 0xC00D126Bu.toInt()
+
+public val NS_E_BKGDOWNLOAD_NOJOBPOINTER: Hresult = 0xC00D1260u.toInt()
+
+public val NS_E_BKGDOWNLOAD_PLUGIN_FAILEDINITIALIZE: Hresult = 0xC00D1263u.toInt()
+
+public val NS_E_BKGDOWNLOAD_PLUGIN_FAILEDTOMOVEFILE: Hresult = 0xC00D1264u.toInt()

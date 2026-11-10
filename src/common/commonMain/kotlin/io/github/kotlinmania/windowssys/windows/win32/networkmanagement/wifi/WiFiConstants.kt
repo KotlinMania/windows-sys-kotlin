@@ -6,208 +6,6 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
-public val DEVPKEY_INFRA_CAST_ACCESS_POINT_BSSID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 19u)
-
-public val DEVPKEY_INFRA_CAST_CHALLENGE_AEP: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 21u)
-
-public val DEVPKEY_INFRA_CAST_DEVNODE_AEP: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 23u)
-
-public val DEVPKEY_INFRA_CAST_HOST_NAME_RESOLUTION_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 25u)
-
-public val DEVPKEY_INFRA_CAST_PIN_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 29u)
-
-public val DEVPKEY_INFRA_CAST_RTSP_TCP_CONNECTION_PARAMETERS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 30u)
-
-public val DEVPKEY_INFRA_CAST_SINK_HOST_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 20u)
-
-public val DEVPKEY_INFRA_CAST_SINK_IP_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 26u)
-
-public val DEVPKEY_INFRA_CAST_STREAM_SECURITY_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 18u)
-
-public val DEVPKEY_INFRA_CAST_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 17u)
-
-public val DEVPKEY_PCI_DEVICE_AER_CAPABILITY_PRESENT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 17u)
-
-public val DEVPKEY_PCI_DEVICE_ACS_CAPABILITY_REGISTER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 32u)
-
-public val DEVPKEY_PCI_DEVICE_ACS_COMPATIBLE_UP_HIERARCHY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 31u)
-
-public val DEVPKEY_PCI_DEVICE_ACS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 29u)
-
-public val DEVPKEY_PCI_DEVICE_ARI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 30u)
-
-public val DEVPKEY_PCI_DEVICE_ATOMICS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 35u)
-
-public val DEVPKEY_PCI_DEVICE_ATS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 33u)
-
-public val DEVPKEY_PCI_DEVICE_BAR_TYPES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 16u)
-
-public val DEVPKEY_PCI_DEVICE_BASE_CLASS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 3u)
-
-public val DEVPKEY_PCI_DEVICE_CORRECTABLE_ERROR_MASK: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 21u)
-
-public val DEVPKEY_PCI_DEVICE_CURRENT_LINK_SPEED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 9u)
-
-public val DEVPKEY_PCI_DEVICE_CURRENT_LINK_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 10u)
-
-public val DEVPKEY_PCI_DEVICE_CURRENT_PAYLOAD_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 6u)
-
-public val DEVPKEY_PCI_DEVICE_CURRENT_SPEED_AND_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 2u)
-
-public val DEVPKEY_PCI_DEVICE_D3COLD_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 38u)
-
-public val DEVPKEY_PCI_DEVICE_DEVICE_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 1u)
-
-public val DEVPKEY_PCI_DEVICE_ECRC_ERRORS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 22u)
-
-public val DEVPKEY_PCI_DEVICE_ERROR_REPORTING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 23u)
-
-public val DEVPKEY_PCI_DEVICE_EXPRESS_SPEC_VERSION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 13u)
-
-public val DEVPKEY_PCI_DEVICE_FIRMWARE_ERROR_HANDLING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 18u)
-
-public val DEVPKEY_PCI_DEVICE_INTERRUPT_MESSAGE_MAXIMUM: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 15u)
-
-public val DEVPKEY_PCI_DEVICE_INTERRUPT_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 14u)
-
-public val DEVPKEY_PCI_DEVICE_LABEL_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 27u)
-
-public val DEVPKEY_PCI_DEVICE_LABEL_STRING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 28u)
-
-public val DEVPKEY_PCI_DEVICE_MAX_LINK_SPEED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 11u)
-
-public val DEVPKEY_PCI_DEVICE_MAX_LINK_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 12u)
-
-public val DEVPKEY_PCI_DEVICE_MAX_PAYLOAD_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 7u)
-
-public val DEVPKEY_PCI_DEVICE_MAX_READ_REQUEST_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 8u)
-
-public val DEVPKEY_PCI_DEVICE_ON_POST_PATH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 37u)
-
-public val DEVPKEY_PCI_DEVICE_PARENT_SERIAL_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 45u)
-
-public val DEVPKEY_PCI_DEVICE_PROG_IF: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 5u)
-
-public val DEVPKEY_PCI_DEVICE_REQUIRES_RESERVED_MEMORY_REGION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 34u)
-
-public val DEVPKEY_PCI_DEVICE_ROOT_ERROR_REPORTING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 24u)
-
-public val DEVPKEY_PCI_DEVICE_S0WAKEUP_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 25u)
-
-public val DEVPKEY_PCI_DEVICE_SERIAL_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 40u)
-
-public val DEVPKEY_PCI_DEVICE_SRIOV_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 26u)
-
-public val DEVPKEY_PCI_DEVICE_SUB_CLASS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 4u)
-
-public val DEVPKEY_PCI_DEVICE_SUPPORTED_LINK_SUB_STATE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 36u)
-
-public val DEVPKEY_PCI_DEVICE_UNCORRECTABLE_ERROR_MASK: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 19u)
-
-public val DEVPKEY_PCI_DEVICE_UNCORRECTABLE_ERROR_SEVERITY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 20u)
-
-public val DEVPKEY_PCI_DEVICE_USB_COMPONENT_RELATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 43u)
-
-public val DEVPKEY_PCI_DEVICE_USB_DVSEC_PORT_SPECIFIC_ATTRIBUTES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 42u)
-
-public val DEVPKEY_PCI_DEVICE_USB_DVSEC_PORT_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 41u)
-
-public val DEVPKEY_PCI_DEVICE_USB_HOST_ROUTER_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 44u)
-
-public val DEVPKEY_PCI_ROOT_BUS_ASPM_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 8u)
-
-public val DEVPKEY_PCI_ROOT_BUS_CLOCK_POWER_MANAGEMENT_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 9u)
-
-public val DEVPKEY_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 2u)
-
-public val DEVPKEY_PCI_ROOT_BUS_DEVICE_ID_MESSAGING_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 4u)
-
-public val DEVPKEY_PCI_ROOT_BUS_EXTENDED_CONFIG_AVAILABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 6u)
-
-public val DEVPKEY_PCI_ROOT_BUS_EXTENDED_PCI_CONFIG_OP_REGION_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 7u)
-
-public val DEVPKEY_PCI_ROOT_BUS_MSI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 11u)
-
-public val DEVPKEY_PCI_ROOT_BUS_NATIVE_PCI_EXPRESS_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 17u)
-
-public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_AER_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 15u)
-
-public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_CAPABILITY_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 16u)
-
-public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_NATIVE_HOT_PLUG_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 12u)
-
-public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_NATIVE_PME_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 14u)
-
-public val DEVPKEY_PCI_ROOT_BUS_PCI_SEGMENT_GROUPS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 10u)
-
-public val DEVPKEY_PCI_ROOT_BUS_SHPC_NATIVE_HOT_PLUG_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 13u)
-
-public val DEVPKEY_PCI_ROOT_BUS_SECONDARY_BUS_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 5u)
-
-public val DEVPKEY_PCI_ROOT_BUS_SECONDARY_INTERFACE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 1u)
-
-public val DEVPKEY_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 3u)
-
-public val DEVPKEY_PCI_ROOT_BUS_SYSTEM_MSI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 18u)
-
-public val DEVPKEY_WI_FI_DIRECT_SERVICES_ADVERTISEMENT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 5u)
-
-public val DEVPKEY_WI_FI_DIRECT_SERVICES_REQUEST_SERVICE_INFORMATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 7u)
-
-public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 2u)
-
-public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_CONFIG_METHODS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 6u)
-
-public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_INFORMATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 4u)
-
-public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 3u)
-
-public val DEVPKEY_WI_FI_DIRECT_DEVICE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 1u)
-
-public val DEVPKEY_WI_FI_DIRECT_DEVICE_ADDRESS_COPY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 13u)
-
-public val DEVPKEY_WI_FI_DIRECT_FOUND_WSB_SERVICE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 24u)
-
-public val DEVPKEY_WI_FI_DIRECT_GROUP_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 4u)
-
-public val DEVPKEY_WI_FI_DIRECT_INFORMATION_ELEMENTS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 12u)
-
-public val DEVPKEY_WI_FI_DIRECT_INTERFACE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 2u)
-
-public val DEVPKEY_WI_FI_DIRECT_INTERFACE_GUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 3u)
-
-public val DEVPKEY_WI_FI_DIRECT_IS_CONNECTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 5u)
-
-public val DEVPKEY_WI_FI_DIRECT_IS_DMG_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 22u)
-
-public val DEVPKEY_WI_FI_DIRECT_IS_LEGACY_DEVICE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 7u)
-
-public val DEVPKEY_WI_FI_DIRECT_IS_MIRACAST_LCP_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 9u)
-
-public val DEVPKEY_WI_FI_DIRECT_IS_RECENTLY_ASSOCIATED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 14u)
-
-public val DEVPKEY_WI_FI_DIRECT_IS_VISIBLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 6u)
-
-public val DEVPKEY_WI_FI_DIRECT_LINK_QUALITY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 28u)
-
-public val DEVPKEY_WI_FI_DIRECT_MIRACAST_VERSION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 8u)
-
-public val DEVPKEY_WI_FI_DIRECT_MIRACAST_SESSION_MGMT_CONTROL_PORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 31u)
-
-public val DEVPKEY_WI_FI_DIRECT_NO_MIRACAST_AUTO_PROJECT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 16u)
-
-public val DEVPKEY_WI_FI_DIRECT_RTSP_TCP_CONNECTION_PARAMETERS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 32u)
-
-public val DEVPKEY_WI_FI_DIRECT_SERVICE_AEPS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 15u)
-
-public val DEVPKEY_WI_FI_DIRECT_SERVICES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 10u)
-
-public val DEVPKEY_WI_FI_DIRECT_SUPPORTED_CHANNEL_LIST: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 11u)
-
-public val DEVPKEY_WI_FI_DIRECT_TRANSIENT_ASSOCIATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 27u)
-
-public val DEVPKEY_WI_FI_INTERFACE_GUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xef1167ebcbfc4341uL, 0xa568a7c91a68982cuL)), pid = 2u)
-
 public val DISCOVERY_FILTER_BITMASK_ANY: UInt = 15u
 
 public val DISCOVERY_FILTER_BITMASK_DEVICE: UInt = 1u
@@ -1155,14 +953,6 @@ public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_X_266MHZ: Devpro
 public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_X_533MHZ: DevpropPcirootbusSupportedspeedsandmodes = 32u
 
 public val DEV_PROP_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES_PCI_X_66MHZ: DevpropPcirootbusSupportedspeedsandmodes = 4u
-
-public val DOT11AD_HOC_MANAGER: Guid = Guid.fromU128(U128(0xdd06a84f83bd4d01uL, 0x8ab92389fea0869euL))
-
-public val GUID_AEPSERVICE_WIFIDIRECT_DEVICE: Guid = Guid.fromU128(U128(0xcc29827c9caf4928uL, 0x99a918f7c2381389uL))
-
-public val GUID_DEVINTERFACE_ASP_INFRA_DEVICE: Guid = Guid.fromU128(U128(0xff8239957a724c80uL, 0x8757c67ee13d1a49uL))
-
-public val GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: Guid = Guid.fromU128(U128(0x439b20af8955405buL, 0x99f0a62af0c68d43uL))
 
 public val IHV_INIT_FUNCTION_NAME: Pcstr = s("Dot11ExtIhvInitService")
 
@@ -2599,3 +2389,213 @@ public val WLAN_SECURE_SHOW_DENIED: WlanSecurableObject = 5
 public val WLAN_SECURE_VIRTUAL_STATION_EXTENSIBILITY: WlanSecurableObject = 15
 
 public val WLAN_SECURE_WFD_ELEVATED_ACCESS: WlanSecurableObject = 16
+
+public val DEVPKEY_INFRA_CAST_ACCESS_POINT_BSSID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 19u)
+
+public val DEVPKEY_INFRA_CAST_CHALLENGE_AEP: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 21u)
+
+public val DEVPKEY_INFRA_CAST_DEVNODE_AEP: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 23u)
+
+public val DEVPKEY_INFRA_CAST_HOST_NAME_RESOLUTION_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 25u)
+
+public val DEVPKEY_INFRA_CAST_PIN_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 29u)
+
+public val DEVPKEY_INFRA_CAST_RTSP_TCP_CONNECTION_PARAMETERS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 30u)
+
+public val DEVPKEY_INFRA_CAST_SINK_HOST_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 20u)
+
+public val DEVPKEY_INFRA_CAST_SINK_IP_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 26u)
+
+public val DEVPKEY_INFRA_CAST_STREAM_SECURITY_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 18u)
+
+public val DEVPKEY_INFRA_CAST_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 17u)
+
+public val DEVPKEY_PCI_DEVICE_AER_CAPABILITY_PRESENT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 17u)
+
+public val DEVPKEY_PCI_DEVICE_ACS_CAPABILITY_REGISTER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 32u)
+
+public val DEVPKEY_PCI_DEVICE_ACS_COMPATIBLE_UP_HIERARCHY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 31u)
+
+public val DEVPKEY_PCI_DEVICE_ACS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 29u)
+
+public val DEVPKEY_PCI_DEVICE_ARI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 30u)
+
+public val DEVPKEY_PCI_DEVICE_ATOMICS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 35u)
+
+public val DEVPKEY_PCI_DEVICE_ATS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 33u)
+
+public val DEVPKEY_PCI_DEVICE_BAR_TYPES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 16u)
+
+public val DEVPKEY_PCI_DEVICE_BASE_CLASS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 3u)
+
+public val DEVPKEY_PCI_DEVICE_CORRECTABLE_ERROR_MASK: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 21u)
+
+public val DEVPKEY_PCI_DEVICE_CURRENT_LINK_SPEED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 9u)
+
+public val DEVPKEY_PCI_DEVICE_CURRENT_LINK_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 10u)
+
+public val DEVPKEY_PCI_DEVICE_CURRENT_PAYLOAD_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 6u)
+
+public val DEVPKEY_PCI_DEVICE_CURRENT_SPEED_AND_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 2u)
+
+public val DEVPKEY_PCI_DEVICE_D3COLD_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 38u)
+
+public val DEVPKEY_PCI_DEVICE_DEVICE_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 1u)
+
+public val DEVPKEY_PCI_DEVICE_ECRC_ERRORS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 22u)
+
+public val DEVPKEY_PCI_DEVICE_ERROR_REPORTING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 23u)
+
+public val DEVPKEY_PCI_DEVICE_EXPRESS_SPEC_VERSION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 13u)
+
+public val DEVPKEY_PCI_DEVICE_FIRMWARE_ERROR_HANDLING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 18u)
+
+public val DEVPKEY_PCI_DEVICE_INTERRUPT_MESSAGE_MAXIMUM: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 15u)
+
+public val DEVPKEY_PCI_DEVICE_INTERRUPT_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 14u)
+
+public val DEVPKEY_PCI_DEVICE_LABEL_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 27u)
+
+public val DEVPKEY_PCI_DEVICE_LABEL_STRING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 28u)
+
+public val DEVPKEY_PCI_DEVICE_MAX_LINK_SPEED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 11u)
+
+public val DEVPKEY_PCI_DEVICE_MAX_LINK_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 12u)
+
+public val DEVPKEY_PCI_DEVICE_MAX_PAYLOAD_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 7u)
+
+public val DEVPKEY_PCI_DEVICE_MAX_READ_REQUEST_SIZE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 8u)
+
+public val DEVPKEY_PCI_DEVICE_ON_POST_PATH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 37u)
+
+public val DEVPKEY_PCI_DEVICE_PARENT_SERIAL_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 45u)
+
+public val DEVPKEY_PCI_DEVICE_PROG_IF: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 5u)
+
+public val DEVPKEY_PCI_DEVICE_REQUIRES_RESERVED_MEMORY_REGION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 34u)
+
+public val DEVPKEY_PCI_DEVICE_ROOT_ERROR_REPORTING: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 24u)
+
+public val DEVPKEY_PCI_DEVICE_S0WAKEUP_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 25u)
+
+public val DEVPKEY_PCI_DEVICE_SERIAL_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 40u)
+
+public val DEVPKEY_PCI_DEVICE_SRIOV_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 26u)
+
+public val DEVPKEY_PCI_DEVICE_SUB_CLASS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 4u)
+
+public val DEVPKEY_PCI_DEVICE_SUPPORTED_LINK_SUB_STATE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 36u)
+
+public val DEVPKEY_PCI_DEVICE_UNCORRECTABLE_ERROR_MASK: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 19u)
+
+public val DEVPKEY_PCI_DEVICE_UNCORRECTABLE_ERROR_SEVERITY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 20u)
+
+public val DEVPKEY_PCI_DEVICE_USB_COMPONENT_RELATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 43u)
+
+public val DEVPKEY_PCI_DEVICE_USB_DVSEC_PORT_SPECIFIC_ATTRIBUTES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 42u)
+
+public val DEVPKEY_PCI_DEVICE_USB_DVSEC_PORT_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 41u)
+
+public val DEVPKEY_PCI_DEVICE_USB_HOST_ROUTER_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x3ab22e3182644b4euL, 0x9af5a8d2d8e33e62uL)), pid = 44u)
+
+public val DEVPKEY_PCI_ROOT_BUS_ASPM_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 8u)
+
+public val DEVPKEY_PCI_ROOT_BUS_CLOCK_POWER_MANAGEMENT_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 9u)
+
+public val DEVPKEY_PCI_ROOT_BUS_CURRENT_SPEED_AND_MODE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 2u)
+
+public val DEVPKEY_PCI_ROOT_BUS_DEVICE_ID_MESSAGING_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 4u)
+
+public val DEVPKEY_PCI_ROOT_BUS_EXTENDED_CONFIG_AVAILABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 6u)
+
+public val DEVPKEY_PCI_ROOT_BUS_EXTENDED_PCI_CONFIG_OP_REGION_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 7u)
+
+public val DEVPKEY_PCI_ROOT_BUS_MSI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 11u)
+
+public val DEVPKEY_PCI_ROOT_BUS_NATIVE_PCI_EXPRESS_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 17u)
+
+public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_AER_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 15u)
+
+public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_CAPABILITY_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 16u)
+
+public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_NATIVE_HOT_PLUG_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 12u)
+
+public val DEVPKEY_PCI_ROOT_BUS_PCI_EXPRESS_NATIVE_PME_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 14u)
+
+public val DEVPKEY_PCI_ROOT_BUS_PCI_SEGMENT_GROUPS_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 10u)
+
+public val DEVPKEY_PCI_ROOT_BUS_SHPC_NATIVE_HOT_PLUG_CONTROL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 13u)
+
+public val DEVPKEY_PCI_ROOT_BUS_SECONDARY_BUS_WIDTH: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 5u)
+
+public val DEVPKEY_PCI_ROOT_BUS_SECONDARY_INTERFACE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 1u)
+
+public val DEVPKEY_PCI_ROOT_BUS_SUPPORTED_SPEEDS_AND_MODES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 3u)
+
+public val DEVPKEY_PCI_ROOT_BUS_SYSTEM_MSI_SUPPORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xd817fc28793e4b9euL, 0x9970469d8be63073uL)), pid = 18u)
+
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_ADVERTISEMENT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 5u)
+
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_REQUEST_SERVICE_INFORMATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 7u)
+
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 2u)
+
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_CONFIG_METHODS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 6u)
+
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_INFORMATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 4u)
+
+public val DEVPKEY_WI_FI_DIRECT_SERVICES_SERVICE_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x31b377437c5e4005uL, 0x93e6e953f92b82e9uL)), pid = 3u)
+
+public val DEVPKEY_WI_FI_DIRECT_DEVICE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 1u)
+
+public val DEVPKEY_WI_FI_DIRECT_DEVICE_ADDRESS_COPY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 13u)
+
+public val DEVPKEY_WI_FI_DIRECT_FOUND_WSB_SERVICE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 24u)
+
+public val DEVPKEY_WI_FI_DIRECT_GROUP_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 4u)
+
+public val DEVPKEY_WI_FI_DIRECT_INFORMATION_ELEMENTS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 12u)
+
+public val DEVPKEY_WI_FI_DIRECT_INTERFACE_ADDRESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 2u)
+
+public val DEVPKEY_WI_FI_DIRECT_INTERFACE_GUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 3u)
+
+public val DEVPKEY_WI_FI_DIRECT_IS_CONNECTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 5u)
+
+public val DEVPKEY_WI_FI_DIRECT_IS_DMG_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 22u)
+
+public val DEVPKEY_WI_FI_DIRECT_IS_LEGACY_DEVICE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 7u)
+
+public val DEVPKEY_WI_FI_DIRECT_IS_MIRACAST_LCP_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 9u)
+
+public val DEVPKEY_WI_FI_DIRECT_IS_RECENTLY_ASSOCIATED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 14u)
+
+public val DEVPKEY_WI_FI_DIRECT_IS_VISIBLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 6u)
+
+public val DEVPKEY_WI_FI_DIRECT_LINK_QUALITY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 28u)
+
+public val DEVPKEY_WI_FI_DIRECT_MIRACAST_VERSION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 8u)
+
+public val DEVPKEY_WI_FI_DIRECT_MIRACAST_SESSION_MGMT_CONTROL_PORT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 31u)
+
+public val DEVPKEY_WI_FI_DIRECT_NO_MIRACAST_AUTO_PROJECT: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 16u)
+
+public val DEVPKEY_WI_FI_DIRECT_RTSP_TCP_CONNECTION_PARAMETERS_SUPPORTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 32u)
+
+public val DEVPKEY_WI_FI_DIRECT_SERVICE_AEPS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 15u)
+
+public val DEVPKEY_WI_FI_DIRECT_SERVICES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 10u)
+
+public val DEVPKEY_WI_FI_DIRECT_SUPPORTED_CHANNEL_LIST: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 11u)
+
+public val DEVPKEY_WI_FI_DIRECT_TRANSIENT_ASSOCIATION: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x1506935de3e7450fuL, 0x863782233ebe5f6euL)), pid = 27u)
+
+public val DEVPKEY_WI_FI_INTERFACE_GUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xef1167ebcbfc4341uL, 0xa568a7c91a68982cuL)), pid = 2u)
+
+public val DOT11AD_HOC_MANAGER: Guid = Guid.fromU128(U128(0xdd06a84f83bd4d01uL, 0x8ab92389fea0869euL))
+
+public val GUID_AEPSERVICE_WIFIDIRECT_DEVICE: Guid = Guid.fromU128(U128(0xcc29827c9caf4928uL, 0x99a918f7c2381389uL))
+
+public val GUID_DEVINTERFACE_ASP_INFRA_DEVICE: Guid = Guid.fromU128(U128(0xff8239957a724c80uL, 0x8757c67ee13d1a49uL))
+
+public val GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: Guid = Guid.fromU128(U128(0x439b20af8955405buL, 0x99f0a62af0c68d43uL))

@@ -132,10 +132,6 @@ public val CANOF_PARSE_DISPLAY_NAME: CreateAsmNameObjFlags = 1
 
 public val CANOF_SET_DEFAULT_VALUES: CreateAsmNameObjFlags = 2
 
-public val CLSID_EVAL_COM2: Guid = Guid.fromU128(U128(0x6e5e191080534660uL, 0xb7956b612e29bc58uL))
-
-public val CLSID_MSM_MERGE2: Guid = Guid.fromU128(U128(0xf94985d529f94743uL, 0x980599bc3f35b678uL))
-
 public val DEFAULT_DISK_ID: UInt = 2u
 
 public val DEFAULT_FILE_SEQUENCE_START: UInt = 2u
@@ -505,12 +501,6 @@ public val ERROR_PCW_WRITE_SUMMARY_PROPERTIES: UInt = 3222163787u
 public val ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: UInt = 3222163859u
 
 public val ERROR_ROLLBACK_DISABLED: UInt = 1653u
-
-public val FUSION_REFCOUNT_FILEPATH_GUID: Guid = Guid.fromU128(U128(0xb02f9d65fb774f7auL, 0xafa5b391309f11c9uL))
-
-public val FUSION_REFCOUNT_OPAQUE_STRING_GUID: Guid = Guid.fromU128(U128(0x2ec93463b0c345e1uL, 0x8364327e96aea856uL))
-
-public val FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: Guid = Guid.fromU128(U128(0x8cedc215ac4b488buL, 0x93c0a50a49cb2fb8uL))
 
 public val IACTIONNAME_ADMIN: Pcwstr = w("ADMIN")
 
@@ -1266,8 +1256,6 @@ public val IPROPVALUE__CARRYINGNDP_URTREINSTALL: Pcwstr = w("URTREINSTALL")
 
 public val IPROPVALUE__CARRYINGNDP_URTUPGRADE: Pcwstr = w("URTUPGRADE")
 
-public val LIBID_MSM_MERGE_TYPE_LIB: Guid = Guid.fromU128(U128(0xadda82f2c2611d2uL, 0xad6500a0c9af11a6uL))
-
 public val LOGALL: UInt = 15u
 
 public val LOGERR: UInt = 4u
@@ -1574,8 +1562,6 @@ public val MSI_INVALID_HASH_IS_FATAL: UInt = 1u
 
 public val MSI_NULL_INTEGER: UInt = 2147483648u
 
-public val MSM_MERGE: Guid = Guid.fromU128(U128(0xadda8302c2611d2uL, 0xad6500a0c9af11a6uL))
-
 public val PACKMAN_RUNTIME_INVALID: PackmanRuntime = 6
 
 public val PACKMAN_RUNTIME_JUPITER: PackmanRuntime = 5
@@ -1673,8 +1659,6 @@ public val PID_THUMBNAIL: UInt = 17u
 public val PID_TITLE: UInt = 2u
 
 public val PID_WORDCOUNT: UInt = 15u
-
-public val PM_SVC: Guid = Guid.fromU128(U128(0xb9e511fce364497auL, 0xa121b7b3612cedceuL))
 
 public val PM_ACTIVATION_POLICY_INVALID: PmActivationPolicy = 7
 
@@ -2589,3 +2573,19 @@ public val MSM_ERROR_LANGUAGE_UNSUPPORTED: MsmErrorType = 1
 public val MSM_ERROR_RESEQUENCE_MERGE: MsmErrorType = 5
 
 public val MSM_ERROR_TABLE_MERGE: MsmErrorType = 4
+
+public val CLSID_EVAL_COM2: Guid = Guid.fromU128(U128(0x6e5e191080534660uL, 0xb7956b612e29bc58uL))
+
+public val CLSID_MSM_MERGE2: Guid = Guid.fromU128(U128(0xf94985d529f94743uL, 0x980599bc3f35b678uL))
+
+public val FUSION_REFCOUNT_FILEPATH_GUID: Guid = Guid.fromU128(U128(0xb02f9d65fb774f7auL, 0xafa5b391309f11c9uL))
+
+public val FUSION_REFCOUNT_OPAQUE_STRING_GUID: Guid = Guid.fromU128(U128(0x2ec93463b0c345e1uL, 0x8364327e96aea856uL))
+
+public val FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: Guid = Guid.fromU128(U128(0x8cedc215ac4b488buL, 0x93c0a50a49cb2fb8uL))
+
+public val LIBID_MSM_MERGE_TYPE_LIB: Guid = Guid.fromU128(U128(0xadda82f2c2611d2uL, 0xad6500a0c9af11a6uL))
+
+public val MSM_MERGE: Guid = Guid.fromU128(U128(0xadda8302c2611d2uL, 0xad6500a0c9af11a6uL))
+
+public val PM_SVC: Guid = Guid.fromU128(U128(0xb9e511fce364497auL, 0xa121b7b3612cedceuL))

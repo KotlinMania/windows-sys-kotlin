@@ -3,10 +3,6 @@ package io.github.kotlinmania.windowssys.windows.win32.system.distributedtransac
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 
-public val CLSID_MS_DTC_TRANSACTION: Guid = Guid.fromU128(U128(0x39f8d76b092811d1uL, 0x97df00c04fb9618auL))
-
-public val CLSID_MS_DTC_TRANSACTION_MANAGER: Guid = Guid.fromU128(U128(0x5b18ab61091d11d1uL, 0x97df00c04fb9618auL))
-
 public val CLUSTERRESOURCE_APPLICATIONTYPE: Applicationtype = 1
 
 public val DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: Dtcinitiatedrecoverywork = 1
@@ -384,3 +380,7 @@ public val XA_SWITCH_F_DTC: UInt = 1u
 public val XIDDATASIZE: UInt = 128u
 
 public val DW_USER_MS_SQLSERVER: XactDtcConstants = 65535
+
+public val CLSID_MS_DTC_TRANSACTION: Guid = Guid.fromU128(U128(0x39f8d76b092811d1uL, 0x97df00c04fb9618auL))
+
+public val CLSID_MS_DTC_TRANSACTION_MANAGER: Guid = Guid.fromU128(U128(0x5b18ab61091d11d1uL, 0x97df00c04fb9618auL))

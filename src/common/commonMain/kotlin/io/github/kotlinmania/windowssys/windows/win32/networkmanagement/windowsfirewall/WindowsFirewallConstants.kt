@@ -286,6 +286,8 @@ public val NET_FW_SERVICE_TYPE_MAX: NetFwServiceType = 4
 
 public val NET_FW_SERVICE_UPNP: NetFwServiceType = 1
 
+public val S_OBJECT_NO_LONGER_VALID: Hresult = 0x2u.toInt()
+
 public val NET_FW_AUTHORIZED_APPLICATION: Guid = Guid.fromU128(U128(0xec9846b327624a6buL, 0xa2146acb603462d2uL))
 
 public val NET_FW_MGR: Guid = Guid.fromU128(U128(0x304ce9426e3940d8uL, 0x943ab913c40c9cd4uL))
@@ -301,7 +303,5 @@ public val NET_FW_PRODUCTS: Guid = Guid.fromU128(U128(0xcc19079b82724d73uL, 0xbb
 public val NET_FW_RULE: Guid = Guid.fromU128(U128(0x2c5bc43e33694c33uL, 0xab0cbe9469677af4uL))
 
 public val NET_SHARING_MANAGER: Guid = Guid.fromU128(U128(0x5c63c1ad39564ff8uL, 0x848640034758315buL))
-
-public val S_OBJECT_NO_LONGER_VALID: Hresult = 0x2u.toInt()
 
 public val U_PN_PNAT: Guid = Guid.fromU128(U128(0xae1e00aa3fd5403cuL, 0x8a272bbdc30cd0e1uL))

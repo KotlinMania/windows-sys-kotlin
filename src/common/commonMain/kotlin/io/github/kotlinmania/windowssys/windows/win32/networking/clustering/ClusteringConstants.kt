@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
@@ -2817,14 +2815,6 @@ public val CTCTL_GET_ROUTESTATUS_BASIC: ClctlCodes = 781
 
 public val CTCTL_GET_ROUTESTATUS_EXTENDED: ClctlCodes = 785
 
-public val CLUS_APPLICATION: Guid = Guid.fromU128(U128(0xf2e606e5263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_CRYPTO_KEYS: Guid = Guid.fromU128(U128(0xf2e6072b263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_DISK: Guid = Guid.fromU128(U128(0xf2e60723263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_DISKS: Guid = Guid.fromU128(U128(0xf2e60725263111d1uL, 0x89f100a0c90d061euL))
-
 public val CLUS_GROUP_TYPE_AVAILABLE_STORAGE: ClusgroupType = 2
 
 public val CLUS_GROUP_TYPE_CLUSTER_UPDATE_AGENT: ClusgroupType = 117
@@ -2885,74 +2875,6 @@ public val CLUS_GROUP_TYPE_VIRTUAL_MACHINE: ClusgroupType = 111
 
 public val CLUS_GROUP_TYPE_WINS: ClusgroupType = 105
 
-public val CLUS_NET_INTERFACE: Guid = Guid.fromU128(U128(0xf2e606ed263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_NET_INTERFACES: Guid = Guid.fromU128(U128(0xf2e606ef263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_NETWORK: Guid = Guid.fromU128(U128(0xf2e606f1263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_NETWORK_NET_INTERFACES: Guid = Guid.fromU128(U128(0xf2e606f5263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_NETWORKS: Guid = Guid.fromU128(U128(0xf2e606f3263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_NODE: Guid = Guid.fromU128(U128(0xf2e606f7263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_NODE_NET_INTERFACES: Guid = Guid.fromU128(U128(0xf2e606fb263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_NODES: Guid = Guid.fromU128(U128(0xf2e606f9263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_PARTITION: Guid = Guid.fromU128(U128(0xf2e6071f263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_PARTITION_EX: Guid = Guid.fromU128(U128(0x53d51d26b51b4a79uL, 0xb2c35048d93a98fcuL))
-
-public val CLUS_PARTITIONS: Guid = Guid.fromU128(U128(0xf2e60721263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_PROPERTIES: Guid = Guid.fromU128(U128(0xf2e606ff263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_PROPERTY: Guid = Guid.fromU128(U128(0xf2e606fd263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_PROPERTY_VALUE: Guid = Guid.fromU128(U128(0xf2e60719263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_PROPERTY_VALUE_DATA: Guid = Guid.fromU128(U128(0xf2e6071d263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_PROPERTY_VALUES: Guid = Guid.fromU128(U128(0xf2e6071b263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_REF_OBJECT: Guid = Guid.fromU128(U128(0xf2e60701263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_REGISTRY_KEYS: Guid = Guid.fromU128(U128(0xf2e60729263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_DEPENDENCIES: Guid = Guid.fromU128(U128(0xf2e60703263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_DEPENDENTS: Guid = Guid.fromU128(U128(0xf2e6072d263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_GROUP: Guid = Guid.fromU128(U128(0xf2e60705263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_GROUP_PREFERRED_OWNER_NODES: Guid = Guid.fromU128(U128(0xf2e606e7263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_GROUP_RESOURCES: Guid = Guid.fromU128(U128(0xf2e606e9263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_GROUPS: Guid = Guid.fromU128(U128(0xf2e60707263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_POSSIBLE_OWNER_NODES: Guid = Guid.fromU128(U128(0xf2e6070d263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_TYPE: Guid = Guid.fromU128(U128(0xf2e6070f263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_TYPE_POSSIBLE_OWNER_NODES: Guid = Guid.fromU128(U128(0xf2e60717263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_TYPE_RESOURCES: Guid = Guid.fromU128(U128(0xf2e60713263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RES_TYPES: Guid = Guid.fromU128(U128(0xf2e60711263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RESOURCE: Guid = Guid.fromU128(U128(0xf2e60709263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_RESOURCES: Guid = Guid.fromU128(U128(0xf2e6070b263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_SCSI_ADDRESS: Guid = Guid.fromU128(U128(0xf2e60727263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUS_VERSION: Guid = Guid.fromU128(U128(0xf2e60715263111d1uL, 0x89f100a0c90d061euL))
-
-public val CLUSTER: Guid = Guid.fromU128(U128(0xf2e606e3263111d1uL, 0x89f100a0c90d061euL))
-
 public val CLUSTER_GROUP_ALLOW_FAILBACK: ClusterGroupAutofailbackType = 1
 
 public val CLUSTER_GROUP_FAILBACK_TYPE_COUNT: ClusterGroupAutofailbackType = 2
@@ -2970,8 +2892,6 @@ public val CLUSTER_GROUP_PENDING: ClusterGroupState = 4
 public val CLUSTER_GROUP_PREVENT_FAILBACK: ClusterGroupAutofailbackType = 0
 
 public val CLUSTER_GROUP_STATE_UNKNOWN: ClusterGroupState = -1
-
-public val CLUSTER_NAMES: Guid = Guid.fromU128(U128(0xf2e606eb263111d1uL, 0x89f100a0c90d061euL))
 
 public val CLUSTER_NET_INTERFACE_FAILED: ClusterNetinterfaceState = 1
 
@@ -3004,3 +2924,81 @@ public val CLUSTER_NETWORK_UP: ClusterNetworkState = 3
 public val CLUSTER_NODE_DOWN: ClusterNodeState = 1
 
 public val CLUSTER_NODE_DRAIN_STATUS_COUNT: ClusterNodeDrainStatus = 4
+
+public val CLUSTER_NODE_JOINING: ClusterNodeState = 3
+
+public val CLUSTER_NODE_PAUSED: ClusterNodeState = 2
+
+public val CLUSTER_NODE_RESUME_FAILBACK_TYPE_COUNT: ClusterNodeResumeFailbackType = 3
+
+public val CLUSTER_NODE_STATE_UNKNOWN: ClusterNodeState = -1
+
+public val CLUSTER_NODE_UP: ClusterNodeState = 0
+
+public val CLUSTER_RESOURCE_APPLICATION_OS_HEART_BEAT: ClusterResourceApplicationState = 2
+
+public val CLUSTER_RESOURCE_APPLICATION_READY: ClusterResourceApplicationState = 3
+
+public val CLUSTER_RESOURCE_APPLICATION_STATE_UNKNOWN: ClusterResourceApplicationState = 1
+
+public val CLUSTER_RESOURCE_DONT_RESTART: ClusterResourceRestartAction = 0
+
+public val CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION_LOG_ONLY: ClusterResourceEmbeddedFailureAction = 1
+
+public val CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION_NONE: ClusterResourceEmbeddedFailureAction = 0
+
+public val CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION_RECOVER: ClusterResourceEmbeddedFailureAction = 2
+
+public val CLUSTER_RESOURCE_FAILED: ClusterResourceState = 4
+
+public val CLUSTER_RESOURCE_INHERITED: ClusterResourceState = 0
+
+public val CLUSTER_RESOURCE_INITIALIZING: ClusterResourceState = 1
+
+public val CLUSTER_RESOURCE_OFFLINE: ClusterResourceState = 3
+
+public val CLUSTER_RESOURCE_OFFLINE_PENDING: ClusterResourceState = 130
+
+public val CLUSTER_RESOURCE_ONLINE: ClusterResourceState = 2
+
+public val CLUSTER_RESOURCE_ONLINE_PENDING: ClusterResourceState = 129
+
+public val CLUSTER_RESOURCE_PENDING: ClusterResourceState = 128
+
+public val CLUSTER_RESOURCE_RESTART_ACTION_COUNT: ClusterResourceRestartAction = 3
+
+public val CLUSTER_RESOURCE_RESTART_NO_NOTIFY: ClusterResourceRestartAction = 1
+
+public val CLUSTER_RESOURCE_RESTART_NOTIFY: ClusterResourceRestartAction = 2
+
+public val CLUSTER_RESOURCE_STATE_UNKNOWN: ClusterResourceState = -1
+
+public val CLUSTER_ROLE_CLUSTERED: ClusterRoleState = 0
+
+public val CLUSTER_ROLE_DFS_REPLICATED_FOLDER: ClusterRole = 15
+
+public val CLUSTER_ROLE_DHCP: ClusterRole = 0
+
+public val CLUSTER_ROLE_DTC: ClusterRole = 1
+
+public val CLUSTER_ROLE_DISTRIBUTED_FILE_SYSTEM: ClusterRole = 16
+
+public val CLUSTER_ROLE_DISTRIBUTED_NETWORK_NAME: ClusterRole = 17
+
+public val CLUSTER_ROLE_FILE_SERVER: ClusterRole = 2
+
+public val CLUSTER_ROLE_FILE_SHARE: ClusterRole = 18
+
+public val CLUSTER_ROLE_FILE_SHARE_WITNESS: ClusterRole = 19
+
+public val CLUSTER_ROLE_GENERIC_APPLICATION: ClusterRole = 3
+
+public val CLUSTER_ROLE_GENERIC_SCRIPT: ClusterRole = 4
+
+public val CLUSTER_ROLE_GENERIC_SERVICE: ClusterRole = 5
+
+public val CLUSTER_ROLE_HARD_DISK: ClusterRole = 20
+
+public val CLUSTER_ROLE_IP_ADDRESS: ClusterRole = 21
+
+public val CLUSTER_ROLE_IPV6ADDRESS: ClusterRole = 22

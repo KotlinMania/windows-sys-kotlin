@@ -38,8 +38,6 @@ public val CERT_CONFIDENCE_TIME: UInt = 16777216u
 
 public val CERT_CONFIDENCE_TIMENEST: UInt = 1048576u
 
-public val CONFIG_CI_ACTION_VERIFY: Guid = Guid.fromU128(U128(0x6078065b8f224b13uL, 0xbd9b5b762776f386uL))
-
 public val CPD_CHOICE_SIP: UInt = 1u
 
 public val CPD_RETURN_LOWER_QUALITY_CHAINS: UInt = 1048576u
@@ -64,8 +62,6 @@ public val CPD_UISTATE_MODE_PROMPT: UInt = 0u
 
 public val CPD_USE_NT5_CHAIN_FLAG: UInt = 2147483648u
 
-public val DRIVER_ACTION_VERIFY: Guid = Guid.fromU128(U128(0xf750e6c338ee11d1uL, 0x85e500c04fc295eeuL))
-
 public val DRIVER_CLEANUPPOLICY_FUNCTION: Pcwstr = w("DriverCleanupPolicy")
 
 public val DRIVER_FINALPOLPROV_FUNCTION: Pcwstr = w("DriverFinalPolicy")
@@ -80,8 +76,6 @@ public val GENERIC_CHAIN_CERTTRUST_FUNCTION: Pcwstr = w("GenericChainCertificate
 
 public val GENERIC_CHAIN_FINALPOLICY_FUNCTION: Pcwstr = w("GenericChainFinalProv")
 
-public val HTTPSPROV_ACTION: Guid = Guid.fromU128(U128(0x573e31f8aaba11d0uL, 0x8ccb00c04fc295eeuL))
-
 public val HTTPS_CERTTRUST_FUNCTION: Pcwstr = w("HTTPSCertificateTrust")
 
 public val HTTPS_CHKCERT_FUNCTION: Pcwstr = w("HTTPSCheckCertProv")
@@ -89,8 +83,6 @@ public val HTTPS_CHKCERT_FUNCTION: Pcwstr = w("HTTPSCheckCertProv")
 public val HTTPS_FINALPOLICY_FUNCTION: Pcwstr = w("HTTPSFinalProv")
 
 public val INTENT_TO_SEAL_ATTRIBUTE_STRUCT: Pcstr = COpaquePointer(2010.toLong())
-
-public val OFFICESIGN_ACTION_VERIFY: Guid = Guid.fromU128(U128(0x5555c2cd17fb11d1uL, 0x85c400c04fc295eeuL))
 
 public val OFFICE_CLEANUPPOLICY_FUNCTION: Pcwstr = w("OfficeCleanupPolicy")
 
@@ -256,14 +248,6 @@ public val TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: UInt = 19u
 
 public val TRUSTERROR_STEP_WVTPARAMS: UInt = 0u
 
-public val WINTRUST_ACTION_GENERIC_CERT_VERIFY: Guid = Guid.fromU128(U128(0x189a3842304111d1uL, 0x85e100c04fc295eeuL))
-
-public val WINTRUST_ACTION_GENERIC_CHAIN_VERIFY: Guid = Guid.fromU128(U128(0xfc451c16ac7511d1uL, 0xb4b800c04fb66ea0uL))
-
-public val WINTRUST_ACTION_GENERIC_VERIFY_V2: Guid = Guid.fromU128(U128(0xaac56bcd4411d0uL, 0x8cc200c04fc295eeuL))
-
-public val WINTRUST_ACTION_TRUSTPROVIDER_TEST: Guid = Guid.fromU128(U128(0x573e31f8ddba11d0uL, 0x8ccb00c04fc295eeuL))
-
 public val WINTRUST_CONFIG_REGPATH: Pcwstr = w("Software\\Microsoft\\Cryptography\\Wintrust\\Config")
 
 public val WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: UInt = 1048576u
@@ -285,30 +269,6 @@ public val WIN_CERT_TYPE_RESERVED_1: UInt = 3u
 public val WIN_CERT_TYPE_TS_STACK_SIGNED: UInt = 4u
 
 public val WIN_CERT_TYPE_X509: UInt = 1u
-
-public val WIN_SPUB_ACTION_NT_ACTIVATE_IMAGE: Guid = Guid.fromU128(U128(0x8bc96b008da111cfuL, 0x873600aa00a485ebuL))
-
-public val WIN_SPUB_ACTION_PUBLISHED_SOFTWARE: Guid = Guid.fromU128(U128(0x64b9d1808da211cfuL, 0x873600aa00a485ebuL))
-
-public val WIN_SPUB_ACTION_TRUSTED_PUBLISHER: Guid = Guid.fromU128(U128(0x664267308da111cfuL, 0x873600aa00a485ebuL))
-
-public val WIN_TRUST_SUBJTYPE_CABINET: Guid = Guid.fromU128(U128(0xd17c5374a39211cfuL, 0x9df500aa00c184e0uL))
-
-public val WIN_TRUST_SUBJTYPE_CABINETEX: Guid = Guid.fromU128(U128(0x6f458114c2f111cfuL, 0x8a6900aa006c3706uL))
-
-public val WIN_TRUST_SUBJTYPE_JAVA_CLASS: Guid = Guid.fromU128(U128(0x8ad39908da111cfuL, 0x873600aa00a485ebuL))
-
-public val WIN_TRUST_SUBJTYPE_JAVA_CLASSEX: Guid = Guid.fromU128(U128(0x6f458113c2f111cfuL, 0x8a6900aa006c3706uL))
-
-public val WIN_TRUST_SUBJTYPE_OLE_STORAGE: Guid = Guid.fromU128(U128(0xc257e7408da011cfuL, 0x873600aa00a485ebuL))
-
-public val WIN_TRUST_SUBJTYPE_PE_IMAGE: Guid = Guid.fromU128(U128(0x43c9a1e08da011cfuL, 0x873600aa00a485ebuL))
-
-public val WIN_TRUST_SUBJTYPE_PE_IMAGEEX: Guid = Guid.fromU128(U128(0x6f458111c2f111cfuL, 0x8a6900aa006c3706uL))
-
-public val WIN_TRUST_SUBJTYPE_RAW_FILE: Guid = Guid.fromU128(U128(0x959dc4508d9e11cfuL, 0x873600aa00a485ebuL))
-
-public val WIN_TRUST_SUBJTYPE_RAW_FILEEX: Guid = Guid.fromU128(U128(0x6f458110c2f111cfuL, 0x8a6900aa006c3706uL))
 
 public val WSS_CERTTRUST_SUPPORT: UInt = 4u
 
@@ -461,3 +421,43 @@ public val SZ_OID_TRUSTED_CLIENT_AUTH_CA_LIST: Pcstr = s("1.3.6.1.4.1.311.2.2.2"
 public val SZ_OID_TRUSTED_CODESIGNING_CA_LIST: Pcstr = s("1.3.6.1.4.1.311.2.2.1")
 
 public val SZ_OID_TRUSTED_SERVER_AUTH_CA_LIST: Pcstr = s("1.3.6.1.4.1.311.2.2.3")
+
+public val CONFIG_CI_ACTION_VERIFY: Guid = Guid.fromU128(U128(0x6078065b8f224b13uL, 0xbd9b5b762776f386uL))
+
+public val DRIVER_ACTION_VERIFY: Guid = Guid.fromU128(U128(0xf750e6c338ee11d1uL, 0x85e500c04fc295eeuL))
+
+public val HTTPSPROV_ACTION: Guid = Guid.fromU128(U128(0x573e31f8aaba11d0uL, 0x8ccb00c04fc295eeuL))
+
+public val OFFICESIGN_ACTION_VERIFY: Guid = Guid.fromU128(U128(0x5555c2cd17fb11d1uL, 0x85c400c04fc295eeuL))
+
+public val WINTRUST_ACTION_GENERIC_CERT_VERIFY: Guid = Guid.fromU128(U128(0x189a3842304111d1uL, 0x85e100c04fc295eeuL))
+
+public val WINTRUST_ACTION_GENERIC_CHAIN_VERIFY: Guid = Guid.fromU128(U128(0xfc451c16ac7511d1uL, 0xb4b800c04fb66ea0uL))
+
+public val WINTRUST_ACTION_GENERIC_VERIFY_V2: Guid = Guid.fromU128(U128(0xaac56bcd4411d0uL, 0x8cc200c04fc295eeuL))
+
+public val WINTRUST_ACTION_TRUSTPROVIDER_TEST: Guid = Guid.fromU128(U128(0x573e31f8ddba11d0uL, 0x8ccb00c04fc295eeuL))
+
+public val WIN_SPUB_ACTION_NT_ACTIVATE_IMAGE: Guid = Guid.fromU128(U128(0x8bc96b008da111cfuL, 0x873600aa00a485ebuL))
+
+public val WIN_SPUB_ACTION_PUBLISHED_SOFTWARE: Guid = Guid.fromU128(U128(0x64b9d1808da211cfuL, 0x873600aa00a485ebuL))
+
+public val WIN_SPUB_ACTION_TRUSTED_PUBLISHER: Guid = Guid.fromU128(U128(0x664267308da111cfuL, 0x873600aa00a485ebuL))
+
+public val WIN_TRUST_SUBJTYPE_CABINET: Guid = Guid.fromU128(U128(0xd17c5374a39211cfuL, 0x9df500aa00c184e0uL))
+
+public val WIN_TRUST_SUBJTYPE_CABINETEX: Guid = Guid.fromU128(U128(0x6f458114c2f111cfuL, 0x8a6900aa006c3706uL))
+
+public val WIN_TRUST_SUBJTYPE_JAVA_CLASS: Guid = Guid.fromU128(U128(0x8ad39908da111cfuL, 0x873600aa00a485ebuL))
+
+public val WIN_TRUST_SUBJTYPE_JAVA_CLASSEX: Guid = Guid.fromU128(U128(0x6f458113c2f111cfuL, 0x8a6900aa006c3706uL))
+
+public val WIN_TRUST_SUBJTYPE_OLE_STORAGE: Guid = Guid.fromU128(U128(0xc257e7408da011cfuL, 0x873600aa00a485ebuL))
+
+public val WIN_TRUST_SUBJTYPE_PE_IMAGE: Guid = Guid.fromU128(U128(0x43c9a1e08da011cfuL, 0x873600aa00a485ebuL))
+
+public val WIN_TRUST_SUBJTYPE_PE_IMAGEEX: Guid = Guid.fromU128(U128(0x6f458111c2f111cfuL, 0x8a6900aa006c3706uL))
+
+public val WIN_TRUST_SUBJTYPE_RAW_FILE: Guid = Guid.fromU128(U128(0x959dc4508d9e11cfuL, 0x873600aa00a485ebuL))
+
+public val WIN_TRUST_SUBJTYPE_RAW_FILEEX: Guid = Guid.fromU128(U128(0x6f458110c2f111cfuL, 0x8a6900aa006c3706uL))

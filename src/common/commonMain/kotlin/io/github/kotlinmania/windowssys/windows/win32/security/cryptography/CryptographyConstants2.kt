@@ -1,23 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
 import io.github.kotlinmania.windowssys.COpaquePointer
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-
-public val CMSG_OID_CNG_EXPORT_KEY_TRANS_FUNC: Pcstr = s("CryptMsgDllCNGExportKeyTrans")
-
-public val CMSG_OID_CNG_GEN_CONTENT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllCNGGenContentEncryptKey")
-
-public val CMSG_OID_CNG_IMPORT_CONTENT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllCNGImportContentEncryptKey")
-
-public val CMSG_OID_CNG_IMPORT_KEY_AGREE_FUNC: Pcstr = s("CryptMsgDllCNGImportKeyAgree")
-
-public val CMSG_OID_CNG_IMPORT_KEY_TRANS_FUNC: Pcstr = s("CryptMsgDllCNGImportKeyTrans")
 
 public val CMSG_OID_EXPORT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllExportEncryptKey")
 
@@ -392,8 +380,6 @@ public val CRYPTPROTECT_AUDIT: UInt = 16u
 public val CRYPTPROTECT_CRED_REGENERATE: UInt = 128u
 
 public val CRYPTPROTECT_CRED_SYNC: UInt = 8u
-
-public val CRYPTPROTECT_DEFAULT_PROVIDER: Guid = Guid.fromU128(U128(0xdf9d8cd0150111d1uL, 0x8c7a00c04fc297ebuL))
 
 public val CRYPTPROTECT_FIRST_RESERVED_FLAGVAL: UInt = 268435455u
 
@@ -3008,3 +2994,15 @@ public val TLS_DHE_RSA_WITH_AES_128_CBC_SHA: UInt = 51u
 public val TLS_DHE_RSA_WITH_AES_128_GCM_SHA256: UInt = 158u
 
 public val TLS_DHE_RSA_WITH_AES_256_CBC_SHA: UInt = 57u
+
+public val TLS_DHE_RSA_WITH_AES_256_GCM_SHA384: UInt = 159u
+
+public val TLS_ECC_P256_CURVE_KEY_TYPE: UInt = 23u
+
+public val TLS_ECC_P384_CURVE_KEY_TYPE: UInt = 24u
+
+public val TLS_ECC_P521_CURVE_KEY_TYPE: UInt = 25u
+
+public val TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA: UInt = 49161u
+
+public val TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256: UInt = 49187u

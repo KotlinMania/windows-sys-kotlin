@@ -309,8 +309,6 @@ public val SETXOFF: EscapeCommFunction = 1u
 
 public val SETXON: EscapeCommFunction = 2u
 
-public val SID_3GPP_SUPSVCMODEL: Guid = Guid.fromU128(U128(0xd7d08e07d7674478uL, 0xb14aeecc87ea12f7uL))
-
 public val SPACEPARITY: DcbParity = 4u.toUByte()
 
 public val STOPBITS_10: CommpropStopParity = 1u.toUShort()
@@ -320,3 +318,5 @@ public val STOPBITS_15: CommpropStopParity = 2u.toUShort()
 public val STOPBITS_20: CommpropStopParity = 4u.toUShort()
 
 public val TWOSTOPBITS: DcbStopBits = 2u.toUByte()
+
+public val SID_3GPP_SUPSVCMODEL: Guid = Guid.fromU128(U128(0xd7d08e07d7674478uL, 0xb14aeecc87ea12f7uL))

@@ -4,12 +4,6 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 
-public val NS_E_BKGDOWNLOAD_NOJOBPOINTER: Hresult = 0xC00D1260u.toInt()
-
-public val NS_E_BKGDOWNLOAD_PLUGIN_FAILEDINITIALIZE: Hresult = 0xC00D1263u.toInt()
-
-public val NS_E_BKGDOWNLOAD_PLUGIN_FAILEDTOMOVEFILE: Hresult = 0xC00D1264u.toInt()
-
 public val NS_E_BKGDOWNLOAD_WMDUNPACKFAILED: Hresult = 0xC00D1268u.toInt()
 
 public val NS_E_BKGDOWNLOAD_WRONG_NO_FILES: Hresult = 0xC00D125Du.toInt()
@@ -3003,3 +2997,9 @@ public val WAVE_FORMAT_VOXWARE_AC10: UInt = 113u
 public val WAVE_FORMAT_VOXWARE_AC16: UInt = 114u
 
 public val WAVE_FORMAT_VOXWARE_AC20: UInt = 115u
+
+public val WAVE_FORMAT_VOXWARE_AC8: UInt = 112u
+
+public val WAVE_FORMAT_VOXWARE_BYTE_ALIGNED: UInt = 105u
+
+public val WAVE_FORMAT_VOXWARE_RT24: UInt = 116u

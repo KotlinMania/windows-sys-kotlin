@@ -1,22 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
 import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-
-public val TLS_DHE_RSA_WITH_AES_256_GCM_SHA384: UInt = 159u
-
-public val TLS_ECC_P256_CURVE_KEY_TYPE: UInt = 23u
-
-public val TLS_ECC_P384_CURVE_KEY_TYPE: UInt = 24u
-
-public val TLS_ECC_P521_CURVE_KEY_TYPE: UInt = 25u
-
-public val TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA: UInt = 49161u
-
-public val TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256: UInt = 49187u
 
 public val TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256: UInt = 49195u
 
@@ -1459,3 +1449,15 @@ public val WSZ_XMLNS_DIGSIG: Pcwstr = w("http://www.w3.org/2000/09/xmldsig#")
 public val WSZ_XMLNS_DIGSIG_ID: Pcwstr = w("Id")
 
 public val WSZ_XMLNS_DIGSIG_SIGNATURE_PROPERTIES: Pcwstr = w("http://www.w3.org/2000/09/xmldsig#SignatureProperties")
+
+public val C_CERT_SRV_SETUP: Guid = Guid.fromU128(U128(0x961f180ff55c413duL, 0xa9b37d2af4d8e42fuL))
+
+public val C_CERT_SRV_SETUP_KEY_INFORMATION: Guid = Guid.fromU128(U128(0x3837390654334633uL, 0xb0fb29b7e78262e1uL))
+
+public val C_CERTIFICATE_ENROLLMENT_POLICY_SERVER_SETUP: Guid = Guid.fromU128(U128(0xafe2fa3241b1459duL, 0xa5de49add8a72182uL))
+
+public val C_CERTIFICATE_ENROLLMENT_SERVER_SETUP: Guid = Guid.fromU128(U128(0x9902f3bc88af4cf8uL, 0xae627140531552b6uL))
+
+public val CMSCEP_SETUP: Guid = Guid.fromU128(U128(0xaa4f5c028e7c49c4uL, 0x94fa67a5cc5eadb4uL))
+
+public val CRYPTPROTECT_DEFAULT_PROVIDER: Guid = Guid.fromU128(U128(0xdf9d8cd0150111d1uL, 0x8c7a00c04fc297ebuL))

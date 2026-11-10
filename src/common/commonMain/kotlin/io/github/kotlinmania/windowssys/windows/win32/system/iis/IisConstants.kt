@@ -31,24 +31,6 @@ public val ASP_MD_UT_APP: UInt = 101u
 
 public val BINARY_METADATA: Metadatatypes = 3
 
-public val CLSID_I_IMG_CTX: Guid = Guid.fromU128(U128(0x3050f3d698b511cfuL, 0xbb8200aa00bdce0buL))
-
-public val CLSID_IIS_SERVICE_CONTROL: Guid = Guid.fromU128(U128(0xe8fb8621588f11d2uL, 0x9d6100c04f79c5feuL))
-
-public val CLSID_MS_ADMIN_BASE_W: Guid = Guid.fromU128(U128(0xa9e69610b80d11d0uL, 0xb9b900a0c922e750uL))
-
-public val CLSID_REQUEST: Guid = Guid.fromU128(U128(0x920c25d025d911d0uL, 0xa55f00a0c90c2091uL))
-
-public val CLSID_RESPONSE: Guid = Guid.fromU128(U128(0x46e19ba025dd11d0uL, 0xa55f00a0c90c2091uL))
-
-public val CLSID_SCRIPTING_CONTEXT: Guid = Guid.fromU128(U128(0xd97a6da0a86811cfuL, 0x83ae11b0c90c2bd8uL))
-
-public val CLSID_SERVER: Guid = Guid.fromU128(U128(0xa506d16025e011d0uL, 0xa55f00a0c90c2091uL))
-
-public val CLSID_SESSION: Guid = Guid.fromU128(U128(0x509f8f2025de11d0uL, 0xa55f00a0c90c2091uL))
-
-public val CLSID_WAM_ADMIN: Guid = Guid.fromU128(U128(0x61738644f19611d0uL, 0x995300c04fd919c1uL))
-
 public val DISPID_HTTPREQUEST_ABORT: UInt = 12u
 
 public val DISPID_HTTPREQUEST_BASE: UInt = 1u
@@ -120,22 +102,6 @@ public val FTP_PROCESS_CONTINUE: FtpProcessStatus = 0
 public val FTP_PROCESS_REJECT_COMMAND: FtpProcessStatus = 3
 
 public val FTP_PROCESS_TERMINATE_SESSION: FtpProcessStatus = 2
-
-public val FTP_PROVIDER: Guid = Guid.fromU128(U128(0x70bdc66733b245f0uL, 0xac52c3ca46f7a656uL))
-
-public val GUID_IIS_ALL_TRACE_PROVIDERS: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
-
-public val GUID_IIS_ASPNET_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xaff081fe02474275uL, 0x9c4e021f3dc1da35uL))
-
-public val GUID_IIS_ASP_TRACE_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0x6b94d9ab15e456euL, 0xa4ef37c984a2cb4buL))
-
-public val GUID_IIS_ISAPI_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xa1c2040e88404c31uL, 0xba119871031a19eauL))
-
-public val GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xd55d3bc9cba944dfuL, 0x827e132d3a4596c2uL))
-
-public val GUID_IIS_WWW_SERVER_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0x3a2a4e844c214981uL, 0xae103fda0d9b0f83uL))
-
-public val GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xde4649c915e84feauL, 0x9d851cdda520c334uL))
 
 public val HSE_APPEND_LOG_PARAMETER: UInt = 1003u
 
@@ -520,12 +486,6 @@ public val IMGTRANS_MASK: UInt = 536870912u
 public val IMGTRANS_OPAQUE: UInt = 536870912u
 
 public val INVALID_END_METADATA: Metadatatypes = 6
-
-public val LIBID_ASP_TYPE_LIBRARY: Guid = Guid.fromU128(U128(0xd97a6da0a85c11cfuL, 0x83ae00a0c90c2bd8uL))
-
-public val LIBID_IISRSTA_LIB: Guid = Guid.fromU128(U128(0xe8fb8614588f11d2uL, 0x9d6100c04f79c5feuL))
-
-public val LIBID_WAMREG_LIB: Guid = Guid.fromU128(U128(0x29822aa8f30211d0uL, 0x995300c04fd919c1uL))
 
 public val MB_DONT_IMPERSONATE: UInt = 9033u
 
@@ -1956,3 +1916,43 @@ public val WEB_CORE_DLL_NAME: Pcwstr = w("hwebcore.dll")
 public val WEB_CORE_SET_METADATA_DLL_ENTRY: Pcstr = s("WebCoreSetMetadata")
 
 public val WEB_CORE_SHUTDOWN_DLL_ENTRY: Pcstr = s("WebCoreShutdown")
+
+public val CLSID_I_IMG_CTX: Guid = Guid.fromU128(U128(0x3050f3d698b511cfuL, 0xbb8200aa00bdce0buL))
+
+public val CLSID_IIS_SERVICE_CONTROL: Guid = Guid.fromU128(U128(0xe8fb8621588f11d2uL, 0x9d6100c04f79c5feuL))
+
+public val CLSID_MS_ADMIN_BASE_W: Guid = Guid.fromU128(U128(0xa9e69610b80d11d0uL, 0xb9b900a0c922e750uL))
+
+public val CLSID_REQUEST: Guid = Guid.fromU128(U128(0x920c25d025d911d0uL, 0xa55f00a0c90c2091uL))
+
+public val CLSID_RESPONSE: Guid = Guid.fromU128(U128(0x46e19ba025dd11d0uL, 0xa55f00a0c90c2091uL))
+
+public val CLSID_SCRIPTING_CONTEXT: Guid = Guid.fromU128(U128(0xd97a6da0a86811cfuL, 0x83ae11b0c90c2bd8uL))
+
+public val CLSID_SERVER: Guid = Guid.fromU128(U128(0xa506d16025e011d0uL, 0xa55f00a0c90c2091uL))
+
+public val CLSID_SESSION: Guid = Guid.fromU128(U128(0x509f8f2025de11d0uL, 0xa55f00a0c90c2091uL))
+
+public val CLSID_WAM_ADMIN: Guid = Guid.fromU128(U128(0x61738644f19611d0uL, 0x995300c04fd919c1uL))
+
+public val FTP_PROVIDER: Guid = Guid.fromU128(U128(0x70bdc66733b245f0uL, 0xac52c3ca46f7a656uL))
+
+public val GUID_IIS_ALL_TRACE_PROVIDERS: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
+
+public val GUID_IIS_ASPNET_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xaff081fe02474275uL, 0x9c4e021f3dc1da35uL))
+
+public val GUID_IIS_ASP_TRACE_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0x6b94d9ab15e456euL, 0xa4ef37c984a2cb4buL))
+
+public val GUID_IIS_ISAPI_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xa1c2040e88404c31uL, 0xba119871031a19eauL))
+
+public val GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xd55d3bc9cba944dfuL, 0x827e132d3a4596c2uL))
+
+public val GUID_IIS_WWW_SERVER_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0x3a2a4e844c214981uL, 0xae103fda0d9b0f83uL))
+
+public val GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xde4649c915e84feauL, 0x9d851cdda520c334uL))
+
+public val LIBID_ASP_TYPE_LIBRARY: Guid = Guid.fromU128(U128(0xd97a6da0a85c11cfuL, 0x83ae00a0c90c2bd8uL))
+
+public val LIBID_IISRSTA_LIB: Guid = Guid.fromU128(U128(0xe8fb8614588f11d2uL, 0x9d6100c04f79c5feuL))
+
+public val LIBID_WAMREG_LIB: Guid = Guid.fromU128(U128(0x29822aa8f30211d0uL, 0x995300c04fd919c1uL))

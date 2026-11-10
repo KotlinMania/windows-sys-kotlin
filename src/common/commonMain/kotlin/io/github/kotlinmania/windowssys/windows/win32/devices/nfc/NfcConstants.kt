@@ -45,14 +45,6 @@ public val EXTERNAL_READER_ARRIVAL: SecureElementEventType = 0
 
 public val EXTERNAL_READER_DEPARTURE: SecureElementEventType = 1
 
-public val GUID_DEVINTERFACE_NFCDTA: Guid = Guid.fromU128(U128(0x7fd3f30b5e494be1uL, 0xb3aaaf06260d236auL))
-
-public val GUID_DEVINTERFACE_NFCSE: Guid = Guid.fromU128(U128(0x8dc7c854f5e54beduL, 0x815d0c85ad047725uL))
-
-public val GUID_NFCSE_RADIO_MEDIA_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0xef8ba08f148d4116uL, 0x83efa2679dfc3fa5uL))
-
-public val GUID_NFC_RADIO_MEDIA_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0x4d51e930750d4a36uL, 0xa9f791dc540fcd30uL))
-
 public val HCE_ACTIVATED: SecureElementEventType = 4
 
 public val HCE_DEACTIVATED: SecureElementEventType = 5
@@ -254,3 +246,11 @@ public val SNEP_REQUEST_GET: NfcSnepRequestType = 0
 public val SNEP_REQUEST_PUT: NfcSnepRequestType = 1
 
 public val TRANSACTION: SecureElementEventType = 3
+
+public val GUID_DEVINTERFACE_NFCDTA: Guid = Guid.fromU128(U128(0x7fd3f30b5e494be1uL, 0xb3aaaf06260d236auL))
+
+public val GUID_DEVINTERFACE_NFCSE: Guid = Guid.fromU128(U128(0x8dc7c854f5e54beduL, 0x815d0c85ad047725uL))
+
+public val GUID_NFCSE_RADIO_MEDIA_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0xef8ba08f148d4116uL, 0x83efa2679dfc3fa5uL))
+
+public val GUID_NFC_RADIO_MEDIA_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0x4d51e930750d4a36uL, 0xa9f791dc540fcd30uL))

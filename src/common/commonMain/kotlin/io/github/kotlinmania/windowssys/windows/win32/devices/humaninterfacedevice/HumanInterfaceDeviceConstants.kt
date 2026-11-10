@@ -1,13 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
 public val BALLPOINT_I8042_HARDWARE: UInt = 8u
 
@@ -47,14 +44,6 @@ public val BUTTON_BIT_VOLUMEUP: UInt = 4u
 
 public val BUTTON_BIT_WINDOWS: UInt = 2u
 
-public val CLSID_DIRECT_INPUT: Guid = Guid.fromU128(U128(0x25e609e0b25911cfuL, 0xbfc7444553540000uL))
-
-public val CLSID_DIRECT_INPUT8: Guid = Guid.fromU128(U128(0x25e609e4b25911cfuL, 0xbfc7444553540000uL))
-
-public val CLSID_DIRECT_INPUT_DEVICE: Guid = Guid.fromU128(U128(0x25e609e1b25911cfuL, 0xbfc7444553540000uL))
-
-public val CLSID_DIRECT_INPUT_DEVICE8: Guid = Guid.fromU128(U128(0x25e609e5b25911cfuL, 0xbfc7444553540000uL))
-
 public val DD_KEYBOARD_DEVICE_NAME: Pcstr = s("\\Device\\KeyboardClass")
 
 public val DD_KEYBOARD_DEVICE_NAME_U: Pcwstr = w("\\Device\\KeyboardClass")
@@ -62,22 +51,6 @@ public val DD_KEYBOARD_DEVICE_NAME_U: Pcwstr = w("\\Device\\KeyboardClass")
 public val DD_MOUSE_DEVICE_NAME: Pcstr = s("\\Device\\PointerClass")
 
 public val DD_MOUSE_DEVICE_NAME_U: Pcwstr = w("\\Device\\PointerClass")
-
-public val DEVPKEY_DEVICE_INTERFACE_HID_BACKGROUND_ACCESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 8u)
-
-public val DEVPKEY_DEVICE_INTERFACE_HID_IS_READ_ONLY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 4u)
-
-public val DEVPKEY_DEVICE_INTERFACE_HID_PRODUCT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 6u)
-
-public val DEVPKEY_DEVICE_INTERFACE_HID_USAGE_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 3u)
-
-public val DEVPKEY_DEVICE_INTERFACE_HID_USAGE_PAGE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 2u)
-
-public val DEVPKEY_DEVICE_INTERFACE_HID_VENDOR_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 5u)
-
-public val DEVPKEY_DEVICE_INTERFACE_HID_VERSION_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 7u)
-
-public val DEVPKEY_DEVICE_INTERFACE_HID_WAKE_SCREEN_ON_INPUT_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 9u)
 
 public val DI8DEVCLASS_ALL: UInt = 0u
 
@@ -3008,3 +2981,27 @@ public val DIK_Z: UInt = 44u
 public val DIMSGWP_DX8APPSTART: UInt = 2u
 
 public val DIMSGWP_DX8MAPPERAPPSTART: UInt = 3u
+
+public val DIMSGWP_NEWAPPSTART: UInt = 1u
+
+public val DIPH_BYID: UInt = 2u
+
+public val DIPH_BYOFFSET: UInt = 1u
+
+public val DIPH_BYUSAGE: UInt = 3u
+
+public val DIPH_DEVICE: UInt = 0u
+
+public val DIPOV_ANY_1: UInt = 4278208001u
+
+public val DIPOV_ANY_2: UInt = 4278208002u
+
+public val DIPOV_ANY_3: UInt = 4278208003u
+
+public val DIPOV_ANY_4: UInt = 4278208004u
+
+public val DIPROPAUTOCENTER_OFF: UInt = 0u
+
+public val DIPROPAUTOCENTER_ON: UInt = 1u
+
+public val DIPROPAXISMODE_ABS: UInt = 0u

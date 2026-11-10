@@ -164,10 +164,6 @@ public val NS_PNRPCLOUD: UInt = 39u
 
 public val NS_PNRPNAME: UInt = 38u
 
-public val NS_PROVIDER_PNRPCLOUD: Guid = Guid.fromU128(U128(0x3fe89ce766d4976uL, 0xb9c1bb9bc42c7b4duL))
-
-public val NS_PROVIDER_PNRPNAME: Guid = Guid.fromU128(U128(0x3fe89cd766d4976uL, 0xb9c1bb9bc42c7b4duL))
-
 public val PEERDIST_PUBLICATION_OPTIONS_VERSION: Int = 2
 
 public val PEERDIST_PUBLICATION_OPTIONS_VERSION_1: Int = 1
@@ -199,8 +195,6 @@ public val PEER_CHANGE_ADDED: PeerChangeType = 0
 public val PEER_CHANGE_DELETED: PeerChangeType = 1
 
 public val PEER_CHANGE_UPDATED: PeerChangeType = 2
-
-public val PEER_COLLAB_OBJECTID_USER_PICTURE: Guid = Guid.fromU128(U128(0xdd15f41ffc4e4922uL, 0xb0354c06a754d01duL))
 
 public val PEER_CONNECTED: PeerConnectionStatus = 1
 
@@ -319,12 +313,6 @@ public val PEER_GROUP_EVENT_STATUS_CHANGED: PeerGroupEventType = 1
 public val PEER_GROUP_GMC_AUTHENTICATION: PeerGroupAuthenticationScheme = 1
 
 public val PEER_GROUP_PASSWORD_AUTHENTICATION: PeerGroupAuthenticationScheme = 2
-
-public val PEER_GROUP_ROLE_ADMIN: Guid = Guid.fromU128(U128(0x4387127aa56450auL, 0x8ce54f565c6790f4uL))
-
-public val PEER_GROUP_ROLE_INVITING_MEMBER: Guid = Guid.fromU128(U128(0x4370fd89dc184cfbuL, 0x8dbf9853a8a9f905uL))
-
-public val PEER_GROUP_ROLE_MEMBER: Guid = Guid.fromU128(U128(0xf12dc4c708574ca0uL, 0x93fcb1bb19a3d8c2uL))
 
 public val PEER_GROUP_STATUS_HAS_CONNECTIONS: PeerGroupStatus = 2
 
@@ -472,12 +460,6 @@ public val PNRP_SITE_LOCAL_SCOPE: PnrpScope = 2
 
 public val PEER_DIST_CLIENT_BASIC_INFO: PeerdistClientInfoByHandleClass = 0
 
-public val SVCID_PNRPCLOUD: Guid = Guid.fromU128(U128(0xc2239ce600c04fbfuL, 0xbad618139385a49auL))
-
-public val SVCID_PNRPNAME_V1: Guid = Guid.fromU128(U128(0xc2239ce500c04fbfuL, 0xbad618139385a49auL))
-
-public val SVCID_PNRPNAME_V2: Guid = Guid.fromU128(U128(0xc2239ce700c04fbfuL, 0xbad618139385a49auL))
-
 public val WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: UInt = 11506u
 
 public val WSA_PNRP_CLOUD_DISABLED: UInt = 11502u
@@ -501,3 +483,21 @@ public val WSZ_SCOPE_GLOBAL: Pcwstr = w("GLOBAL")
 public val WSZ_SCOPE_LINKLOCAL: Pcwstr = w("LINKLOCAL")
 
 public val WSZ_SCOPE_SITELOCAL: Pcwstr = w("SITELOCAL")
+
+public val NS_PROVIDER_PNRPCLOUD: Guid = Guid.fromU128(U128(0x3fe89ce766d4976uL, 0xb9c1bb9bc42c7b4duL))
+
+public val NS_PROVIDER_PNRPNAME: Guid = Guid.fromU128(U128(0x3fe89cd766d4976uL, 0xb9c1bb9bc42c7b4duL))
+
+public val PEER_COLLAB_OBJECTID_USER_PICTURE: Guid = Guid.fromU128(U128(0xdd15f41ffc4e4922uL, 0xb0354c06a754d01duL))
+
+public val PEER_GROUP_ROLE_ADMIN: Guid = Guid.fromU128(U128(0x4387127aa56450auL, 0x8ce54f565c6790f4uL))
+
+public val PEER_GROUP_ROLE_INVITING_MEMBER: Guid = Guid.fromU128(U128(0x4370fd89dc184cfbuL, 0x8dbf9853a8a9f905uL))
+
+public val PEER_GROUP_ROLE_MEMBER: Guid = Guid.fromU128(U128(0xf12dc4c708574ca0uL, 0x93fcb1bb19a3d8c2uL))
+
+public val SVCID_PNRPCLOUD: Guid = Guid.fromU128(U128(0xc2239ce600c04fbfuL, 0xbad618139385a49auL))
+
+public val SVCID_PNRPNAME_V1: Guid = Guid.fromU128(U128(0xc2239ce500c04fbfuL, 0xbad618139385a49auL))
+
+public val SVCID_PNRPNAME_V2: Guid = Guid.fromU128(U128(0xc2239ce700c04fbfuL, 0xbad618139385a49auL))

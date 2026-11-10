@@ -564,16 +564,6 @@ public val ADS_USE_SIGNING: AdsAuthenticationEnum = 64u
 
 public val ADS_USE_SSL: AdsAuthenticationEnum = 2u
 
-public val AD_SYSTEM_INFO: Guid = Guid.fromU128(U128(0x50b6327fafd111d2uL, 0x9cb90000f87a369euL))
-
-public val A_DS_SECURITY_UTILITY: Guid = Guid.fromU128(U128(0xf270c64affb84ae4uL, 0x85fe3a75e5347966uL))
-
-public val ACCESS_CONTROL_ENTRY: Guid = Guid.fromU128(U128(0xb75ac0009bdd11d0uL, 0x852c00c04fd8d503uL))
-
-public val ACCESS_CONTROL_LIST: Guid = Guid.fromU128(U128(0xb85ea0529bdd11d0uL, 0x852c00c04fd8d503uL))
-
-public val BACK_LINK: Guid = Guid.fromU128(U128(0xfcbf906f408011d1uL, 0xa3ac00c04fb950dcuL))
-
 public val CFSTR_DSDISPLAYSPECOPTIONS: Pcwstr = w("DsDisplaySpecOptions")
 
 public val CFSTR_DSOBJECTNAMES: Pcwstr = w("DsObjectNames")
@@ -587,44 +577,6 @@ public val CFSTR_DSQUERYPARAMS: Pcwstr = w("DsQueryParameters")
 public val CFSTR_DSQUERYSCOPE: Pcwstr = w("DsQueryScope")
 
 public val CFSTR_DS_DISPLAY_SPEC_OPTIONS: Pcwstr = w("DsDisplaySpecOptions")
-
-public val CLSID_COMMON_QUERY: Guid = Guid.fromU128(U128(0x83bc5ec06f2a11d0uL, 0xa1c400aa00c16e65uL))
-
-public val CLSID_DS_ADMIN_CREATE_OBJ: Guid = Guid.fromU128(U128(0xe301a009f90111d2uL, 0x82b900c04f68928buL))
-
-public val CLSID_DS_DISPLAY_SPECIFIER: Guid = Guid.fromU128(U128(0x1ab4a8c06a0b11d2uL, 0xad4900c04fa31a86uL))
-
-public val CLSID_DS_DOMAIN_TREE_BROWSER: Guid = Guid.fromU128(U128(0x1698790ae2b411d0uL, 0xb0b100c04fd8dca6uL))
-
-public val CLSID_DS_FIND_ADVANCED: Guid = Guid.fromU128(U128(0x83ee3fe357d911d0uL, 0xb93200a024ab2dbbuL))
-
-public val CLSID_DS_FIND_COMPUTER: Guid = Guid.fromU128(U128(0x1600670087ad11d0uL, 0x914000aa00c16e65uL))
-
-public val CLSID_DS_FIND_CONTAINER: Guid = Guid.fromU128(U128(0xc1b3cbf2886a11d0uL, 0x914000aa00c16e65uL))
-
-public val CLSID_DS_FIND_DOMAIN_CONTROLLER: Guid = Guid.fromU128(U128(0x538c7b7ed25e11d0uL, 0x974200a0c906af45uL))
-
-public val CLSID_DS_FIND_FRS_MEMBERS: Guid = Guid.fromU128(U128(0x94ce4b18b3d311d1uL, 0xb9b400c04fd8d5b0uL))
-
-public val CLSID_DS_FIND_OBJECTS: Guid = Guid.fromU128(U128(0x83ee3fe157d911d0uL, 0xb93200a024ab2dbbuL))
-
-public val CLSID_DS_FIND_PEOPLE: Guid = Guid.fromU128(U128(0x83ee3fe257d911d0uL, 0xb93200a024ab2dbbuL))
-
-public val CLSID_DS_FIND_PRINTER: Guid = Guid.fromU128(U128(0xb577f0707ee211d0uL, 0x913f00aa00c16e65uL))
-
-public val CLSID_DS_FIND_VOLUME: Guid = Guid.fromU128(U128(0xc1b3cbf1886a11d0uL, 0x914000aa00c16e65uL))
-
-public val CLSID_DS_FIND_WRITEABLE_DOMAIN_CONTROLLER: Guid = Guid.fromU128(U128(0x7cbef079aa84444buL, 0xbc7068e41283eabcuL))
-
-public val CLSID_DS_FOLDER_PROPERTIES: Guid = Guid.fromU128(U128(0x9e51e0d06e0f11d2uL, 0x960100c04fa31a86uL))
-
-public val CLSID_DS_OBJECT_PICKER: Guid = Guid.fromU128(U128(0x17d6ccd83b7b11d2uL, 0xb9e000c04fd8dbf7uL))
-
-public val CLSID_DS_PROPERTY_PAGES: Guid = Guid.fromU128(U128(0xd45d530764b11d0uL, 0xa1ca00aa00c16e65uL))
-
-public val CLSID_DS_QUERY: Guid = Guid.fromU128(U128(0x8a23e65e31c211d0uL, 0x891c00a024ab2dbbuL))
-
-public val CLSID_MICROSOFT_DS: Guid = Guid.fromU128(U128(0xfe1290f0cfbd11cfuL, 0xa33000aa00c16e65uL))
 
 public val CQFF_ISOPTIONAL: UInt = 2u
 
@@ -648,8 +600,6 @@ public val CQPM_RELEASE: UInt = 2u
 
 public val CQPM_SETDEFAULTPARAMETERS: UInt = 9u
 
-public val CASE_IGNORE_LIST: Guid = Guid.fromU128(U128(0x15f88a55468011d1uL, 0xa3b400c04fb950dcuL))
-
 public val DBDTF_RETURNEXTERNAL: UInt = 4u
 
 public val DBDTF_RETURNFQDN: UInt = 1u
@@ -659,10 +609,6 @@ public val DBDTF_RETURNINBOUND: UInt = 8u
 public val DBDTF_RETURNINOUTBOUND: UInt = 16u
 
 public val DBDTF_RETURNMIXEDDOMAINS: UInt = 2u
-
-public val DN_WITH_BINARY: Guid = Guid.fromU128(U128(0x7e99c0a3f93511d2uL, 0xba9600c04fb6d0d1uL))
-
-public val DN_WITH_STRING: Guid = Guid.fromU128(U128(0x334857ccf93411d2uL, 0xba9600c04fb6d0d1uL))
 
 public val DSA_NEWOBJ_CTX_CLEANUP: UInt = 4u
 
@@ -1466,8 +1412,6 @@ public val DS_ROLE_ROLE_STANDALONE_SERVER: DsroleMachineRole = 2
 
 public val DS_ROLE_ROLE_STANDALONE_WORKSTATION: DsroleMachineRole = 0
 
-public val EMAIL: Guid = Guid.fromU128(U128(0x8f92a857478e11d1uL, 0xa3b400c04fb950dcuL))
-
 public val FACILITY_BACKUP: UInt = 2047u
 
 public val FACILITY_NTDSB: UInt = 2048u
@@ -1485,8 +1429,6 @@ public val FLAG_SERVER_OPTIONAL_FEATURE: UInt = 8u
 public val FRSCONN_MAX_PRIORITY: UInt = 8u
 
 public val FRSCONN_PRIORITY_MASK: UInt = 1879048192u
-
-public val FAX_NUMBER: Guid = Guid.fromU128(U128(0xa5062215468111d1uL, 0xa3b400c04fb950dcuL))
 
 public val GUID_COMPUTRS_CONTAINER_A: Pcstr = s("aa312825768811d1aded00c04fd8d5cd")
 
@@ -1543,10 +1485,6 @@ public val GUID_SYSTEMS_CONTAINER_W: Pcwstr = w("ab1d30f3768811d1aded00c04fd8d5c
 public val GUID_USERS_CONTAINER_A: Pcstr = s("a9d1ca15768811d1aded00c04fd8d5cd")
 
 public val GUID_USERS_CONTAINER_W: Pcwstr = w("a9d1ca15768811d1aded00c04fd8d5cd")
-
-public val HOLD: Guid = Guid.fromU128(U128(0xb3ad3e13408011d1uL, 0xa3ac00c04fb950dcuL))
-
-public val LARGE_INTEGER: Guid = Guid.fromU128(U128(0x927971f5093911d1uL, 0x8be100c04fd8d503uL))
 
 public val NTDSAPI_BIND_ALLOW_DELEGATION: UInt = 1u
 
@@ -1650,10 +1588,6 @@ public val NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: UInt = 2u
 
 public val NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: UInt = 1u
 
-public val NAME_TRANSLATE: Guid = Guid.fromU128(U128(0x274fae1f362611d1uL, 0xa3a400c04fb950dcuL))
-
-public val NET_ADDRESS: Guid = Guid.fromU128(U128(0xb0b71247408011d1uL, 0xa3ac00c04fb950dcuL))
-
 public val OQWF_DEFAULTFORM: UInt = 2u
 
 public val OQWF_HIDEMENUS: UInt = 1024u
@@ -1678,35 +1612,15 @@ public val OQWF_SHOWOPTIONAL: UInt = 128u
 
 public val OQWF_SINGLESELECT: UInt = 4u
 
-public val OCTET_LIST: Guid = Guid.fromU128(U128(0x1241400f468011d1uL, 0xa3b400c04fb950dcuL))
-
-public val PATH: Guid = Guid.fromU128(U128(0xb2538919408011d1uL, 0xa3ac00c04fb950dcuL))
-
-public val PATHNAME: Guid = Guid.fromU128(U128(0x80d0d78f42111d0uL, 0xa36e00c04fb950dcuL))
-
-public val POSTAL_ADDRESS: Guid = Guid.fromU128(U128(0xa75afcd468011d1uL, 0xa3b400c04fb950dcuL))
-
-public val PROPERTY_ENTRY: Guid = Guid.fromU128(U128(0x72d3edc2a4c411d0uL, 0x853300c04fd8d503uL))
-
-public val PROPERTY_VALUE: Guid = Guid.fromU128(U128(0x7b9e38b0a97c11d0uL, 0x853400c04fd8d503uL))
-
 public val QUERYFORM_CHANGESFORMLIST: ULong = 1uL
 
 public val QUERYFORM_CHANGESOPTFORMLIST: ULong = 2uL
-
-public val REPLICA_POINTER: Guid = Guid.fromU128(U128(0xf5d1badf408011d1uL, 0xa3ac00c04fb950dcuL))
 
 public val SCHEDULE_BANDWIDTH: UInt = 1u
 
 public val SCHEDULE_INTERVAL: UInt = 0u
 
 public val SCHEDULE_PRIORITY: UInt = 2u
-
-public val SECURITY_DESCRIPTOR: Guid = Guid.fromU128(U128(0xb958f73c9bdd11d0uL, 0x852c00c04fd8d503uL))
-
-public val TIMESTAMP: Guid = Guid.fromU128(U128(0xb2bed2eb408011d1uL, 0xa3ac00c04fb950dcuL))
-
-public val TYPED_NAME: Guid = Guid.fromU128(U128(0xb33143cb408011d1uL, 0xa3ac00c04fb950dcuL))
 
 public val WM_ADSPROP_NOTIFY_APPLY: UInt = 2128u
 
@@ -1723,8 +1637,6 @@ public val WM_ADSPROP_NOTIFY_PAGEHWND: UInt = 2126u
 public val WM_ADSPROP_NOTIFY_PAGEINIT: UInt = 2125u
 
 public val WM_ADSPROP_NOTIFY_SETFOCUS: UInt = 2129u
-
-public val WIN_NT_SYSTEM_INFO: Guid = Guid.fromU128(U128(0x66182ec4afd111d2uL, 0x9cb90000f87a369euL))
 
 public val HR_ACCESS_DENIED: Hresult = 0xC8000773u.toInt()
 
@@ -2097,3 +2009,91 @@ public val HR_WRITE_CONFLICT: Hresult = 0xC800044Eu.toInt()
 public val HRERR_DATA_HAS_CHANGED: Hresult = 0xC800064Bu.toInt()
 
 public val HRWRN_DATA_HAS_CHANGED: Hresult = 0x8800064Au.toInt()
+
+public val AD_SYSTEM_INFO: Guid = Guid.fromU128(U128(0x50b6327fafd111d2uL, 0x9cb90000f87a369euL))
+
+public val A_DS_SECURITY_UTILITY: Guid = Guid.fromU128(U128(0xf270c64affb84ae4uL, 0x85fe3a75e5347966uL))
+
+public val ACCESS_CONTROL_ENTRY: Guid = Guid.fromU128(U128(0xb75ac0009bdd11d0uL, 0x852c00c04fd8d503uL))
+
+public val ACCESS_CONTROL_LIST: Guid = Guid.fromU128(U128(0xb85ea0529bdd11d0uL, 0x852c00c04fd8d503uL))
+
+public val BACK_LINK: Guid = Guid.fromU128(U128(0xfcbf906f408011d1uL, 0xa3ac00c04fb950dcuL))
+
+public val CLSID_COMMON_QUERY: Guid = Guid.fromU128(U128(0x83bc5ec06f2a11d0uL, 0xa1c400aa00c16e65uL))
+
+public val CLSID_DS_ADMIN_CREATE_OBJ: Guid = Guid.fromU128(U128(0xe301a009f90111d2uL, 0x82b900c04f68928buL))
+
+public val CLSID_DS_DISPLAY_SPECIFIER: Guid = Guid.fromU128(U128(0x1ab4a8c06a0b11d2uL, 0xad4900c04fa31a86uL))
+
+public val CLSID_DS_DOMAIN_TREE_BROWSER: Guid = Guid.fromU128(U128(0x1698790ae2b411d0uL, 0xb0b100c04fd8dca6uL))
+
+public val CLSID_DS_FIND_ADVANCED: Guid = Guid.fromU128(U128(0x83ee3fe357d911d0uL, 0xb93200a024ab2dbbuL))
+
+public val CLSID_DS_FIND_COMPUTER: Guid = Guid.fromU128(U128(0x1600670087ad11d0uL, 0x914000aa00c16e65uL))
+
+public val CLSID_DS_FIND_CONTAINER: Guid = Guid.fromU128(U128(0xc1b3cbf2886a11d0uL, 0x914000aa00c16e65uL))
+
+public val CLSID_DS_FIND_DOMAIN_CONTROLLER: Guid = Guid.fromU128(U128(0x538c7b7ed25e11d0uL, 0x974200a0c906af45uL))
+
+public val CLSID_DS_FIND_FRS_MEMBERS: Guid = Guid.fromU128(U128(0x94ce4b18b3d311d1uL, 0xb9b400c04fd8d5b0uL))
+
+public val CLSID_DS_FIND_OBJECTS: Guid = Guid.fromU128(U128(0x83ee3fe157d911d0uL, 0xb93200a024ab2dbbuL))
+
+public val CLSID_DS_FIND_PEOPLE: Guid = Guid.fromU128(U128(0x83ee3fe257d911d0uL, 0xb93200a024ab2dbbuL))
+
+public val CLSID_DS_FIND_PRINTER: Guid = Guid.fromU128(U128(0xb577f0707ee211d0uL, 0x913f00aa00c16e65uL))
+
+public val CLSID_DS_FIND_VOLUME: Guid = Guid.fromU128(U128(0xc1b3cbf1886a11d0uL, 0x914000aa00c16e65uL))
+
+public val CLSID_DS_FIND_WRITEABLE_DOMAIN_CONTROLLER: Guid = Guid.fromU128(U128(0x7cbef079aa84444buL, 0xbc7068e41283eabcuL))
+
+public val CLSID_DS_FOLDER_PROPERTIES: Guid = Guid.fromU128(U128(0x9e51e0d06e0f11d2uL, 0x960100c04fa31a86uL))
+
+public val CLSID_DS_OBJECT_PICKER: Guid = Guid.fromU128(U128(0x17d6ccd83b7b11d2uL, 0xb9e000c04fd8dbf7uL))
+
+public val CLSID_DS_PROPERTY_PAGES: Guid = Guid.fromU128(U128(0xd45d530764b11d0uL, 0xa1ca00aa00c16e65uL))
+
+public val CLSID_DS_QUERY: Guid = Guid.fromU128(U128(0x8a23e65e31c211d0uL, 0x891c00a024ab2dbbuL))
+
+public val CLSID_MICROSOFT_DS: Guid = Guid.fromU128(U128(0xfe1290f0cfbd11cfuL, 0xa33000aa00c16e65uL))
+
+public val CASE_IGNORE_LIST: Guid = Guid.fromU128(U128(0x15f88a55468011d1uL, 0xa3b400c04fb950dcuL))
+
+public val DN_WITH_BINARY: Guid = Guid.fromU128(U128(0x7e99c0a3f93511d2uL, 0xba9600c04fb6d0d1uL))
+
+public val DN_WITH_STRING: Guid = Guid.fromU128(U128(0x334857ccf93411d2uL, 0xba9600c04fb6d0d1uL))
+
+public val EMAIL: Guid = Guid.fromU128(U128(0x8f92a857478e11d1uL, 0xa3b400c04fb950dcuL))
+
+public val FAX_NUMBER: Guid = Guid.fromU128(U128(0xa5062215468111d1uL, 0xa3b400c04fb950dcuL))
+
+public val HOLD: Guid = Guid.fromU128(U128(0xb3ad3e13408011d1uL, 0xa3ac00c04fb950dcuL))
+
+public val LARGE_INTEGER: Guid = Guid.fromU128(U128(0x927971f5093911d1uL, 0x8be100c04fd8d503uL))
+
+public val NAME_TRANSLATE: Guid = Guid.fromU128(U128(0x274fae1f362611d1uL, 0xa3a400c04fb950dcuL))
+
+public val NET_ADDRESS: Guid = Guid.fromU128(U128(0xb0b71247408011d1uL, 0xa3ac00c04fb950dcuL))
+
+public val OCTET_LIST: Guid = Guid.fromU128(U128(0x1241400f468011d1uL, 0xa3b400c04fb950dcuL))
+
+public val PATH: Guid = Guid.fromU128(U128(0xb2538919408011d1uL, 0xa3ac00c04fb950dcuL))
+
+public val PATHNAME: Guid = Guid.fromU128(U128(0x80d0d78f42111d0uL, 0xa36e00c04fb950dcuL))
+
+public val POSTAL_ADDRESS: Guid = Guid.fromU128(U128(0xa75afcd468011d1uL, 0xa3b400c04fb950dcuL))
+
+public val PROPERTY_ENTRY: Guid = Guid.fromU128(U128(0x72d3edc2a4c411d0uL, 0x853300c04fd8d503uL))
+
+public val PROPERTY_VALUE: Guid = Guid.fromU128(U128(0x7b9e38b0a97c11d0uL, 0x853400c04fd8d503uL))
+
+public val REPLICA_POINTER: Guid = Guid.fromU128(U128(0xf5d1badf408011d1uL, 0xa3ac00c04fb950dcuL))
+
+public val SECURITY_DESCRIPTOR: Guid = Guid.fromU128(U128(0xb958f73c9bdd11d0uL, 0x852c00c04fd8d503uL))
+
+public val TIMESTAMP: Guid = Guid.fromU128(U128(0xb2bed2eb408011d1uL, 0xa3ac00c04fb950dcuL))
+
+public val TYPED_NAME: Guid = Guid.fromU128(U128(0xb33143cb408011d1uL, 0xa3ac00c04fb950dcuL))
+
+public val WIN_NT_SYSTEM_INFO: Guid = Guid.fromU128(U128(0x66182ec4afd111d2uL, 0x9cb90000f87a369euL))

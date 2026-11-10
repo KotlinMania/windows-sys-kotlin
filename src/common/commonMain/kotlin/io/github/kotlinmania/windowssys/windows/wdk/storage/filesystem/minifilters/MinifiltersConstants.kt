@@ -185,8 +185,6 @@ public val FLT_VALID_FILE_NAME_QUERY_METHODS: UInt = 65280u
 
 public val FLT_VOLUME_CONTEXT: UInt = 1u
 
-public val GUID_ECP_FLT_CREATEFILE_TARGET: Guid = Guid.fromU128(U128(0xce08041df411447fuL, 0xb70dccee45c23facuL))
-
 public val IRP_MJ_ACQUIRE_FOR_CC_FLUSH: UShort = 65531u.toUShort()
 
 public val IRP_MJ_ACQUIRE_FOR_MOD_WRITE: UShort = 65533u.toUShort()
@@ -220,3 +218,5 @@ public val IRP_MJ_VOLUME_DISMOUNT: UShort = 65516u.toUShort()
 public val IRP_MJ_VOLUME_MOUNT: UShort = 65517u.toUShort()
 
 public val VOL_PROP_FL_DAX_VOLUME: UInt = 1u
+
+public val GUID_ECP_FLT_CREATEFILE_TARGET: Guid = Guid.fromU128(U128(0xce08041df411447fuL, 0xb70dccee45c23facuL))

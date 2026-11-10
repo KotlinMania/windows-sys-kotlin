@@ -1,30 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-public val WORDLIST_TYPE_ADD: WordlistType = 1
-
-public val WORDLIST_TYPE_AUTOCORRECT: WordlistType = 3
-
-public val WORDLIST_TYPE_EXCLUDE: WordlistType = 2
-
-public val WORDLIST_TYPE_IGNORE: WordlistType = 0
-
-public val WEEK_UNIT: CaldatetimeDateunit = 3
-
-public val YEAR_UNIT: CaldatetimeDateunit = 1
-
-public val SID_ARABIC: Scriptcontf = 9
-
-public val SID_ARMENIAN: Scriptcontf = 7
-
-public val SID_ASCII_LATIN: Scriptcontf = 3
-
-public val SID_ASCII_SYM: Scriptcontf = 2
-
-public val SID_BENGALI: Scriptcontf = 11
-
-public val SID_BOPOMOFO: Scriptcontf = 25
-
-public val SID_BRAILLE: Scriptcontf = 31
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val SID_BURMESE: Scriptcontf = 36
 
@@ -99,3 +76,29 @@ public val SID_TIBETAN: Scriptcontf = 21
 public val SID_USER_DEFINED: Scriptcontf = 40
 
 public val SID_YI: Scriptcontf = 30
+
+public val CM_LANG_CONVERT_CHARSET: Guid = Guid.fromU128(U128(0xd66d6f99cdaa11d0uL, 0xb82200c04fc9b31fuL))
+
+public val CM_LANG_STRING: Guid = Guid.fromU128(U128(0xc04d65cfb70d11d0uL, 0xb18800aa0038c969uL))
+
+public val C_MULTI_LANGUAGE: Guid = Guid.fromU128(U128(0x275c23e2374711d0uL, 0x9fea00aa003f8646uL))
+
+public val ELS_GUID_LANGUAGE_DETECTION: Guid = Guid.fromU128(U128(0xcf7e00b1909b4d95uL, 0xa8f4611f7c377702uL))
+
+public val ELS_GUID_SCRIPT_DETECTION: Guid = Guid.fromU128(U128(0x2d64b4396caf4f6buL, 0xb688e5d0f4faa7d7uL))
+
+public val ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: Guid = Guid.fromU128(U128(0xf4dfd82591a4489fuL, 0x855e9ad9bee55727uL))
+
+public val ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: Guid = Guid.fromU128(U128(0x3dd12a985afd4903uL, 0xa13fe17e6c0bfe01uL))
+
+public val ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: Guid = Guid.fromU128(U128(0xc4a4dcfe26614d02uL, 0x9835f48187109803uL))
+
+public val ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: Guid = Guid.fromU128(U128(0x4ba2a721e43d41b7uL, 0xb330536ae1e48863uL))
+
+public val ELS_GUID_TRANSLITERATION_HANS_TO_HANT: Guid = Guid.fromU128(U128(0x3caccdc8559042dcuL, 0x9a7bb5a6b5b3b63buL))
+
+public val ELS_GUID_TRANSLITERATION_HANT_TO_HANS: Guid = Guid.fromU128(U128(0xa3a8333bf4fc42f6uL, 0xa0c40462fe7317cbuL))
+
+public val ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: Guid = Guid.fromU128(U128(0xd8b983b1f8bf4a2buL, 0xbcd55b5ea20613e1uL))
+
+public val SPELL_CHECKER_FACTORY: Guid = Guid.fromU128(U128(0x7ab366531796484buL, 0xbdfae74f1db7c1dcuL))

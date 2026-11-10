@@ -1,197 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates
 
-import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-
-public val XCN_OID_SUPPORTED_APPLICATION_CONTEXT: CertenrollObjectid = 148
-
-public val XCN_OID_SUR_NAME: CertenrollObjectid = 122
-
-public val XCN_OID_TELEPHONE_NUMBER: CertenrollObjectid = 138
-
-public val XCN_OID_TELETEXT_TERMINAL_IDENTIFIER: CertenrollObjectid = 140
-
-public val XCN_OID_TELEX_NUMBER: CertenrollObjectid = 139
-
-public val XCN_OID_TIMESTAMP_TOKEN: CertenrollObjectid = 427
-
-public val XCN_OID_TITLE: CertenrollObjectid = 130
-
-public val XCN_OID_USER_CERTIFICATE: CertenrollObjectid = 154
-
-public val XCN_OID_USER_PASSWORD: CertenrollObjectid = 153
-
-public val XCN_OID_VERISIGN_BITSTRING_6_13: CertenrollObjectid = 287
-
-public val XCN_OID_VERISIGN_ISS_STRONG_CRYPTO: CertenrollObjectid = 288
-
-public val XCN_OID_VERISIGN_ONSITE_JURISDICTION_HASH: CertenrollObjectid = 286
-
-public val XCN_OID_VERISIGN_PRIVATE_6_9: CertenrollObjectid = 285
-
-public val XCN_OID_WHQL_CRYPTO: CertenrollObjectid = 261
-
-public val XCN_OID_X21_ADDRESS: CertenrollObjectid = 142
-
-public val XCN_OID_X957: CertenrollObjectid = 55
-
-public val XCN_OID_X957_DSA: CertenrollObjectid = 56
-
-public val XCN_OID_X957_SHA1DSA: CertenrollObjectid = 57
-
-public val XCN_OID_YESNO_TRUST_ATTR: CertenrollObjectid = 278
-
-public val XCN_PROPERTYID_NONE: CertenrollPropertyid = 0
-
-public val XCN_PROV_DH_SCHANNEL: X509ProviderType = 18
-
-public val XCN_PROV_DSS: X509ProviderType = 3
-
-public val XCN_PROV_DSS_DH: X509ProviderType = 13
-
-public val XCN_PROV_EC_ECDSA_FULL: X509ProviderType = 16
-
-public val XCN_PROV_EC_ECDSA_SIG: X509ProviderType = 14
-
-public val XCN_PROV_EC_ECNRA_FULL: X509ProviderType = 17
-
-public val XCN_PROV_EC_ECNRA_SIG: X509ProviderType = 15
-
-public val XCN_PROV_FORTEZZA: X509ProviderType = 4
-
-public val XCN_PROV_INTEL_SEC: X509ProviderType = 22
-
-public val XCN_PROV_MS_EXCHANGE: X509ProviderType = 5
-
-public val XCN_PROV_NONE: X509ProviderType = 0
-
-public val XCN_PROV_REPLACE_OWF: X509ProviderType = 23
-
-public val XCN_PROV_RNG: X509ProviderType = 21
-
-public val XCN_PROV_RSA_AES: X509ProviderType = 24
-
-public val XCN_PROV_RSA_FULL: X509ProviderType = 1
-
-public val XCN_PROV_RSA_SCHANNEL: X509ProviderType = 12
-
-public val XCN_PROV_RSA_SIG: X509ProviderType = 2
-
-public val XCN_PROV_SPYRUS_LYNKS: X509ProviderType = 20
-
-public val XCN_PROV_SSL: X509ProviderType = 6
-
-public val XECI_AUTOENROLL: UInt = 2u
-
-public val XECI_CERTREQ: UInt = 4u
-
-public val XECI_DISABLE: UInt = 0u
-
-public val XECI_REQWIZARD: UInt = 3u
-
-public val XECI_XENROLL: UInt = 1u
-
-public val XECP_STRING_PROPERTY: UInt = 1u
-
-public val XECR_CMC: CertCreateRequestFlags = 3
-
-public val XECR_PKCS10_V1_5: CertCreateRequestFlags = 4
-
-public val XECR_PKCS10_V2_0: CertCreateRequestFlags = 1
-
-public val XECR_PKCS7: CertCreateRequestFlags = 2
-
-public val XECT_EXTENSION_V1: AddedCertType = 1
-
-public val XECT_EXTENSION_V2: AddedCertType = 2
-
-public val XEKL_KEYSIZE_DEFAULT: UInt = 4u
-
-public val XEKL_KEYSIZE_INC: XeklKeysize = 3
-
-public val XEKL_KEYSIZE_MAX: XeklKeysize = 2
-
-public val XEKL_KEYSIZE_MIN: XeklKeysize = 1
-
-public val XEKL_KEYSPEC_KEYX: XeklKeyspec = 1
-
-public val XEKL_KEYSPEC_SIG: XeklKeyspec = 2
-
-public val XEPR_CADNS: PendingRequestDesiredProperty = 1
-
-public val XEPR_CAFRIENDLYNAME: PendingRequestDesiredProperty = 3
-
-public val XEPR_CANAME: PendingRequestDesiredProperty = 2
-
-public val XEPR_DATE: UInt = 5u
-
-public val XEPR_ENUM_FIRST: Int = -1
-
-public val XEPR_HASH: PendingRequestDesiredProperty = 8
-
-public val XEPR_REQUESTID: PendingRequestDesiredProperty = 4
-
-public val XEPR_TEMPLATENAME: UInt = 6u
-
-public val XEPR_V1TEMPLATENAME: UInt = 9u
-
-public val XEPR_V2TEMPLATEOID: UInt = 16u
-
-public val XEPR_VERSION: UInt = 7u
-
-public val DW_CAXCHGOVERLAPPERIODCOUNTDEFAULT: UInt = 1u
-
-public val DW_CAXCHGVALIDITYPERIODCOUNTDEFAULT: UInt = 1u
-
-public val DW_CRLDELTAOVERLAPPERIODCOUNTDEFAULT: UInt = 0u
-
-public val DW_CRLDELTAPERIODCOUNTDEFAULT: UInt = 1u
-
-public val DW_CRLOVERLAPPERIODCOUNTDEFAULT: UInt = 0u
-
-public val DW_CRLPERIODCOUNTDEFAULT: UInt = 1u
-
-public val DW_VALIDITYPERIODCOUNTDEFAULT_ENTERPRISE: UInt = 2u
-
-public val DW_VALIDITYPERIODCOUNTDEFAULT_ROOT: UInt = 5u
-
-public val DW_VALIDITYPERIODCOUNTDEFAULT_STANDALONE: UInt = 1u
-
-public val SZ_BACKUPANNOTATION: Pcstr = s("Cert Server Backup Interface")
-
-public val SZ_DBBASENAMEPARM: Pcstr = s("edb")
-
-public val SZ_NAMESEPARATORDEFAULT: Pcstr = s("\n")
-
-public val SZ_PROPASNTAG: Pcstr = s("{asn}")
-
-public val SZ_RESTOREANNOTATION: Pcstr = s("Cert Server Restore Interface")
-
-public val WSZ_AT_EKCERTINF: Pcwstr = w("@EKCert")
-
-public val WSZ_AT_TESTROOT: Pcwstr = w("@TestRoot")
-
-public val WSZ_CAPOLICYFILE: Pcwstr = w("CAPolicy.inf")
-
-public val WSZ_CERTEXITMODULE_POSTFIX: Pcwstr = w(".Exit")
-
-public val WSZ_CERTIFICATETRANSPARENCYFLAGS: Pcwstr = w("CertificateTransparencyFlags")
-
-public val WSZ_CERTMANAGE_SUFFIX: Pcwstr = w("Manage")
-
-public val WSZ_CERTPOLICYMODULE_POSTFIX: Pcwstr = w(".Policy")
-
-public val WSZ_CERT_TYPE: Pcwstr = w("RequestType")
-
-public val WSZ_CERT_TYPE_CLIENT: Pcwstr = w("Client")
-
-public val WSZ_CERT_TYPE_CODESIGN: Pcwstr = w("CodeSign")
-
-public val WSZ_CERT_TYPE_CUSTOMER: Pcwstr = w("SetCustomer")
-
-public val WSZ_CERT_TYPE_MERCHANT: Pcwstr = w("SetMerchant")
 
 public val WSZ_CERT_TYPE_PAYMENT: Pcwstr = w("SetPayment")
 
@@ -1306,3 +1118,191 @@ public val WSZ_SECUREDATTRIBUTES: Pcwstr = w("SignedAttributes")
 public val WSZ_SERVICE_NAME: Pcwstr = w("CertSvc")
 
 public val WSZZ_DEFAULTSIGNEDATTRIBUTES: Pcwstr = w("RequesterName\u0000")
+
+public val C_ALTERNATIVE_NAME: Guid = Guid.fromU128(U128(0x884e2013217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_ALTERNATIVE_NAMES: Guid = Guid.fromU128(U128(0x884e2014217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_BINARY_CONVERTER: Guid = Guid.fromU128(U128(0x884e2002217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_ADMIN: Guid = Guid.fromU128(U128(0x37eabaf07fb611d0uL, 0x881700a0c903b83cuL))
+
+public val C_CERT_CONFIG: Guid = Guid.fromU128(U128(0x372fce38432411d0uL, 0x881000a0c903b83cuL))
+
+public val C_CERT_ENCODE_ALT_NAME: Guid = Guid.fromU128(U128(0x1cfc4cda127111d1uL, 0x9bd400c04fb683fauL))
+
+public val C_CERT_ENCODE_BIT_STRING: Guid = Guid.fromU128(U128(0x6d6b3cd8127811d1uL, 0x9bd400c04fb683fauL))
+
+public val C_CERT_ENCODE_CRL_DIST_INFO: Guid = Guid.fromU128(U128(0x1fa60a0bbff11d0uL, 0x882500a0c903b83cuL))
+
+public val C_CERT_ENCODE_DATE_ARRAY: Guid = Guid.fromU128(U128(0x301f77b0a47011d0uL, 0x882100a0c903b83cuL))
+
+public val C_CERT_ENCODE_LONG_ARRAY: Guid = Guid.fromU128(U128(0x4e0680a0a0a211d0uL, 0x882100a0c903b83cuL))
+
+public val C_CERT_ENCODE_STRING_ARRAY: Guid = Guid.fromU128(U128(0x19a76fe0749411d0uL, 0x881600a0c903b83cuL))
+
+public val C_CERT_GET_CONFIG: Guid = Guid.fromU128(U128(0xc6cc49b0ce1711d0uL, 0x883300a0c903b83cuL))
+
+public val C_CERT_PROPERTIES: Guid = Guid.fromU128(U128(0x884e202f217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY: Guid = Guid.fromU128(U128(0x884e202e217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_ARCHIVED: Guid = Guid.fromU128(U128(0x884e2037217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_ARCHIVED_KEY_HASH: Guid = Guid.fromU128(U128(0x884e203b217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_AUTO_ENROLL: Guid = Guid.fromU128(U128(0x884e2032217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_BACKED_UP: Guid = Guid.fromU128(U128(0x884e2038217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_DESCRIPTION: Guid = Guid.fromU128(U128(0x884e2031217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_ENROLLMENT: Guid = Guid.fromU128(U128(0x884e2039217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_ENROLLMENT_POLICY_SERVER: Guid = Guid.fromU128(U128(0x884e204c217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_FRIENDLY_NAME: Guid = Guid.fromU128(U128(0x884e2030217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_KEY_PROV_INFO: Guid = Guid.fromU128(U128(0x884e2036217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_RENEWAL: Guid = Guid.fromU128(U128(0x884e203a217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_REQUEST_ORIGINATOR: Guid = Guid.fromU128(U128(0x884e2033217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_PROPERTY_SHA1HASH: Guid = Guid.fromU128(U128(0x884e2034217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERT_REQUEST: Guid = Guid.fromU128(U128(0x98aff3f0552411d0uL, 0x881200a0c903b83cuL))
+
+public val C_CERT_SERVER_EXIT: Guid = Guid.fromU128(U128(0x4c4a5e40732c11d0uL, 0x881600a0c903b83cuL))
+
+public val C_CERT_SERVER_POLICY: Guid = Guid.fromU128(U128(0xaa000926ffbe11cfuL, 0x880000a0c903b83cuL))
+
+public val C_CERT_VIEW: Guid = Guid.fromU128(U128(0xa12d0f7a1e8411d1uL, 0x9bd600c04fb683fauL))
+
+public val C_CERTIFICATE_ATTESTATION_CHALLENGE: Guid = Guid.fromU128(U128(0x1362ada1eb60456auL, 0xb6e1118050db741buL))
+
+public val C_CERTIFICATE_POLICIES: Guid = Guid.fromU128(U128(0x884e201f217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CERTIFICATE_POLICY: Guid = Guid.fromU128(U128(0x884e201e217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CRYPT_ATTRIBUTE: Guid = Guid.fromU128(U128(0x884e202c217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CRYPT_ATTRIBUTES: Guid = Guid.fromU128(U128(0x884e202d217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CSP_INFORMATION: Guid = Guid.fromU128(U128(0x884e2007217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CSP_INFORMATIONS: Guid = Guid.fromU128(U128(0x884e2008217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_CSP_STATUS: Guid = Guid.fromU128(U128(0x884e2009217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_ENROLL: Guid = Guid.fromU128(U128(0x43f8f2897a2011d0uL, 0x8f0600c04fc295e1uL))
+
+public val C_ENROLL2: Guid = Guid.fromU128(U128(0x127698e4e7304e5cuL, 0xa2b121490a70c8a1uL))
+
+public val C_OBJECT_ID: Guid = Guid.fromU128(U128(0x884e2000217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_OBJECT_IDS: Guid = Guid.fromU128(U128(0x884e2001217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_POLICY_QUALIFIER: Guid = Guid.fromU128(U128(0x884e201c217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_POLICY_QUALIFIERS: Guid = Guid.fromU128(U128(0x884e201d217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_SIGNER_CERTIFICATE: Guid = Guid.fromU128(U128(0x884e203d217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_SMIME_CAPABILITIES: Guid = Guid.fromU128(U128(0x884e201a217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val C_SMIME_CAPABILITY: Guid = Guid.fromU128(U128(0x884e2019217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX500DISTINGUISHED_NAME: Guid = Guid.fromU128(U128(0x884e2003217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTE: Guid = Guid.fromU128(U128(0x884e2022217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTE_ARCHIVE_KEY: Guid = Guid.fromU128(U128(0x884e2027217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTE_ARCHIVE_KEY_HASH: Guid = Guid.fromU128(U128(0x884e2028217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTE_CLIENT_ID: Guid = Guid.fromU128(U128(0x884e2025217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTE_CSP_PROVIDER: Guid = Guid.fromU128(U128(0x884e202b217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTE_EXTENSIONS: Guid = Guid.fromU128(U128(0x884e2024217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTE_OS_VERSION: Guid = Guid.fromU128(U128(0x884e202a217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTE_RENEWAL_CERTIFICATE: Guid = Guid.fromU128(U128(0x884e2026217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ATTRIBUTES: Guid = Guid.fromU128(U128(0x884e2023217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509CERTIFICATE_REQUEST_CERTIFICATE: Guid = Guid.fromU128(U128(0x884e2043217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509CERTIFICATE_REQUEST_CMC: Guid = Guid.fromU128(U128(0x884e2045217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509CERTIFICATE_REQUEST_PKCS10: Guid = Guid.fromU128(U128(0x884e2042217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509CERTIFICATE_REQUEST_PKCS7: Guid = Guid.fromU128(U128(0x884e2044217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509CERTIFICATE_REVOCATION_LIST: Guid = Guid.fromU128(U128(0x884e2060217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509CERTIFICATE_REVOCATION_LIST_ENTRIES: Guid = Guid.fromU128(U128(0x884e205f217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509CERTIFICATE_REVOCATION_LIST_ENTRY: Guid = Guid.fromU128(U128(0x884e205e217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509CERTIFICATE_TEMPLATE_AD_WRITABLE: Guid = Guid.fromU128(U128(0x8336e3232e6a4a04uL, 0x937c548f681839b3uL))
+
+public val CX509ENDORSEMENT_KEY: Guid = Guid.fromU128(U128(0x11a25a1db9a34edduL, 0xaf833b59adbed361uL))
+
+public val CX509ENROLLMENT: Guid = Guid.fromU128(U128(0x884e2046217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ENROLLMENT_HELPER: Guid = Guid.fromU128(U128(0x884e2050217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ENROLLMENT_POLICY_ACTIVE_DIRECTORY: Guid = Guid.fromU128(U128(0x91f39027217f11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ENROLLMENT_POLICY_WEB_SERVICE: Guid = Guid.fromU128(U128(0x91f39028217f11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509ENROLLMENT_WEB_CLASS_FACTORY: Guid = Guid.fromU128(U128(0x884e2049217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION: Guid = Guid.fromU128(U128(0x884e200d217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_ALTERNATIVE_NAMES: Guid = Guid.fromU128(U128(0x884e2015217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_AUTHORITY_KEY_IDENTIFIER: Guid = Guid.fromU128(U128(0x884e2018217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_BASIC_CONSTRAINTS: Guid = Guid.fromU128(U128(0x884e2016217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_CERTIFICATE_POLICIES: Guid = Guid.fromU128(U128(0x884e2020217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_ENHANCED_KEY_USAGE: Guid = Guid.fromU128(U128(0x884e2010217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_KEY_USAGE: Guid = Guid.fromU128(U128(0x884e200f217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_MS_APPLICATION_POLICIES: Guid = Guid.fromU128(U128(0x884e2021217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_SMIME_CAPABILITIES: Guid = Guid.fromU128(U128(0x884e201b217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_SUBJECT_KEY_IDENTIFIER: Guid = Guid.fromU128(U128(0x884e2017217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_TEMPLATE: Guid = Guid.fromU128(U128(0x884e2012217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSION_TEMPLATE_NAME: Guid = Guid.fromU128(U128(0x884e2011217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509EXTENSIONS: Guid = Guid.fromU128(U128(0x884e200e217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509MACHINE_ENROLLMENT_FACTORY: Guid = Guid.fromU128(U128(0x884e2051217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509NAME_VALUE_PAIR: Guid = Guid.fromU128(U128(0x884e203f217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509POLICY_SERVER_LIST_MANAGER: Guid = Guid.fromU128(U128(0x91f39029217f11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509POLICY_SERVER_URL: Guid = Guid.fromU128(U128(0x91f3902a217f11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509PRIVATE_KEY: Guid = Guid.fromU128(U128(0x884e200c217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509PUBLIC_KEY: Guid = Guid.fromU128(U128(0x884e200b217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509SCEP_ENROLLMENT: Guid = Guid.fromU128(U128(0x884e2061217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val CX509SCEP_ENROLLMENT_HELPER: Guid = Guid.fromU128(U128(0x884e2062217d11dauL, 0xb2a4000e7bbb2b09uL))
+
+public val OCSP_ADMIN: Guid = Guid.fromU128(U128(0xd3f7351192c947cbuL, 0x8ff28d891a7c4de4uL))
+
+public val OCSP_PROPERTY_COLLECTION: Guid = Guid.fromU128(U128(0xf935a528ba8a4dd9uL, 0xba79f283275cb2deuL))

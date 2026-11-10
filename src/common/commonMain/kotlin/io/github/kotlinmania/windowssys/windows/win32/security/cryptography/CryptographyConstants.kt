@@ -1,8 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
 import io.github.kotlinmania.windowssys.COpaquePointer
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -1036,14 +1034,6 @@ public val CCP_ASSOCIATED_ECDH_KEY: Pcwstr = w("Associated ECDH Key")
 public val CCP_CONTAINER_INFO: Pcwstr = w("Container Info")
 
 public val CCP_PIN_IDENTIFIER: Pcwstr = w("PIN Identifier")
-
-public val C_CERT_SRV_SETUP: Guid = Guid.fromU128(U128(0x961f180ff55c413duL, 0xa9b37d2af4d8e42fuL))
-
-public val C_CERT_SRV_SETUP_KEY_INFORMATION: Guid = Guid.fromU128(U128(0x3837390654334633uL, 0xb0fb29b7e78262e1uL))
-
-public val C_CERTIFICATE_ENROLLMENT_POLICY_SERVER_SETUP: Guid = Guid.fromU128(U128(0xafe2fa3241b1459duL, 0xa5de49add8a72182uL))
-
-public val C_CERTIFICATE_ENROLLMENT_SERVER_SETUP: Guid = Guid.fromU128(U128(0x9902f3bc88af4cf8uL, 0xae627140531552b6uL))
 
 public val CERT_ACCESS_STATE_GP_SYSTEM_STORE_FLAG: UInt = 8u
 
@@ -2797,8 +2787,6 @@ public val CMC_STATUS_SUCCESS: UInt = 0u
 
 public val CMC_TAGGED_CERT_REQUEST_CHOICE: UInt = 1u
 
-public val CMSCEP_SETUP: Guid = Guid.fromU128(U128(0xaa4f5c028e7c49c4uL, 0x94fa67a5cc5eadb4uL))
-
 public val CMSG_ATTR_CERT_COUNT_PARAM: UInt = 31u
 
 public val CMSG_ATTR_CERT_PARAM: UInt = 32u
@@ -3008,3 +2996,13 @@ public val CMSG_OID_CAPI1_IMPORT_KEY_TRANS_FUNC: Pcwstr = w("CryptMsgDllImportKe
 public val CMSG_OID_CAPI1_IMPORT_MAIL_LIST_FUNC: Pcwstr = w("CryptMsgDllImportMailList")
 
 public val CMSG_OID_CNG_EXPORT_KEY_AGREE_FUNC: Pcstr = s("CryptMsgDllCNGExportKeyAgree")
+
+public val CMSG_OID_CNG_EXPORT_KEY_TRANS_FUNC: Pcstr = s("CryptMsgDllCNGExportKeyTrans")
+
+public val CMSG_OID_CNG_GEN_CONTENT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllCNGGenContentEncryptKey")
+
+public val CMSG_OID_CNG_IMPORT_CONTENT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllCNGImportContentEncryptKey")
+
+public val CMSG_OID_CNG_IMPORT_KEY_AGREE_FUNC: Pcstr = s("CryptMsgDllCNGImportKeyAgree")
+
+public val CMSG_OID_CNG_IMPORT_KEY_TRANS_FUNC: Pcstr = s("CryptMsgDllCNGImportKeyTrans")

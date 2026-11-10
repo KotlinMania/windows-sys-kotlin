@@ -8,10 +8,6 @@ import io.github.kotlinmania.windowssys.core.w
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
 
-public val CLSID_WPD_NAMESPACE_EXTENSION: Guid = Guid.fromU128(U128(0x35786d3cb07549b9uL, 0x88dd029876e11c01uL))
-
-public val DEVPKEY_MTPBTH_IS_CONNECTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xea1237fa589d4472uL, 0x84e40abe36fd62efuL)), pid = 2u)
-
 public val DEVSVCTYPE_ABSTRACT: UInt = 1u
 
 public val DEVSVCTYPE_DEFAULT: UInt = 0u
@@ -140,8 +136,6 @@ public val E_WPD_SMS_INVALID_RECIPIENT: Hresult = 0x802A0064u.toInt()
 
 public val E_WPD_SMS_SERVICE_UNAVAILABLE: Hresult = 0x802A0066u.toInt()
 
-public val ENUM_BTH_MTP_CONNECTORS: Guid = Guid.fromU128(U128(0xa1570149e6454f43uL, 0x8b0d409b061db2fcuL))
-
 public val FACILITY_WPD: UInt = 42u
 
 public val FLAG_MESSAGE_OBJ_DAY_OF_WEEK_FRIDAY: UInt = 32u
@@ -159,12 +153,6 @@ public val FLAG_MESSAGE_OBJ_DAY_OF_WEEK_THURSDAY: UInt = 16u
 public val FLAG_MESSAGE_OBJ_DAY_OF_WEEK_TUESDAY: UInt = 4u
 
 public val FLAG_MESSAGE_OBJ_DAY_OF_WEEK_WEDNESDAY: UInt = 8u
-
-public val GUID_DEVINTERFACE_WPD: Guid = Guid.fromU128(U128(0x6ac27878a6fa4155uL, 0xba85f98f491d4f33uL))
-
-public val GUID_DEVINTERFACE_WPD_PRIVATE: Guid = Guid.fromU128(U128(0xba0c718f4ded49b7uL, 0xbdd3fabe28661211uL))
-
-public val GUID_DEVINTERFACE_WPD_SERVICE: Guid = Guid.fromU128(U128(0x9ef44f803d644246uL, 0xa6aa206f328d1edcuL))
 
 public val IOCTL_WPD_MESSAGE_READWRITE_ACCESS: UInt = 4243720u
 
@@ -862,28 +850,6 @@ public val PORTABLE_DEVICE_NAMESPACE_TIMEOUT: Pcwstr = w("PortableDeviceNameSpac
 
 public val PORTABLE_DEVICE_TYPE: Pcwstr = w("PortableDeviceType")
 
-public val PORTABLE_DEVICE: Guid = Guid.fromU128(U128(0x728a21c53d9e48d7uL, 0x9810864848f0f404uL))
-
-public val PORTABLE_DEVICE_DISPATCH_FACTORY: Guid = Guid.fromU128(U128(0x4323223383384658uL, 0xae010b4ae830b6b0uL))
-
-public val PORTABLE_DEVICE_FTM: Guid = Guid.fromU128(U128(0xf7c0039a4762488auL, 0xb4b3760ef9a1ba9buL))
-
-public val PORTABLE_DEVICE_KEY_COLLECTION: Guid = Guid.fromU128(U128(0xde2d022d248043beuL, 0x97f0d1fa2cf98f4fuL))
-
-public val PORTABLE_DEVICE_MANAGER: Guid = Guid.fromU128(U128(0xaf10cec2ecd4b92uL, 0x958134f6ae0637f3uL))
-
-public val PORTABLE_DEVICE_PROP_VARIANT_COLLECTION: Guid = Guid.fromU128(U128(0x8a99e2f6d6d4b80uL, 0xaf5abaf2bcbe4cb9uL))
-
-public val PORTABLE_DEVICE_SERVICE: Guid = Guid.fromU128(U128(0xef5db4c29312422cuL, 0x9152411cd9c4dd84uL))
-
-public val PORTABLE_DEVICE_SERVICE_FTM: Guid = Guid.fromU128(U128(0x1649b154c794497auL, 0x9b03f3f0121302f3uL))
-
-public val PORTABLE_DEVICE_VALUES: Guid = Guid.fromU128(U128(0xc15d503d01747ceuL, 0x90167b3f978721ccuL))
-
-public val PORTABLE_DEVICE_VALUES_COLLECTION: Guid = Guid.fromU128(U128(0x3882134d14cf4220uL, 0x9cb4435f86d83f60uL))
-
-public val PORTABLE_DEVICE_WEB_CONTROL: Guid = Guid.fromU128(U128(0x186dd02c2dec41b5uL, 0xa7d4b59056fade51uL))
-
 public val RANGEMAX_MESSAGE_OBJ_PATTERN_DAY_OF_MONTH: UInt = 31u
 
 public val RANGEMAX_MESSAGE_OBJ_PATTERN_MONTH_OF_YEAR: UInt = 12u
@@ -964,6 +930,330 @@ public val TYPE_STATUS_SVC: UInt = 0u
 
 public val TYPE_TASKS_SVC: UInt = 0u
 
+public val WPDNSE_PROPSHEET_CONTENT_DETAILS: UInt = 32u
+
+public val WPDNSE_PROPSHEET_CONTENT_GENERAL: UInt = 4u
+
+public val WPDNSE_PROPSHEET_CONTENT_REFERENCES: UInt = 8u
+
+public val WPDNSE_PROPSHEET_CONTENT_RESOURCES: UInt = 16u
+
+public val WPDNSE_PROPSHEET_DEVICE_GENERAL: UInt = 1u
+
+public val WPDNSE_PROPSHEET_STORAGE_GENERAL: UInt = 2u
+
+public val WPD_BITRATE_TYPE_DISCRETE: WpdBitrateTypes = 1
+
+public val WPD_BITRATE_TYPE_FREE: WpdBitrateTypes = 3
+
+public val WPD_BITRATE_TYPE_UNUSED: WpdBitrateTypes = 0
+
+public val WPD_BITRATE_TYPE_VARIABLE: WpdBitrateTypes = 2
+
+public val WPD_CAPTURE_MODE_BURST: WpdCaptureModes = 2
+
+public val WPD_CAPTURE_MODE_NORMAL: WpdCaptureModes = 1
+
+public val WPD_CAPTURE_MODE_TIMELAPSE: WpdCaptureModes = 3
+
+public val WPD_CAPTURE_MODE_UNDEFINED: WpdCaptureModes = 0
+
+public val WPD_COLOR_CORRECTED_STATUS_CORRECTED: WpdColorCorrectedStatusValues = 1
+
+public val WPD_COLOR_CORRECTED_STATUS_NOT_CORRECTED: WpdColorCorrectedStatusValues = 0
+
+public val WPD_COLOR_CORRECTED_STATUS_SHOULD_NOT_BE_CORRECTED: WpdColorCorrectedStatusValues = 2
+
+public val WPD_COMMAND_ACCESS_FROM_ATTRIBUTE_WITH_METHOD_ACCESS: WpdCommandAccessTypes = 16
+
+public val WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_FILE_ACCESS: WpdCommandAccessTypes = 8
+
+public val WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_STGM_ACCESS: WpdCommandAccessTypes = 4
+
+public val WPD_COMMAND_ACCESS_READ: WpdCommandAccessTypes = 1
+
+public val WPD_COMMAND_ACCESS_READWRITE: WpdCommandAccessTypes = 3
+
+public val WPD_CONTROL_FUNCTION_GENERIC_MESSAGE: UInt = 66u
+
+public val WPD_CROPPED_STATUS_CROPPED: WpdCroppedStatusValues = 1
+
+public val WPD_CROPPED_STATUS_NOT_CROPPED: WpdCroppedStatusValues = 0
+
+public val WPD_CROPPED_STATUS_SHOULD_NOT_BE_CROPPED: WpdCroppedStatusValues = 2
+
+public val WPD_DEVICE_OBJECT_ID: Pcwstr = w("DEVICE")
+
+public val WPD_DEVICE_TRANSPORT_BLUETOOTH: WpdDeviceTransports = 3
+
+public val WPD_DEVICE_TRANSPORT_IP: WpdDeviceTransports = 2
+
+public val WPD_DEVICE_TRANSPORT_UNSPECIFIED: WpdDeviceTransports = 0
+
+public val WPD_DEVICE_TRANSPORT_USB: WpdDeviceTransports = 1
+
+public val WPD_DEVICE_TYPE_AUDIO_RECORDER: WpdDeviceTypes = 6
+
+public val WPD_DEVICE_TYPE_CAMERA: WpdDeviceTypes = 1
+
+public val WPD_DEVICE_TYPE_GENERIC: WpdDeviceTypes = 0
+
+public val WPD_DEVICE_TYPE_MEDIA_PLAYER: WpdDeviceTypes = 2
+
+public val WPD_DEVICE_TYPE_PERSONAL_INFORMATION_MANAGER: WpdDeviceTypes = 5
+
+public val WPD_DEVICE_TYPE_PHONE: WpdDeviceTypes = 3
+
+public val WPD_DEVICE_TYPE_VIDEO: WpdDeviceTypes = 4
+
+public val WPD_EFFECT_MODE_BLACK_AND_WHITE: WpdEffectModes = 2
+
+public val WPD_EFFECT_MODE_COLOR: WpdEffectModes = 1
+
+public val WPD_EFFECT_MODE_SEPIA: WpdEffectModes = 3
+
+public val WPD_EFFECT_MODE_UNDEFINED: WpdEffectModes = 0
+
+public val WPD_EXPOSURE_METERING_MODE_AVERAGE: WpdExposureMeteringModes = 1
+
+public val WPD_EXPOSURE_METERING_MODE_CENTER_SPOT: WpdExposureMeteringModes = 4
+
+public val WPD_EXPOSURE_METERING_MODE_CENTER_WEIGHTED_AVERAGE: WpdExposureMeteringModes = 2
+
+public val WPD_EXPOSURE_METERING_MODE_MULTI_SPOT: WpdExposureMeteringModes = 3
+
+public val WPD_EXPOSURE_METERING_MODE_UNDEFINED: WpdExposureMeteringModes = 0
+
+public val WPD_EXPOSURE_PROGRAM_MODE_ACTION: WpdExposureProgramModes = 6
+
+public val WPD_EXPOSURE_PROGRAM_MODE_APERTURE_PRIORITY: WpdExposureProgramModes = 3
+
+public val WPD_EXPOSURE_PROGRAM_MODE_AUTO: WpdExposureProgramModes = 2
+
+public val WPD_EXPOSURE_PROGRAM_MODE_CREATIVE: WpdExposureProgramModes = 5
+
+public val WPD_EXPOSURE_PROGRAM_MODE_MANUAL: WpdExposureProgramModes = 1
+
+public val WPD_EXPOSURE_PROGRAM_MODE_PORTRAIT: WpdExposureProgramModes = 7
+
+public val WPD_EXPOSURE_PROGRAM_MODE_SHUTTER_PRIORITY: WpdExposureProgramModes = 4
+
+public val WPD_EXPOSURE_PROGRAM_MODE_UNDEFINED: WpdExposureProgramModes = 0
+
+public val WPD_FLASH_MODE_AUTO: WpdFlashModes = 1
+
+public val WPD_FLASH_MODE_EXTERNAL_SYNC: WpdFlashModes = 6
+
+public val WPD_FLASH_MODE_FILL: WpdFlashModes = 3
+
+public val WPD_FLASH_MODE_OFF: WpdFlashModes = 2
+
+public val WPD_FLASH_MODE_RED_EYE_AUTO: WpdFlashModes = 4
+
+public val WPD_FLASH_MODE_RED_EYE_FILL: WpdFlashModes = 5
+
+public val WPD_FLASH_MODE_UNDEFINED: WpdFlashModes = 0
+
+public val WPD_FOCUS_AUTOMATIC: WpdFocusModes = 2
+
+public val WPD_FOCUS_AUTOMATIC_MACRO: WpdFocusModes = 3
+
+public val WPD_FOCUS_MANUAL: WpdFocusModes = 1
+
+public val WPD_FOCUS_METERING_MODE_CENTER_SPOT: WpdFocusMeteringModes = 1
+
+public val WPD_FOCUS_METERING_MODE_MULTI_SPOT: WpdFocusMeteringModes = 2
+
+public val WPD_FOCUS_METERING_MODE_UNDEFINED: WpdFocusMeteringModes = 0
+
+public val WPD_FOCUS_UNDEFINED: WpdFocusModes = 0
+
+public val WPD_META_GENRE_AUDIO_PODCAST: WpdMetaGenres = 64
+
+public val WPD_META_GENRE_FEATURE_FILM_VIDEO_FILE: WpdMetaGenres = 37
+
+public val WPD_META_GENRE_GENERIC_MUSIC_AUDIO_FILE: WpdMetaGenres = 1
+
+public val WPD_META_GENRE_GENERIC_NON_AUDIO_NON_VIDEO: WpdMetaGenres = 48
+
+public val WPD_META_GENRE_GENERIC_NON_MUSIC_AUDIO_FILE: WpdMetaGenres = 17
+
+public val WPD_META_GENRE_GENERIC_VIDEO_FILE: WpdMetaGenres = 33
+
+public val WPD_META_GENRE_HOME_VIDEO_FILE: WpdMetaGenres = 36
+
+public val WPD_META_GENRE_MIXED_PODCAST: WpdMetaGenres = 66
+
+public val WPD_META_GENRE_MUSIC_VIDEO_FILE: WpdMetaGenres = 35
+
+public val WPD_META_GENRE_NEWS_VIDEO_FILE: WpdMetaGenres = 34
+
+public val WPD_META_GENRE_PHOTO_MONTAGE_VIDEO_FILE: WpdMetaGenres = 40
+
+public val WPD_META_GENRE_SPOKEN_WORD_AUDIO_BOOK_FILES: WpdMetaGenres = 18
+
+public val WPD_META_GENRE_SPOKEN_WORD_FILES_NON_AUDIO_BOOK: WpdMetaGenres = 19
+
+public val WPD_META_GENRE_SPOKEN_WORD_NEWS: WpdMetaGenres = 20
+
+public val WPD_META_GENRE_SPOKEN_WORD_TALK_SHOWS: WpdMetaGenres = 21
+
+public val WPD_META_GENRE_TELEVISION_VIDEO_FILE: WpdMetaGenres = 38
+
+public val WPD_META_GENRE_TRAINING_EDUCATIONAL_VIDEO_FILE: WpdMetaGenres = 39
+
+public val WPD_META_GENRE_UNUSED: WpdMetaGenres = 0
+
+public val WPD_META_GENRE_VIDEO_PODCAST: WpdMetaGenres = 65
+
+public val WPD_OPERATION_STATE_ABORTED: WpdOperationStates = 6
+
+public val WPD_OPERATION_STATE_CANCELLED: WpdOperationStates = 4
+
+public val WPD_OPERATION_STATE_FINISHED: WpdOperationStates = 5
+
+public val WPD_OPERATION_STATE_PAUSED: WpdOperationStates = 3
+
+public val WPD_OPERATION_STATE_RUNNING: WpdOperationStates = 2
+
+public val WPD_OPERATION_STATE_STARTED: WpdOperationStates = 1
+
+public val WPD_OPERATION_STATE_UNSPECIFIED: WpdOperationStates = 0
+
+public val WPD_PARAMETER_ATTRIBUTE_FORM_ENUMERATION: WpdParameterAttributeForm = 2
+
+public val WPD_PARAMETER_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdParameterAttributeForm = 4
+
+public val WPD_PARAMETER_ATTRIBUTE_FORM_RANGE: WpdParameterAttributeForm = 1
+
+public val WPD_PARAMETER_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdParameterAttributeForm = 3
+
+public val WPD_PARAMETER_ATTRIBUTE_FORM_UNSPECIFIED: WpdParameterAttributeForm = 0
+
+public val WPD_PARAMETER_USAGE_IN: WpdParameterUsageTypes = 1
+
+public val WPD_PARAMETER_USAGE_INOUT: WpdParameterUsageTypes = 3
+
+public val WPD_PARAMETER_USAGE_OUT: WpdParameterUsageTypes = 2
+
+public val WPD_PARAMETER_USAGE_RETURN: WpdParameterUsageTypes = 0
+
+public val WPD_POWER_SOURCE_BATTERY: WpdPowerSources = 0
+
+public val WPD_POWER_SOURCE_EXTERNAL: WpdPowerSources = 1
+
+public val WPD_PROPERTY_ATTRIBUTE_FORM_ENUMERATION: WpdAttributeForm = 2
+
+public val WPD_PROPERTY_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdAttributeForm = 4
+
+public val WPD_PROPERTY_ATTRIBUTE_FORM_RANGE: WpdAttributeForm = 1
+
+public val WPD_PROPERTY_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdAttributeForm = 3
+
+public val WPD_PROPERTY_ATTRIBUTE_FORM_UNSPECIFIED: WpdAttributeForm = 0
+
+public val WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_OBJECT: WpdRenderingInformationProfileEntryTypes = 0
+
+public val WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_RESOURCE: WpdRenderingInformationProfileEntryTypes = 1
+
+public val WPD_SECTION_DATA_UNITS_BYTES: WpdSectionDataUnitsValues = 0
+
+public val WPD_SECTION_DATA_UNITS_MILLISECONDS: WpdSectionDataUnitsValues = 1
+
+public val WPD_SERVICE_INHERITANCE_IMPLEMENTATION: WpdServiceInheritanceTypes = 0
+
+public val WPD_STORAGE_ACCESS_CAPABILITY_READWRITE: WpdStorageAccessCapabilityValues = 0
+
+public val WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITHOUT_OBJECT_DELETION: WpdStorageAccessCapabilityValues = 1
+
+public val WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITH_OBJECT_DELETION: WpdStorageAccessCapabilityValues = 2
+
+public val WPD_STORAGE_TYPE_FIXED_RAM: WpdStorageTypeValues = 3
+
+public val WPD_STORAGE_TYPE_FIXED_ROM: WpdStorageTypeValues = 1
+
+public val WPD_STORAGE_TYPE_REMOVABLE_RAM: WpdStorageTypeValues = 4
+
+public val WPD_STORAGE_TYPE_REMOVABLE_ROM: WpdStorageTypeValues = 2
+
+public val WPD_STORAGE_TYPE_UNDEFINED: WpdStorageTypeValues = 0
+
+public val WPD_STREAM_UNITS_BYTES: WpdStreamUnits = 0
+
+public val WPD_STREAM_UNITS_FRAMES: WpdStreamUnits = 1
+
+public val WPD_STREAM_UNITS_MICROSECONDS: WpdStreamUnits = 8
+
+public val WPD_STREAM_UNITS_MILLISECONDS: WpdStreamUnits = 4
+
+public val WPD_STREAM_UNITS_ROWS: WpdStreamUnits = 2
+
+public val WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_LOWER_FIRST: WpdVideoScanTypes = 3
+
+public val WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_UPPER_FIRST: WpdVideoScanTypes = 2
+
+public val WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_LOWER_FIRST: WpdVideoScanTypes = 5
+
+public val WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_UPPER_FIRST: WpdVideoScanTypes = 4
+
+public val WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE: WpdVideoScanTypes = 6
+
+public val WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE_AND_PROGRESSIVE: WpdVideoScanTypes = 7
+
+public val WPD_VIDEO_SCAN_TYPE_PROGRESSIVE: WpdVideoScanTypes = 1
+
+public val WPD_VIDEO_SCAN_TYPE_UNUSED: WpdVideoScanTypes = 0
+
+public val WPD_WHITE_BALANCE_AUTOMATIC: WpdWhiteBalanceSettings = 2
+
+public val WPD_WHITE_BALANCE_DAYLIGHT: WpdWhiteBalanceSettings = 4
+
+public val WPD_WHITE_BALANCE_FLASH: WpdWhiteBalanceSettings = 7
+
+public val WPD_WHITE_BALANCE_FLORESCENT: WpdWhiteBalanceSettings = 5
+
+public val WPD_WHITE_BALANCE_MANUAL: WpdWhiteBalanceSettings = 1
+
+public val WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WpdWhiteBalanceSettings = 3
+
+public val WPD_WHITE_BALANCE_TUNGSTEN: WpdWhiteBalanceSettings = 6
+
+public val WPD_WHITE_BALANCE_UNDEFINED: WpdWhiteBalanceSettings = 0
+
+public val CLSID_WPD_NAMESPACE_EXTENSION: Guid = Guid.fromU128(U128(0x35786d3cb07549b9uL, 0x88dd029876e11c01uL))
+
+public val DEVPKEY_MTPBTH_IS_CONNECTED: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xea1237fa589d4472uL, 0x84e40abe36fd62efuL)), pid = 2u)
+
+public val ENUM_BTH_MTP_CONNECTORS: Guid = Guid.fromU128(U128(0xa1570149e6454f43uL, 0x8b0d409b061db2fcuL))
+
+public val GUID_DEVINTERFACE_WPD: Guid = Guid.fromU128(U128(0x6ac27878a6fa4155uL, 0xba85f98f491d4f33uL))
+
+public val GUID_DEVINTERFACE_WPD_PRIVATE: Guid = Guid.fromU128(U128(0xba0c718f4ded49b7uL, 0xbdd3fabe28661211uL))
+
+public val GUID_DEVINTERFACE_WPD_SERVICE: Guid = Guid.fromU128(U128(0x9ef44f803d644246uL, 0xa6aa206f328d1edcuL))
+
+public val PORTABLE_DEVICE: Guid = Guid.fromU128(U128(0x728a21c53d9e48d7uL, 0x9810864848f0f404uL))
+
+public val PORTABLE_DEVICE_DISPATCH_FACTORY: Guid = Guid.fromU128(U128(0x4323223383384658uL, 0xae010b4ae830b6b0uL))
+
+public val PORTABLE_DEVICE_FTM: Guid = Guid.fromU128(U128(0xf7c0039a4762488auL, 0xb4b3760ef9a1ba9buL))
+
+public val PORTABLE_DEVICE_KEY_COLLECTION: Guid = Guid.fromU128(U128(0xde2d022d248043beuL, 0x97f0d1fa2cf98f4fuL))
+
+public val PORTABLE_DEVICE_MANAGER: Guid = Guid.fromU128(U128(0xaf10cec2ecd4b92uL, 0x958134f6ae0637f3uL))
+
+public val PORTABLE_DEVICE_PROP_VARIANT_COLLECTION: Guid = Guid.fromU128(U128(0x8a99e2f6d6d4b80uL, 0xaf5abaf2bcbe4cb9uL))
+
+public val PORTABLE_DEVICE_SERVICE: Guid = Guid.fromU128(U128(0xef5db4c29312422cuL, 0x9152411cd9c4dd84uL))
+
+public val PORTABLE_DEVICE_SERVICE_FTM: Guid = Guid.fromU128(U128(0x1649b154c794497auL, 0x9b03f3f0121302f3uL))
+
+public val PORTABLE_DEVICE_VALUES: Guid = Guid.fromU128(U128(0xc15d503d01747ceuL, 0x90167b3f978721ccuL))
+
+public val PORTABLE_DEVICE_VALUES_COLLECTION: Guid = Guid.fromU128(U128(0x3882134d14cf4220uL, 0x9cb4435f86d83f60uL))
+
+public val PORTABLE_DEVICE_WEB_CONTROL: Guid = Guid.fromU128(U128(0x186dd02c2dec41b5uL, 0xa7d4b59056fade51uL))
+
 public val WPDNSE_OBJECT_HAS_ALBUM_ART: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x34d714094b474d80uL, 0xaaac3a28a4a3b3e6uL)), pid = 6u)
 
 public val WPDNSE_OBJECT_HAS_AUDIO_CLIP: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x34d714094b474d80uL, 0xaaac3a28a4a3b3e6uL)), pid = 5u)
@@ -977,18 +1267,6 @@ public val WPDNSE_OBJECT_HAS_THUMBNAIL: Propertykey = Propertykey(fmtid = Guid.f
 public val WPDNSE_OBJECT_OPTIMAL_READ_BLOCK_SIZE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x34d714094b474d80uL, 0xaaac3a28a4a3b3e6uL)), pid = 7u)
 
 public val WPDNSE_OBJECT_PROPERTIES_V1: Guid = Guid.fromU128(U128(0x34d714094b474d80uL, 0xaaac3a28a4a3b3e6uL))
-
-public val WPDNSE_PROPSHEET_CONTENT_DETAILS: UInt = 32u
-
-public val WPDNSE_PROPSHEET_CONTENT_GENERAL: UInt = 4u
-
-public val WPDNSE_PROPSHEET_CONTENT_REFERENCES: UInt = 8u
-
-public val WPDNSE_PROPSHEET_CONTENT_RESOURCES: UInt = 16u
-
-public val WPDNSE_PROPSHEET_DEVICE_GENERAL: UInt = 1u
-
-public val WPDNSE_PROPSHEET_STORAGE_GENERAL: UInt = 2u
 
 public val WPD_API_OPTIONS_V1: Guid = Guid.fromU128(U128(0x10e54a3e052d4777uL, 0xa13cde7614be2bc4uL))
 
@@ -1023,22 +1301,6 @@ public val WPD_AUDIO_BLOCK_ALIGNMENT: Propertykey = Propertykey(fmtid = Guid.fro
 public val WPD_AUDIO_CHANNEL_COUNT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xb324f56adc5d46e5uL, 0xb6dfd2ea414888c6uL)), pid = 10u)
 
 public val WPD_AUDIO_FORMAT_CODE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xb324f56adc5d46e5uL, 0xb6dfd2ea414888c6uL)), pid = 11u)
-
-public val WPD_BITRATE_TYPE_DISCRETE: WpdBitrateTypes = 1
-
-public val WPD_BITRATE_TYPE_FREE: WpdBitrateTypes = 3
-
-public val WPD_BITRATE_TYPE_UNUSED: WpdBitrateTypes = 0
-
-public val WPD_BITRATE_TYPE_VARIABLE: WpdBitrateTypes = 2
-
-public val WPD_CAPTURE_MODE_BURST: WpdCaptureModes = 2
-
-public val WPD_CAPTURE_MODE_NORMAL: WpdCaptureModes = 1
-
-public val WPD_CAPTURE_MODE_TIMELAPSE: WpdCaptureModes = 3
-
-public val WPD_CAPTURE_MODE_UNDEFINED: WpdCaptureModes = 0
 
 public val WPD_CATEGORY_CAPABILITIES: Guid = Guid.fromU128(U128(0xcabec786b7441c6uL, 0x92162639d1fce356uL))
 
@@ -1125,22 +1387,6 @@ public val WPD_CLIENT_SHARE_MODE: Propertykey = Propertykey(fmtid = Guid.fromU12
 public val WPD_CLIENT_WMDRM_APPLICATION_CERTIFICATE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x204d9f0c22924080uL, 0x9f4240664e70f859uL)), pid = 7u)
 
 public val WPD_CLIENT_WMDRM_APPLICATION_PRIVATE_KEY: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x204d9f0c22924080uL, 0x9f4240664e70f859uL)), pid = 6u)
-
-public val WPD_COLOR_CORRECTED_STATUS_CORRECTED: WpdColorCorrectedStatusValues = 1
-
-public val WPD_COLOR_CORRECTED_STATUS_NOT_CORRECTED: WpdColorCorrectedStatusValues = 0
-
-public val WPD_COLOR_CORRECTED_STATUS_SHOULD_NOT_BE_CORRECTED: WpdColorCorrectedStatusValues = 2
-
-public val WPD_COMMAND_ACCESS_FROM_ATTRIBUTE_WITH_METHOD_ACCESS: WpdCommandAccessTypes = 16
-
-public val WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_FILE_ACCESS: WpdCommandAccessTypes = 8
-
-public val WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_STGM_ACCESS: WpdCommandAccessTypes = 4
-
-public val WPD_COMMAND_ACCESS_READ: WpdCommandAccessTypes = 1
-
-public val WPD_COMMAND_ACCESS_READWRITE: WpdCommandAccessTypes = 3
 
 public val WPD_COMMAND_CAPABILITIES_GET_COMMAND_OPTIONS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xcabec786b7441c6uL, 0x92162639d1fce356uL)), pid = 3u)
 
@@ -1526,14 +1772,6 @@ public val WPD_CONTENT_TYPE_VIDEO_ALBUM: Guid = Guid.fromU128(U128(0x12b0db7d4c1
 
 public val WPD_CONTENT_TYPE_WIRELESS_PROFILE: Guid = Guid.fromU128(U128(0xbac070a9f5f4da4uL, 0xa8f63de44d68fd6cuL))
 
-public val WPD_CONTROL_FUNCTION_GENERIC_MESSAGE: UInt = 66u
-
-public val WPD_CROPPED_STATUS_CROPPED: WpdCroppedStatusValues = 1
-
-public val WPD_CROPPED_STATUS_NOT_CROPPED: WpdCroppedStatusValues = 0
-
-public val WPD_CROPPED_STATUS_SHOULD_NOT_BE_CROPPED: WpdCroppedStatusValues = 2
-
 public val WPD_DEVICE_DATETIME: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x26d4979ae6434626uL, 0x9e2b736dc0c92fdcuL)), pid = 11u)
 
 public val WPD_DEVICE_EDP_IDENTITY: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x6c2b878cc2ec490duL, 0xb425d7a75e23e5eduL)), pid = 1u)
@@ -1551,8 +1789,6 @@ public val WPD_DEVICE_MODEL: Propertykey = Propertykey(fmtid = Guid.fromU128(U12
 public val WPD_DEVICE_MODEL_UNIQUE_ID: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x463dd6627fc44291uL, 0x911c7f4c9cca9799uL)), pid = 3u)
 
 public val WPD_DEVICE_NETWORK_IDENTIFIER: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x26d4979ae6434626uL, 0x9e2b736dc0c92fdcuL)), pid = 16u)
-
-public val WPD_DEVICE_OBJECT_ID: Pcwstr = w("DEVICE")
 
 public val WPD_DEVICE_POWER_LEVEL: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x26d4979ae6434626uL, 0x9e2b736dc0c92fdcuL)), pid = 4u)
 
@@ -1578,41 +1814,11 @@ public val WPD_DEVICE_SYNC_PARTNER: Propertykey = Propertykey(fmtid = Guid.fromU
 
 public val WPD_DEVICE_TRANSPORT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x463dd6627fc44291uL, 0x911c7f4c9cca9799uL)), pid = 4u)
 
-public val WPD_DEVICE_TRANSPORT_BLUETOOTH: WpdDeviceTransports = 3
-
-public val WPD_DEVICE_TRANSPORT_IP: WpdDeviceTransports = 2
-
-public val WPD_DEVICE_TRANSPORT_UNSPECIFIED: WpdDeviceTransports = 0
-
-public val WPD_DEVICE_TRANSPORT_USB: WpdDeviceTransports = 1
-
 public val WPD_DEVICE_TYPE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x26d4979ae6434626uL, 0x9e2b736dc0c92fdcuL)), pid = 15u)
-
-public val WPD_DEVICE_TYPE_AUDIO_RECORDER: WpdDeviceTypes = 6
-
-public val WPD_DEVICE_TYPE_CAMERA: WpdDeviceTypes = 1
-
-public val WPD_DEVICE_TYPE_GENERIC: WpdDeviceTypes = 0
-
-public val WPD_DEVICE_TYPE_MEDIA_PLAYER: WpdDeviceTypes = 2
-
-public val WPD_DEVICE_TYPE_PERSONAL_INFORMATION_MANAGER: WpdDeviceTypes = 5
-
-public val WPD_DEVICE_TYPE_PHONE: WpdDeviceTypes = 3
-
-public val WPD_DEVICE_TYPE_VIDEO: WpdDeviceTypes = 4
 
 public val WPD_DEVICE_USE_DEVICE_STAGE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x463dd6627fc44291uL, 0x911c7f4c9cca9799uL)), pid = 5u)
 
 public val WPD_DOCUMENT_OBJECT_PROPERTIES_V1: Guid = Guid.fromU128(U128(0xb110203eb954f02uL, 0x93e097c631493ad5uL))
-
-public val WPD_EFFECT_MODE_BLACK_AND_WHITE: WpdEffectModes = 2
-
-public val WPD_EFFECT_MODE_COLOR: WpdEffectModes = 1
-
-public val WPD_EFFECT_MODE_SEPIA: WpdEffectModes = 3
-
-public val WPD_EFFECT_MODE_UNDEFINED: WpdEffectModes = 0
 
 public val WPD_EMAIL_BCC_LINE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x41f8f65a54844782uL, 0xb13d4740dd7c37c5uL)), pid = 4u)
 
@@ -1685,60 +1891,6 @@ public val WPD_EVENT_PROPERTIES_V2: Guid = Guid.fromU128(U128(0x52807b8a49144323
 public val WPD_EVENT_SERVICE_METHOD_COMPLETE: Guid = Guid.fromU128(U128(0x8a33f5f80acc4d9buL, 0x9cc4112d353b86cauL))
 
 public val WPD_EVENT_STORAGE_FORMAT: Guid = Guid.fromU128(U128(0x3782616b22bc4474uL, 0xa2513070f8d38857uL))
-
-public val WPD_EXPOSURE_METERING_MODE_AVERAGE: WpdExposureMeteringModes = 1
-
-public val WPD_EXPOSURE_METERING_MODE_CENTER_SPOT: WpdExposureMeteringModes = 4
-
-public val WPD_EXPOSURE_METERING_MODE_CENTER_WEIGHTED_AVERAGE: WpdExposureMeteringModes = 2
-
-public val WPD_EXPOSURE_METERING_MODE_MULTI_SPOT: WpdExposureMeteringModes = 3
-
-public val WPD_EXPOSURE_METERING_MODE_UNDEFINED: WpdExposureMeteringModes = 0
-
-public val WPD_EXPOSURE_PROGRAM_MODE_ACTION: WpdExposureProgramModes = 6
-
-public val WPD_EXPOSURE_PROGRAM_MODE_APERTURE_PRIORITY: WpdExposureProgramModes = 3
-
-public val WPD_EXPOSURE_PROGRAM_MODE_AUTO: WpdExposureProgramModes = 2
-
-public val WPD_EXPOSURE_PROGRAM_MODE_CREATIVE: WpdExposureProgramModes = 5
-
-public val WPD_EXPOSURE_PROGRAM_MODE_MANUAL: WpdExposureProgramModes = 1
-
-public val WPD_EXPOSURE_PROGRAM_MODE_PORTRAIT: WpdExposureProgramModes = 7
-
-public val WPD_EXPOSURE_PROGRAM_MODE_SHUTTER_PRIORITY: WpdExposureProgramModes = 4
-
-public val WPD_EXPOSURE_PROGRAM_MODE_UNDEFINED: WpdExposureProgramModes = 0
-
-public val WPD_FLASH_MODE_AUTO: WpdFlashModes = 1
-
-public val WPD_FLASH_MODE_EXTERNAL_SYNC: WpdFlashModes = 6
-
-public val WPD_FLASH_MODE_FILL: WpdFlashModes = 3
-
-public val WPD_FLASH_MODE_OFF: WpdFlashModes = 2
-
-public val WPD_FLASH_MODE_RED_EYE_AUTO: WpdFlashModes = 4
-
-public val WPD_FLASH_MODE_RED_EYE_FILL: WpdFlashModes = 5
-
-public val WPD_FLASH_MODE_UNDEFINED: WpdFlashModes = 0
-
-public val WPD_FOCUS_AUTOMATIC: WpdFocusModes = 2
-
-public val WPD_FOCUS_AUTOMATIC_MACRO: WpdFocusModes = 3
-
-public val WPD_FOCUS_MANUAL: WpdFocusModes = 1
-
-public val WPD_FOCUS_METERING_MODE_CENTER_SPOT: WpdFocusMeteringModes = 1
-
-public val WPD_FOCUS_METERING_MODE_MULTI_SPOT: WpdFocusMeteringModes = 2
-
-public val WPD_FOCUS_METERING_MODE_UNDEFINED: WpdFocusMeteringModes = 0
-
-public val WPD_FOCUS_UNDEFINED: WpdFocusModes = 0
 
 public val WPD_FOLDER_CONTENT_TYPES_ALLOWED: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x7e9a7abfe5684b34uL, 0xaa2f13bb12ab177duL)), pid = 2u)
 
@@ -1871,44 +2023,6 @@ public val WPD_MEDIA_WEBMASTER: Propertykey = Propertykey(fmtid = Guid.fromU128(
 public val WPD_MEDIA_WIDTH: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x2ed8ba050ad342dcuL, 0xb0d0bc95ac396ac8uL)), pid = 22u)
 
 public val WPD_MEMO_OBJECT_PROPERTIES_V1: Guid = Guid.fromU128(U128(0x5ffbfc7b748341aduL, 0xafb9da3f4e592b8duL))
-
-public val WPD_META_GENRE_AUDIO_PODCAST: WpdMetaGenres = 64
-
-public val WPD_META_GENRE_FEATURE_FILM_VIDEO_FILE: WpdMetaGenres = 37
-
-public val WPD_META_GENRE_GENERIC_MUSIC_AUDIO_FILE: WpdMetaGenres = 1
-
-public val WPD_META_GENRE_GENERIC_NON_AUDIO_NON_VIDEO: WpdMetaGenres = 48
-
-public val WPD_META_GENRE_GENERIC_NON_MUSIC_AUDIO_FILE: WpdMetaGenres = 17
-
-public val WPD_META_GENRE_GENERIC_VIDEO_FILE: WpdMetaGenres = 33
-
-public val WPD_META_GENRE_HOME_VIDEO_FILE: WpdMetaGenres = 36
-
-public val WPD_META_GENRE_MIXED_PODCAST: WpdMetaGenres = 66
-
-public val WPD_META_GENRE_MUSIC_VIDEO_FILE: WpdMetaGenres = 35
-
-public val WPD_META_GENRE_NEWS_VIDEO_FILE: WpdMetaGenres = 34
-
-public val WPD_META_GENRE_PHOTO_MONTAGE_VIDEO_FILE: WpdMetaGenres = 40
-
-public val WPD_META_GENRE_SPOKEN_WORD_AUDIO_BOOK_FILES: WpdMetaGenres = 18
-
-public val WPD_META_GENRE_SPOKEN_WORD_FILES_NON_AUDIO_BOOK: WpdMetaGenres = 19
-
-public val WPD_META_GENRE_SPOKEN_WORD_NEWS: WpdMetaGenres = 20
-
-public val WPD_META_GENRE_SPOKEN_WORD_TALK_SHOWS: WpdMetaGenres = 21
-
-public val WPD_META_GENRE_TELEVISION_VIDEO_FILE: WpdMetaGenres = 38
-
-public val WPD_META_GENRE_TRAINING_EDUCATIONAL_VIDEO_FILE: WpdMetaGenres = 39
-
-public val WPD_META_GENRE_UNUSED: WpdMetaGenres = 0
-
-public val WPD_META_GENRE_VIDEO_PODCAST: WpdMetaGenres = 65
 
 public val WPD_METHOD_ATTRIBUTES_V1: Guid = Guid.fromU128(U128(0xf17a5071f03944afuL, 0x8efe432cf32e432auL))
 
@@ -2132,20 +2246,6 @@ public val WPD_OBJECT_SUPPORTED_UNITS: Propertykey = Propertykey(fmtid = Guid.fr
 
 public val WPD_OBJECT_SYNC_ID: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xef6b490d5cd8437auL, 0xaffcda8b60ee4a3cuL)), pid = 16u)
 
-public val WPD_OPERATION_STATE_ABORTED: WpdOperationStates = 6
-
-public val WPD_OPERATION_STATE_CANCELLED: WpdOperationStates = 4
-
-public val WPD_OPERATION_STATE_FINISHED: WpdOperationStates = 5
-
-public val WPD_OPERATION_STATE_PAUSED: WpdOperationStates = 3
-
-public val WPD_OPERATION_STATE_RUNNING: WpdOperationStates = 2
-
-public val WPD_OPERATION_STATE_STARTED: WpdOperationStates = 1
-
-public val WPD_OPERATION_STATE_UNSPECIFIED: WpdOperationStates = 0
-
 public val WPD_OPTION_OBJECT_MANAGEMENT_RECURSIVE_DELETE_SUPPORTED: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xef1e43dda9ed4341uL, 0x8bcc186192aea089uL)), pid = 5001u)
 
 public val WPD_OPTION_OBJECT_RESOURCES_NO_INPUT_BUFFER_ON_READ: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xb3a2b22da5954108uL, 0xbe0afc3c965f3d4auL)), pid = 5003u)
@@ -2166,16 +2266,6 @@ public val WPD_PARAMETER_ATTRIBUTE_ENUMERATION_ELEMENTS: Propertykey = Propertyk
 
 public val WPD_PARAMETER_ATTRIBUTE_FORM: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xe6864dd7f32545eauL, 0xa1d597cf73b6ca58uL)), pid = 4u)
 
-public val WPD_PARAMETER_ATTRIBUTE_FORM_ENUMERATION: WpdParameterAttributeForm = 2
-
-public val WPD_PARAMETER_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdParameterAttributeForm = 4
-
-public val WPD_PARAMETER_ATTRIBUTE_FORM_RANGE: WpdParameterAttributeForm = 1
-
-public val WPD_PARAMETER_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdParameterAttributeForm = 3
-
-public val WPD_PARAMETER_ATTRIBUTE_FORM_UNSPECIFIED: WpdParameterAttributeForm = 0
-
 public val WPD_PARAMETER_ATTRIBUTE_MAX_SIZE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xe6864dd7f32545eauL, 0xa1d597cf73b6ca58uL)), pid = 11u)
 
 public val WPD_PARAMETER_ATTRIBUTE_NAME: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xe6864dd7f32545eauL, 0xa1d597cf73b6ca58uL)), pid = 13u)
@@ -2193,18 +2283,6 @@ public val WPD_PARAMETER_ATTRIBUTE_REGULAR_EXPRESSION: Propertykey = Propertykey
 public val WPD_PARAMETER_ATTRIBUTE_USAGE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xe6864dd7f32545eauL, 0xa1d597cf73b6ca58uL)), pid = 3u)
 
 public val WPD_PARAMETER_ATTRIBUTE_VARTYPE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xe6864dd7f32545eauL, 0xa1d597cf73b6ca58uL)), pid = 12u)
-
-public val WPD_PARAMETER_USAGE_IN: WpdParameterUsageTypes = 1
-
-public val WPD_PARAMETER_USAGE_INOUT: WpdParameterUsageTypes = 3
-
-public val WPD_PARAMETER_USAGE_OUT: WpdParameterUsageTypes = 2
-
-public val WPD_PARAMETER_USAGE_RETURN: WpdParameterUsageTypes = 0
-
-public val WPD_POWER_SOURCE_BATTERY: WpdPowerSources = 0
-
-public val WPD_POWER_SOURCE_EXTERNAL: WpdPowerSources = 1
 
 public val WPD_PROPERTIES_MTP_VENDOR_EXTENDED_DEVICE_PROPS: Guid = Guid.fromU128(U128(0x4d545058890040b3uL, 0x8f1ddc246e1e8370uL))
 
@@ -2227,16 +2305,6 @@ public val WPD_PROPERTY_ATTRIBUTE_ENUMERATION_ELEMENTS: Propertykey = Propertyke
 public val WPD_PROPERTY_ATTRIBUTE_FAST_PROPERTY: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xab7943d86332445fuL, 0xa00d8d5ef1e96f37uL)), pid = 7u)
 
 public val WPD_PROPERTY_ATTRIBUTE_FORM: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xab7943d86332445fuL, 0xa00d8d5ef1e96f37uL)), pid = 2u)
-
-public val WPD_PROPERTY_ATTRIBUTE_FORM_ENUMERATION: WpdAttributeForm = 2
-
-public val WPD_PROPERTY_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdAttributeForm = 4
-
-public val WPD_PROPERTY_ATTRIBUTE_FORM_RANGE: WpdAttributeForm = 1
-
-public val WPD_PROPERTY_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdAttributeForm = 3
-
-public val WPD_PROPERTY_ATTRIBUTE_FORM_UNSPECIFIED: WpdAttributeForm = 0
 
 public val WPD_PROPERTY_ATTRIBUTE_MAX_SIZE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xab7943d86332445fuL, 0xa00d8d5ef1e96f37uL)), pid = 13u)
 
@@ -2522,10 +2590,6 @@ public val WPD_RENDERING_INFORMATION_PROFILE_ENTRY_CREATABLE_RESOURCES: Property
 
 public val WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xc53d039fee234a31uL, 0x85907639879870b4uL)), pid = 3u)
 
-public val WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_OBJECT: WpdRenderingInformationProfileEntryTypes = 0
-
-public val WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_RESOURCE: WpdRenderingInformationProfileEntryTypes = 1
-
 public val WPD_RESOURCE_ALBUM_ART: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xf02aa35423004e2duL, 0xa1b93b6730f7fa21uL)), pid = 0u)
 
 public val WPD_RESOURCE_ATTRIBUTES_V1: Guid = Guid.fromU128(U128(0x1eb6f6049278429fuL, 0x93cc5bb8c06656b6uL))
@@ -2570,13 +2634,7 @@ public val WPD_SECTION_DATA_REFERENCED_OBJECT_RESOURCE: Propertykey = Propertyke
 
 public val WPD_SECTION_DATA_UNITS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x516afd2bc64e44f0uL, 0x98dcbee1c88f7d66uL)), pid = 4u)
 
-public val WPD_SECTION_DATA_UNITS_BYTES: WpdSectionDataUnitsValues = 0
-
-public val WPD_SECTION_DATA_UNITS_MILLISECONDS: WpdSectionDataUnitsValues = 1
-
 public val WPD_SECTION_OBJECT_PROPERTIES_V1: Guid = Guid.fromU128(U128(0x516afd2bc64e44f0uL, 0x98dcbee1c88f7d66uL))
-
-public val WPD_SERVICE_INHERITANCE_IMPLEMENTATION: WpdServiceInheritanceTypes = 0
 
 public val WPD_SERVICE_PROPERTIES_V1: Guid = Guid.fromU128(U128(0x7510698acb54481cuL, 0xb8db0d75c93f1c06uL))
 
@@ -2656,12 +2714,6 @@ public val WPD_STILL_IMAGE_WHITE_BALANCE: Propertykey = Propertykey(fmtid = Guid
 
 public val WPD_STORAGE_ACCESS_CAPABILITY: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1a3057a74d64e80uL, 0xbea7dc4c212ce50auL)), pid = 11u)
 
-public val WPD_STORAGE_ACCESS_CAPABILITY_READWRITE: WpdStorageAccessCapabilityValues = 0
-
-public val WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITHOUT_OBJECT_DELETION: WpdStorageAccessCapabilityValues = 1
-
-public val WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITH_OBJECT_DELETION: WpdStorageAccessCapabilityValues = 2
-
 public val WPD_STORAGE_CAPACITY: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1a3057a74d64e80uL, 0xbea7dc4c212ce50auL)), pid = 4u)
 
 public val WPD_STORAGE_CAPACITY_IN_OBJECTS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1a3057a74d64e80uL, 0xbea7dc4c212ce50auL)), pid = 10u)
@@ -2681,26 +2733,6 @@ public val WPD_STORAGE_OBJECT_PROPERTIES_V1: Guid = Guid.fromU128(U128(0x1a3057a
 public val WPD_STORAGE_SERIAL_NUMBER: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1a3057a74d64e80uL, 0xbea7dc4c212ce50auL)), pid = 8u)
 
 public val WPD_STORAGE_TYPE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1a3057a74d64e80uL, 0xbea7dc4c212ce50auL)), pid = 2u)
-
-public val WPD_STORAGE_TYPE_FIXED_RAM: WpdStorageTypeValues = 3
-
-public val WPD_STORAGE_TYPE_FIXED_ROM: WpdStorageTypeValues = 1
-
-public val WPD_STORAGE_TYPE_REMOVABLE_RAM: WpdStorageTypeValues = 4
-
-public val WPD_STORAGE_TYPE_REMOVABLE_ROM: WpdStorageTypeValues = 2
-
-public val WPD_STORAGE_TYPE_UNDEFINED: WpdStorageTypeValues = 0
-
-public val WPD_STREAM_UNITS_BYTES: WpdStreamUnits = 0
-
-public val WPD_STREAM_UNITS_FRAMES: WpdStreamUnits = 1
-
-public val WPD_STREAM_UNITS_MICROSECONDS: WpdStreamUnits = 8
-
-public val WPD_STREAM_UNITS_MILLISECONDS: WpdStreamUnits = 4
-
-public val WPD_STREAM_UNITS_ROWS: WpdStreamUnits = 2
 
 public val WPD_TASK_OBJECT_PROPERTIES_V1: Guid = Guid.fromU128(U128(0xe354e95ed8a04637uL, 0xa03a0cb26838dbc7uL))
 
@@ -2737,37 +2769,5 @@ public val WPD_VIDEO_RECORDEDTV_REPEAT: Propertykey = Propertykey(fmtid = Guid.f
 public val WPD_VIDEO_RECORDEDTV_STATION_NAME: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x346f2163f9984146uL, 0x8b01d19b4c00de9auL)), pid = 4u)
 
 public val WPD_VIDEO_SCAN_TYPE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x346f2163f9984146uL, 0x8b01d19b4c00de9auL)), pid = 12u)
-
-public val WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_LOWER_FIRST: WpdVideoScanTypes = 3
-
-public val WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_UPPER_FIRST: WpdVideoScanTypes = 2
-
-public val WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_LOWER_FIRST: WpdVideoScanTypes = 5
-
-public val WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_UPPER_FIRST: WpdVideoScanTypes = 4
-
-public val WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE: WpdVideoScanTypes = 6
-
-public val WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE_AND_PROGRESSIVE: WpdVideoScanTypes = 7
-
-public val WPD_VIDEO_SCAN_TYPE_PROGRESSIVE: WpdVideoScanTypes = 1
-
-public val WPD_VIDEO_SCAN_TYPE_UNUSED: WpdVideoScanTypes = 0
-
-public val WPD_WHITE_BALANCE_AUTOMATIC: WpdWhiteBalanceSettings = 2
-
-public val WPD_WHITE_BALANCE_DAYLIGHT: WpdWhiteBalanceSettings = 4
-
-public val WPD_WHITE_BALANCE_FLASH: WpdWhiteBalanceSettings = 7
-
-public val WPD_WHITE_BALANCE_FLORESCENT: WpdWhiteBalanceSettings = 5
-
-public val WPD_WHITE_BALANCE_MANUAL: WpdWhiteBalanceSettings = 1
-
-public val WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WpdWhiteBalanceSettings = 3
-
-public val WPD_WHITE_BALANCE_TUNGSTEN: WpdWhiteBalanceSettings = 6
-
-public val WPD_WHITE_BALANCE_UNDEFINED: WpdWhiteBalanceSettings = 0
 
 public val WPD_SERIALIZER: Guid = Guid.fromU128(U128(0xb91a74bad7c4a9duL, 0xb56329eef9167172uL))

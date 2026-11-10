@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 
 public val BCP6X_FILEFMT: UInt = 9u
@@ -171,22 +169,6 @@ public val CI_S_CLIENT_REQUESTED_ABORT: Hresult = 0x4182Bu.toInt()
 public val CI_S_NEW_AUXMETADATA: Hresult = 0x41829u.toInt()
 
 public val CI_S_RETRY_DOCUMENT: Hresult = 0x4182Cu.toInt()
-
-public val CLSID_CI_SIMPLE_COMMAND_CREATOR: Guid = Guid.fromU128(U128(0xc7b6c04acbb511d0uL, 0xbb4c00c04fc2f410uL))
-
-public val CLSID_DATA_SHAPE_PROVIDER: Guid = Guid.fromU128(U128(0x3449a1c8c56c11d0uL, 0xad7200c04fc29863uL))
-
-public val CLSID_MSDASQL: Guid = Guid.fromU128(U128(0xc8b522cb5cf311ceuL, 0xade500aa0044773duL))
-
-public val CLSID_MSDASQL_ENUMERATOR: Guid = Guid.fromU128(U128(0xc8b522cd5cf311ceuL, 0xade500aa0044773duL))
-
-public val CLSID_MS_PERSIST: Guid = Guid.fromU128(U128(0x7c07e0d0441811d2uL, 0x921200c04fbbbfb3uL))
-
-public val CLSID_SQLOLEDB: Guid = Guid.fromU128(U128(0xc7ff16c38e311d0uL, 0x97ab00c04fc2ad98uL))
-
-public val CLSID_SQLOLEDB_ENUMERATOR: Guid = Guid.fromU128(U128(0xdfa22b8ee68d11d0uL, 0x97e400c04fc2ad98uL))
-
-public val CLSID_SQLOLEDB_ERROR: Guid = Guid.fromU128(U128(0xc0932c6238e511d0uL, 0x97ab00c04fc2ad98uL))
 
 public val CLUSIONREASON_DEFAULT: ClusionReason = 1
 
@@ -396,18 +378,6 @@ public val CRESTRICTIONS_MDSCHEMA_SETS: UInt = 5u
 
 public val CSTORAGEPROPERTY: UInt = 23u
 
-public val C_SEARCH_LANGUAGE_SUPPORT: Guid = Guid.fromU128(U128(0x6a68cc8043374dbcuL, 0xbd27fbfb1053820buL))
-
-public val C_SEARCH_MANAGER: Guid = Guid.fromU128(U128(0x7d096c5fac084f1fuL, 0xbeb75c22c517ce39uL))
-
-public val C_SEARCH_ROOT: Guid = Guid.fromU128(U128(0x30766bd2ea1c4f28uL, 0xbf270b44e2f68db7uL))
-
-public val C_SEARCH_SCOPE_RULE: Guid = Guid.fromU128(U128(0xe63de7503bd74be5uL, 0x9c846b4281988c44uL))
-
-public val COMPOUND_CONDITION: Guid = Guid.fromU128(U128(0x116f8d13101e4fa5uL, 0x84d4ff8279381935uL))
-
-public val CONDITION_FACTORY: Guid = Guid.fromU128(U128(0xe03e85b07be34000uL, 0xba986c13de9fa486uL))
-
 public val DBACCESSOR_INHERITED: Dbaccessorflagsenum = 16
 
 public val DBACCESSOR_INVALID: Dbaccessorflagsenum = 0
@@ -488,15 +458,11 @@ public val DBBINDURLSTATUS_S_OK: Dbbindurlstatusenum = 0
 
 public val DBBINDURLSTATUS_S_REDIRECTED: Dbbindurlstatusenum = 8
 
-public val DBBMKGUID: Guid = Guid.fromU128(U128(0xc8b522325cf311ceuL, 0xade500aa0044773duL))
-
 public val DBBMK_FIRST: Dbbookmark = 1
 
 public val DBBMK_INVALID: Dbbookmark = 0
 
 public val DBBMK_LAST: Dbbookmark = 2
-
-public val DBCIDGUID: Guid = Guid.fromU128(U128(0xc733a812a1c11ceuL, 0xade500aa0044773duL))
 
 public val DBCOLUMNDESCFLAGS_CLSID: Dbcolumndescflagsenum = 8
 
@@ -671,14 +637,6 @@ public val DBEXECLIMITS_ABORT: Dbexeclimitsenum = 1
 public val DBEXECLIMITS_STOP: Dbexeclimitsenum = 2
 
 public val DBEXECLIMITS_SUSPEND: Dbexeclimitsenum = 3
-
-public val DBGUID_MSSQLXML: Guid = Guid.fromU128(U128(0x5d531cb2e6ed11d2uL, 0xb25200c04f681b71uL))
-
-public val DBGUID_ROWDEFAULTSTREAM: Guid = Guid.fromU128(U128(0xc733ab72a1c11ceuL, 0xade500aa0044773duL))
-
-public val DBGUID_ROWURL: Guid = Guid.fromU128(U128(0xc733ab62a1c11ceuL, 0xade500aa0044773duL))
-
-public val DBGUID_XPATH: Guid = Guid.fromU128(U128(0xec2a4293e89811d2uL, 0xb1b700c04f680c56uL))
 
 public val DBINDEX_COL_ORDER_ASC: DbindexColOrderenum = 0
 
@@ -881,40 +839,6 @@ public val DBPROPOPTIONS_OPTIONAL: Dbpropoptionsenum = 1
 public val DBPROPOPTIONS_REQUIRED: Dbpropoptionsenum = 0
 
 public val DBPROPOPTIONS_SETIFCHEAP: Dbpropoptionsenum = 1
-
-public val DBPROPSET_MSDAORA8_ROWSET: Guid = Guid.fromU128(U128(0x7f06a375dd6a43dbuL, 0xb4e01fc121e5e62buL))
-
-public val DBPROPSET_MSDAORA_ROWSET: Guid = Guid.fromU128(U128(0xe8cc4cbdfdff11d0uL, 0xb86500a0c9081c1duL))
-
-public val DBPROPSET_MSDSDBINIT: Guid = Guid.fromU128(U128(0x55cb91a85c7a11d1uL, 0xadad00c04fc29863uL))
-
-public val DBPROPSET_MSDSSESSION: Guid = Guid.fromU128(U128(0xedf17536afbf11d1uL, 0x88470000f879f98cuL))
-
-public val DBPROPSET_PERSIST: Guid = Guid.fromU128(U128(0x4d7839a05b8e11d1uL, 0xa6b300a0c9138c66uL))
-
-public val DBPROPSET_PROVIDERCONNATTR: Guid = Guid.fromU128(U128(0x497c60e4712311cfuL, 0xb17100aa0057599euL))
-
-public val DBPROPSET_PROVIDERDATASOURCEINFO: Guid = Guid.fromU128(U128(0x497c60e0712311cfuL, 0xb17100aa0057599euL))
-
-public val DBPROPSET_PROVIDERDBINIT: Guid = Guid.fromU128(U128(0x497c60e2712311cfuL, 0xb17100aa0057599euL))
-
-public val DBPROPSET_PROVIDERROWSET: Guid = Guid.fromU128(U128(0x497c60e1712311cfuL, 0xb17100aa0057599euL))
-
-public val DBPROPSET_PROVIDERSTMTATTR: Guid = Guid.fromU128(U128(0x497c60e3712311cfuL, 0xb17100aa0057599euL))
-
-public val DBPROPSET_SQLSERVERCOLUMN: Guid = Guid.fromU128(U128(0x3b63fb5e3fbb11d3uL, 0x9f2900c04f8ee9dcuL))
-
-public val DBPROPSET_SQLSERVERDATASOURCE: Guid = Guid.fromU128(U128(0x28efaee42d2c11d1uL, 0x980700c04fc2ad98uL))
-
-public val DBPROPSET_SQLSERVERDATASOURCEINFO: Guid = Guid.fromU128(U128(0xdf10cb9435f611d2uL, 0x9c5400c04f7971d3uL))
-
-public val DBPROPSET_SQLSERVERDBINIT: Guid = Guid.fromU128(U128(0x5cf4ca10ef2111d0uL, 0x97e700c04fc2ad98uL))
-
-public val DBPROPSET_SQLSERVERROWSET: Guid = Guid.fromU128(U128(0x5cf4ca11ef2111d0uL, 0x97e700c04fc2ad98uL))
-
-public val DBPROPSET_SQLSERVERSESSION: Guid = Guid.fromU128(U128(0x28efaee52d2c11d1uL, 0x980700c04fc2ad98uL))
-
-public val DBPROPSET_SQLSERVERSTREAM: Guid = Guid.fromU128(U128(0x9f79c0738a6d4bcauL, 0xa8a8c9b79a9b962duL))
 
 public val DBPROPSTATUS_BADCOLUMN: Dbpropstatusenum = 4
 
@@ -1826,8 +1750,6 @@ public val DBPROP_USERNAME: Dbpropenum = 118
 
 public val DBPROP_UNICODE: UInt = 6u
 
-public val DBQUERYGUID: Guid = Guid.fromU128(U128(0x49691c907e17101auL, 0xa91c08002b2ecda9uL))
-
 public val DBRANGE_EXCLUDENULLS: Dbrangeenum = 4
 
 public val DBRANGE_EXCLUSIVEEND: Dbrangeenum = 2
@@ -1960,8 +1882,6 @@ public val DBROWSTATUS_S_OK: Dbrowstatusenum = 0
 
 public val DBROWSTATUS_S_PENDINGCHANGES: Dbrowstatusenum = 3
 
-public val DBSCHEMA_LINKEDSERVERS: Guid = Guid.fromU128(U128(0x9093caf42eac11d1uL, 0x980900c04fc2ad98uL))
-
 public val DBSEEK_AFTER: Dbseekenum = 8
 
 public val DBSEEK_AFTEREQ: Dbseekenum = 4
@@ -1975,8 +1895,6 @@ public val DBSEEK_FIRSTEQ: Dbseekenum = 1
 public val DBSEEK_INVALID: Dbseekenum = 0
 
 public val DBSEEK_LASTEQ: Dbseekenum = 2
-
-public val DBSELFGUID: Guid = Guid.fromU128(U128(0xc8b522315cf311ceuL, 0xade500aa0044773duL))
 
 public val DBSORT_ASCENDING: Dbsortenum = 0
 
@@ -2512,8 +2430,6 @@ public val DB_MODE_SHARE_EXCLUSIVE: UInt = 12u
 
 public val DB_MODE_WRITE: UInt = 2u
 
-public val DB_NULLGUID: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
-
 public val DB_NULL_HACCESSOR: UInt = 0u
 
 public val DB_NULL_HCHAPTER: UInt = 0u
@@ -2721,8 +2637,6 @@ public val DS_E_UNKNOWNPARAM: Int = -2147220450
 public val DS_E_UNKNOWNREQUEST: Int = -2147220476
 
 public val DS_E_VALUETOOLARGE: Int = -2147220451
-
-public val DATA_LINKS: Guid = Guid.fromU128(U128(0x2206cdb219c111d1uL, 0x89e000c04fd7a829uL))
 
 public val ERROR_FTE: UInt = 13824u
 
@@ -3003,3 +2917,87 @@ public val EVENT_INDEXER_PROP_STOPPED: Int = -2147476633
 public val EVENT_INDEXER_PROP_SUCCEEDED: Int = 7016
 
 public val EVENT_INDEXER_REG_ERROR: Int = -1073734756
+
+public val EVENT_INDEXER_REG_MISSING: Int = -1073734796
+
+public val EVENT_INDEXER_REMOVED_PROJECT: Int = -1073734753
+
+public val EVENT_INDEXER_REMOVE_DSS_FAILED: Int = -1073734801
+
+public val EVENT_INDEXER_REMOVE_DSS_SUCCEEDED: Int = 7020
+
+public val EVENT_INDEXER_RESET_FOR_CORRUPTION: Int = -1073734784
+
+public val EVENT_INDEXER_SCHEMA_COPY_ERROR: Int = -1073734823
+
+public val EVENT_INDEXER_SHUTDOWN: Int = 1073748866
+
+public val EVENT_INDEXER_STARTED: Int = 1073748824
+
+public val EVENT_INDEXER_VERIFY_PROP_ACCOUNT: Int = -1073734768
+
+public val EVENT_LEARN_COMPILE_FAILED: Int = -2147480583
+
+public val EVENT_LEARN_CREATE_DB_FAILED: Int = -2147480584
+
+public val EVENT_LEARN_PROPAGATION_COPY_FAILED: Int = -2147480585
+
+public val EVENT_LEARN_PROPAGATION_FAILED: Int = -2147480582
+
+public val EVENT_LOCAL_GROUPS_CACHE_FLUSHED: Int = 1073744920
+
+public val EVENT_LOCAL_GROUP_NOT_EXPANDED: Int = 1073744919
+
+public val EVENT_NOTIFICATION_FAILURE: Int = -1073738745
+
+public val EVENT_NOTIFICATION_FAILURE_SCOPE_EXCEEDED_LOGGING: Int = -2147480568
+
+public val EVENT_NOTIFICATION_RESTORED: Int = 1073744905
+
+public val EVENT_NOTIFICATION_RESTORED_SCOPE_EXCEEDED_LOGGING: Int = -2147480566
+
+public val EVENT_NOTIFICATION_THREAD_EXIT_FAILED: Int = -1073738725
+
+public val EVENT_OUTOFMEMORY: Int = -1073740817
+
+public val EVENT_PERF_COUNTERS_ALREADY_EXISTS: Int = -2147473626
+
+public val EVENT_PERF_COUNTERS_NOT_LOADED: Int = -2147473628
+
+public val EVENT_PERF_COUNTERS_REGISTRY_TROUBLE: Int = -2147473627
+
+public val EVENT_PROTOCOL_HOST_FORCE_TERMINATE: Int = -2147473625
+
+public val EVENT_REG_VERSION: Int = -1073738790
+
+public val EVENT_SSSEARCH_CREATE_PATH_RULES_FAILED: Int = -2147482634
+
+public val EVENT_SSSEARCH_CSM_SAVE_FAILED: Int = -1073740805
+
+public val EVENT_SSSEARCH_DATAFILES_MOVE_FAILED: Int = -1073740808
+
+public val EVENT_SSSEARCH_DATAFILES_MOVE_ROLLBACK_ERRORS: Int = -2147482630
+
+public val EVENT_SSSEARCH_DATAFILES_MOVE_SUCCEEDED: Int = 1073742841
+
+public val EVENT_SSSEARCH_DROPPED_EVENTS: Int = -2147482633
+
+public val EVENT_SSSEARCH_SETUP_CLEANUP_FAILED: Int = -1073740813
+
+public val EVENT_SSSEARCH_SETUP_CLEANUP_STARTED: Int = -2147482640
+
+public val EVENT_SSSEARCH_SETUP_CLEANUP_SUCCEEDED: Int = 1073742834
+
+public val EVENT_SSSEARCH_SETUP_FAILED: Int = -1073740818
+
+public val EVENT_SSSEARCH_SETUP_SUCCEEDED: Int = 1073742829
+
+public val EVENT_SSSEARCH_STARTED: Int = 1073742827
+
+public val EVENT_SSSEARCH_STARTING_SETUP: Int = 1073742828
+
+public val EVENT_SSSEARCH_STOPPED: Int = 1073742837
+
+public val EVENT_STS_INIT_SECURITY_FAILED: Int = -2147480554
+
+public val EVENT_SYSTEM_EXCEPTION: Int = -2147482595

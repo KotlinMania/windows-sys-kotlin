@@ -19,8 +19,6 @@ public val GID_TWOFINGERTAP: GestureconfigId = 6u
 
 public val GID_ZOOM: GestureconfigId = 3u
 
-public val INERTIA_PROCESSOR: Guid = Guid.fromU128(U128(0xabb270874ce04e58uL, 0xa0cbe24df96814beuL))
-
 public val MANIPULATION_ALL: ManipulationProcessorManipulations = 15
 
 public val MANIPULATION_NONE: ManipulationProcessorManipulations = 0
@@ -32,8 +30,6 @@ public val MANIPULATION_SCALE: ManipulationProcessorManipulations = 4
 public val MANIPULATION_TRANSLATE_X: ManipulationProcessorManipulations = 1
 
 public val MANIPULATION_TRANSLATE_Y: ManipulationProcessorManipulations = 2
-
-public val MANIPULATION_PROCESSOR: Guid = Guid.fromU128(U128(0x597d4fb047fd4affuL, 0x89b9c6cfae8cf08euL))
 
 public val TOUCHEVENTF_DOWN: ToucheventfFlags = 2u
 
@@ -60,3 +56,7 @@ public val TOUCHINPUTMASKF_TIMEFROMSYSTEM: TouchinputmaskfMask = 1u
 public val TWF_FINETOUCH: RegisterTouchWindowFlags = 1u
 
 public val TWF_WANTPALM: RegisterTouchWindowFlags = 2u
+
+public val INERTIA_PROCESSOR: Guid = Guid.fromU128(U128(0xabb270874ce04e58uL, 0xa0cbe24df96814beuL))
+
+public val MANIPULATION_PROCESSOR: Guid = Guid.fromU128(U128(0x597d4fb047fd4affuL, 0x89b9c6cfae8cf08euL))

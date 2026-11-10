@@ -2085,8 +2085,6 @@ public val PROXY_TYPE_DIRECT: UInt = 1u
 
 public val PROXY_TYPE_PROXY: UInt = 2u
 
-public val PROOF_OF_POSSESSION_COOKIE_INFO_MANAGER: Guid = Guid.fromU128(U128(0xa9927f85a3044390uL, 0x8b23a75f1c668600uL))
-
 public val REDIRECT_CACHE_ENTRY: UInt = 2048u
 
 public val REGSTR_DIAL_AUTOCONNECT: Pcstr = s("AutoConnect")
@@ -2178,3 +2176,5 @@ public val WPAD_CACHE_DELETE_ALL: WpadCacheDelete = 1
 public val WPAD_CACHE_DELETE_CURRENT: WpadCacheDelete = 0
 
 public val XDR_CACHE_ENTRY: UInt = 262144u
+
+public val PROOF_OF_POSSESSION_COOKIE_INFO_MANAGER: Guid = Guid.fromU128(U128(0xa9927f85a3044390uL, 0x8b23a75f1c668600uL))

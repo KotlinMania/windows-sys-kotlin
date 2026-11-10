@@ -39,10 +39,6 @@ public val GPS_VOLATILEPROPERTIES: Getpropertystoreflags = 2048
 
 public val GPS_VOLATILEPROPERTIESONLY: Getpropertystoreflags = 4096
 
-public val IN_MEMORY_PROPERTY_STORE: Guid = Guid.fromU128(U128(0x9a02e01263034e1euL, 0xb9a1630f802592c5uL))
-
-public val IN_MEMORY_PROPERTY_STORE_MARSHAL_BY_VALUE: Guid = Guid.fromU128(U128(0xd4ca0e2d6da74b75uL, 0xa97c5f306f0eaedcuL))
-
 public val PDAT_AVERAGE: PropdescAggregationType = 3
 
 public val PDAT_DATERANGE: PropdescAggregationType = 4
@@ -323,8 +319,6 @@ public val PUIF_NOLABELININFOTIP: PropertyuiFlags = 2
 
 public val PUIF_RIGHTALIGN: PropertyuiFlags = 1
 
-public val PROPERTY_SYSTEM: Guid = Guid.fromU128(U128(0xb8967f8558ae4f46uL, 0x9fb25d7904798f4buL))
-
 public val SESF_ALL_FLAGS: SyncEngineStateFlags = 511
 
 public val SESF_AUTHENTICATION_ERROR: SyncEngineStateFlags = 4
@@ -370,3 +364,9 @@ public val STS_PLACEHOLDER_IFEMPTY: SyncTransferStatus = 1024
 public val STS_TRANSFERRING: SyncTransferStatus = 4
 
 public val STS_USER_REQUESTED_REFRESH: SyncTransferStatus = 64
+
+public val IN_MEMORY_PROPERTY_STORE: Guid = Guid.fromU128(U128(0x9a02e01263034e1euL, 0xb9a1630f802592c5uL))
+
+public val IN_MEMORY_PROPERTY_STORE_MARSHAL_BY_VALUE: Guid = Guid.fromU128(U128(0xd4ca0e2d6da74b75uL, 0xa97c5f306f0eaedcuL))
+
+public val PROPERTY_SYSTEM: Guid = Guid.fromU128(U128(0xb8967f8558ae4f46uL, 0x9fb25d7904798f4buL))

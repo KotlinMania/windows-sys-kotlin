@@ -167,16 +167,6 @@ public val APP_POLICY_WINDOWING_MODEL_NONE: AppPolicyWindowingModel = 0
 
 public val APP_POLICY_WINDOWING_MODEL_UNIVERSAL: AppPolicyWindowingModel = 1
 
-public val APPX_BUNDLE_FACTORY: Guid = Guid.fromU128(U128(0x378e0446538443b7uL, 0x8877e7dbdd883446uL))
-
-public val APPX_ENCRYPTION_FACTORY: Guid = Guid.fromU128(U128(0xdc664fddd86846eeuL, 0x87808d196cb739f7uL))
-
-public val APPX_FACTORY: Guid = Guid.fromU128(U128(0x5842a140ff9f4166uL, 0x8f5c62f5b7b0c781uL))
-
-public val APPX_PACKAGE_EDITOR: Guid = Guid.fromU128(U128(0xf004f2caaebc4b0duL, 0xbf58e516d5bcc0abuL))
-
-public val APPX_PACKAGING_DIAGNOSTIC_EVENT_SINK_MANAGER: Guid = Guid.fromU128(U128(0x50ca0a4615884161uL, 0x8ed2ef9e469ced5duL))
-
 public val CREATE_PACKAGE_DEPENDENCY_OPTIONS_DO_NOT_VERIFY_DEPENDENCY_RESOLUTION: CreatePackageDependencyOptions = 1
 
 public val CREATE_PACKAGE_DEPENDENCY_OPTIONS_NONE: CreatePackageDependencyOptions = 0
@@ -334,3 +324,13 @@ public val PACKAGE_PATH_TYPE_MACHINE_EXTERNAL: PackagePathType = 3
 public val PACKAGE_PATH_TYPE_MUTABLE: PackagePathType = 1
 
 public val PACKAGE_PATH_TYPE_USER_EXTERNAL: PackagePathType = 4
+
+public val APPX_BUNDLE_FACTORY: Guid = Guid.fromU128(U128(0x378e0446538443b7uL, 0x8877e7dbdd883446uL))
+
+public val APPX_ENCRYPTION_FACTORY: Guid = Guid.fromU128(U128(0xdc664fddd86846eeuL, 0x87808d196cb739f7uL))
+
+public val APPX_FACTORY: Guid = Guid.fromU128(U128(0x5842a140ff9f4166uL, 0x8f5c62f5b7b0c781uL))
+
+public val APPX_PACKAGE_EDITOR: Guid = Guid.fromU128(U128(0xf004f2caaebc4b0duL, 0xbf58e516d5bcc0abuL))
+
+public val APPX_PACKAGING_DIAGNOSTIC_EVENT_SINK_MANAGER: Guid = Guid.fromU128(U128(0x50ca0a4615884161uL, 0x8ed2ef9e469ced5duL))

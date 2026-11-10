@@ -179,8 +179,6 @@ public val CLSCTX_RESERVED6: Clsctx = 16777216u
 
 public val CLSCTX_SERVER: Clsctx = 21u
 
-public val CLSID_GLOBAL_OPTIONS: Guid = Guid.fromU128(U128(0x34b00000000uL, 0xc000000000000046uL))
-
 public val COINITBASE_MULTITHREADED: Coinitbase = 0
 
 public val COINIT_APARTMENTTHREADED: Coinit = 2
@@ -920,3 +918,5 @@ public val VAR_DISPATCH: Varkind = 3
 public val VAR_PERINSTANCE: Varkind = 0
 
 public val VAR_STATIC: Varkind = 1
+
+public val CLSID_GLOBAL_OPTIONS: Guid = Guid.fromU128(U128(0x34b00000000uL, 0xc000000000000046uL))

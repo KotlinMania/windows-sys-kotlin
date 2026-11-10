@@ -1,10 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-public val WAVE_FORMAT_VOXWARE_AC8: UInt = 112u
-
-public val WAVE_FORMAT_VOXWARE_BYTE_ALIGNED: UInt = 105u
-
-public val WAVE_FORMAT_VOXWARE_RT24: UInt = 116u
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val WAVE_FORMAT_VOXWARE_RT24_SPEECH: UInt = 6172u
 
@@ -297,3 +294,9 @@ public val WODM_SETVOLUME: UInt = 17u
 public val WODM_UNPREPARE: UInt = 8u
 
 public val WODM_WRITE: UInt = 9u
+
+public val CLSID_AVI_FILE: Guid = Guid.fromU128(U128(0x2000000000000uL, 0xc000000000000046uL))
+
+public val CLSID_AVI_SIMPLE_UN_MARSHAL: Guid = Guid.fromU128(U128(0x2000900000000uL, 0xc000000000000046uL))
+
+public val KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: Guid = Guid.fromU128(U128(0x300000010uL, 0x800000aa00389b71uL))

@@ -8,52 +8,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val BLOCK_RANGE: Guid = Guid.fromU128(U128(0xb507ca27220411dduL, 0x966a001aa01bbc58uL))
-
-public val BLOCK_RANGE_LIST: Guid = Guid.fromU128(U128(0xb507ca28220411dduL, 0x966a001aa01bbc58uL))
-
-public val BOOT_OPTIONS: Guid = Guid.fromU128(U128(0x2c941fce975b59beuL, 0xa9609a2a262853a5uL))
-
-public val CATID_SMTP_DNSRESOLVERRECORDSINK: Guid = Guid.fromU128(U128(0xbd0b43668e0311d2uL, 0x94f600c04f79f1d6uL))
-
-public val CATID_SMTP_DSN: Guid = Guid.fromU128(U128(0x22b55731f5f84d23uL, 0xbd8f87b52371a73auL))
-
-public val CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: Guid = Guid.fromU128(U128(0x84ff368afab343d7uL, 0xbcdf692c5b46e6b1uL))
-
-public val CATID_SMTP_LOG: Guid = Guid.fromU128(U128(0x93d0a5382c1e4b68uL, 0xa7c9d73a8aa6ee97uL))
-
-public val CATID_SMTP_MAXMSGSIZE: Guid = Guid.fromU128(U128(0xebf159dea67e11d2uL, 0x94f700c04f79f1d6uL))
-
-public val CATID_SMTP_MSGTRACKLOG: Guid = Guid.fromU128(U128(0xc6df52aa7db011d2uL, 0x94f400c04f79f1d6uL))
-
-public val CATID_SMTP_ON_BEFORE_DATA: Guid = Guid.fromU128(U128(0xf6628c920d5e11d2uL, 0xaa6800c04fa35b82uL))
-
-public val CATID_SMTP_ON_INBOUND_COMMAND: Guid = Guid.fromU128(U128(0xf6628c8d0d5e11d2uL, 0xaa6800c04fa35b82uL))
-
-public val CATID_SMTP_ON_MESSAGE_START: Guid = Guid.fromU128(U128(0xf6628c900d5e11d2uL, 0xaa6800c04fa35b82uL))
-
-public val CATID_SMTP_ON_PER_RECIPIENT: Guid = Guid.fromU128(U128(0xf6628c910d5e11d2uL, 0xaa6800c04fa35b82uL))
-
-public val CATID_SMTP_ON_SERVER_RESPONSE: Guid = Guid.fromU128(U128(0xf6628c8e0d5e11d2uL, 0xaa6800c04fa35b82uL))
-
-public val CATID_SMTP_ON_SESSION_END: Guid = Guid.fromU128(U128(0xf6628c930d5e11d2uL, 0xaa6800c04fa35b82uL))
-
-public val CATID_SMTP_ON_SESSION_START: Guid = Guid.fromU128(U128(0xf6628c8f0d5e11d2uL, 0xaa6800c04fa35b82uL))
-
-public val CATID_SMTP_STORE_DRIVER: Guid = Guid.fromU128(U128(0x59175850e53311d1uL, 0xaa6700c04fa345f6uL))
-
-public val CATID_SMTP_TRANSPORT_CATEGORIZE: Guid = Guid.fromU128(U128(0x960252a30a3a11d2uL, 0x9e0000c04fa322bauL))
-
-public val CATID_SMTP_TRANSPORT_POSTCATEGORIZE: Guid = Guid.fromU128(U128(0x7671965405a611d2uL, 0x9dfd00c04fa322bauL))
-
-public val CATID_SMTP_TRANSPORT_PRECATEGORIZE: Guid = Guid.fromU128(U128(0xa3acfb0d83ff11d2uL, 0x9e1400c04fa322bauL))
-
-public val CATID_SMTP_TRANSPORT_ROUTER: Guid = Guid.fromU128(U128(0x283430c9185011d2uL, 0x9e0300c04fa322bauL))
-
-public val CATID_SMTP_TRANSPORT_SUBMISSION: Guid = Guid.fromU128(U128(0xff3caa2300b911d2uL, 0x9dfb00c04fa322bauL))
-
-public val CLSID_SMTP_CAT: Guid = Guid.fromU128(U128(0xb23c35b7921911d2uL, 0x9e1700c04fa322bauL))
-
 public val DISPID_DDISCFORMAT2DATAEVENTS_UPDATE: UInt = 512u
 
 public val DISPID_DDISCFORMAT2RAWCDEVENTS_UPDATE: UInt = 512u
@@ -408,16 +362,6 @@ public val EMULATION_HARD_DISK: EmulationType = 4
 
 public val EMULATION_NONE: EmulationType = 0
 
-public val ENUM_FSI_ITEMS: Guid = Guid.fromU128(U128(0x2c941fc6975b59beuL, 0xa9609a2a262853a5uL))
-
-public val ENUM_PROGRESS_ITEMS: Guid = Guid.fromU128(U128(0x2c941fca975b59beuL, 0xa9609a2a262853a5uL))
-
-public val FILE_SYSTEM_IMAGE_RESULT: Guid = Guid.fromU128(U128(0x2c941fcc975b59beuL, 0xa9609a2a262853a5uL))
-
-public val FSI_DIRECTORY_ITEM: Guid = Guid.fromU128(U128(0x2c941fc8975b59beuL, 0xa9609a2a262853a5uL))
-
-public val FSI_FILE_ITEM: Guid = Guid.fromU128(U128(0x2c941fc7975b59beuL, 0xa9609a2a262853a5uL))
-
 public val FSI_FILE_SYSTEM_ISO9660: FsiFileSystems = 1
 
 public val FSI_FILE_SYSTEM_JOLIET: FsiFileSystems = 2
@@ -433,14 +377,6 @@ public val FSI_ITEM_DIRECTORY: FsiItemType = 1
 public val FSI_ITEM_FILE: FsiItemType = 2
 
 public val FSI_ITEM_NOT_FOUND: FsiItemType = 0
-
-public val FSI_NAMED_STREAMS: Guid = Guid.fromU128(U128(0xc6b6f8ed6d1944b4uL, 0xb539b159b793a32duL))
-
-public val FSI_STREAM: Guid = Guid.fromU128(U128(0x2c941fcd975b59beuL, 0xa9609a2a262853a5uL))
-
-public val GUID_SMTPSVC_SOURCE: Guid = Guid.fromU128(U128(0x1b3c0666e47011d1uL, 0xaa6700c04fa345f6uL))
-
-public val GUID_SMTP_SOURCE_TYPE: Guid = Guid.fromU128(U128(0xfb65c4dce46811d1uL, 0xaa6700c04fa345f6uL))
 
 public val IMAPI2FS_BOOT_ENTRY_COUNT_MAX: UInt = 32u
 
@@ -1154,46 +1090,6 @@ public val MP_STATUS_SUBMITTED: UInt = 4u
 
 public val MP_STATUS_SUCCESS: UInt = 0u
 
-public val MS_DISC_MASTER_OBJ: Guid = Guid.fromU128(U128(0x520cca6351a511d3uL, 0x914400104ba11c5euL))
-
-public val MS_DISC_RECORDER_OBJ: Guid = Guid.fromU128(U128(0x520cca6151a511d3uL, 0x914400104ba11c5euL))
-
-public val MS_ENUM_DISC_RECORDERS_OBJ: Guid = Guid.fromU128(U128(0x8a03567a63cb4ba8uL, 0xbaf652119816d1efuL))
-
-public val MSFT_DISC_FORMAT2DATA: Guid = Guid.fromU128(U128(0x2735412a7f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_DISC_FORMAT2ERASE: Guid = Guid.fromU128(U128(0x2735412b7f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_DISC_FORMAT2RAW_CD: Guid = Guid.fromU128(U128(0x273541287f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_DISC_FORMAT2TRACK_AT_ONCE: Guid = Guid.fromU128(U128(0x273541297f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_DISC_MASTER2: Guid = Guid.fromU128(U128(0x2735412e7f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_DISC_RECORDER2: Guid = Guid.fromU128(U128(0x2735412d7f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_FILE_SYSTEM_IMAGE: Guid = Guid.fromU128(U128(0x2c941fc5975b59beuL, 0xa9609a2a262853a5uL))
-
-public val MSFT_ISO_IMAGE_MANAGER: Guid = Guid.fromU128(U128(0xceee3b628f564056uL, 0x869bef16917e3efcuL))
-
-public val MSFT_MULTISESSION_RANDOM_WRITE: Guid = Guid.fromU128(U128(0xb507ca24220411dduL, 0x966a001aa01bbc58uL))
-
-public val MSFT_MULTISESSION_SEQUENTIAL: Guid = Guid.fromU128(U128(0x273541227f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_RAW_CD_IMAGE_CREATOR: Guid = Guid.fromU128(U128(0x259835619d6549ceuL, 0xb33540630d901227uL))
-
-public val MSFT_STREAM_CONCATENATE: Guid = Guid.fromU128(U128(0x273541257f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_STREAM_INTERLEAVE: Guid = Guid.fromU128(U128(0x273541247f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_STREAM_PRNG001: Guid = Guid.fromU128(U128(0x273541267f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_STREAM_ZERO: Guid = Guid.fromU128(U128(0x273541277f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_WRITE_ENGINE2: Guid = Guid.fromU128(U128(0x2735412c7f645b0fuL, 0x8f005d77afbe261euL))
-
-public val MSFT_WRITE_SPEED_DESCRIPTOR: Guid = Guid.fromU128(U128(0x273541237f645b0fuL, 0x8f005d77afbe261euL))
-
 public val NMP_PROCESS_CONTROL: UInt = 2u
 
 public val NMP_PROCESS_MODERATOR: UInt = 4u
@@ -1207,10 +1103,6 @@ public val PLATFORM_MAC: PlatformId = 2
 public val PLATFORM_POWER_PC: PlatformId = 1
 
 public val PLATFORM_X86: PlatformId = 0
-
-public val PROGRESS_ITEM: Guid = Guid.fromU128(U128(0x2c941fcb975b59beuL, 0xa9609a2a262853a5uL))
-
-public val PROGRESS_ITEMS: Guid = Guid.fromU128(U128(0x2c941fc9975b59beuL, 0xa9609a2a262853a5uL))
 
 public val RECORDER_BURNING: DiscRecorderStateFlags = 2u
 
@@ -1273,6 +1165,114 @@ public val RP_UNRESOLVED: UInt = 4144u
 public val RP_VOLATILE_FLAGS_MASK: UInt = 4026531840u
 
 public val SZ_PROGID_SMTPCAT: Pcstr = s("Smtp.Cat")
+
+public val BLOCK_RANGE: Guid = Guid.fromU128(U128(0xb507ca27220411dduL, 0x966a001aa01bbc58uL))
+
+public val BLOCK_RANGE_LIST: Guid = Guid.fromU128(U128(0xb507ca28220411dduL, 0x966a001aa01bbc58uL))
+
+public val BOOT_OPTIONS: Guid = Guid.fromU128(U128(0x2c941fce975b59beuL, 0xa9609a2a262853a5uL))
+
+public val CATID_SMTP_DNSRESOLVERRECORDSINK: Guid = Guid.fromU128(U128(0xbd0b43668e0311d2uL, 0x94f600c04f79f1d6uL))
+
+public val CATID_SMTP_DSN: Guid = Guid.fromU128(U128(0x22b55731f5f84d23uL, 0xbd8f87b52371a73auL))
+
+public val CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: Guid = Guid.fromU128(U128(0x84ff368afab343d7uL, 0xbcdf692c5b46e6b1uL))
+
+public val CATID_SMTP_LOG: Guid = Guid.fromU128(U128(0x93d0a5382c1e4b68uL, 0xa7c9d73a8aa6ee97uL))
+
+public val CATID_SMTP_MAXMSGSIZE: Guid = Guid.fromU128(U128(0xebf159dea67e11d2uL, 0x94f700c04f79f1d6uL))
+
+public val CATID_SMTP_MSGTRACKLOG: Guid = Guid.fromU128(U128(0xc6df52aa7db011d2uL, 0x94f400c04f79f1d6uL))
+
+public val CATID_SMTP_ON_BEFORE_DATA: Guid = Guid.fromU128(U128(0xf6628c920d5e11d2uL, 0xaa6800c04fa35b82uL))
+
+public val CATID_SMTP_ON_INBOUND_COMMAND: Guid = Guid.fromU128(U128(0xf6628c8d0d5e11d2uL, 0xaa6800c04fa35b82uL))
+
+public val CATID_SMTP_ON_MESSAGE_START: Guid = Guid.fromU128(U128(0xf6628c900d5e11d2uL, 0xaa6800c04fa35b82uL))
+
+public val CATID_SMTP_ON_PER_RECIPIENT: Guid = Guid.fromU128(U128(0xf6628c910d5e11d2uL, 0xaa6800c04fa35b82uL))
+
+public val CATID_SMTP_ON_SERVER_RESPONSE: Guid = Guid.fromU128(U128(0xf6628c8e0d5e11d2uL, 0xaa6800c04fa35b82uL))
+
+public val CATID_SMTP_ON_SESSION_END: Guid = Guid.fromU128(U128(0xf6628c930d5e11d2uL, 0xaa6800c04fa35b82uL))
+
+public val CATID_SMTP_ON_SESSION_START: Guid = Guid.fromU128(U128(0xf6628c8f0d5e11d2uL, 0xaa6800c04fa35b82uL))
+
+public val CATID_SMTP_STORE_DRIVER: Guid = Guid.fromU128(U128(0x59175850e53311d1uL, 0xaa6700c04fa345f6uL))
+
+public val CATID_SMTP_TRANSPORT_CATEGORIZE: Guid = Guid.fromU128(U128(0x960252a30a3a11d2uL, 0x9e0000c04fa322bauL))
+
+public val CATID_SMTP_TRANSPORT_POSTCATEGORIZE: Guid = Guid.fromU128(U128(0x7671965405a611d2uL, 0x9dfd00c04fa322bauL))
+
+public val CATID_SMTP_TRANSPORT_PRECATEGORIZE: Guid = Guid.fromU128(U128(0xa3acfb0d83ff11d2uL, 0x9e1400c04fa322bauL))
+
+public val CATID_SMTP_TRANSPORT_ROUTER: Guid = Guid.fromU128(U128(0x283430c9185011d2uL, 0x9e0300c04fa322bauL))
+
+public val CATID_SMTP_TRANSPORT_SUBMISSION: Guid = Guid.fromU128(U128(0xff3caa2300b911d2uL, 0x9dfb00c04fa322bauL))
+
+public val CLSID_SMTP_CAT: Guid = Guid.fromU128(U128(0xb23c35b7921911d2uL, 0x9e1700c04fa322bauL))
+
+public val ENUM_FSI_ITEMS: Guid = Guid.fromU128(U128(0x2c941fc6975b59beuL, 0xa9609a2a262853a5uL))
+
+public val ENUM_PROGRESS_ITEMS: Guid = Guid.fromU128(U128(0x2c941fca975b59beuL, 0xa9609a2a262853a5uL))
+
+public val FILE_SYSTEM_IMAGE_RESULT: Guid = Guid.fromU128(U128(0x2c941fcc975b59beuL, 0xa9609a2a262853a5uL))
+
+public val FSI_DIRECTORY_ITEM: Guid = Guid.fromU128(U128(0x2c941fc8975b59beuL, 0xa9609a2a262853a5uL))
+
+public val FSI_FILE_ITEM: Guid = Guid.fromU128(U128(0x2c941fc7975b59beuL, 0xa9609a2a262853a5uL))
+
+public val FSI_NAMED_STREAMS: Guid = Guid.fromU128(U128(0xc6b6f8ed6d1944b4uL, 0xb539b159b793a32duL))
+
+public val FSI_STREAM: Guid = Guid.fromU128(U128(0x2c941fcd975b59beuL, 0xa9609a2a262853a5uL))
+
+public val GUID_SMTPSVC_SOURCE: Guid = Guid.fromU128(U128(0x1b3c0666e47011d1uL, 0xaa6700c04fa345f6uL))
+
+public val GUID_SMTP_SOURCE_TYPE: Guid = Guid.fromU128(U128(0xfb65c4dce46811d1uL, 0xaa6700c04fa345f6uL))
+
+public val MS_DISC_MASTER_OBJ: Guid = Guid.fromU128(U128(0x520cca6351a511d3uL, 0x914400104ba11c5euL))
+
+public val MS_DISC_RECORDER_OBJ: Guid = Guid.fromU128(U128(0x520cca6151a511d3uL, 0x914400104ba11c5euL))
+
+public val MS_ENUM_DISC_RECORDERS_OBJ: Guid = Guid.fromU128(U128(0x8a03567a63cb4ba8uL, 0xbaf652119816d1efuL))
+
+public val MSFT_DISC_FORMAT2DATA: Guid = Guid.fromU128(U128(0x2735412a7f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_DISC_FORMAT2ERASE: Guid = Guid.fromU128(U128(0x2735412b7f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_DISC_FORMAT2RAW_CD: Guid = Guid.fromU128(U128(0x273541287f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_DISC_FORMAT2TRACK_AT_ONCE: Guid = Guid.fromU128(U128(0x273541297f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_DISC_MASTER2: Guid = Guid.fromU128(U128(0x2735412e7f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_DISC_RECORDER2: Guid = Guid.fromU128(U128(0x2735412d7f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_FILE_SYSTEM_IMAGE: Guid = Guid.fromU128(U128(0x2c941fc5975b59beuL, 0xa9609a2a262853a5uL))
+
+public val MSFT_ISO_IMAGE_MANAGER: Guid = Guid.fromU128(U128(0xceee3b628f564056uL, 0x869bef16917e3efcuL))
+
+public val MSFT_MULTISESSION_RANDOM_WRITE: Guid = Guid.fromU128(U128(0xb507ca24220411dduL, 0x966a001aa01bbc58uL))
+
+public val MSFT_MULTISESSION_SEQUENTIAL: Guid = Guid.fromU128(U128(0x273541227f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_RAW_CD_IMAGE_CREATOR: Guid = Guid.fromU128(U128(0x259835619d6549ceuL, 0xb33540630d901227uL))
+
+public val MSFT_STREAM_CONCATENATE: Guid = Guid.fromU128(U128(0x273541257f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_STREAM_INTERLEAVE: Guid = Guid.fromU128(U128(0x273541247f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_STREAM_PRNG001: Guid = Guid.fromU128(U128(0x273541267f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_STREAM_ZERO: Guid = Guid.fromU128(U128(0x273541277f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_WRITE_ENGINE2: Guid = Guid.fromU128(U128(0x2735412c7f645b0fuL, 0x8f005d77afbe261euL))
+
+public val MSFT_WRITE_SPEED_DESCRIPTOR: Guid = Guid.fromU128(U128(0x273541237f645b0fuL, 0x8f005d77afbe261euL))
+
+public val PROGRESS_ITEM: Guid = Guid.fromU128(U128(0x2c941fcb975b59beuL, 0xa9609a2a262853a5uL))
+
+public val PROGRESS_ITEMS: Guid = Guid.fromU128(U128(0x2c941fc9975b59beuL, 0xa9609a2a262853a5uL))
 
 public val TAG_IMMPID_CPV_STRUCT: Guid = Guid.fromU128(U128(0xa2a76b2ae52d11d1uL, 0xaa6400c04fa35b82uL))
 

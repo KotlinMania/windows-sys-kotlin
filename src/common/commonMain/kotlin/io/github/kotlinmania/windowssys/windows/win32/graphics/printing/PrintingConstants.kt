@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
@@ -68,12 +66,6 @@ public val BOOKLET_PRINT: UInt = 2u
 
 public val BORDER_PRINT: UInt = 0u
 
-public val BIDI_REQUEST: Guid = Guid.fromU128(U128(0xb9162a2345f947ccuL, 0x80f5fe0fe9b9e1a2uL))
-
-public val BIDI_REQUEST_CONTAINER: Guid = Guid.fromU128(U128(0xfc5b8a24db054a01uL, 0x838822edf6c2bbbauL))
-
-public val BIDI_SPL: Guid = Guid.fromU128(U128(0x2a614240a4c54c33uL, 0xbd871bc709331639uL))
-
 public val CC_BIG5: Int = -10
 
 public val CC_CP437: Int = -1
@@ -139,18 +131,6 @@ public val CHKBOXS_NO_YES: UInt = 1u
 public val CHKBOXS_OFF_ON: UInt = 2u
 
 public val CHKBOXS_OFF_PDATA: UInt = 5u
-
-public val CLSID_OEMPTPROVIDER: Guid = Guid.fromU128(U128(0x9172389245d248e2uL, 0x9ec9562379daf992uL))
-
-public val CLSID_OEMRENDER: Guid = Guid.fromU128(U128(0x6d6abf269f3811d1uL, 0x882a00c04fb961ecuL))
-
-public val CLSID_OEMUI: Guid = Guid.fromU128(U128(0xabce80d79f4611d1uL, 0x882a00c04fb961ecuL))
-
-public val CLSID_OEMUIMXDC: Guid = Guid.fromU128(U128(0x4e1443005b434288uL, 0x932a5e4dd6d82beduL))
-
-public val CLSID_PTPROVIDER: Guid = Guid.fromU128(U128(0x46ac151b84904531uL, 0x96cc55bf2bf19e11uL))
-
-public val CLSID_XPSRASTERIZER_FACTORY: Guid = Guid.fromU128(U128(0x503e79bf1d094764uL, 0x9d721eb0c65967c6uL))
 
 public val COLOR_OPTIMIZATION: UInt = 1u
 
@@ -954,8 +934,6 @@ public val FG_CANCHANGE: UInt = 128u
 
 public val FILL_WITH_DEFAULTS: UInt = 1u
 
-public val FMTID_PRINTER_PROPERTY_BAG: Guid = Guid.fromU128(U128(0x75f9adca097d45c3uL, 0xa6e4bab29e276f3euL))
-
 public val FNT_INFO_CURRENTFONTID: UInt = 10u
 
 public val FNT_INFO_FONTBOLD: UInt = 6u
@@ -1017,10 +995,6 @@ public val FONT_NORMAL: EXpsFontOptions = 0
 public val FONT_OBFUSTICATE: EXpsFontOptions = 1
 
 public val GPD_OEMCUSTOMDATA: UInt = 1u
-
-public val GUID_DEVINTERFACE_IPPUSB_PRINT: Guid = Guid.fromU128(U128(0xf2f40381f46d4e51uL, 0xbce762de6cf2d098uL))
-
-public val GUID_DEVINTERFACE_USBPRINT: Guid = Guid.fromU128(U128(0x28d78fad5a1211d1uL, 0xae5b0000f803a8c2uL))
 
 public val IDI_CPSUI_ADVANCE: UInt = 64058u
 
@@ -1932,8 +1906,6 @@ public val NOTIFICATION_CONFIG_EVENT_TRIGGER: NotificationConfigFlags = 4
 
 public val NOTIFICATION_CONFIG_REGISTER_CALLBACK: NotificationConfigFlags = 2
 
-public val NOTIFICATION_RELEASE: Guid = Guid.fromU128(U128(0xba9a5027a70e4ae7uL, 0x9b7deb3e06ad4157uL))
-
 public val NOT_REGISTERED: PrintAsyncNotifyError = 13
 
 public val NO_BORDER_PRINT: UInt = 1u
@@ -2386,12 +2358,6 @@ public val PRINTER_EVENT_INITIALIZE: UInt = 3u
 
 public val PRINTER_EXECUTE: PrinterAccessRights = 131080u
 
-public val PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: Guid = Guid.fromU128(U128(0x5d5a1704dfd14181uL, 0x8eee815c86edad31uL))
-
-public val PRINTER_EXTENSION_REASON_DRIVER_EVENT: Guid = Guid.fromU128(U128(0x23bb132863de4293uL, 0x915ba6a23d929acbuL))
-
-public val PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: Guid = Guid.fromU128(U128(0xec8f261f267c469fuL, 0xb5d63933023c29ccuL))
-
 public val PRINTER_NOTIFY_CATEGORY_3D: UInt = 8192u
 
 public val PRINTER_NOTIFY_CATEGORY_ALL: UInt = 4096u
@@ -2552,8 +2518,6 @@ public val PRINTER_WRITE_DAC: PrinterAccessRights = 262144u
 
 public val PRINTER_WRITE_OWNER: PrinterAccessRights = 524288u
 
-public val PRINT_APP_BIDI_NOTIFY_CHANNEL: Guid = Guid.fromU128(U128(0x2abad223b9944acauL, 0x82fc4571b1b585acuL))
-
 public val PRINT_EXECUTION_CONTEXT_APPLICATION: PrintExecutionContext = 0
 
 public val PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PrintExecutionContext = 3
@@ -2563,8 +2527,6 @@ public val PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PrintExecutionContext
 public val PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PrintExecutionContext = 1
 
 public val PRINT_EXECUTION_CONTEXT_WOW64: PrintExecutionContext = 4
-
-public val PRINT_PORT_MONITOR_NOTIFY_CHANNEL: Guid = Guid.fromU128(U128(0x25df3b0e74a947f5uL, 0x80ce79b4b1eb5c58uL))
 
 public val PROPSHEETUI_INFO_VERSION: UInt = 256u
 
@@ -2652,8 +2614,6 @@ public val PRINT_JOB_STATUS_SPOOLING: PrintJobStatus = 8
 
 public val PRINT_JOB_STATUS_USER_INTERVENTION: PrintJobStatus = 1024
 
-public val PRINT_SCHEMA_ASYNC_OPERATION: Guid = Guid.fromU128(U128(0x43b2f83d10f248abuL, 0x831b55fdbdbd34a4uL))
-
 public val PRINT_SCHEMA_CONSTRAINED_SETTING_ADMIN: PrintSchemaConstrainedSetting = 2
 
 public val PRINT_SCHEMA_CONSTRAINED_SETTING_DEVICE: PrintSchemaConstrainedSetting = 3
@@ -2671,12 +2631,6 @@ public val PRINT_SCHEMA_PARAMETER_DATA_TYPE_STRING: PrintSchemaParameterDataType
 public val PRINT_SCHEMA_SELECTION_TYPE_PICK_MANY: PrintSchemaSelectionType = 1
 
 public val PRINT_SCHEMA_SELECTION_TYPE_PICK_ONE: PrintSchemaSelectionType = 0
-
-public val PRINTER_EXTENSION_MANAGER: Guid = Guid.fromU128(U128(0x331b60da9e904dd0uL, 0x9c84eac4e659b61fuL))
-
-public val PRINTER_QUEUE: Guid = Guid.fromU128(U128(0xeb54c230798c4c9euL, 0xb46129fad04039b1uL))
-
-public val PRINTER_QUEUE_VIEW: Guid = Guid.fromU128(U128(0xeb54c231798c4c9euL, 0xb46129fad04039b1uL))
 
 public val QCP_DEVICEPROFILE: UInt = 0u
 
@@ -3005,3 +2959,47 @@ public val UNI_GLYPHSETDATA_VERSION_1_0: UInt = 65536u
 public val UNKNOWN_PROTOCOL: UInt = 0u
 
 public val UPDP_CHECK_DRIVERSTORE: UInt = 4u
+
+public val UPDP_SILENT_UPLOAD: UInt = 1u
+
+public val UPDP_UPLOAD_ALWAYS: UInt = 2u
+
+public val USBPRINT_IOCTL_INDEX: UInt = 0u
+
+public val USB_PRINTER_INTERFACE_CLASSIC: UInt = 1u
+
+public val USB_PRINTER_INTERFACE_DUAL: UInt = 3u
+
+public val USB_PRINTER_INTERFACE_IPP: UInt = 2u
+
+public val WM_FI_FILENAME: UInt = 900u
+
+public val XPSRAS_BACKGROUND_COLOR_OPAQUE: XpsrasBackgroundColor = 1
+
+public val XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XpsrasBackgroundColor = 0
+
+public val XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XpsrasPixelFormat = 3
+
+public val XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XpsrasPixelFormat = 1
+
+public val XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XpsrasPixelFormat = 2
+
+public val XPSRAS_RENDERING_MODE_ALIASED: XpsrasRenderingMode = 1
+
+public val XPSRAS_RENDERING_MODE_ANTIALIASED: XpsrasRenderingMode = 0
+
+public val XPS_FP_DRIVER_PROPERTY_BAG: Pcwstr = w("DriverPropertyBag")
+
+public val XPS_FP_JOB_ID: Pcwstr = w("PrintJobId")
+
+public val XPS_FP_JOB_LEVEL_PRINTTICKET: Pcwstr = w("JobPrintTicket")
+
+public val XPS_FP_MERGED_DATAFILE_PATH: Pcwstr = w("MergedDataFilePath")
+
+public val XPS_FP_MS_CONTENT_TYPE: Pcwstr = w("DriverMultiContentType")
+
+public val XPS_FP_MS_CONTENT_TYPE_OPENXPS: Pcwstr = w("OpenXPS")
+
+public val XPS_FP_MS_CONTENT_TYPE_XPS: Pcwstr = w("XPS")
+
+public val XPS_FP_OUTPUT_FILE: Pcwstr = w("PrintOutputFileName")

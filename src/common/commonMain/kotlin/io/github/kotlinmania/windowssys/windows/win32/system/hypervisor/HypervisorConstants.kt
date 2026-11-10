@@ -197,8 +197,6 @@ public val ARCH_X64: VirtualProcessorArch = 2
 
 public val ARCH_X86: VirtualProcessorArch = 1
 
-public val GUID_DEVINTERFACE_VM_GENCOUNTER: Guid = Guid.fromU128(U128(0x3ff2c92b65984e60uL, 0x8e1c0ccf4927e319uL))
-
 public val GUEST_OS_MICROSOFT_MSDOS: GuestOsMicrosoftIds = 1
 
 public val GUEST_OS_MICROSOFT_UNDEFINED: GuestOsMicrosoftIds = 0
@@ -264,20 +262,6 @@ public val HVSOCKET_CONNECT_TIMEOUT: UInt = 1u
 public val HVSOCKET_CONNECT_TIMEOUT_MAX: UInt = 300000u
 
 public val HVSOCKET_HIGH_VTL: UInt = 8u
-
-public val HV_GUID_BROADCAST: Guid = Guid.fromU128(U128(0xffffffffffffffffuL, 0xffffffffffffffffuL))
-
-public val HV_GUID_CHILDREN: Guid = Guid.fromU128(U128(0x90db8b890d354f79uL, 0x8ce949ea0ac8b7cduL))
-
-public val HV_GUID_LOOPBACK: Guid = Guid.fromU128(U128(0xe0e16197dd564a10uL, 0x91955ee7a155a838uL))
-
-public val HV_GUID_PARENT: Guid = Guid.fromU128(U128(0xa42e7cdad03f480cuL, 0x9cc2a4de20abb878uL))
-
-public val HV_GUID_SILOHOST: Guid = Guid.fromU128(U128(0x36bd0c5c72764223uL, 0x88ba7d03b654c568uL))
-
-public val HV_GUID_VSOCK_TEMPLATE: Guid = Guid.fromU128(U128(0xfacb11e6uL, 0xbd5864006a7986d3uL))
-
-public val HV_GUID_ZERO: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
 
 public val HV_PROTOCOL_RAW: UInt = 1u
 
@@ -1306,3 +1290,19 @@ public val X64_REGISTER_XMM8: RegisterId = 26
 public val X64_REGISTER_XMM9: RegisterId = 27
 
 public val X64_REGISTER_XMM_CONTROL_STATUS: RegisterId = 43
+
+public val GUID_DEVINTERFACE_VM_GENCOUNTER: Guid = Guid.fromU128(U128(0x3ff2c92b65984e60uL, 0x8e1c0ccf4927e319uL))
+
+public val HV_GUID_BROADCAST: Guid = Guid.fromU128(U128(0xffffffffffffffffuL, 0xffffffffffffffffuL))
+
+public val HV_GUID_CHILDREN: Guid = Guid.fromU128(U128(0x90db8b890d354f79uL, 0x8ce949ea0ac8b7cduL))
+
+public val HV_GUID_LOOPBACK: Guid = Guid.fromU128(U128(0xe0e16197dd564a10uL, 0x91955ee7a155a838uL))
+
+public val HV_GUID_PARENT: Guid = Guid.fromU128(U128(0xa42e7cdad03f480cuL, 0x9cc2a4de20abb878uL))
+
+public val HV_GUID_SILOHOST: Guid = Guid.fromU128(U128(0x36bd0c5c72764223uL, 0x88ba7d03b654c568uL))
+
+public val HV_GUID_VSOCK_TEMPLATE: Guid = Guid.fromU128(U128(0xfacb11e6uL, 0xbd5864006a7986d3uL))
+
+public val HV_GUID_ZERO: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))

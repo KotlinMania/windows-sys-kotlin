@@ -46,72 +46,6 @@ public val ELEVATION_CHANGE_MODE_UNKNOWN: ElevationChangeMode = 0
 
 public val GNSS_CLEAR_ALL_ASSISTANCE_DATA: UInt = 1u
 
-public val GUID_DEVINTERFACE_SENSOR: Guid = Guid.fromU128(U128(0xba1bb6929b7a4833uL, 0x9a1e525ed134e7e2uL))
-
-public val GUID_SENSOR_CATEGORY_ALL: Guid = Guid.fromU128(U128(0xc317c286c4684288uL, 0x9975d4c4587c442cuL))
-
-public val GUID_SENSOR_CATEGORY_BIOMETRIC: Guid = Guid.fromU128(U128(0xca19690fa2c7477duL, 0xa99e99ec6e2b5648uL))
-
-public val GUID_SENSOR_CATEGORY_ELECTRICAL: Guid = Guid.fromU128(U128(0xfb73fcd8fc4a483cuL, 0xac5827b691c6beffuL))
-
-public val GUID_SENSOR_CATEGORY_ENVIRONMENTAL: Guid = Guid.fromU128(U128(0x323439aa7f66492buL, 0xba0c73e9aa0a65d5uL))
-
-public val GUID_SENSOR_CATEGORY_LIGHT: Guid = Guid.fromU128(U128(0x17a665c090634216uL, 0xb2025c7a255e18ceuL))
-
-public val GUID_SENSOR_CATEGORY_LOCATION: Guid = Guid.fromU128(U128(0xbfa794e4f9644fdbuL, 0x90f651056bfe4b44uL))
-
-public val GUID_SENSOR_CATEGORY_MECHANICAL: Guid = Guid.fromU128(U128(0x8d131d688ef74656uL, 0x80b5cccbd93791c5uL))
-
-public val GUID_SENSOR_CATEGORY_MOTION: Guid = Guid.fromU128(U128(0xcd09daf13b2e4c3duL, 0xb598b5e5ff93fd46uL))
-
-public val GUID_SENSOR_CATEGORY_ORIENTATION: Guid = Guid.fromU128(U128(0x9e6c04b696fe4954uL, 0xb72668682a473f69uL))
-
-public val GUID_SENSOR_CATEGORY_OTHER: Guid = Guid.fromU128(U128(0x2c90e7a9f4c94fa2uL, 0xaf3756d471fe5a3duL))
-
-public val GUID_SENSOR_CATEGORY_PERSONAL_ACTIVITY: Guid = Guid.fromU128(U128(0xf16090811e12412buL, 0xa14dcbb0e95bd2e5uL))
-
-public val GUID_SENSOR_CATEGORY_SCANNER: Guid = Guid.fromU128(U128(0xb000e77ef5b5420fuL, 0x815d0270a726f270uL))
-
-public val GUID_SENSOR_CATEGORY_UNSUPPORTED: Guid = Guid.fromU128(U128(0x2beae7fa19b048c5uL, 0xa1f6b5480dc206b0uL))
-
-public val GUID_SENSOR_TYPE_ACCELEROMETER3D: Guid = Guid.fromU128(U128(0xc2fb0f5fe2d24c78uL, 0xbcd0352a9582819duL))
-
-public val GUID_SENSOR_TYPE_ACTIVITY_DETECTION: Guid = Guid.fromU128(U128(0x9d9e011818074f2euL, 0x96e42ce57142e196uL))
-
-public val GUID_SENSOR_TYPE_AMBIENT_LIGHT: Guid = Guid.fromU128(U128(0x97f115c8599a4153uL, 0x8894d2d12899918auL))
-
-public val GUID_SENSOR_TYPE_BAROMETER: Guid = Guid.fromU128(U128(0xe903829ff8a4a93uL, 0x97df3dcbde402288uL))
-
-public val GUID_SENSOR_TYPE_CUSTOM: Guid = Guid.fromU128(U128(0xe83af22986404d18uL, 0xa213e22675ebb2c3uL))
-
-public val GUID_SENSOR_TYPE_FLOOR_ELEVATION: Guid = Guid.fromU128(U128(0xade4987f7ac44dfauL, 0x97220a027181c747uL))
-
-public val GUID_SENSOR_TYPE_GEOMAGNETIC_ORIENTATION: Guid = Guid.fromU128(U128(0xe77195f82d1f4823uL, 0x971b1c4467556c9duL))
-
-public val GUID_SENSOR_TYPE_GRAVITY_VECTOR: Guid = Guid.fromU128(U128(0x3b52c73bb76463fuL, 0x952438de76eb700buL))
-
-public val GUID_SENSOR_TYPE_GYROMETER3D: Guid = Guid.fromU128(U128(0x9485f5a759e42c2uL, 0xbd4ba349b75c8643uL))
-
-public val GUID_SENSOR_TYPE_HINGE_ANGLE: Guid = Guid.fromU128(U128(0x82358065f4c44da1uL, 0xb27213c23332a207uL))
-
-public val GUID_SENSOR_TYPE_HUMIDITY: Guid = Guid.fromU128(U128(0x5c72bf67bd7e4257uL, 0x990b98a3ba3b400auL))
-
-public val GUID_SENSOR_TYPE_LINEAR_ACCELEROMETER: Guid = Guid.fromU128(U128(0x38b028397b441c8uL, 0xbc245ff1aa48fec7uL))
-
-public val GUID_SENSOR_TYPE_MAGNETOMETER3D: Guid = Guid.fromU128(U128(0x55e5effb15c740dfuL, 0x8698a84b7c863c53uL))
-
-public val GUID_SENSOR_TYPE_ORIENTATION: Guid = Guid.fromU128(U128(0xcdb5d8f73cfd41c8uL, 0x8542cce622cf5d6euL))
-
-public val GUID_SENSOR_TYPE_PEDOMETER: Guid = Guid.fromU128(U128(0xb19f89afe3eb444buL, 0x8dea202575a71599uL))
-
-public val GUID_SENSOR_TYPE_PROXIMITY: Guid = Guid.fromU128(U128(0x5220dae931794430uL, 0x9f9006266d2a34deuL))
-
-public val GUID_SENSOR_TYPE_RELATIVE_ORIENTATION: Guid = Guid.fromU128(U128(0x40993b51470644dcuL, 0x98d5c920c037ffabuL))
-
-public val GUID_SENSOR_TYPE_SIMPLE_DEVICE_ORIENTATION: Guid = Guid.fromU128(U128(0x86a192910482402cuL, 0xbf4caddac52b1c39uL))
-
-public val GUID_SENSOR_TYPE_TEMPERATURE: Guid = Guid.fromU128(U128(0x4fd0ec4d5da45fauL, 0x95a95db38ee19306uL))
-
 public val HUMAN_PRESENCE_DETECTION_TYPE_COUNT: HumanPresenceDetectionTypeCount = 4
 
 public val HUMAN_PRESENCE_DETECTION_TYPE_AUDIO_BIOMETRIC: HumanPresenceDetectionType = 8
@@ -180,6 +114,134 @@ public val PROXIMITY_SENSOR_HUMAN_PRESENCE_CAPABLE: ProximitySensorCapabilities 
 
 public val PROXIMITY_SENSOR_SUPPORTED_CAPABILITIES: ProximitySensorCapabilities = 3
 
+public val SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = 1
+
+public val SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = 2
+
+public val SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = 0
+
+public val SENSOR_PROPERTY_LIST_HEADER_SIZE: UInt = 8u
+
+public val SENSOR_STATE_ACCESS_DENIED: SensorState = 4
+
+public val SENSOR_STATE_ERROR: SensorState = 5
+
+public val SENSOR_STATE_INITIALIZING: SensorState = 3
+
+public val SENSOR_STATE_MAX: SensorState = 5
+
+public val SENSOR_STATE_MIN: SensorState = 0
+
+public val SENSOR_STATE_NOT_AVAILABLE: SensorState = 1
+
+public val SENSOR_STATE_NO_DATA: SensorState = 2
+
+public val SENSOR_STATE_READY: SensorState = 0
+
+public val SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = 0
+
+public val SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = 2
+
+public val SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = 3
+
+public val SIMPLE_DEVICE_ORIENTATION_ROTATED_90: SimpleDeviceOrientation = 1
+
+public val SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = 5
+
+public val SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = 4
+
+public val SENSOR_CONNECTION_TYPE_ATTACHED: SensorConnectionTypes = 1
+
+public val SENSOR_CONNECTION_TYPE_EXTERNAL: SensorConnectionTypes = 2
+
+public val SENSOR_CONNECTION_TYPE_INTEGRATED: SensorConnectionTypes = 0
+
+public val SENSOR_STATE_ACTIVE: SensorState = 2
+
+public val SENSOR_STATE_ERROR1: SensorState = 3
+
+public val SENSOR_STATE_IDLE: SensorState = 1
+
+public val SENSOR_STATE_INITIALIZING1: SensorState = 0
+
+public val SIMPLE_DEVICE_ORIENTATION_FACEDOWN: SimpleDeviceOrientation = 5
+
+public val SIMPLE_DEVICE_ORIENTATION_FACEUP: SimpleDeviceOrientation = 4
+
+public val SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED1: SimpleDeviceOrientation = 0
+
+public val SIMPLE_DEVICE_ORIENTATION_ROTATED180DEGREES_COUNTERCLOCKWISE: SimpleDeviceOrientation = 2
+
+public val SIMPLE_DEVICE_ORIENTATION_ROTATED270DEGREES_COUNTERCLOCKWISE: SimpleDeviceOrientation = 3
+
+public val SIMPLE_DEVICE_ORIENTATION_ROTATED90DEGREES_COUNTERCLOCKWISE: SimpleDeviceOrientation = 1
+
+public val GUID_DEVINTERFACE_SENSOR: Guid = Guid.fromU128(U128(0xba1bb6929b7a4833uL, 0x9a1e525ed134e7e2uL))
+
+public val GUID_SENSOR_CATEGORY_ALL: Guid = Guid.fromU128(U128(0xc317c286c4684288uL, 0x9975d4c4587c442cuL))
+
+public val GUID_SENSOR_CATEGORY_BIOMETRIC: Guid = Guid.fromU128(U128(0xca19690fa2c7477duL, 0xa99e99ec6e2b5648uL))
+
+public val GUID_SENSOR_CATEGORY_ELECTRICAL: Guid = Guid.fromU128(U128(0xfb73fcd8fc4a483cuL, 0xac5827b691c6beffuL))
+
+public val GUID_SENSOR_CATEGORY_ENVIRONMENTAL: Guid = Guid.fromU128(U128(0x323439aa7f66492buL, 0xba0c73e9aa0a65d5uL))
+
+public val GUID_SENSOR_CATEGORY_LIGHT: Guid = Guid.fromU128(U128(0x17a665c090634216uL, 0xb2025c7a255e18ceuL))
+
+public val GUID_SENSOR_CATEGORY_LOCATION: Guid = Guid.fromU128(U128(0xbfa794e4f9644fdbuL, 0x90f651056bfe4b44uL))
+
+public val GUID_SENSOR_CATEGORY_MECHANICAL: Guid = Guid.fromU128(U128(0x8d131d688ef74656uL, 0x80b5cccbd93791c5uL))
+
+public val GUID_SENSOR_CATEGORY_MOTION: Guid = Guid.fromU128(U128(0xcd09daf13b2e4c3duL, 0xb598b5e5ff93fd46uL))
+
+public val GUID_SENSOR_CATEGORY_ORIENTATION: Guid = Guid.fromU128(U128(0x9e6c04b696fe4954uL, 0xb72668682a473f69uL))
+
+public val GUID_SENSOR_CATEGORY_OTHER: Guid = Guid.fromU128(U128(0x2c90e7a9f4c94fa2uL, 0xaf3756d471fe5a3duL))
+
+public val GUID_SENSOR_CATEGORY_PERSONAL_ACTIVITY: Guid = Guid.fromU128(U128(0xf16090811e12412buL, 0xa14dcbb0e95bd2e5uL))
+
+public val GUID_SENSOR_CATEGORY_SCANNER: Guid = Guid.fromU128(U128(0xb000e77ef5b5420fuL, 0x815d0270a726f270uL))
+
+public val GUID_SENSOR_CATEGORY_UNSUPPORTED: Guid = Guid.fromU128(U128(0x2beae7fa19b048c5uL, 0xa1f6b5480dc206b0uL))
+
+public val GUID_SENSOR_TYPE_ACCELEROMETER3D: Guid = Guid.fromU128(U128(0xc2fb0f5fe2d24c78uL, 0xbcd0352a9582819duL))
+
+public val GUID_SENSOR_TYPE_ACTIVITY_DETECTION: Guid = Guid.fromU128(U128(0x9d9e011818074f2euL, 0x96e42ce57142e196uL))
+
+public val GUID_SENSOR_TYPE_AMBIENT_LIGHT: Guid = Guid.fromU128(U128(0x97f115c8599a4153uL, 0x8894d2d12899918auL))
+
+public val GUID_SENSOR_TYPE_BAROMETER: Guid = Guid.fromU128(U128(0xe903829ff8a4a93uL, 0x97df3dcbde402288uL))
+
+public val GUID_SENSOR_TYPE_CUSTOM: Guid = Guid.fromU128(U128(0xe83af22986404d18uL, 0xa213e22675ebb2c3uL))
+
+public val GUID_SENSOR_TYPE_FLOOR_ELEVATION: Guid = Guid.fromU128(U128(0xade4987f7ac44dfauL, 0x97220a027181c747uL))
+
+public val GUID_SENSOR_TYPE_GEOMAGNETIC_ORIENTATION: Guid = Guid.fromU128(U128(0xe77195f82d1f4823uL, 0x971b1c4467556c9duL))
+
+public val GUID_SENSOR_TYPE_GRAVITY_VECTOR: Guid = Guid.fromU128(U128(0x3b52c73bb76463fuL, 0x952438de76eb700buL))
+
+public val GUID_SENSOR_TYPE_GYROMETER3D: Guid = Guid.fromU128(U128(0x9485f5a759e42c2uL, 0xbd4ba349b75c8643uL))
+
+public val GUID_SENSOR_TYPE_HINGE_ANGLE: Guid = Guid.fromU128(U128(0x82358065f4c44da1uL, 0xb27213c23332a207uL))
+
+public val GUID_SENSOR_TYPE_HUMIDITY: Guid = Guid.fromU128(U128(0x5c72bf67bd7e4257uL, 0x990b98a3ba3b400auL))
+
+public val GUID_SENSOR_TYPE_LINEAR_ACCELEROMETER: Guid = Guid.fromU128(U128(0x38b028397b441c8uL, 0xbc245ff1aa48fec7uL))
+
+public val GUID_SENSOR_TYPE_MAGNETOMETER3D: Guid = Guid.fromU128(U128(0x55e5effb15c740dfuL, 0x8698a84b7c863c53uL))
+
+public val GUID_SENSOR_TYPE_ORIENTATION: Guid = Guid.fromU128(U128(0xcdb5d8f73cfd41c8uL, 0x8542cce622cf5d6euL))
+
+public val GUID_SENSOR_TYPE_PEDOMETER: Guid = Guid.fromU128(U128(0xb19f89afe3eb444buL, 0x8dea202575a71599uL))
+
+public val GUID_SENSOR_TYPE_PROXIMITY: Guid = Guid.fromU128(U128(0x5220dae931794430uL, 0x9f9006266d2a34deuL))
+
+public val GUID_SENSOR_TYPE_RELATIVE_ORIENTATION: Guid = Guid.fromU128(U128(0x40993b51470644dcuL, 0x98d5c920c037ffabuL))
+
+public val GUID_SENSOR_TYPE_SIMPLE_DEVICE_ORIENTATION: Guid = Guid.fromU128(U128(0x86a192910482402cuL, 0xbf4caddac52b1c39uL))
+
+public val GUID_SENSOR_TYPE_TEMPERATURE: Guid = Guid.fromU128(U128(0x4fd0ec4d5da45fauL, 0x95a95db38ee19306uL))
+
 public val SENSOR_CATEGORY_ALL: Guid = Guid.fromU128(U128(0xc317c286c4684288uL, 0x9975d4c4587c442cuL))
 
 public val SENSOR_CATEGORY_BIOMETRIC: Guid = Guid.fromU128(U128(0xca19690fa2c7477duL, 0xa99e99ec6e2b5648uL))
@@ -203,12 +265,6 @@ public val SENSOR_CATEGORY_OTHER: Guid = Guid.fromU128(U128(0x2c90e7a9f4c94fa2uL
 public val SENSOR_CATEGORY_SCANNER: Guid = Guid.fromU128(U128(0xb000e77ef5b5420fuL, 0x815d0270a726f270uL))
 
 public val SENSOR_CATEGORY_UNSUPPORTED: Guid = Guid.fromU128(U128(0x2beae7fa19b048c5uL, 0xa1f6b5480dc206b0uL))
-
-public val SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = 1
-
-public val SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = 2
-
-public val SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = 0
 
 public val SENSOR_DATA_TYPE_ABSOLUTE_PRESSURE_PASCAL: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x38564a7cf2f249bbuL, 0x9b2bba60f66a58dfuL)), pid = 5u)
 
@@ -532,8 +588,6 @@ public val SENSOR_PROPERTY_HID_USAGE: Propertykey = Propertykey(fmtid = Guid.fro
 
 public val SENSOR_PROPERTY_LIGHT_RESPONSE_CURVE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x7f8383ecd3ec495cuL, 0xa8cfb8bbe85c2920uL)), pid = 16u)
 
-public val SENSOR_PROPERTY_LIST_HEADER_SIZE: UInt = 8u
-
 public val SENSOR_PROPERTY_LOCATION_DESIRED_ACCURACY: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x7f8383ecd3ec495cuL, 0xa8cfb8bbe85c2920uL)), pid = 19u)
 
 public val SENSOR_PROPERTY_MANUFACTURER: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x7f8383ecd3ec495cuL, 0xa8cfb8bbe85c2920uL)), pid = 6u)
@@ -563,22 +617,6 @@ public val SENSOR_PROPERTY_TEST_GUID: Guid = Guid.fromU128(U128(0xe1e962f46e6545
 public val SENSOR_PROPERTY_TURN_ON_OFF_NMEA: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xe1e962f46e6545f7uL, 0x9c36d487b7b1bd34uL)), pid = 3u)
 
 public val SENSOR_PROPERTY_TYPE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x7f8383ecd3ec495cuL, 0xa8cfb8bbe85c2920uL)), pid = 2u)
-
-public val SENSOR_STATE_ACCESS_DENIED: SensorState = 4
-
-public val SENSOR_STATE_ERROR: SensorState = 5
-
-public val SENSOR_STATE_INITIALIZING: SensorState = 3
-
-public val SENSOR_STATE_MAX: SensorState = 5
-
-public val SENSOR_STATE_MIN: SensorState = 0
-
-public val SENSOR_STATE_NOT_AVAILABLE: SensorState = 1
-
-public val SENSOR_STATE_NO_DATA: SensorState = 2
-
-public val SENSOR_STATE_READY: SensorState = 0
 
 public val SENSOR_TYPE_ACCELEROMETER_1D: Guid = Guid.fromU128(U128(0xc04d238773404cc2uL, 0x991e3b18cb8ef2f4uL))
 
@@ -690,48 +728,10 @@ public val SENSOR_TYPE_UNKNOWN: Guid = Guid.fromU128(U128(0x10ba83e3ef4f41eduL, 
 
 public val SENSOR_TYPE_VOLTAGE: Guid = Guid.fromU128(U128(0xc54846374fb74953uL, 0x98b8a56d8aa1fb1euL))
 
-public val SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = 0
-
-public val SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = 2
-
-public val SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = 3
-
-public val SIMPLE_DEVICE_ORIENTATION_ROTATED_90: SimpleDeviceOrientation = 1
-
-public val SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = 5
-
-public val SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = 4
-
 public val SENSOR: Guid = Guid.fromU128(U128(0xe97ced00523a4133uL, 0xbf6fd3a2dae7f6bauL))
 
 public val SENSOR_COLLECTION: Guid = Guid.fromU128(U128(0x79c43adba429469fuL, 0xaa392f2b74b75937uL))
 
-public val SENSOR_CONNECTION_TYPE_ATTACHED: SensorConnectionTypes = 1
-
-public val SENSOR_CONNECTION_TYPE_EXTERNAL: SensorConnectionTypes = 2
-
-public val SENSOR_CONNECTION_TYPE_INTEGRATED: SensorConnectionTypes = 0
-
 public val SENSOR_DATA_REPORT: Guid = Guid.fromU128(U128(0x4ea9d6ef694b4218uL, 0x8816ccda8da74bbauL))
 
 public val SENSOR_MANAGER: Guid = Guid.fromU128(U128(0x77a1c827fcd24689uL, 0x89159d613cc5fa3euL))
-
-public val SENSOR_STATE_ACTIVE: SensorState = 2
-
-public val SENSOR_STATE_ERROR1: SensorState = 3
-
-public val SENSOR_STATE_IDLE: SensorState = 1
-
-public val SENSOR_STATE_INITIALIZING1: SensorState = 0
-
-public val SIMPLE_DEVICE_ORIENTATION_FACEDOWN: SimpleDeviceOrientation = 5
-
-public val SIMPLE_DEVICE_ORIENTATION_FACEUP: SimpleDeviceOrientation = 4
-
-public val SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED1: SimpleDeviceOrientation = 0
-
-public val SIMPLE_DEVICE_ORIENTATION_ROTATED180DEGREES_COUNTERCLOCKWISE: SimpleDeviceOrientation = 2
-
-public val SIMPLE_DEVICE_ORIENTATION_ROTATED270DEGREES_COUNTERCLOCKWISE: SimpleDeviceOrientation = 3
-
-public val SIMPLE_DEVICE_ORIENTATION_ROTATED90DEGREES_COUNTERCLOCKWISE: SimpleDeviceOrientation = 1

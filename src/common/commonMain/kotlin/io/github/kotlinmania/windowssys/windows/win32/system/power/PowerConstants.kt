@@ -102,11 +102,7 @@ public val BATTERY_CLASS_MINOR_VERSION_1: UInt = 1u
 
 public val BATTERY_CRITICAL: UInt = 8u
 
-public val BATTERY_CYCLE_COUNT_WMI_GUID: Guid = Guid.fromU128(U128(0xef98db2400144c25uL, 0xa50bc724ae5cd371uL))
-
 public val BATTERY_DISCHARGING: UInt = 2u
-
-public val BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: Guid = Guid.fromU128(U128(0x40b4056596f74435uL, 0x869497e0e4395905uL))
 
 public val BATTERY_IS_SHORT_TERM: UInt = 536870912u
 
@@ -115,8 +111,6 @@ public val BATTERY_MINIPORT_UPDATE_DATA_VER_1: UInt = 1u
 public val BATTERY_MINIPORT_UPDATE_DATA_VER_2: UInt = 2u
 
 public val BATTERY_POWER_ON_LINE: UInt = 1u
-
-public val BATTERY_RUNTIME_WMI_GUID: Guid = Guid.fromU128(U128(0x535a37671ac249bcuL, 0xa0773f7a02e40aecuL))
 
 public val BATTERY_SEALED: UInt = 268435456u
 
@@ -128,19 +122,9 @@ public val BATTERY_SET_CHARGINGSOURCE_SUPPORTED: UInt = 4u
 
 public val BATTERY_SET_DISCHARGE_SUPPORTED: UInt = 2u
 
-public val BATTERY_STATIC_DATA_WMI_GUID: Guid = Guid.fromU128(U128(0x5e1e463e4e24ea9uL, 0x80cb9bd4b3ca0655uL))
-
-public val BATTERY_STATUS_CHANGE_WMI_GUID: Guid = Guid.fromU128(U128(0xcddfa0c37c5b4e43uL, 0xa034059fa5b84364uL))
-
-public val BATTERY_STATUS_WMI_GUID: Guid = Guid.fromU128(U128(0xfc4670d1ebbf416euL, 0x87ce374a4ebc111auL))
-
 public val BATTERY_SYSTEM_BATTERY: UInt = 2147483648u
 
-public val BATTERY_TAG_CHANGE_WMI_GUID: Guid = Guid.fromU128(U128(0x5e1f6e1987864d23uL, 0x94fc9e746bd5d888uL))
-
 public val BATTERY_TAG_INVALID: UInt = 0u
-
-public val BATTERY_TEMPERATURE_WMI_GUID: Guid = Guid.fromU128(U128(0x1a52a14dadce4a44uL, 0x9a3ec8d8f15ff2c2uL))
 
 public val BATTERY_UNKNOWN_CAPACITY: UInt = 4294967295u
 
@@ -273,34 +257,6 @@ public val ENERGY_TRACKER_QUERY: PowerInformationLevel = 93
 public val EXIT_LATENCY_SAMPLING_PERCENTAGE: PowerInformationLevel = 78
 
 public val FIRMWARE_TABLE_INFORMATION_REGISTERED: PowerInformationLevel = 69
-
-public val GUID_CLASS_INPUT: Guid = Guid.fromU128(U128(0x4d1e55b2f16f11cfuL, 0x88cb001111000030uL))
-
-public val GUID_DEVICE_ACPI_TIME: Guid = Guid.fromU128(U128(0x97f99bf644974f18uL, 0xbb224b9fb2fbef9cuL))
-
-public val GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: Guid = Guid.fromU128(U128(0x629758ee986e4d9euL, 0x8e47de27f8ab054duL))
-
-public val GUID_DEVICE_BATTERY: Guid = Guid.fromU128(U128(0x72631e5478a411d0uL, 0xbcf700aa00b7b32auL))
-
-public val GUID_DEVICE_ENERGY_METER: Guid = Guid.fromU128(U128(0x45bd83447ed649cfuL, 0xa440c276c933b053uL))
-
-public val GUID_DEVICE_FAN: Guid = Guid.fromU128(U128(0x5ecd13d81da4a2auL, 0x8a4c524f23dd4dc9uL))
-
-public val GUID_DEVICE_LID: Guid = Guid.fromU128(U128(0x4afa3d5274a711d0uL, 0xbe5e00a0c9062857uL))
-
-public val GUID_DEVICE_MEMORY: Guid = Guid.fromU128(U128(0x3fd0f03d92e045fbuL, 0xb75c5ed8ffb01021uL))
-
-public val GUID_DEVICE_MESSAGE_INDICATOR: Guid = Guid.fromU128(U128(0xcd48a365fa944ce2uL, 0xa232a1b764e5d8b4uL))
-
-public val GUID_DEVICE_PROCESSOR: Guid = Guid.fromU128(U128(0x97fadb104e3340aeuL, 0x359c8bef029dbdd0uL))
-
-public val GUID_DEVICE_SYS_BUTTON: Guid = Guid.fromU128(U128(0x4afa3d5374a711d0uL, 0xbe5e00a0c9062857uL))
-
-public val GUID_DEVICE_THERMAL_ZONE: Guid = Guid.fromU128(U128(0x4afa3d5174a711d0uL, 0xbe5e00a0c9062857uL))
-
-public val GUID_DEVINTERFACE_THERMAL_COOLING: Guid = Guid.fromU128(U128(0xdbe4373d3c8140cbuL, 0xace4e0e5d05f0c9fuL))
-
-public val GUID_DEVINTERFACE_THERMAL_MANAGER: Guid = Guid.fromU128(U128(0x927ec09369a44bc0uL, 0xbd02711664714463uL))
 
 public val GET_POWER_REQUEST_LIST: PowerInformationLevel = 45
 
@@ -616,14 +572,6 @@ public val PPM_FIRMWARE_TSS: UInt = 2048u
 
 public val PPM_FIRMWARE_XPSS: UInt = 128u
 
-public val PPM_IDLESTATES_DATA_GUID: Guid = Guid.fromU128(U128(0xba138e10e2504ad7uL, 0x8616cf1a7ad410e7uL))
-
-public val PPM_IDLESTATE_CHANGE_GUID: Guid = Guid.fromU128(U128(0x4838fe4ff71c4e51uL, 0x9ecc8430a7ac4c6cuL))
-
-public val PPM_IDLE_ACCOUNTING_EX_GUID: Guid = Guid.fromU128(U128(0xd67abd3981f84a5euL, 0x815272e31ec912eeuL))
-
-public val PPM_IDLE_ACCOUNTING_GUID: Guid = Guid.fromU128(U128(0xe2a26f78ae074ee0uL, 0xa30fce54f55a94cduL))
-
 public val PPM_IDLE_IMPLEMENTATION_CSTATES: UInt = 1u
 
 public val PPM_IDLE_IMPLEMENTATION_LPISTATES: UInt = 4u
@@ -634,8 +582,6 @@ public val PPM_IDLE_IMPLEMENTATION_NONE: UInt = 0u
 
 public val PPM_IDLE_IMPLEMENTATION_PEP: UInt = 2u
 
-public val PPM_PERFMON_PERFSTATE_GUID: Guid = Guid.fromU128(U128(0x7fd186520cfe40d2uL, 0xb0a10b066a87759euL))
-
 public val PPM_PERFORMANCE_IMPLEMENTATION_CPPC: UInt = 3u
 
 public val PPM_PERFORMANCE_IMPLEMENTATION_NONE: UInt = 0u
@@ -645,18 +591,6 @@ public val PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: UInt = 2u
 public val PPM_PERFORMANCE_IMPLEMENTATION_PEP: UInt = 4u
 
 public val PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: UInt = 1u
-
-public val PPM_PERFSTATES_DATA_GUID: Guid = Guid.fromU128(U128(0x5708cc207d404bf4uL, 0xb4aa2b01338d0126uL))
-
-public val PPM_PERFSTATE_CHANGE_GUID: Guid = Guid.fromU128(U128(0xa5b32ddd7f394abcuL, 0xb892900e43b59ebbuL))
-
-public val PPM_PERFSTATE_DOMAIN_CHANGE_GUID: Guid = Guid.fromU128(U128(0x995e6b7fd653497auL, 0xb97836a30c29bf01uL))
-
-public val PPM_THERMALCONSTRAINT_GUID: Guid = Guid.fromU128(U128(0xa852c2c81a4c423buL, 0x8c2cf30d82931a88uL))
-
-public val PPM_THERMAL_POLICY_CHANGE_GUID: Guid = Guid.fromU128(U128(0x48f377b868804c7buL, 0x8bdc380176c6654duL))
-
-public val PROCESSOR_NUMBER_PKEY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x5724c81dd5af4c1fuL, 0xa103a06e28f204c6uL)), pid = 1u)
 
 public val PDC_INVOCATION: PowerInformationLevel = 67
 
@@ -957,3 +891,69 @@ public val VERIFY_SYSTEM_POLICY_AC: PowerInformationLevel = 2
 public val VERIFY_SYSTEM_POLICY_DC: PowerInformationLevel = 3
 
 public val WAKE_TIMER_LIST: PowerInformationLevel = 50
+
+public val BATTERY_CYCLE_COUNT_WMI_GUID: Guid = Guid.fromU128(U128(0xef98db2400144c25uL, 0xa50bc724ae5cd371uL))
+
+public val BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: Guid = Guid.fromU128(U128(0x40b4056596f74435uL, 0x869497e0e4395905uL))
+
+public val BATTERY_RUNTIME_WMI_GUID: Guid = Guid.fromU128(U128(0x535a37671ac249bcuL, 0xa0773f7a02e40aecuL))
+
+public val BATTERY_STATIC_DATA_WMI_GUID: Guid = Guid.fromU128(U128(0x5e1e463e4e24ea9uL, 0x80cb9bd4b3ca0655uL))
+
+public val BATTERY_STATUS_CHANGE_WMI_GUID: Guid = Guid.fromU128(U128(0xcddfa0c37c5b4e43uL, 0xa034059fa5b84364uL))
+
+public val BATTERY_STATUS_WMI_GUID: Guid = Guid.fromU128(U128(0xfc4670d1ebbf416euL, 0x87ce374a4ebc111auL))
+
+public val BATTERY_TAG_CHANGE_WMI_GUID: Guid = Guid.fromU128(U128(0x5e1f6e1987864d23uL, 0x94fc9e746bd5d888uL))
+
+public val BATTERY_TEMPERATURE_WMI_GUID: Guid = Guid.fromU128(U128(0x1a52a14dadce4a44uL, 0x9a3ec8d8f15ff2c2uL))
+
+public val GUID_CLASS_INPUT: Guid = Guid.fromU128(U128(0x4d1e55b2f16f11cfuL, 0x88cb001111000030uL))
+
+public val GUID_DEVICE_ACPI_TIME: Guid = Guid.fromU128(U128(0x97f99bf644974f18uL, 0xbb224b9fb2fbef9cuL))
+
+public val GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: Guid = Guid.fromU128(U128(0x629758ee986e4d9euL, 0x8e47de27f8ab054duL))
+
+public val GUID_DEVICE_BATTERY: Guid = Guid.fromU128(U128(0x72631e5478a411d0uL, 0xbcf700aa00b7b32auL))
+
+public val GUID_DEVICE_ENERGY_METER: Guid = Guid.fromU128(U128(0x45bd83447ed649cfuL, 0xa440c276c933b053uL))
+
+public val GUID_DEVICE_FAN: Guid = Guid.fromU128(U128(0x5ecd13d81da4a2auL, 0x8a4c524f23dd4dc9uL))
+
+public val GUID_DEVICE_LID: Guid = Guid.fromU128(U128(0x4afa3d5274a711d0uL, 0xbe5e00a0c9062857uL))
+
+public val GUID_DEVICE_MEMORY: Guid = Guid.fromU128(U128(0x3fd0f03d92e045fbuL, 0xb75c5ed8ffb01021uL))
+
+public val GUID_DEVICE_MESSAGE_INDICATOR: Guid = Guid.fromU128(U128(0xcd48a365fa944ce2uL, 0xa232a1b764e5d8b4uL))
+
+public val GUID_DEVICE_PROCESSOR: Guid = Guid.fromU128(U128(0x97fadb104e3340aeuL, 0x359c8bef029dbdd0uL))
+
+public val GUID_DEVICE_SYS_BUTTON: Guid = Guid.fromU128(U128(0x4afa3d5374a711d0uL, 0xbe5e00a0c9062857uL))
+
+public val GUID_DEVICE_THERMAL_ZONE: Guid = Guid.fromU128(U128(0x4afa3d5174a711d0uL, 0xbe5e00a0c9062857uL))
+
+public val GUID_DEVINTERFACE_THERMAL_COOLING: Guid = Guid.fromU128(U128(0xdbe4373d3c8140cbuL, 0xace4e0e5d05f0c9fuL))
+
+public val GUID_DEVINTERFACE_THERMAL_MANAGER: Guid = Guid.fromU128(U128(0x927ec09369a44bc0uL, 0xbd02711664714463uL))
+
+public val PPM_IDLESTATES_DATA_GUID: Guid = Guid.fromU128(U128(0xba138e10e2504ad7uL, 0x8616cf1a7ad410e7uL))
+
+public val PPM_IDLESTATE_CHANGE_GUID: Guid = Guid.fromU128(U128(0x4838fe4ff71c4e51uL, 0x9ecc8430a7ac4c6cuL))
+
+public val PPM_IDLE_ACCOUNTING_EX_GUID: Guid = Guid.fromU128(U128(0xd67abd3981f84a5euL, 0x815272e31ec912eeuL))
+
+public val PPM_IDLE_ACCOUNTING_GUID: Guid = Guid.fromU128(U128(0xe2a26f78ae074ee0uL, 0xa30fce54f55a94cduL))
+
+public val PPM_PERFMON_PERFSTATE_GUID: Guid = Guid.fromU128(U128(0x7fd186520cfe40d2uL, 0xb0a10b066a87759euL))
+
+public val PPM_PERFSTATES_DATA_GUID: Guid = Guid.fromU128(U128(0x5708cc207d404bf4uL, 0xb4aa2b01338d0126uL))
+
+public val PPM_PERFSTATE_CHANGE_GUID: Guid = Guid.fromU128(U128(0xa5b32ddd7f394abcuL, 0xb892900e43b59ebbuL))
+
+public val PPM_PERFSTATE_DOMAIN_CHANGE_GUID: Guid = Guid.fromU128(U128(0x995e6b7fd653497auL, 0xb97836a30c29bf01uL))
+
+public val PPM_THERMALCONSTRAINT_GUID: Guid = Guid.fromU128(U128(0xa852c2c81a4c423buL, 0x8c2cf30d82931a88uL))
+
+public val PPM_THERMAL_POLICY_CHANGE_GUID: Guid = Guid.fromU128(U128(0x48f377b868804c7buL, 0x8bdc380176c6654duL))
+
+public val PROCESSOR_NUMBER_PKEY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x5724c81dd5af4c1fuL, 0xa103a06e28f204c6uL)), pid = 1u)

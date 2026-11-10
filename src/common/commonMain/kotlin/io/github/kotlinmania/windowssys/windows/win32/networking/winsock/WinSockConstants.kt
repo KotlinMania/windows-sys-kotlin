@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
@@ -170,8 +168,6 @@ public val ARP_HW_ENET: ArpHardwareType = 1
 public val ARP_REQUEST: ArpOpcode = 1
 
 public val ARP_RESPONSE: ArpOpcode = 2
-
-public val ASSOCIATE_NAMERES_CONTEXT: Guid = Guid.fromU128(U128(0x59a38b67d4fe46e1uL, 0xba3c87ea74ca3049uL))
 
 public val ATMPROTO_AAL1: UInt = 1u
 
@@ -1663,8 +1659,6 @@ public val NLA_INTERNET_UNKNOWN: NlaInternet = 0
 
 public val NLA_INTERNET_YES: NlaInternet = 2
 
-public val NLA_NAMESPACE_GUID: Guid = Guid.fromU128(U128(0x6642243a3ba84aa6uL, 0xbaa52e0bd71fdd83uL))
-
 public val NLA_NETWORK_AD_HOC: NlaConnectivityType = 0
 
 public val NLA_NETWORK_MANAGED: NlaConnectivityType = 1
@@ -1674,8 +1668,6 @@ public val NLA_NETWORK_UNKNOWN: NlaConnectivityType = 3
 public val NLA_NETWORK_UNMANAGED: NlaConnectivityType = 2
 
 public val NLA_RAW_DATA: NlaBlobDataType = 0
-
-public val NLA_SERVICE_CLASS_GUID: Guid = Guid.fromU128(U128(0x37e515b5c94a43uL, 0xbada8b48a87ad239uL))
 
 public val NSPROTO_IPX: UInt = 1000u
 
@@ -2044,10 +2036,6 @@ public val RCVALL_OFF: RcvallValue = 0
 public val RCVALL_ON: RcvallValue = 1
 
 public val RCVALL_SOCKETLEVELONLY: RcvallValue = 2
-
-public val REAL_TIME_NOTIFICATION_CAPABILITY: Guid = Guid.fromU128(U128(0x6b59819a5cae492duL, 0xa9012a3c2c50164fuL))
-
-public val REAL_TIME_NOTIFICATION_CAPABILITY_EX: Guid = Guid.fromU128(U128(0x6843da03154a4616uL, 0xa50844371295f96buL))
 
 public val RESOURCEDISPLAYTYPE_DOMAIN: ResourceDisplayType = 1u
 
@@ -2466,8 +2454,6 @@ public val SNAP_DSAP: UInt = 170u
 public val SNAP_OUI: UInt = 0u
 
 public val SNAP_SSAP: UInt = 170u
-
-public val SOCKET_DEFAULT2_QM_POLICY: Guid = Guid.fromU128(U128(0xaec2ef9c3a4d4d3euL, 0x8842239942e39a47uL))
 
 public val SOCKET_ERROR: Int = -1
 
@@ -3006,3 +2992,15 @@ public val WSAETOOMANYREFS: WsaError = 10059
 public val WSAEUSERS: WsaError = 10068
 
 public val WSAEWOULDBLOCK: WsaError = 10035
+
+public val WSAHOST_NOT_FOUND: WsaError = 11001
+
+public val WSANOTINITIALISED: WsaError = 10093
+
+public val WSANO_DATA: WsaError = 11004
+
+public val WSANO_RECOVERY: WsaError = 11003
+
+public val WSAPROTOCOL_LEN: UInt = 255u
+
+public val WSASERVICE_NOT_FOUND: WsaError = 10108

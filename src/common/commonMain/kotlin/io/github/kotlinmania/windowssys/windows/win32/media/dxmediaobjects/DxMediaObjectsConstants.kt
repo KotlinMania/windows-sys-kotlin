@@ -4,26 +4,6 @@ import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 
-public val DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: Guid = Guid.fromU128(U128(0xbf963d80c55911d0uL, 0x8a2b00a0c9255ac1uL))
-
-public val DMOCATEGORY_AGC: Guid = Guid.fromU128(U128(0xe88c9ba0c55711d0uL, 0x8a2b00a0c9255ac1uL))
-
-public val DMOCATEGORY_AUDIO_CAPTURE_EFFECT: Guid = Guid.fromU128(U128(0xf665aaba3e094920uL, 0xaa5f219811148f09uL))
-
-public val DMOCATEGORY_AUDIO_DECODER: Guid = Guid.fromU128(U128(0x57f2db8be6bb4513uL, 0x9d43dcd2a6593125uL))
-
-public val DMOCATEGORY_AUDIO_EFFECT: Guid = Guid.fromU128(U128(0xf3602b3f059248dfuL, 0xa4cd674721e7ebebuL))
-
-public val DMOCATEGORY_AUDIO_ENCODER: Guid = Guid.fromU128(U128(0x33d9a76190c811d0uL, 0xbd4300a0c911ce86uL))
-
-public val DMOCATEGORY_AUDIO_NOISE_SUPPRESS: Guid = Guid.fromU128(U128(0xe07f903f62fd4e60uL, 0x8cdddea7236665b5uL))
-
-public val DMOCATEGORY_VIDEO_DECODER: Guid = Guid.fromU128(U128(0x4a69b44228be4991uL, 0x969cb500adf5d8a8uL))
-
-public val DMOCATEGORY_VIDEO_EFFECT: Guid = Guid.fromU128(U128(0xd990ee14776c4723uL, 0xbe463da2f56f10b9uL))
-
-public val DMOCATEGORY_VIDEO_ENCODER: Guid = Guid.fromU128(U128(0x33d9a76090c811d0uL, 0xbd4300a0c911ce86uL))
-
 public val DMO_ENUMF_INCLUDE_KEYED: DmoEnumFlags = 1
 
 public val DMO_E_INVALIDSTREAMINDEX: Hresult = 0x80040201u.toInt()
@@ -91,3 +71,23 @@ public val DMO_SET_TYPEF_CLEAR: DmoSetTypeFlags = 2
 public val DMO_SET_TYPEF_TEST_ONLY: DmoSetTypeFlags = 1
 
 public val DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: DmoVideoOutputStreamFlags = 1
+
+public val DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: Guid = Guid.fromU128(U128(0xbf963d80c55911d0uL, 0x8a2b00a0c9255ac1uL))
+
+public val DMOCATEGORY_AGC: Guid = Guid.fromU128(U128(0xe88c9ba0c55711d0uL, 0x8a2b00a0c9255ac1uL))
+
+public val DMOCATEGORY_AUDIO_CAPTURE_EFFECT: Guid = Guid.fromU128(U128(0xf665aaba3e094920uL, 0xaa5f219811148f09uL))
+
+public val DMOCATEGORY_AUDIO_DECODER: Guid = Guid.fromU128(U128(0x57f2db8be6bb4513uL, 0x9d43dcd2a6593125uL))
+
+public val DMOCATEGORY_AUDIO_EFFECT: Guid = Guid.fromU128(U128(0xf3602b3f059248dfuL, 0xa4cd674721e7ebebuL))
+
+public val DMOCATEGORY_AUDIO_ENCODER: Guid = Guid.fromU128(U128(0x33d9a76190c811d0uL, 0xbd4300a0c911ce86uL))
+
+public val DMOCATEGORY_AUDIO_NOISE_SUPPRESS: Guid = Guid.fromU128(U128(0xe07f903f62fd4e60uL, 0x8cdddea7236665b5uL))
+
+public val DMOCATEGORY_VIDEO_DECODER: Guid = Guid.fromU128(U128(0x4a69b44228be4991uL, 0x969cb500adf5d8a8uL))
+
+public val DMOCATEGORY_VIDEO_EFFECT: Guid = Guid.fromU128(U128(0xd990ee14776c4723uL, 0xbe463da2f56f10b9uL))
+
+public val DMOCATEGORY_VIDEO_ENCODER: Guid = Guid.fromU128(U128(0x33d9a76090c811d0uL, 0xbd4300a0c911ce86uL))

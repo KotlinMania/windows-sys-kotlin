@@ -1503,378 +1503,6 @@ public val FLG_REGSVR_DLLREGISTER: UInt = 1u
 
 public val FORCED_LOG_CONF: CmLogConf = 4u
 
-public val GUID_ACPI_CMOS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x3a8d0384650540cauL, 0xbc3956c15f8c5feduL))
-
-public val GUID_ACPI_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0xb091a08aba9711d0uL, 0xbd1400aa00b7b32auL))
-
-public val GUID_ACPI_INTERFACE_STANDARD2: Guid = Guid.fromU128(U128(0xe8695f6318314870uL, 0xa8cf9c2f03f9dcb5uL))
-
-public val GUID_ACPI_PORT_RANGES_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0xf14f609bcbbd4957uL, 0xa674bc00213f1c97uL))
-
-public val GUID_ACPI_REGS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x614196672456369uL, 0x462e4e656c736f6euL))
-
-public val GUID_AGP_TARGET_BUS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0xb15cfce806d14d37uL, 0x9d4cbedde0c2a6ffuL))
-
-public val GUID_ARBITER_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0xe644f1858c0e11d0uL, 0xbecf08002be2092fuL))
-
-public val GUID_BUS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x496b82806f2511d0uL, 0xbeaf08002be2092fuL))
-
-public val GUID_BUS_RESOURCE_UPDATE_INTERFACE: Guid = Guid.fromU128(U128(0x27d0102dbfb24164uL, 0x81dddbb82f968b48uL))
-
-public val GUID_BUS_TYPE_1394: Guid = Guid.fromU128(U128(0xf74e73eb9ac545ebuL, 0xbe4d772cc71ddfb3uL))
-
-public val GUID_BUS_TYPE_ACPI: Guid = Guid.fromU128(U128(0xd7b46895001a4942uL, 0x891fa7d46610a843uL))
-
-public val GUID_BUS_TYPE_AVC: Guid = Guid.fromU128(U128(0xc06ff265ae0948f0uL, 0x812c16753d7cba83uL))
-
-public val GUID_BUS_TYPE_DOT4PRT: Guid = Guid.fromU128(U128(0x441ee001434211d5uL, 0xa18400c04f60524duL))
-
-public val GUID_BUS_TYPE_EISA: Guid = Guid.fromU128(U128(0xddc35509f3fc11d0uL, 0xa5370000f8753ed1uL))
-
-public val GUID_BUS_TYPE_HID: Guid = Guid.fromU128(U128(0xeeaf37d0196347c4uL, 0xaa4872476db7cf49uL))
-
-public val GUID_BUS_TYPE_INTERNAL: Guid = Guid.fromU128(U128(0x1530ea73086b11d1uL, 0xa09f00c04fc340b1uL))
-
-public val GUID_BUS_TYPE_IRDA: Guid = Guid.fromU128(U128(0x7ae17dc1c94444d6uL, 0x881f4c2e61053bc1uL))
-
-public val GUID_BUS_TYPE_ISAPNP: Guid = Guid.fromU128(U128(0xe676f854d87d11d0uL, 0x92b200a0c9055fc5uL))
-
-public val GUID_BUS_TYPE_LPTENUM: Guid = Guid.fromU128(U128(0xc4ca10002ddc11d5uL, 0xa17a00c04f60524duL))
-
-public val GUID_BUS_TYPE_MCA: Guid = Guid.fromU128(U128(0x1c75997adc3311d0uL, 0x92b200a0c9055fc5uL))
-
-public val GUID_BUS_TYPE_PCI: Guid = Guid.fromU128(U128(0xc8ebdfb0b51011d0uL, 0x80e500a0c92542e3uL))
-
-public val GUID_BUS_TYPE_PCMCIA: Guid = Guid.fromU128(U128(0x9343630af9f11d0uL, 0x92e90000f81e1b30uL))
-
-public val GUID_BUS_TYPE_SCM: Guid = Guid.fromU128(U128(0x375a5912804c45aauL, 0xbdc2fdd25a1d9512uL))
-
-public val GUID_BUS_TYPE_SD: Guid = Guid.fromU128(U128(0xe700cc0440364e89uL, 0x957989ebf45f00cduL))
-
-public val GUID_BUS_TYPE_SERENUM: Guid = Guid.fromU128(U128(0x77114a87894411d1uL, 0xbd9000a0c906be2duL))
-
-public val GUID_BUS_TYPE_SW_DEVICE: Guid = Guid.fromU128(U128(0x6d103227de04cefuL, 0x8e25197d0e7442e2uL))
-
-public val GUID_BUS_TYPE_USB: Guid = Guid.fromU128(U128(0x9d7debbcc85d11d1uL, 0x9eb4006008c3a19auL))
-
-public val GUID_BUS_TYPE_USBPRINT: Guid = Guid.fromU128(U128(0x441ee000434211d5uL, 0xa18400c04f60524duL))
-
-public val GUID_D3COLD_AUX_POWER_AND_TIMING_INTERFACE: Guid = Guid.fromU128(U128(0x44d8aaf6644588uL, 0x9ffc2afeaf5950b9uL))
-
-public val GUID_D3COLD_SUPPORT_INTERFACE: Guid = Guid.fromU128(U128(0xb38290e53cd04f9duL, 0x9937f5fe2b44d47auL))
-
-public val GUID_DEVCLASS_1394: Guid = Guid.fromU128(U128(0x6bdd1fc1810f11d0uL, 0xbec708002be2092fuL))
-
-public val GUID_DEVCLASS_1394DEBUG: Guid = Guid.fromU128(U128(0x66f250d678014a64uL, 0xb139eea80a450b24uL))
-
-public val GUID_DEVCLASS_61883: Guid = Guid.fromU128(U128(0x7ebefbc0320011d2uL, 0xb4c200a0c9697d07uL))
-
-public val GUID_DEVCLASS_ADAPTER: Guid = Guid.fromU128(U128(0x4d36e964e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_APMSUPPORT: Guid = Guid.fromU128(U128(0xd45b1c18c8fa11d1uL, 0x9f770000f805f530uL))
-
-public val GUID_DEVCLASS_AVC: Guid = Guid.fromU128(U128(0xc06ff265ae0948f0uL, 0x812c16753d7cba83uL))
-
-public val GUID_DEVCLASS_BATTERY: Guid = Guid.fromU128(U128(0x72631e5478a411d0uL, 0xbcf700aa00b7b32auL))
-
-public val GUID_DEVCLASS_BIOMETRIC: Guid = Guid.fromU128(U128(0x53d29ef7377c4d14uL, 0x864beb3a85769359uL))
-
-public val GUID_DEVCLASS_BLUETOOTH: Guid = Guid.fromU128(U128(0xe0cbf06ccd8b4647uL, 0xbb8a263b43f0f974uL))
-
-public val GUID_DEVCLASS_CAMERA: Guid = Guid.fromU128(U128(0xca3e7ab9b4c34ae6uL, 0x8251579ef933890fuL))
-
-public val GUID_DEVCLASS_CDROM: Guid = Guid.fromU128(U128(0x4d36e965e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_COMPUTEACCELERATOR: Guid = Guid.fromU128(U128(0xf01a9d533ff648d2uL, 0x9f97c8a7004be10cuL))
-
-public val GUID_DEVCLASS_COMPUTER: Guid = Guid.fromU128(U128(0x4d36e966e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_DECODER: Guid = Guid.fromU128(U128(0x6bdd1fc2810f11d0uL, 0xbec708002be2092fuL))
-
-public val GUID_DEVCLASS_DISKDRIVE: Guid = Guid.fromU128(U128(0x4d36e967e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_DISPLAY: Guid = Guid.fromU128(U128(0x4d36e968e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_DOT4: Guid = Guid.fromU128(U128(0x48721b56679511d2uL, 0xb1a80080c72e74a2uL))
-
-public val GUID_DEVCLASS_DOT4PRINT: Guid = Guid.fromU128(U128(0x49ce6ac86f8611d2uL, 0xb1e50080c72e74a2uL))
-
-public val GUID_DEVCLASS_EHSTORAGESILO: Guid = Guid.fromU128(U128(0x9da2b80ff89f4a49uL, 0xa5c2511b085b9e8auL))
-
-public val GUID_DEVCLASS_ENUM1394: Guid = Guid.fromU128(U128(0xc459df55db0811d1uL, 0xb00900a0c9081ff6uL))
-
-public val GUID_DEVCLASS_EXTENSION: Guid = Guid.fromU128(U128(0xe2f84ce78efa411cuL, 0xaa6997454ca4cb57uL))
-
-public val GUID_DEVCLASS_FDC: Guid = Guid.fromU128(U128(0x4d36e969e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_FIRMWARE: Guid = Guid.fromU128(U128(0xf2e7dd7264684e36uL, 0xb6f16488f42c1b52uL))
-
-public val GUID_DEVCLASS_FLOPPYDISK: Guid = Guid.fromU128(U128(0x4d36e980e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_FSFILTER_ACTIVITYMONITOR: Guid = Guid.fromU128(U128(0xb86dff51a31e4bacuL, 0xb3cfe8cfe75c9fc2uL))
-
-public val GUID_DEVCLASS_FSFILTER_ANTIVIRUS: Guid = Guid.fromU128(U128(0xb1d1a169c54f4379uL, 0x81dbbee7d88d7454uL))
-
-public val GUID_DEVCLASS_FSFILTER_BOTTOM: Guid = Guid.fromU128(U128(0x37765ea059584fc9uL, 0xb04b2fdfef97e59euL))
-
-public val GUID_DEVCLASS_FSFILTER_CFSMETADATASERVER: Guid = Guid.fromU128(U128(0xcdcf0939b75b4630uL, 0xbf7680f7ba655884uL))
-
-public val GUID_DEVCLASS_FSFILTER_COMPRESSION: Guid = Guid.fromU128(U128(0xf3586bafb5aa49b5uL, 0x8d6c0569284c639fuL))
-
-public val GUID_DEVCLASS_FSFILTER_CONTENTSCREENER: Guid = Guid.fromU128(U128(0x3e3f0674c83c4558uL, 0xbb269820e1eba5c5uL))
-
-public val GUID_DEVCLASS_FSFILTER_CONTINUOUSBACKUP: Guid = Guid.fromU128(U128(0x71aa14f86fad4622uL, 0xad7792bb9d7e6947uL))
-
-public val GUID_DEVCLASS_FSFILTER_COPYPROTECTION: Guid = Guid.fromU128(U128(0x89786ff19c12402fuL, 0x9c9e17753c7f4375uL))
-
-public val GUID_DEVCLASS_FSFILTER_ENCRYPTION: Guid = Guid.fromU128(U128(0xa0a701c0a51142ffuL, 0xaa6c06dc0395576fuL))
-
-public val GUID_DEVCLASS_FSFILTER_HSM: Guid = Guid.fromU128(U128(0xd546500a2aeb45f6uL, 0x9482f4b1799c3177uL))
-
-public val GUID_DEVCLASS_FSFILTER_INFRASTRUCTURE: Guid = Guid.fromU128(U128(0xe55fa6f9128c4d04uL, 0xabab630c74b1453auL))
-
-public val GUID_DEVCLASS_FSFILTER_OPENFILEBACKUP: Guid = Guid.fromU128(U128(0xf8ecafa666d141a5uL, 0x899b66585d7216b7uL))
-
-public val GUID_DEVCLASS_FSFILTER_PHYSICALQUOTAMANAGEMENT: Guid = Guid.fromU128(U128(0x6a0a8e78bba64fc4uL, 0xa7091e33cd09d67euL))
-
-public val GUID_DEVCLASS_FSFILTER_QUOTAMANAGEMENT: Guid = Guid.fromU128(U128(0x8503c911a6c74919uL, 0x8f795028f5866b0cuL))
-
-public val GUID_DEVCLASS_FSFILTER_REPLICATION: Guid = Guid.fromU128(U128(0x48d3ebc44cf848ffuL, 0xb8699c68ad42eb9fuL))
-
-public val GUID_DEVCLASS_FSFILTER_SECURITYENHANCER: Guid = Guid.fromU128(U128(0xd02bc3da0c8e4945uL, 0x9bd5f1883c226c8cuL))
-
-public val GUID_DEVCLASS_FSFILTER_SYSTEM: Guid = Guid.fromU128(U128(0x5d1b9aaa01e246afuL, 0x849f272b3f324c46uL))
-
-public val GUID_DEVCLASS_FSFILTER_SYSTEMRECOVERY: Guid = Guid.fromU128(U128(0x2db15374706e4131uL, 0xa0c7d7c78eb0289auL))
-
-public val GUID_DEVCLASS_FSFILTER_TOP: Guid = Guid.fromU128(U128(0xb369baf455684e82uL, 0xa87ea93eb16bca87uL))
-
-public val GUID_DEVCLASS_FSFILTER_UNDELETE: Guid = Guid.fromU128(U128(0xfe8f1572c67a48c0uL, 0xbbac0b5c6d66cafbuL))
-
-public val GUID_DEVCLASS_FSFILTER_VIRTUALIZATION: Guid = Guid.fromU128(U128(0xf75a86c010d84c3auL, 0xb233ed60e4cdfaacuL))
-
-public val GUID_DEVCLASS_GENERIC: Guid = Guid.fromU128(U128(0xff494df1c4ed4facuL, 0x9b3f3786f6e91e7euL))
-
-public val GUID_DEVCLASS_GPS: Guid = Guid.fromU128(U128(0x6bdd1fc3810f11d0uL, 0xbec708002be2092fuL))
-
-public val GUID_DEVCLASS_HDC: Guid = Guid.fromU128(U128(0x4d36e96ae32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_HIDCLASS: Guid = Guid.fromU128(U128(0x745a17a074d311d0uL, 0xb6fe00a0c90f57dauL))
-
-public val GUID_DEVCLASS_HOLOGRAPHIC: Guid = Guid.fromU128(U128(0xd612553d06b149cauL, 0x8938e39ef80eb16fuL))
-
-public val GUID_DEVCLASS_IMAGE: Guid = Guid.fromU128(U128(0x6bdd1fc6810f11d0uL, 0xbec708002be2092fuL))
-
-public val GUID_DEVCLASS_INFINIBAND: Guid = Guid.fromU128(U128(0x30ef7132d8584a0cuL, 0xac24b9028a5cca3fuL))
-
-public val GUID_DEVCLASS_INFRARED: Guid = Guid.fromU128(U128(0x6bdd1fc5810f11d0uL, 0xbec708002be2092fuL))
-
-public val GUID_DEVCLASS_KEYBOARD: Guid = Guid.fromU128(U128(0x4d36e96be32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_LEGACYDRIVER: Guid = Guid.fromU128(U128(0x8ecc055d047f11d1uL, 0xa5370000f8753ed1uL))
-
-public val GUID_DEVCLASS_MEDIA: Guid = Guid.fromU128(U128(0x4d36e96ce32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_MEDIUM_CHANGER: Guid = Guid.fromU128(U128(0xce5939aeebde11d0uL, 0xb1810000f8753ec4uL))
-
-public val GUID_DEVCLASS_MEMORY: Guid = Guid.fromU128(U128(0x5099944af6b94057uL, 0xa0568c550228544cuL))
-
-public val GUID_DEVCLASS_MODEM: Guid = Guid.fromU128(U128(0x4d36e96de32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_MONITOR: Guid = Guid.fromU128(U128(0x4d36e96ee32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_MOUSE: Guid = Guid.fromU128(U128(0x4d36e96fe32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_MTD: Guid = Guid.fromU128(U128(0x4d36e970e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_MULTIFUNCTION: Guid = Guid.fromU128(U128(0x4d36e971e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_MULTIPORTSERIAL: Guid = Guid.fromU128(U128(0x50906cb8ba1211d1uL, 0xbf5d0000f805f530uL))
-
-public val GUID_DEVCLASS_NET: Guid = Guid.fromU128(U128(0x4d36e972e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_NETCLIENT: Guid = Guid.fromU128(U128(0x4d36e973e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_NETDRIVER: Guid = Guid.fromU128(U128(0x87ef9ad18f7049eeuL, 0xb215ab1fcadcbe3cuL))
-
-public val GUID_DEVCLASS_NETSERVICE: Guid = Guid.fromU128(U128(0x4d36e974e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_NETTRANS: Guid = Guid.fromU128(U128(0x4d36e975e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_NETUIO: Guid = Guid.fromU128(U128(0x78912bc1cb8e4b28uL, 0xa329f322ebadbe0fuL))
-
-public val GUID_DEVCLASS_NODRIVER: Guid = Guid.fromU128(U128(0x4d36e976e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_PCMCIA: Guid = Guid.fromU128(U128(0x4d36e977e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_PNPPRINTERS: Guid = Guid.fromU128(U128(0x4658ee7ef05011d1uL, 0xb6bd00c04fa372a7uL))
-
-public val GUID_DEVCLASS_PORTS: Guid = Guid.fromU128(U128(0x4d36e978e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_PRIMITIVE: Guid = Guid.fromU128(U128(0x242681d1eed341d2uL, 0xa1ef1468fc843106uL))
-
-public val GUID_DEVCLASS_PRINTER: Guid = Guid.fromU128(U128(0x4d36e979e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_PRINTERUPGRADE: Guid = Guid.fromU128(U128(0x4d36e97ae32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_PRINTQUEUE: Guid = Guid.fromU128(U128(0x1ed2bbf911f04084uL, 0xb21fad83a8e6dcdcuL))
-
-public val GUID_DEVCLASS_PROCESSOR: Guid = Guid.fromU128(U128(0x50127dc30f36415euL, 0xa6cc4cb3be910b65uL))
-
-public val GUID_DEVCLASS_SBP2: Guid = Guid.fromU128(U128(0xd48179beec2011d1uL, 0xb6b800c04fa372a7uL))
-
-public val GUID_DEVCLASS_SCMDISK: Guid = Guid.fromU128(U128(0x53966cb14d464166uL, 0xbf23c522403cd495uL))
-
-public val GUID_DEVCLASS_SCMVOLUME: Guid = Guid.fromU128(U128(0x53ccb149e5434c84uL, 0xb6e0bce4f6b7e806uL))
-
-public val GUID_DEVCLASS_SCSIADAPTER: Guid = Guid.fromU128(U128(0x4d36e97be32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_SECURITYACCELERATOR: Guid = Guid.fromU128(U128(0x268c95a1edfe11d3uL, 0x95c30010dc4050a5uL))
-
-public val GUID_DEVCLASS_SENSOR: Guid = Guid.fromU128(U128(0x5175d334c3714806uL, 0xb3ba71fd53c9258duL))
-
-public val GUID_DEVCLASS_SIDESHOW: Guid = Guid.fromU128(U128(0x997b5d8dc4424f2euL, 0xbaf39c8e671e9e21uL))
-
-public val GUID_DEVCLASS_SMARTCARDREADER: Guid = Guid.fromU128(U128(0x50dd5230ba8a11d1uL, 0xbf5d0000f805f530uL))
-
-public val GUID_DEVCLASS_SMRDISK: Guid = Guid.fromU128(U128(0x53487c23680f4585uL, 0xacc31f10d6777e82uL))
-
-public val GUID_DEVCLASS_SMRVOLUME: Guid = Guid.fromU128(U128(0x53b3cf038f5a4788uL, 0x91b6d19ed9fcccbfuL))
-
-public val GUID_DEVCLASS_SOFTWARECOMPONENT: Guid = Guid.fromU128(U128(0x5c4c3332344d483cuL, 0x8739259e934c9cc8uL))
-
-public val GUID_DEVCLASS_SOUND: Guid = Guid.fromU128(U128(0x4d36e97ce32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_SYSTEM: Guid = Guid.fromU128(U128(0x4d36e97de32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_TAPEDRIVE: Guid = Guid.fromU128(U128(0x6d8078847d2111cfuL, 0x801c08002be10318uL))
-
-public val GUID_DEVCLASS_UCM: Guid = Guid.fromU128(U128(0xe6f1aa1c7f3b4473uL, 0xb2e8c97d8ac71d53uL))
-
-public val GUID_DEVCLASS_UNKNOWN: Guid = Guid.fromU128(U128(0x4d36e97ee32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVCLASS_USB: Guid = Guid.fromU128(U128(0x36fc9e60c46511cfuL, 0x8056444553540000uL))
-
-public val GUID_DEVCLASS_VOLUME: Guid = Guid.fromU128(U128(0x71a27cdd812a11d0uL, 0xbec708002be2092fuL))
-
-public val GUID_DEVCLASS_VOLUMESNAPSHOT: Guid = Guid.fromU128(U128(0x533c5b84ec7011d2uL, 0x950500c04f79deafuL))
-
-public val GUID_DEVCLASS_WCEUSBS: Guid = Guid.fromU128(U128(0x25dbce516c8f4a72uL, 0x8a6db54c2b4fc835uL))
-
-public val GUID_DEVCLASS_WPD: Guid = Guid.fromU128(U128(0xeec5ad988080425fuL, 0x922adabf3de3f69auL))
-
-public val GUID_DEVICE_INTERFACE_ARRIVAL: Guid = Guid.fromU128(U128(0xcb3a400446f011d0uL, 0xb08f00609713053fuL))
-
-public val GUID_DEVICE_INTERFACE_REMOVAL: Guid = Guid.fromU128(U128(0xcb3a400546f011d0uL, 0xb08f00609713053fuL))
-
-public val GUID_DEVICE_RESET_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x649fdf263bc04813uL, 0xad247e0c1eda3fa3uL))
-
-public val GUID_DMA_CACHE_COHERENCY_INTERFACE: Guid = Guid.fromU128(U128(0xb520f7fa8a5a4e40uL, 0xa3f66be1e162d935uL))
-
-public val GUID_HWPROFILE_CHANGE_CANCELLED: Guid = Guid.fromU128(U128(0xcb3a400246f011d0uL, 0xb08f00609713053fuL))
-
-public val GUID_HWPROFILE_CHANGE_COMPLETE: Guid = Guid.fromU128(U128(0xcb3a400346f011d0uL, 0xb08f00609713053fuL))
-
-public val GUID_HWPROFILE_QUERY_CHANGE: Guid = Guid.fromU128(U128(0xcb3a400146f011d0uL, 0xb08f00609713053fuL))
-
-public val GUID_INT_ROUTE_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x70941bf4007311d1uL, 0xa09e00c04fc340b1uL))
-
-public val GUID_IOMMU_BUS_INTERFACE: Guid = Guid.fromU128(U128(0x1efee0b2d2784ae4uL, 0xbddc1b34dd648043uL))
-
-public val GUID_KERNEL_SOFT_RESTART_CANCEL: Guid = Guid.fromU128(U128(0x31d737e78c0b468auL, 0x956e9f433ec358fbuL))
-
-public val GUID_KERNEL_SOFT_RESTART_FINALIZE: Guid = Guid.fromU128(U128(0x20e91abd350a4d4fuL, 0x857799c81507473auL))
-
-public val GUID_KERNEL_SOFT_RESTART_PREPARE: Guid = Guid.fromU128(U128(0xde373defa85c4f76uL, 0x8cbff96bea8bd10fuL))
-
-public val GUID_LEGACY_DEVICE_DETECTION_STANDARD: Guid = Guid.fromU128(U128(0x50feb0de596a11d2uL, 0xa5b80000f81a4619uL))
-
-public val GUID_MF_ENUMERATION_INTERFACE: Guid = Guid.fromU128(U128(0xaeb895f0558611d1uL, 0x8d8400a0c906b244uL))
-
-public val GUID_MSIX_TABLE_CONFIG_INTERFACE: Guid = Guid.fromU128(U128(0x1a6a460b194f455duL, 0xb34bb84c5b05712buL))
-
-public val GUID_NPEM_CONTROL_INTERFACE: Guid = Guid.fromU128(U128(0x4d95573db774488auL, 0xb1204f284a9eff51uL))
-
-public val GUID_PARTITION_UNIT_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x52363f5bd891429buL, 0x8195aec5fef6853cuL))
-
-public val GUID_PCC_INTERFACE_INTERNAL: Guid = Guid.fromU128(U128(0x7cce62cec1894814uL, 0xa6a712112089e938uL))
-
-public val GUID_PCC_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x3ee8ba630f594a24uL, 0x8a4535808bdd1249uL))
-
-public val GUID_PCI_ATS_INTERFACE: Guid = Guid.fromU128(U128(0x10a7fe896f54943uL, 0xbedf95e651b93412uL))
-
-public val GUID_PCI_BUS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x496b82816f2511d0uL, 0xbeaf08002be2092fuL))
-
-public val GUID_PCI_BUS_INTERFACE_STANDARD2: Guid = Guid.fromU128(U128(0xde94e966fdff4c9cuL, 0x99986747b150e74cuL))
-
-public val GUID_PCI_DEVICE_PRESENT_INTERFACE: Guid = Guid.fromU128(U128(0xd1b82c26bf4945efuL, 0xb21671cbd7889b57uL))
-
-public val GUID_PCI_EXPRESS_LINK_QUIESCENT_INTERFACE: Guid = Guid.fromU128(U128(0x146cd41cdae34437uL, 0x8aff2af3f038099buL))
-
-public val GUID_PCI_EXPRESS_ROOT_PORT_INTERFACE: Guid = Guid.fromU128(U128(0x83a7734a84c74161uL, 0x9a986000ed0c4a33uL))
-
-public val GUID_PCI_FPGA_CONTROL_INTERFACE: Guid = Guid.fromU128(U128(0x2df3f7a8b9b34063uL, 0x9215b5d14a0b266euL))
-
-public val GUID_PCI_PTM_CONTROL_INTERFACE: Guid = Guid.fromU128(U128(0x348a5ebbba2444b7uL, 0x9916285687735117uL))
-
-public val GUID_PCI_SECURITY_INTERFACE: Guid = Guid.fromU128(U128(0x6e7f1451199e4accuL, 0xba2d762b4edf4674uL))
-
-public val GUID_PCI_VIRTUALIZATION_INTERFACE: Guid = Guid.fromU128(U128(0x64897b473a4a4d75uL, 0xbc7489dd6c078293uL))
-
-public val GUID_PCMCIA_BUS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x76173af0c50411d1uL, 0x947f00c04fb960eeuL))
-
-public val GUID_PNP_CUSTOM_NOTIFICATION: Guid = Guid.fromU128(U128(0xaca73f8e8d2311d1uL, 0xac7d0000f87571d0uL))
-
-public val GUID_PNP_EXTENDED_ADDRESS_INTERFACE: Guid = Guid.fromU128(U128(0xb8e992eca7974dc4uL, 0x884684d041707446uL))
-
-public val GUID_PNP_LOCATION_INTERFACE: Guid = Guid.fromU128(U128(0x70211b0e0afb47dbuL, 0xafc1410bf842497auL))
-
-public val GUID_PNP_POWER_NOTIFICATION: Guid = Guid.fromU128(U128(0xc2cf0660eb7a11d1uL, 0xbd7f0000f87571d0uL))
-
-public val GUID_PNP_POWER_SETTING_CHANGE: Guid = Guid.fromU128(U128(0x29c69b3ec79a43bfuL, 0xbbdea932fa1bea7euL))
-
-public val GUID_POWER_DEVICE_ENABLE: Guid = Guid.fromU128(U128(0x827c0a6ffeb011d0uL, 0xbd2600aa00b7b32auL))
-
-public val GUID_POWER_DEVICE_TIMEOUTS: Guid = Guid.fromU128(U128(0xa45da735feb011d0uL, 0xbd2600aa00b7b32auL))
-
-public val GUID_POWER_DEVICE_WAKE_ENABLE: Guid = Guid.fromU128(U128(0xa9546a82feb011d0uL, 0xbd2600aa00b7b32auL))
-
-public val GUID_PROCESSOR_PCC_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x37b17e9ac21c4296uL, 0x972d11c4b32b28f0uL))
-
-public val GUID_QUERY_CRASHDUMP_FUNCTIONS: Guid = Guid.fromU128(U128(0x9cc6b8ff32e24834uL, 0xb1deb32ef8880a4buL))
-
-public val GUID_RECOVERY_NVMED_PREPARE_SHUTDOWN: Guid = Guid.fromU128(U128(0x4b9770eabde7400buL, 0xa9b94f684f54cc2auL))
-
-public val GUID_RECOVERY_PCI_PREPARE_SHUTDOWN: Guid = Guid.fromU128(U128(0x90d889de870444cfuL, 0x8115ed8528d2b2dauL))
-
-public val GUID_REENUMERATE_SELF_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x2aeb02436a6e486buL, 0x82fcd815f6b97006uL))
-
-public val GUID_SCM_BUS_INTERFACE: Guid = Guid.fromU128(U128(0x25944783ce794232uL, 0x815e4a30014e8eb4uL))
-
-public val GUID_SCM_BUS_LD_INTERFACE: Guid = Guid.fromU128(U128(0x9b89307dd76b4f48uL, 0xb18654041ae92e8duL))
-
-public val GUID_SCM_BUS_NVD_INTERFACE: Guid = Guid.fromU128(U128(0x8de064ffb63042e4uL, 0x88ea6f24c8641175uL))
-
-public val GUID_SCM_PHYSICAL_NVDIMM_INTERFACE: Guid = Guid.fromU128(U128(0x79c21b917e405euL, 0xa9ce0732b5bbcebduL))
-
-public val GUID_SDEV_IDENTIFIER_INTERFACE: Guid = Guid.fromU128(U128(0x49d67af8916c4ee8uL, 0x9df1889f17d21e91uL))
-
-public val GUID_SECURE_DRIVER_INTERFACE: Guid = Guid.fromU128(U128(0x370f67e14ff54a94uL, 0x9a3506c5d9cc30e2uL))
-
-public val GUID_TARGET_DEVICE_QUERY_REMOVE: Guid = Guid.fromU128(U128(0xcb3a400646f011d0uL, 0xb08f00609713053fuL))
-
-public val GUID_TARGET_DEVICE_REMOVE_CANCELLED: Guid = Guid.fromU128(U128(0xcb3a400746f011d0uL, 0xb08f00609713053fuL))
-
-public val GUID_TARGET_DEVICE_REMOVE_COMPLETE: Guid = Guid.fromU128(U128(0xcb3a400846f011d0uL, 0xb08f00609713053fuL))
-
-public val GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED: Guid = Guid.fromU128(U128(0xfcf528f6a82f47b1uL, 0xad3a8050594cad28uL))
-
-public val GUID_THERMAL_COOLING_INTERFACE: Guid = Guid.fromU128(U128(0xecbe47a8c4984bb9uL, 0xbd70e867e0940d22uL))
-
-public val GUID_TRANSLATOR_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x6c154a92aacf11d0uL, 0x8d2a00a0c906b244uL))
-
-public val GUID_WUDF_DEVICE_HOST_PROBLEM: Guid = Guid.fromU128(U128(0xc43d25bd934640eeuL, 0xa2d2d70c15f8b75buL))
-
 public val IDD_DYNAWIZ_ANALYZEDEV_PAGE: UInt = 10010u
 
 public val IDD_DYNAWIZ_ANALYZE_NEXTPAGE: UInt = 10004u
@@ -3004,3 +2632,375 @@ public val SP_COPY_WINDOWS_SIGNED: SpCopyStyle = 16777216u
 public val SP_FLAG_CABINETCONTINUATION: UInt = 2048u
 
 public val SP_MAX_MACHINENAME_LENGTH: UInt = 263u
+
+public val SRCINFO_DESCRIPTION: UInt = 3u
+
+public val SRCINFO_FLAGS: UInt = 4u
+
+public val SRCINFO_PATH: UInt = 1u
+
+public val SRCINFO_TAGFILE: UInt = 2u
+
+public val SRCINFO_TAGFILE2: UInt = 5u
+
+public val SRCLIST_APPEND: UInt = 512u
+
+public val SRCLIST_NOBROWSE: UInt = 2u
+
+public val SRCLIST_NOSTRIPPLATFORM: UInt = 1024u
+
+public val SRCLIST_SUBDIRS: UInt = 256u
+
+public val SRCLIST_SYSIFADMIN: UInt = 64u
+
+public val SRCLIST_SYSTEM: UInt = 16u
+
+public val SRCLIST_TEMPORARY: UInt = 1u
+
+public val SRCLIST_USER: UInt = 32u
+
+public val SRC_FLAGS_CABFILE: UInt = 16u
+
+public val SUOI_FORCEDELETE: UInt = 1u
+
+public val SUOI_INTERNAL1: UInt = 2u
+
+public val SZ_KEY_ADDAUTOLOGGER: Pcwstr = w("AddAutoLogger")
+
+public val SZ_KEY_ADDAUTOLOGGERPROVIDER: Pcwstr = w("AddAutoLoggerProvider")
+
+public val SZ_KEY_ADDCHANNEL: Pcwstr = w("AddChannel")
+
+public val SZ_KEY_ADDEVENTPROVIDER: Pcwstr = w("AddEventProvider")
+
+public val SZ_KEY_ADDFILTER: Pcwstr = w("AddFilter")
+
+public val SZ_KEY_ADDIME: Pcwstr = w("AddIme")
+
+public val SZ_KEY_ADDINTERFACE: Pcwstr = w("AddInterface")
+
+public val SZ_KEY_ADDPOWERSETTING: Pcwstr = w("AddPowerSetting")
+
+public val SZ_KEY_ADDPROP: Pcwstr = w("AddProperty")
+
+public val SZ_KEY_ADDREG: Pcwstr = w("AddReg")
+
+public val SZ_KEY_ADDREGNOCLOBBER: Pcwstr = w("AddRegNoClobber")
+
+public val SZ_KEY_ADDSERVICE: Pcwstr = w("AddService")
+
+public val SZ_KEY_ADDTRIGGER: Pcwstr = w("AddTrigger")
+
+public val SZ_KEY_BITREG: Pcwstr = w("BitReg")
+
+public val SZ_KEY_CLEANONLY: Pcwstr = w("CleanOnly")
+
+public val SZ_KEY_COPYFILES: Pcwstr = w("CopyFiles")
+
+public val SZ_KEY_COPYINF: Pcwstr = w("CopyINF")
+
+public val SZ_KEY_DEFAULTOPTION: Pcwstr = w("DefaultOption")
+
+public val SZ_KEY_DEFDESTDIR: Pcwstr = w("DefaultDestDir")
+
+public val SZ_KEY_DELFILES: Pcwstr = w("DelFiles")
+
+public val SZ_KEY_DELIME: Pcwstr = w("DelIme")
+
+public val SZ_KEY_DELPROP: Pcwstr = w("DelProperty")
+
+public val SZ_KEY_DELREG: Pcwstr = w("DelReg")
+
+public val SZ_KEY_DELSERVICE: Pcwstr = w("DelService")
+
+public val SZ_KEY_DESTDIRS: Pcwstr = w("DestinationDirs")
+
+public val SZ_KEY_EXCLUDEID: Pcwstr = w("ExcludeId")
+
+public val SZ_KEY_FAILUREACTIONS: Pcwstr = w("FailureActions")
+
+public val SZ_KEY_FEATURESCORE: Pcwstr = w("FeatureScore")
+
+public val SZ_KEY_FILTERLEVEL: Pcwstr = w("FilterLevel")
+
+public val SZ_KEY_FILTERPOSITION: Pcwstr = w("FilterPosition")
+
+public val SZ_KEY_HARDWARE: Pcwstr = w("Hardware")
+
+public val SZ_KEY_IMPORTCHANNEL: Pcwstr = w("ImportChannel")
+
+public val SZ_KEY_INI2REG: Pcwstr = w("Ini2Reg")
+
+public val SZ_KEY_LAYOUT_FILE: Pcwstr = w("LayoutFile")
+
+public val SZ_KEY_LDIDOEM: Pcwstr = w("LdidOEM")
+
+public val SZ_KEY_LFN_SECTION: Pcwstr = w("VarLDID.LFN")
+
+public val SZ_KEY_LISTOPTIONS: Pcwstr = w("ListOptions")
+
+public val SZ_KEY_LOGCONFIG: Pcwstr = w("LogConfig")
+
+public val SZ_KEY_MODULES: Pcwstr = w("Modules")
+
+public val SZ_KEY_OPTIONDESC: Pcwstr = w("OptionDesc")
+
+public val SZ_KEY_PHASE1: Pcwstr = w("Phase1")
+
+public val SZ_KEY_PROFILEITEMS: Pcwstr = w("ProfileItems")
+
+public val SZ_KEY_REGSVR: Pcwstr = w("RegisterDlls")
+
+public val SZ_KEY_RENFILES: Pcwstr = w("RenFiles")
+
+public val SZ_KEY_SFN_SECTION: Pcwstr = w("VarLDID.SFN")
+
+public val SZ_KEY_SRCDISKFILES: Pcwstr = w("SourceDisksFiles")
+
+public val SZ_KEY_SRCDISKNAMES: Pcwstr = w("SourceDisksNames")
+
+public val SZ_KEY_STRINGS: Pcwstr = w("Strings")
+
+public val SZ_KEY_UNREGSVR: Pcwstr = w("UnregisterDlls")
+
+public val SZ_KEY_UPDATEAUTOLOGGER: Pcwstr = w("UpdateAutoLogger")
+
+public val SZ_KEY_UPDATEINIFIELDS: Pcwstr = w("UpdateIniFields")
+
+public val SZ_KEY_UPDATEINIS: Pcwstr = w("UpdateInis")
+
+public val SZ_KEY_UPGRADEONLY: Pcwstr = w("UpgradeOnly")
+
+public val SETUP_FILE_LOG_CHECKSUM: SetupFileLogInfo = 1
+
+public val SETUP_FILE_LOG_DISK_DESCRIPTION: SetupFileLogInfo = 3
+
+public val SETUP_FILE_LOG_DISK_TAGFILE: SetupFileLogInfo = 2
+
+public val SETUP_FILE_LOG_MAX: SetupFileLogInfo = 5
+
+public val SETUP_FILE_LOG_OTHER_INFO: SetupFileLogInfo = 4
+
+public val SETUP_FILE_LOG_SOURCE_FILENAME: SetupFileLogInfo = 0
+
+public val F_DD_BYTE: DdFlags = 0u
+
+public val F_DD_BYTE_AND_WORD: DdFlags = 3u
+
+public val F_DD_BUS_MASTER: DdFlags = 4u
+
+public val F_DD_DWORD: DdFlags = 2u
+
+public val F_DD_NO_BUS_MASTER: DdFlags = 0u
+
+public val F_DD_TYPE_A: DdFlags = 8u
+
+public val F_DD_TYPE_B: DdFlags = 16u
+
+public val F_DD_TYPE_F: DdFlags = 24u
+
+public val F_DD_TYPE_STANDARD: DdFlags = 0u
+
+public val F_DD_WORD: DdFlags = 1u
+
+public val F_IOD_10_BIT_DECODE: IodDesflags = 4u
+
+public val F_IOD_12_BIT_DECODE: IodDesflags = 8u
+
+public val F_IOD_16_BIT_DECODE: IodDesflags = 16u
+
+public val F_IOD_DECODE: IodDesflags = 252u
+
+public val F_IOD_IO: IodDesflags = 1u
+
+public val F_IOD_MEMORY: IodDesflags = 0u
+
+public val F_IOD_PASSIVE_DECODE: IodDesflags = 64u
+
+public val F_IOD_PORT_BAR: IodDesflags = 256u
+
+public val F_IOD_POSITIVE_DECODE: IodDesflags = 32u
+
+public val F_IOD_PORT_TYPE: IodDesflags = 1u
+
+public val F_IOD_WINDOW_DECODE: IodDesflags = 128u
+
+public val F_IRQD_EDGE: IrqdFlags = 2u
+
+public val F_IRQD_EXCLUSIVE: IrqdFlags = 0u
+
+public val F_IRQD_LEVEL: IrqdFlags = 0u
+
+public val F_IRQD_LEVEL_BIT: IrqdFlags = 1u
+
+public val F_IRQD_SHARE: IrqdFlags = 1u
+
+public val F_IRQD_SHARE_BIT: IrqdFlags = 0u
+
+public val F_MD_24: MdFlags = 0u
+
+public val F_MD_32: MdFlags = 2u
+
+public val F_MD_32_24: MdFlags = 2u
+
+public val F_MD_CACHEABLE: MdFlags = 32u
+
+public val F_MD_COMBINED_WRITE: MdFlags = 16u
+
+public val F_MD_COMBINED_WRITE_ALLOWED: MdFlags = 16u
+
+public val F_MD_COMBINED_WRITE_DISALLOWED: MdFlags = 0u
+
+public val F_MD_MEMORY_BAR: MdFlags = 128u
+
+public val F_MD_MEMORY_TYPE: MdFlags = 1u
+
+public val F_MD_NON_CACHEABLE: MdFlags = 0u
+
+public val F_MD_PREF: MdFlags = 4u
+
+public val F_MD_PREFETCH_ALLOWED: MdFlags = 4u
+
+public val F_MD_PREFETCH_DISALLOWED: MdFlags = 0u
+
+public val F_MD_PREFETCHABLE: MdFlags = 4u
+
+public val F_MD_RAM: MdFlags = 1u
+
+public val F_MD_ROM: MdFlags = 0u
+
+public val F_MD_READ_ALLOWED: MdFlags = 0u
+
+public val F_MD_READ_DISALLOWED: MdFlags = 8u
+
+public val F_MD_READABLE: MdFlags = 8u
+
+public val F_MD_WINDOW_DECODE: MdFlags = 64u
+
+public val F_PCD_ATTRIBUTES_PER_WINDOW: PcdFlags = 32768u
+
+public val F_PCD_IO1_16: PcdFlags = 65536u
+
+public val F_PCD_IO1_SRC_16: PcdFlags = 262144u
+
+public val F_PCD_IO1_WS_16: PcdFlags = 524288u
+
+public val F_PCD_IO1_ZW_8: PcdFlags = 131072u
+
+public val F_PCD_IO2_16: PcdFlags = 1048576u
+
+public val F_PCD_IO2_SRC_16: PcdFlags = 4194304u
+
+public val F_PCD_IO2_WS_16: PcdFlags = 8388608u
+
+public val F_PCD_IO2_ZW_8: PcdFlags = 2097152u
+
+public val F_PCD_IO_16: PcdFlags = 1u
+
+public val F_PCD_IO_8: PcdFlags = 0u
+
+public val F_PCD_IO_SRC_16: PcdFlags = 32u
+
+public val F_PCD_IO_WS_16: PcdFlags = 64u
+
+public val F_PCD_IO_ZW_8: PcdFlags = 16u
+
+public val F_PCD_MEM1_16: PcdFlags = 67108864u
+
+public val F_PCD_MEM1_A: PcdFlags = 4u
+
+public val F_PCD_MEM1_WS_ONE: PcdFlags = 16777216u
+
+public val F_PCD_MEM1_WS_THREE: PcdFlags = 50331648u
+
+public val F_PCD_MEM1_WS_TWO: PcdFlags = 33554432u
+
+public val F_PCD_MEM2_16: PcdFlags = 1073741824u
+
+public val F_PCD_MEM2_A: PcdFlags = 8u
+
+public val F_PCD_MEM2_WS_ONE: PcdFlags = 268435456u
+
+public val F_PCD_MEM2_WS_THREE: PcdFlags = 805306368u
+
+public val F_PCD_MEM2_WS_TWO: PcdFlags = 536870912u
+
+public val F_PCD_MEM_16: PcdFlags = 2u
+
+public val F_PCD_MEM_8: PcdFlags = 0u
+
+public val F_PCD_MEM_A: PcdFlags = 4u
+
+public val F_PCD_MEM_WS_ONE: PcdFlags = 256u
+
+public val F_PCD_MEM_WS_THREE: PcdFlags = 768u
+
+public val F_PCD_MEM_WS_TWO: PcdFlags = 512u
+
+public val F_PMF_AUDIO_ENABLE: PmfFlags = 8u
+
+public val M_DD_BUS_MASTER: DdFlags = 4u
+
+public val M_DD_TYPE: DdFlags = 24u
+
+public val M_DD_WIDTH: DdFlags = 3u
+
+public val M_IRQD_EDGE_LEVEL: IrqdFlags = 2u
+
+public val M_IRQD_SHARE: IrqdFlags = 1u
+
+public val M_MD_32_24: MdFlags = 2u
+
+public val M_MD_CACHEABLE: MdFlags = 32u
+
+public val M_MD_COMBINED_WRITE: MdFlags = 16u
+
+public val M_MD_MEMORY_TYPE: MdFlags = 1u
+
+public val M_MD_PREFETCHABLE: MdFlags = 4u
+
+public val M_MD_READABLE: MdFlags = 8u
+
+public val M_PCD_IO_8_16: PcdFlags = 1u
+
+public val M_PCD_MEM1_WS: PcdFlags = 50331648u
+
+public val M_PCD_MEM2_WS: PcdFlags = 805306368u
+
+public val M_PCD_MEM_8_16: PcdFlags = 2u
+
+public val M_PCD_MEM_A_C: PcdFlags = 12u
+
+public val M_PCD_MEM_WS: PcdFlags = 768u
+
+public val M_PMF_AUDIO_ENABLE: UInt = 8u
+
+public val GUID_ACPI_CMOS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x3a8d0384650540cauL, 0xbc3956c15f8c5feduL))
+
+public val GUID_ACPI_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0xb091a08aba9711d0uL, 0xbd1400aa00b7b32auL))
+
+public val GUID_ACPI_INTERFACE_STANDARD2: Guid = Guid.fromU128(U128(0xe8695f6318314870uL, 0xa8cf9c2f03f9dcb5uL))
+
+public val GUID_ACPI_PORT_RANGES_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0xf14f609bcbbd4957uL, 0xa674bc00213f1c97uL))
+
+public val GUID_ACPI_REGS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x614196672456369uL, 0x462e4e656c736f6euL))
+
+public val GUID_AGP_TARGET_BUS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0xb15cfce806d14d37uL, 0x9d4cbedde0c2a6ffuL))
+
+public val GUID_ARBITER_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0xe644f1858c0e11d0uL, 0xbecf08002be2092fuL))
+
+public val GUID_BUS_INTERFACE_STANDARD: Guid = Guid.fromU128(U128(0x496b82806f2511d0uL, 0xbeaf08002be2092fuL))
+
+public val GUID_BUS_RESOURCE_UPDATE_INTERFACE: Guid = Guid.fromU128(U128(0x27d0102dbfb24164uL, 0x81dddbb82f968b48uL))
+
+public val GUID_BUS_TYPE_1394: Guid = Guid.fromU128(U128(0xf74e73eb9ac545ebuL, 0xbe4d772cc71ddfb3uL))
+
+public val GUID_BUS_TYPE_ACPI: Guid = Guid.fromU128(U128(0xd7b46895001a4942uL, 0x891fa7d46610a843uL))
+
+public val GUID_BUS_TYPE_AVC: Guid = Guid.fromU128(U128(0xc06ff265ae0948f0uL, 0x812c16753d7cba83uL))
+
+public val GUID_BUS_TYPE_DOT4PRT: Guid = Guid.fromU128(U128(0x441ee001434211d5uL, 0xa18400c04f60524duL))
+
+public val GUID_BUS_TYPE_EISA: Guid = Guid.fromU128(U128(0xddc35509f3fc11d0uL, 0xa5370000f8753ed1uL))
+
+public val GUID_BUS_TYPE_HID: Guid = Guid.fromU128(U128(0xeeaf37d0196347c4uL, 0xaa4872476db7cf49uL))

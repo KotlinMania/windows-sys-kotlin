@@ -18,8 +18,6 @@ public val AVRT_PRIORITY_VERYLOW: AvrtPriority = -2
 
 public val BELOW_NORMAL_PRIORITY_CLASS: ProcessCreationFlags = 16384u
 
-public val CONDITION_VARIABLE_INIT: ConditionVariable = ConditionVariable(ptr = null)
-
 public val CONDITION_VARIABLE_LOCKMODE_SHARED: UInt = 1u
 
 public val CREATE_BREAKAWAY_FROM_JOB: ProcessCreationFlags = 16777216u
@@ -101,8 +99,6 @@ public val INIT_ONCE_CHECK_ONLY: UInt = 1u
 public val INIT_ONCE_CTX_RESERVED_BITS: UInt = 2u
 
 public val INIT_ONCE_INIT_FAILED: UInt = 4u
-
-public val INIT_ONCE_STATIC_INIT: InitOnce = InitOnce(ptr = null)
 
 public val KERNEL_ENABLED: MachineAttributes = 2
 
@@ -512,8 +508,6 @@ public val SEMAPHORE_ALL_ACCESS: SynchronizationAccessRights = 2031619u
 
 public val SEMAPHORE_MODIFY_STATE: SynchronizationAccessRights = 2u
 
-public val SRWLOCK_INIT: Srwlock = Srwlock(ptr = null)
-
 public val STACK_SIZE_PARAM_IS_A_RESERVATION: ThreadCreationFlags = 65536u
 
 public val STARTF_FORCEOFFFEEDBACK: StartupinfowFlags = 128u
@@ -691,3 +685,9 @@ public val WT_EXECUTEONLYONCE: WorkerThreadFlags = 8u
 public val WT_TRANSFER_IMPERSONATION: WorkerThreadFlags = 256u
 
 public val WOW64CONTAINER: MachineAttributes = 4
+
+public val CONDITION_VARIABLE_INIT: ConditionVariable = ConditionVariable(ptr = null)
+
+public val INIT_ONCE_STATIC_INIT: InitOnce = InitOnce(ptr = null)
+
+public val SRWLOCK_INIT: Srwlock = Srwlock(ptr = null)

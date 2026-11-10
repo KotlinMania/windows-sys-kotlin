@@ -3,38 +3,6 @@ package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 
-public val WSAHOST_NOT_FOUND: WsaError = 11001
-
-public val WSAID_ACCEPTEX: Guid = Guid.fromU128(U128(0xb5367df1cbac11cfuL, 0x95ca00805f48a192uL))
-
-public val WSAID_CONNECTEX: Guid = Guid.fromU128(U128(0x25a207b9ddf34660uL, 0x8ee976e58c74063euL))
-
-public val WSAID_DISCONNECTEX: Guid = Guid.fromU128(U128(0x7fda2e118630436fuL, 0xa031f536a6eec157uL))
-
-public val WSAID_GETACCEPTEXSOCKADDRS: Guid = Guid.fromU128(U128(0xb5367df2cbac11cfuL, 0x95ca00805f48a192uL))
-
-public val WSAID_MULTIPLE_RIO: Guid = Guid.fromU128(U128(0x8509e08196dd4005uL, 0xb1659e2ee8c79e3fuL))
-
-public val WSAID_TRANSMITFILE: Guid = Guid.fromU128(U128(0xb5367df0cbac11cfuL, 0x95ca00805f48a192uL))
-
-public val WSAID_TRANSMITPACKETS: Guid = Guid.fromU128(U128(0xd9689da01f9011d3uL, 0x997100c04f68c876uL))
-
-public val WSAID_WSAPOLL: Guid = Guid.fromU128(U128(0x18c76f85dc664964uL, 0x972e23c27238312buL))
-
-public val WSAID_WSARECVMSG: Guid = Guid.fromU128(U128(0xf689d7c86f1f436buL, 0x8a53e54fe351c322uL))
-
-public val WSAID_WSASENDMSG: Guid = Guid.fromU128(U128(0xa441e712754f43cauL, 0x84a70dee44cf606duL))
-
-public val WSANOTINITIALISED: WsaError = 10093
-
-public val WSANO_DATA: WsaError = 11004
-
-public val WSANO_RECOVERY: WsaError = 11003
-
-public val WSAPROTOCOL_LEN: UInt = 255u
-
-public val WSASERVICE_NOT_FOUND: WsaError = 10108
-
 public val WSASYSCALLFAILURE: WsaError = 10107
 
 public val WSASYSNOTREADY: WsaError = 10091
@@ -238,3 +206,35 @@ public val LITTLE_ENDIAN: UInt = 1234u
 public val PDP_ENDIAN: UInt = 3412u
 
 public val SS_MAXSIZE: UInt = 128u
+
+public val ASSOCIATE_NAMERES_CONTEXT: Guid = Guid.fromU128(U128(0x59a38b67d4fe46e1uL, 0xba3c87ea74ca3049uL))
+
+public val NLA_NAMESPACE_GUID: Guid = Guid.fromU128(U128(0x6642243a3ba84aa6uL, 0xbaa52e0bd71fdd83uL))
+
+public val NLA_SERVICE_CLASS_GUID: Guid = Guid.fromU128(U128(0x37e515b5c94a43uL, 0xbada8b48a87ad239uL))
+
+public val REAL_TIME_NOTIFICATION_CAPABILITY: Guid = Guid.fromU128(U128(0x6b59819a5cae492duL, 0xa9012a3c2c50164fuL))
+
+public val REAL_TIME_NOTIFICATION_CAPABILITY_EX: Guid = Guid.fromU128(U128(0x6843da03154a4616uL, 0xa50844371295f96buL))
+
+public val SOCKET_DEFAULT2_QM_POLICY: Guid = Guid.fromU128(U128(0xaec2ef9c3a4d4d3euL, 0x8842239942e39a47uL))
+
+public val WSAID_ACCEPTEX: Guid = Guid.fromU128(U128(0xb5367df1cbac11cfuL, 0x95ca00805f48a192uL))
+
+public val WSAID_CONNECTEX: Guid = Guid.fromU128(U128(0x25a207b9ddf34660uL, 0x8ee976e58c74063euL))
+
+public val WSAID_DISCONNECTEX: Guid = Guid.fromU128(U128(0x7fda2e118630436fuL, 0xa031f536a6eec157uL))
+
+public val WSAID_GETACCEPTEXSOCKADDRS: Guid = Guid.fromU128(U128(0xb5367df2cbac11cfuL, 0x95ca00805f48a192uL))
+
+public val WSAID_MULTIPLE_RIO: Guid = Guid.fromU128(U128(0x8509e08196dd4005uL, 0xb1659e2ee8c79e3fuL))
+
+public val WSAID_TRANSMITFILE: Guid = Guid.fromU128(U128(0xb5367df0cbac11cfuL, 0x95ca00805f48a192uL))
+
+public val WSAID_TRANSMITPACKETS: Guid = Guid.fromU128(U128(0xd9689da01f9011d3uL, 0x997100c04f68c876uL))
+
+public val WSAID_WSAPOLL: Guid = Guid.fromU128(U128(0x18c76f85dc664964uL, 0x972e23c27238312buL))
+
+public val WSAID_WSARECVMSG: Guid = Guid.fromU128(U128(0xf689d7c86f1f436buL, 0x8a53e54fe351c322uL))
+
+public val WSAID_WSASENDMSG: Guid = Guid.fromU128(U128(0xa441e712754f43cauL, 0x84a70dee44cf606duL))

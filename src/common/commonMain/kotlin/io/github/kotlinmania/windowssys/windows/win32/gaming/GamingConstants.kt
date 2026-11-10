@@ -39,10 +39,6 @@ public val GIS_CURRENT_USER: GameInstallScope = 2
 
 public val GIS_NOT_INSTALLED: GameInstallScope = 1
 
-public val GAME_EXPLORER: Guid = Guid.fromU128(U128(0x9a5ea99030344d6fuL, 0x912801f3c61022bcuL))
-
-public val GAME_STATISTICS: Guid = Guid.fromU128(U128(0xdbc85a2cc0dc4961uL, 0xb6e2d28b62c11ad4uL))
-
 public val ID_GDF_THUMBNAIL_STR: Pcwstr = w("__GDF_THUMBNAIL")
 
 public val ID_GDF_XML_STR: Pcwstr = w("__GDF_XML")
@@ -108,6 +104,10 @@ public val XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = 247
 public val XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = 235
 
 public val XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = 197
+
+public val GAME_EXPLORER: Guid = Guid.fromU128(U128(0x9a5ea99030344d6fuL, 0x912801f3c61022bcuL))
+
+public val GAME_STATISTICS: Guid = Guid.fromU128(U128(0xdbc85a2cc0dc4961uL, 0xb6e2d28b62c11ad4uL))
 
 public val XBL_IDP_AUTH_MANAGER: Guid = Guid.fromU128(U128(0xce23534b56d84978uL, 0x86a27ee570640468uL))
 

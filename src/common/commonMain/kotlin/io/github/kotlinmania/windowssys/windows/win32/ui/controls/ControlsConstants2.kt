@@ -5,8 +5,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val LVNI_DROPHILITED: UInt = 8u
-
 public val LVNI_FOCUSED: UInt = 1u
 
 public val LVNI_PREVIOUS: UInt = 32u
@@ -3004,3 +3002,5 @@ public val TDM_CLICK_VERIFICATION: TaskdialogMessages = 1137
 public val TDM_ENABLE_BUTTON: TaskdialogMessages = 1135
 
 public val TDM_ENABLE_RADIO_BUTTON: TaskdialogMessages = 1136
+
+public val TDM_NAVIGATE_PAGE: TaskdialogMessages = 1125

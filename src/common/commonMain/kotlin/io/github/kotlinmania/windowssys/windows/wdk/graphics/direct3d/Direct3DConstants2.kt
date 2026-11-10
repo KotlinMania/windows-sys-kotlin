@@ -3,40 +3,6 @@ package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 
-public val DXGK_MAX_METADATA_NAME_LENGTH: UInt = 32u
-
-public val DXGK_MAX_PAGE_TABLE_LEVEL_COUNT: UInt = 6u
-
-public val DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: UInt = 2u
-
-public val DXGK_MIRACAST_CHUNK_TYPE_COLOR_CONVERT_COMPLETE: DxgkMiracastChunkType = 1
-
-public val DXGK_MIRACAST_CHUNK_TYPE_ENCODE_COMPLETE: DxgkMiracastChunkType = 2
-
-public val DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_1: DxgkMiracastChunkType = -2147483648.toInt()
-
-public val DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_2: DxgkMiracastChunkType = -2147483647
-
-public val DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DxgkMiracastChunkType = 4
-
-public val DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DxgkMiracastChunkType = 3
-
-public val DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DxgkMiracastChunkType = 0
-
-public val DXGK_PAGE_FAULT_ADAPTER_RESET_REQUIRED: DxgkPageFaultFlags = 4
-
-public val DXGK_PAGE_FAULT_ENGINE_RESET_REQUIRED: DxgkPageFaultFlags = 8
-
-public val DXGK_PAGE_FAULT_FATAL_HARDWARE_ERROR: DxgkPageFaultFlags = 16
-
-public val DXGK_PAGE_FAULT_FENCE_INVALID: DxgkPageFaultFlags = 2
-
-public val DXGK_PAGE_FAULT_HW_CONTEXT_VALID: DxgkPageFaultFlags = 64
-
-public val DXGK_PAGE_FAULT_IOMMU: DxgkPageFaultFlags = 32
-
-public val DXGK_PAGE_FAULT_PROCESS_HANDLE_VALID: DxgkPageFaultFlags = 128
-
 public val DXGK_PAGE_FAULT_WRITE: DxgkPageFaultFlags = 1
 
 public val DXGK_PTE_PAGE_TABLE_PAGE_4KB: DxgkPtePageSize = 0
@@ -70,8 +36,6 @@ public val DXGK_BACKLIGHT_OPTIMIZATION_DYNAMIC: DxgkBacklightOptimizationLevel =
 public val DXGK_BACKLIGHT_OPTIMIZATION_EDR: DxgkBacklightOptimizationLevel = 4
 
 public val FLIPEX_TIMEOUT_USER: UInt = 2000u
-
-public val GUID_DEVINTERFACE_GRAPHICSPOWER: Guid = Guid.fromU128(U128(0xea5c6870e93c4588uL, 0xbef1fec42fc9429auL))
 
 public val HPD_AWARENESS_ALWAYS_CONNECTED: DxgkChildDeviceHpdAwareness = 1
 
@@ -560,3 +524,39 @@ public val NT_D3DVS_TEMPREG_MAX_V3_0: UInt = 32u
 public val NT_RTPATCHFLAG_HASINFO: Int = 2
 
 public val NT_RTPATCHFLAG_HASSEGS: Int = 1
+
+public val DXGKMDT_OPM_GET_ACP_AND_CGMSA_SIGNALING: Guid = Guid.fromU128(U128(0x6629a5913b794cf3uL, 0x924a11e8e7811671uL))
+
+public val DXGKMDT_OPM_GET_ACTUAL_OUTPUT_FORMAT: Guid = Guid.fromU128(U128(0xd7bf1ba3ad134f8euL, 0xaf980dcb3ca204ccuL))
+
+public val DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL: Guid = Guid.fromU128(U128(0x1957210a7766452auL, 0xb99ad27aed54f03auL))
+
+public val DXGKMDT_OPM_GET_ADAPTER_BUS_TYPE: Guid = Guid.fromU128(U128(0xc6f4d67361744184uL, 0x8e35f6db5200bcbauL))
+
+public val DXGKMDT_OPM_GET_CODEC_INFO: Guid = Guid.fromU128(U128(0x4f3744918f5f4445uL, 0x9dba95588f6b58b4uL))
+
+public val DXGKMDT_OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: Guid = Guid.fromU128(U128(0xdb59d74a992492euL, 0xa0bdc23fda564e00uL))
+
+public val DXGKMDT_OPM_GET_CONNECTOR_TYPE: Guid = Guid.fromU128(U128(0x81d0bfd56afe48c2uL, 0x99c095a08f97c5dauL))
+
+public val DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: Guid = Guid.fromU128(U128(0x99c5ceff5f1d4879uL, 0x81c1c52443c9482buL))
+
+public val DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: Guid = Guid.fromU128(U128(0xa470b3bb5dd74172uL, 0x839c3d3776e0ebf5uL))
+
+public val DXGKMDT_OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: Guid = Guid.fromU128(U128(0x3b1295892af84ef0uL, 0x96a2704a845a218euL))
+
+public val DXGKMDT_OPM_GET_OUTPUT_ID: Guid = Guid.fromU128(U128(0x72cb6df3244f40ceuL, 0xb09e20506af6302fuL))
+
+public val DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES: Guid = Guid.fromU128(U128(0x38f2a8019a6c48bbuL, 0x9107b6696e6f1797uL))
+
+public val DXGKMDT_OPM_GET_VIRTUAL_PROTECTION_LEVEL: Guid = Guid.fromU128(U128(0xb20758573eda4d5duL, 0x88db748f8c1a0549uL))
+
+public val DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: Guid = Guid.fromU128(U128(0x9a631a5d6844c60uL, 0x8e4dd3bb0f0be3eeuL))
+
+public val DXGKMDT_OPM_SET_HDCP_SRM: Guid = Guid.fromU128(U128(0x8b5ef5d1c30d44ffuL, 0x84a5ea71dce78f13uL))
+
+public val DXGKMDT_OPM_SET_PROTECTION_LEVEL: Guid = Guid.fromU128(U128(0x9bb9327c4eb54727uL, 0x9f00b42b0919c0dauL))
+
+public val DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: Guid = Guid.fromU128(U128(0x39ce333e4cc044aeuL, 0xbfccda50b5f82e72uL))
+
+public val GUID_DEVINTERFACE_GRAPHICSPOWER: Guid = Guid.fromU128(U128(0xea5c6870e93c4588uL, 0xbef1fec42fc9429auL))

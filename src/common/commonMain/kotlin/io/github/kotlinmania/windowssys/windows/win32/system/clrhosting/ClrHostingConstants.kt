@@ -17,8 +17,6 @@ public val BUCKET_PARAM_LENGTH: UInt = 255u
 
 public val BUCKET_PARAMS_COUNT: UInt = 10u
 
-public val CLR_RUNTIME_HOST: Guid = Guid.fromU128(U128(0x90f1a06e77124762uL, 0x86b57a5eba6bdb02uL))
-
 public val CLR_ASSEMBLY_BUILD_VERSION: UInt = 0u
 
 public val CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT: ECLRAssemblyIdentityFlags = 0
@@ -37,18 +35,6 @@ public val CLR_MAJOR_VERSION: UInt = 4u
 
 public val CLR_MINOR_VERSION: UInt = 0u
 
-public val CLSID_CLR_DEBUGGING: Guid = Guid.fromU128(U128(0xbacc578dfbdd48a4uL, 0x969f02d932b74634uL))
-
-public val CLSID_CLR_DEBUGGING_LEGACY: Guid = Guid.fromU128(U128(0xdf8395b5a4ba450buL, 0xa77ca9a47762c520uL))
-
-public val CLSID_CLR_META_HOST: Guid = Guid.fromU128(U128(0x9280188d0e8e4867uL, 0xb30c7fa83884e8deuL))
-
-public val CLSID_CLR_META_HOST_POLICY: Guid = Guid.fromU128(U128(0x2ebcd49a1b474a61uL, 0xb13a4a03701e594buL))
-
-public val CLSID_CLR_PROFILING: Guid = Guid.fromU128(U128(0xbd097ed8733e43feuL, 0x8ed7a95ff9a8448cuL))
-
-public val CLSID_CLR_STRONG_NAME: Guid = Guid.fromU128(U128(0xb79b0acdf5cd409buL, 0xb5a5a16244610b92uL))
-
 public val CLSID_RESOLUTION_DEFAULT: ClsidResolutionFlags = 0
 
 public val CLSID_RESOLUTION_REGISTERED: ClsidResolutionFlags = 1
@@ -58,12 +44,6 @@ public val COR_GC_COUNTS: CorGcStatTypes = 1
 public val COR_GC_MEMORYUSAGE: CorGcStatTypes = 2
 
 public val COR_GC_THREAD_HAS_PROMOTED_BYTES: CorGcThreadStatsTypes = 1
-
-public val COM_CALL_UNMARSHAL: Guid = Guid.fromU128(U128(0x3f281000e95a11d2uL, 0x886b00c04f869f04uL))
-
-public val COM_CALL_UNMARSHAL_V4: Guid = Guid.fromU128(U128(0x45fb4600e6e84928uL, 0xb25e50476ff79425uL))
-
-public val COR_RUNTIME_HOST: Guid = Guid.fromU128(U128(0xcb2f6723ab3a11d2uL, 0x9c4000c04fa30a3euL))
 
 public val DEPRECATED_CLR_API_MESG: Pcstr = s("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.")
 
@@ -116,8 +96,6 @@ public val HOST_TYPE_CORFLAG: HostType = 2
 public val HOST_TYPE_DEFAULT: HostType = 0
 
 public val INVALID_BUCKET_PARAM_INDEX: BucketParameterIndex = 9
-
-public val LIBID_MSCOREE: Guid = Guid.fromU128(U128(0x5477469e83b111d2uL, 0x8b4900a0c9b7c9c4uL))
 
 public val MALLOC_EXECUTABLE: MallocType = 2
 
@@ -263,8 +241,6 @@ public val TT_UNKNOWN: ETaskType = -2147483648.toInt()
 
 public val TT_USER: ETaskType = 256
 
-public val TYPE_NAME_FACTORY: Guid = Guid.fromU128(U128(0xb81ff17120f311d2uL, 0x8dcc00a0c9b00525uL))
-
 public val WAIT_ALERTABLE: WaitOption = 2
 
 public val WAIT_MSGPUMP: WaitOption = 1
@@ -358,3 +334,27 @@ public val E_THROW_EXCEPTION: EPolicyAction = 1
 public val E_UI: EApiCategories = 128
 
 public val E_UNLOAD_APP_DOMAIN: EPolicyAction = 4
+
+public val CLR_RUNTIME_HOST: Guid = Guid.fromU128(U128(0x90f1a06e77124762uL, 0x86b57a5eba6bdb02uL))
+
+public val CLSID_CLR_DEBUGGING: Guid = Guid.fromU128(U128(0xbacc578dfbdd48a4uL, 0x969f02d932b74634uL))
+
+public val CLSID_CLR_DEBUGGING_LEGACY: Guid = Guid.fromU128(U128(0xdf8395b5a4ba450buL, 0xa77ca9a47762c520uL))
+
+public val CLSID_CLR_META_HOST: Guid = Guid.fromU128(U128(0x9280188d0e8e4867uL, 0xb30c7fa83884e8deuL))
+
+public val CLSID_CLR_META_HOST_POLICY: Guid = Guid.fromU128(U128(0x2ebcd49a1b474a61uL, 0xb13a4a03701e594buL))
+
+public val CLSID_CLR_PROFILING: Guid = Guid.fromU128(U128(0xbd097ed8733e43feuL, 0x8ed7a95ff9a8448cuL))
+
+public val CLSID_CLR_STRONG_NAME: Guid = Guid.fromU128(U128(0xb79b0acdf5cd409buL, 0xb5a5a16244610b92uL))
+
+public val COM_CALL_UNMARSHAL: Guid = Guid.fromU128(U128(0x3f281000e95a11d2uL, 0x886b00c04f869f04uL))
+
+public val COM_CALL_UNMARSHAL_V4: Guid = Guid.fromU128(U128(0x45fb4600e6e84928uL, 0xb25e50476ff79425uL))
+
+public val COR_RUNTIME_HOST: Guid = Guid.fromU128(U128(0xcb2f6723ab3a11d2uL, 0x9c4000c04fa30a3euL))
+
+public val LIBID_MSCOREE: Guid = Guid.fromU128(U128(0x5477469e83b111d2uL, 0x8b4900a0c9b7c9c4uL))
+
+public val TYPE_NAME_FACTORY: Guid = Guid.fromU128(U128(0xb81ff17120f311d2uL, 0x8dcc00a0c9b00525uL))

@@ -7,122 +7,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val SQL_COPT_SS_ATTACHDBFILENAME: UInt = 1221u
-
-public val SQL_COPT_SS_BASE: UInt = 1200u
-
-public val SQL_COPT_SS_BASE_EX: UInt = 1240u
-
-public val SQL_COPT_SS_BCP: UInt = 1219u
-
-public val SQL_COPT_SS_BROWSE_CACHE_DATA: UInt = 1245u
-
-public val SQL_COPT_SS_BROWSE_CONNECT: UInt = 1241u
-
-public val SQL_COPT_SS_BROWSE_SERVER: UInt = 1242u
-
-public val SQL_COPT_SS_CONCAT_NULL: UInt = 1222u
-
-public val SQL_COPT_SS_CONNECTION_DEAD: UInt = 1244u
-
-public val SQL_COPT_SS_ENCRYPT: UInt = 1223u
-
-public val SQL_COPT_SS_EX_MAX_USED: UInt = 1246u
-
-public val SQL_COPT_SS_FALLBACK_CONNECT: UInt = 1210u
-
-public val SQL_COPT_SS_INTEGRATED_SECURITY: UInt = 1203u
-
-public val SQL_COPT_SS_MAX_USED: UInt = 1223u
-
-public val SQL_COPT_SS_PERF_DATA: UInt = 1211u
-
-public val SQL_COPT_SS_PERF_DATA_LOG: UInt = 1212u
-
-public val SQL_COPT_SS_PERF_DATA_LOG_NOW: UInt = 1216u
-
-public val SQL_COPT_SS_PERF_QUERY: UInt = 1215u
-
-public val SQL_COPT_SS_PERF_QUERY_INTERVAL: UInt = 1213u
-
-public val SQL_COPT_SS_PERF_QUERY_LOG: UInt = 1214u
-
-public val SQL_COPT_SS_PRESERVE_CURSORS: UInt = 1204u
-
-public val SQL_COPT_SS_QUOTED_IDENT: UInt = 1217u
-
-public val SQL_COPT_SS_REMOTE_PWD: UInt = 1201u
-
-public val SQL_COPT_SS_RESET_CONNECTION: UInt = 1246u
-
-public val SQL_COPT_SS_TRANSLATE: UInt = 1220u
-
-public val SQL_COPT_SS_USER_DATA: UInt = 1205u
-
-public val SQL_COPT_SS_USE_PROC_FOR_PREP: UInt = 1202u
-
-public val SQL_COPT_SS_WARN_ON_CP_ERROR: UInt = 1243u
-
-public val SQL_CORRELATION_NAME: UInt = 74u
-
-public val SQL_CO_AF: Int = 2
-
-public val SQL_CO_DEFAULT: Int = 0
-
-public val SQL_CO_FFO: Int = 1
-
-public val SQL_CO_FIREHOSE_AF: Int = 4
-
-public val SQL_CO_OFF: Int = 0
-
-public val SQL_CP_DEFAULT: UInt = 0u
-
-public val SQL_CP_DRIVER_AWARE: UInt = 3u
-
-public val SQL_CP_MATCH_DEFAULT: UInt = 0u
-
-public val SQL_CP_OFF: UInt = 0u
-
-public val SQL_CP_ONE_PER_DRIVER: UInt = 1u
-
-public val SQL_CP_ONE_PER_HENV: UInt = 2u
-
-public val SQL_CP_RELAXED_MATCH: UInt = 1u
-
-public val SQL_CP_STRICT_MATCH: UInt = 0u
-
-public val SQL_CREATE_ASSERTION: UInt = 127u
-
-public val SQL_CREATE_CHARACTER_SET: UInt = 128u
-
-public val SQL_CREATE_COLLATION: UInt = 129u
-
-public val SQL_CREATE_DOMAIN: UInt = 130u
-
-public val SQL_CREATE_SCHEMA: UInt = 131u
-
-public val SQL_CREATE_TABLE: UInt = 132u
-
-public val SQL_CREATE_TRANSLATION: UInt = 133u
-
-public val SQL_CREATE_VIEW: UInt = 134u
-
-public val SQL_CR_CLOSE: UInt = 1u
-
-public val SQL_CR_DELETE: UInt = 0u
-
-public val SQL_CR_PRESERVE: UInt = 2u
-
-public val SQL_CS_AUTHORIZATION: Int = 2
-
-public val SQL_CS_CREATE_SCHEMA: Int = 1
-
-public val SQL_CS_DEFAULT_CHARACTER_SET: Int = 4
-
-public val SQL_CTR_CREATE_TRANSLATION: Int = 1
-
-public val SQL_CT_COLUMN_COLLATION: Int = 2048
-
 public val SQL_CT_COLUMN_CONSTRAINT: Int = 512
 
 public val SQL_CT_COLUMN_DEFAULT: Int = 1024
@@ -2697,8 +2581,6 @@ public val SUCCEED_ABORT: UInt = 2u
 
 public val SUCCEED_ASYNC: UInt = 3u
 
-public val SUBSCRIPTION_MGR: Guid = Guid.fromU128(U128(0xabbe31d06dae11d0uL, 0xbeca00c04fd940beuL))
-
 public val TRACE_ON: Int = 1
 
 public val TRACE_VERSION: UInt = 1000u
@@ -2850,3 +2732,121 @@ public val E_AUTH_TYPE_ANONYMOUS: AuthType = 0
 public val E_AUTH_TYPE_BASIC: AuthType = 2
 
 public val E_AUTH_TYPE_NTLM: AuthType = 1
+
+public val CLSID_CI_SIMPLE_COMMAND_CREATOR: Guid = Guid.fromU128(U128(0xc7b6c04acbb511d0uL, 0xbb4c00c04fc2f410uL))
+
+public val CLSID_DATA_SHAPE_PROVIDER: Guid = Guid.fromU128(U128(0x3449a1c8c56c11d0uL, 0xad7200c04fc29863uL))
+
+public val CLSID_MSDASQL: Guid = Guid.fromU128(U128(0xc8b522cb5cf311ceuL, 0xade500aa0044773duL))
+
+public val CLSID_MSDASQL_ENUMERATOR: Guid = Guid.fromU128(U128(0xc8b522cd5cf311ceuL, 0xade500aa0044773duL))
+
+public val CLSID_MS_PERSIST: Guid = Guid.fromU128(U128(0x7c07e0d0441811d2uL, 0x921200c04fbbbfb3uL))
+
+public val CLSID_SQLOLEDB: Guid = Guid.fromU128(U128(0xc7ff16c38e311d0uL, 0x97ab00c04fc2ad98uL))
+
+public val CLSID_SQLOLEDB_ENUMERATOR: Guid = Guid.fromU128(U128(0xdfa22b8ee68d11d0uL, 0x97e400c04fc2ad98uL))
+
+public val CLSID_SQLOLEDB_ERROR: Guid = Guid.fromU128(U128(0xc0932c6238e511d0uL, 0x97ab00c04fc2ad98uL))
+
+public val C_SEARCH_LANGUAGE_SUPPORT: Guid = Guid.fromU128(U128(0x6a68cc8043374dbcuL, 0xbd27fbfb1053820buL))
+
+public val C_SEARCH_MANAGER: Guid = Guid.fromU128(U128(0x7d096c5fac084f1fuL, 0xbeb75c22c517ce39uL))
+
+public val C_SEARCH_ROOT: Guid = Guid.fromU128(U128(0x30766bd2ea1c4f28uL, 0xbf270b44e2f68db7uL))
+
+public val C_SEARCH_SCOPE_RULE: Guid = Guid.fromU128(U128(0xe63de7503bd74be5uL, 0x9c846b4281988c44uL))
+
+public val COMPOUND_CONDITION: Guid = Guid.fromU128(U128(0x116f8d13101e4fa5uL, 0x84d4ff8279381935uL))
+
+public val CONDITION_FACTORY: Guid = Guid.fromU128(U128(0xe03e85b07be34000uL, 0xba986c13de9fa486uL))
+
+public val DBBMKGUID: Guid = Guid.fromU128(U128(0xc8b522325cf311ceuL, 0xade500aa0044773duL))
+
+public val DBCIDGUID: Guid = Guid.fromU128(U128(0xc733a812a1c11ceuL, 0xade500aa0044773duL))
+
+public val DBGUID_MSSQLXML: Guid = Guid.fromU128(U128(0x5d531cb2e6ed11d2uL, 0xb25200c04f681b71uL))
+
+public val DBGUID_ROWDEFAULTSTREAM: Guid = Guid.fromU128(U128(0xc733ab72a1c11ceuL, 0xade500aa0044773duL))
+
+public val DBGUID_ROWURL: Guid = Guid.fromU128(U128(0xc733ab62a1c11ceuL, 0xade500aa0044773duL))
+
+public val DBGUID_XPATH: Guid = Guid.fromU128(U128(0xec2a4293e89811d2uL, 0xb1b700c04f680c56uL))
+
+public val DBPROPSET_MSDAORA8_ROWSET: Guid = Guid.fromU128(U128(0x7f06a375dd6a43dbuL, 0xb4e01fc121e5e62buL))
+
+public val DBPROPSET_MSDAORA_ROWSET: Guid = Guid.fromU128(U128(0xe8cc4cbdfdff11d0uL, 0xb86500a0c9081c1duL))
+
+public val DBPROPSET_MSDSDBINIT: Guid = Guid.fromU128(U128(0x55cb91a85c7a11d1uL, 0xadad00c04fc29863uL))
+
+public val DBPROPSET_MSDSSESSION: Guid = Guid.fromU128(U128(0xedf17536afbf11d1uL, 0x88470000f879f98cuL))
+
+public val DBPROPSET_PERSIST: Guid = Guid.fromU128(U128(0x4d7839a05b8e11d1uL, 0xa6b300a0c9138c66uL))
+
+public val DBPROPSET_PROVIDERCONNATTR: Guid = Guid.fromU128(U128(0x497c60e4712311cfuL, 0xb17100aa0057599euL))
+
+public val DBPROPSET_PROVIDERDATASOURCEINFO: Guid = Guid.fromU128(U128(0x497c60e0712311cfuL, 0xb17100aa0057599euL))
+
+public val DBPROPSET_PROVIDERDBINIT: Guid = Guid.fromU128(U128(0x497c60e2712311cfuL, 0xb17100aa0057599euL))
+
+public val DBPROPSET_PROVIDERROWSET: Guid = Guid.fromU128(U128(0x497c60e1712311cfuL, 0xb17100aa0057599euL))
+
+public val DBPROPSET_PROVIDERSTMTATTR: Guid = Guid.fromU128(U128(0x497c60e3712311cfuL, 0xb17100aa0057599euL))
+
+public val DBPROPSET_SQLSERVERCOLUMN: Guid = Guid.fromU128(U128(0x3b63fb5e3fbb11d3uL, 0x9f2900c04f8ee9dcuL))
+
+public val DBPROPSET_SQLSERVERDATASOURCE: Guid = Guid.fromU128(U128(0x28efaee42d2c11d1uL, 0x980700c04fc2ad98uL))
+
+public val DBPROPSET_SQLSERVERDATASOURCEINFO: Guid = Guid.fromU128(U128(0xdf10cb9435f611d2uL, 0x9c5400c04f7971d3uL))
+
+public val DBPROPSET_SQLSERVERDBINIT: Guid = Guid.fromU128(U128(0x5cf4ca10ef2111d0uL, 0x97e700c04fc2ad98uL))
+
+public val DBPROPSET_SQLSERVERROWSET: Guid = Guid.fromU128(U128(0x5cf4ca11ef2111d0uL, 0x97e700c04fc2ad98uL))
+
+public val DBPROPSET_SQLSERVERSESSION: Guid = Guid.fromU128(U128(0x28efaee52d2c11d1uL, 0x980700c04fc2ad98uL))
+
+public val DBPROPSET_SQLSERVERSTREAM: Guid = Guid.fromU128(U128(0x9f79c0738a6d4bcauL, 0xa8a8c9b79a9b962duL))
+
+public val DBQUERYGUID: Guid = Guid.fromU128(U128(0x49691c907e17101auL, 0xa91c08002b2ecda9uL))
+
+public val DBSCHEMA_LINKEDSERVERS: Guid = Guid.fromU128(U128(0x9093caf42eac11d1uL, 0x980900c04fc2ad98uL))
+
+public val DBSELFGUID: Guid = Guid.fromU128(U128(0xc8b522315cf311ceuL, 0xade500aa0044773duL))
+
+public val DB_NULLGUID: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
+
+public val DATA_LINKS: Guid = Guid.fromU128(U128(0x2206cdb219c111d1uL, 0x89e000c04fd7a829uL))
+
+public val FILTER_REGISTRATION: Guid = Guid.fromU128(U128(0x9e175b8df52a11d8uL, 0xb9a5505054503030uL))
+
+public val INTERVAL: Guid = Guid.fromU128(U128(0xd957171f4bf94de2uL, 0xbcd5c70a7ca55836uL))
+
+public val LEAF_CONDITION: Guid = Guid.fromU128(U128(0x52f15c895a1748e1uL, 0xbbcd46a3f89c7cc2uL))
+
+public val MSDAINITIALIZE: Guid = Guid.fromU128(U128(0x2206cdb019c111d1uL, 0x89e000c04fd7a829uL))
+
+public val MSDAORA: Guid = Guid.fromU128(U128(0xe8cc4cbefdff11d0uL, 0xb86500a0c9081c1duL))
+
+public val MSDAORA8: Guid = Guid.fromU128(U128(0x7f06a373dd6a43dbuL, 0xb4e01fc121e5e62buL))
+
+public val MSDAORA8_ERROR: Guid = Guid.fromU128(U128(0x7f06a374dd6a43dbuL, 0xb4e01fc121e5e62buL))
+
+public val MSDAORA_ERROR: Guid = Guid.fromU128(U128(0xe8cc4cbffdff11d0uL, 0xb86500a0c9081c1duL))
+
+public val NEGATION_CONDITION: Guid = Guid.fromU128(U128(0x8de9c74c605a4acduL, 0xbee32b222aa2d23duL))
+
+public val PDPO: Guid = Guid.fromU128(U128(0xccb4ec60b9dc11d1uL, 0xac8000a0c9034873uL))
+
+public val PSGUID_CHARACTERIZATION: Guid = Guid.fromU128(U128(0x560c36c0503a11cfuL, 0xbaa100004c752a9auL))
+
+public val PSGUID_QUERY_METADATA: Guid = Guid.fromU128(U128(0x624c936093d011cfuL, 0xa78700004c752752uL))
+
+public val PSGUID_STORAGE: Guid = Guid.fromU128(U128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL))
+
+public val QUERY_PARSER: Guid = Guid.fromU128(U128(0xb72f8fd80fab4dd9uL, 0xbdbf245a6ce1485buL))
+
+public val QUERY_PARSER_MANAGER: Guid = Guid.fromU128(U128(0x5088b39a29b44d9duL, 0x82454ee289222f66uL))
+
+public val ROOT_BINDER: Guid = Guid.fromU128(U128(0xff151822b0bf11d1uL, 0xa80d000000000000uL))
+
+public val SUBSCRIPTION_MGR: Guid = Guid.fromU128(U128(0xabbe31d06dae11d0uL, 0xbeca00c04fd940beuL))

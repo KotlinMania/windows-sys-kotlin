@@ -18,22 +18,6 @@ public val ATTR_TARGET_CONVERTED: UInt = 1u
 
 public val ATTR_TARGET_NOTCONVERTED: UInt = 3u
 
-public val CATID_MSIME_I_IME_PAD_APPLET: Guid = Guid.fromU128(U128(0x7566cad14ec94478uL, 0x9fe98ed766619edfuL))
-
-public val CATID_MSIME_I_IME_PAD_APPLET1000: Guid = Guid.fromU128(U128(0xe081e1d6238943cbuL, 0xb66f609f823d9f9cuL))
-
-public val CATID_MSIME_I_IME_PAD_APPLET1200: Guid = Guid.fromU128(U128(0xa47fb5fc7d154223uL, 0xa789b781bf9ae667uL))
-
-public val CATID_MSIME_I_IME_PAD_APPLET900: Guid = Guid.fromU128(U128(0xfaae51bf5e5b4a1duL, 0x8de117c1d9e1728duL))
-
-public val CATID_MSIME_I_IME_PAD_APPLET_VER7: Guid = Guid.fromU128(U128(0x4a0f8e31c3ee11d1uL, 0xafef00805f0c8b6duL))
-
-public val CATID_MSIME_I_IME_PAD_APPLET_VER80: Guid = Guid.fromU128(U128(0x56f7a792fef111d3uL, 0x846300c04f7a06e5uL))
-
-public val CATID_MSIME_I_IME_PAD_APPLET_VER81: Guid = Guid.fromU128(U128(0x656520b0bb8811d4uL, 0x84c000c04f7a06e5uL))
-
-public val C_ACTIVE_IMM: Guid = Guid.fromU128(U128(0x4955dd33b15911d0uL, 0x8fcf00aa006bcc59uL))
-
 public val CFS_CANDIDATEPOS: UInt = 64u
 
 public val CFS_DEFAULT: UInt = 0u
@@ -51,12 +35,6 @@ public val CHARINFO_APPLETID_MASK: UInt = 4278190080u
 public val CHARINFO_CHARID_MASK: UInt = 65535u
 
 public val CHARINFO_FEID_MASK: UInt = 15728640u
-
-public val CLSID_IME_PLUG_IN_DICT_DICTIONARY_LIST_CHS: Guid = Guid.fromU128(U128(0x7bf0129b5bef4de4uL, 0x9b0b5edb66ac2fa6uL))
-
-public val CLSID_IME_PLUG_IN_DICT_DICTIONARY_LIST_JPN: Guid = Guid.fromU128(U128(0x4fe2776bb0f94396uL, 0xb5fce9d4cf1ec195uL))
-
-public val CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: Guid = Guid.fromU128(U128(0x6a91029eaa49471buL, 0xaee77d332785660duL))
 
 public val CPS_CANCEL: NotifyImeIndex = 4u
 
@@ -1545,3 +1523,25 @@ public val SZ_IME_KOREA: Pcwstr = w("MSIME.Korea")
 public val SZ_IME_TAIWAN: Pcwstr = w("MSIME.Taiwan")
 
 public val WCH_PRIVATE1: UInt = 57344u
+
+public val CATID_MSIME_I_IME_PAD_APPLET: Guid = Guid.fromU128(U128(0x7566cad14ec94478uL, 0x9fe98ed766619edfuL))
+
+public val CATID_MSIME_I_IME_PAD_APPLET1000: Guid = Guid.fromU128(U128(0xe081e1d6238943cbuL, 0xb66f609f823d9f9cuL))
+
+public val CATID_MSIME_I_IME_PAD_APPLET1200: Guid = Guid.fromU128(U128(0xa47fb5fc7d154223uL, 0xa789b781bf9ae667uL))
+
+public val CATID_MSIME_I_IME_PAD_APPLET900: Guid = Guid.fromU128(U128(0xfaae51bf5e5b4a1duL, 0x8de117c1d9e1728duL))
+
+public val CATID_MSIME_I_IME_PAD_APPLET_VER7: Guid = Guid.fromU128(U128(0x4a0f8e31c3ee11d1uL, 0xafef00805f0c8b6duL))
+
+public val CATID_MSIME_I_IME_PAD_APPLET_VER80: Guid = Guid.fromU128(U128(0x56f7a792fef111d3uL, 0x846300c04f7a06e5uL))
+
+public val CATID_MSIME_I_IME_PAD_APPLET_VER81: Guid = Guid.fromU128(U128(0x656520b0bb8811d4uL, 0x84c000c04f7a06e5uL))
+
+public val C_ACTIVE_IMM: Guid = Guid.fromU128(U128(0x4955dd33b15911d0uL, 0x8fcf00aa006bcc59uL))
+
+public val CLSID_IME_PLUG_IN_DICT_DICTIONARY_LIST_CHS: Guid = Guid.fromU128(U128(0x7bf0129b5bef4de4uL, 0x9b0b5edb66ac2fa6uL))
+
+public val CLSID_IME_PLUG_IN_DICT_DICTIONARY_LIST_JPN: Guid = Guid.fromU128(U128(0x4fe2776bb0f94396uL, 0xb5fce9d4cf1ec195uL))
+
+public val CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: Guid = Guid.fromU128(U128(0x6a91029eaa49471buL, 0xaee77d332785660duL))

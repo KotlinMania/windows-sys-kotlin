@@ -8,144 +8,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val SL_ID_LICENSE: Slidtype = 3
-
-public val SL_ID_LICENSE_FILE: Slidtype = 2
-
-public val SL_ID_PKEY: Slidtype = 4
-
-public val SL_ID_PRODUCT_SKU: Slidtype = 1
-
-public val SL_ID_STORE_TOKEN: Slidtype = 7
-
-public val SL_INFO_KEY_ACTIVE_PLUGINS: Pcwstr = w("ActivePlugins")
-
-public val SL_INFO_KEY_AUTHOR: Pcwstr = w("Author")
-
-public val SL_INFO_KEY_BIOS_OA2_MINOR_VERSION: Pcwstr = w("BiosOA2MinorVersion")
-
-public val SL_INFO_KEY_BIOS_PKEY: Pcwstr = w("BiosProductKey")
-
-public val SL_INFO_KEY_BIOS_PKEY_DESCRIPTION: Pcwstr = w("BiosProductKeyDescription")
-
-public val SL_INFO_KEY_BIOS_PKEY_PKPN: Pcwstr = w("BiosProductKeyPkPn")
-
-public val SL_INFO_KEY_BIOS_SLIC_STATE: Pcwstr = w("BiosSlicState")
-
-public val SL_INFO_KEY_CHANNEL: Pcwstr = w("Channel")
-
-public val SL_INFO_KEY_DESCRIPTION: Pcwstr = w("Description")
-
-public val SL_INFO_KEY_DIGITAL_PID: Pcwstr = w("DigitalPID")
-
-public val SL_INFO_KEY_DIGITAL_PID2: Pcwstr = w("DigitalPID2")
-
-public val SL_INFO_KEY_IS_KMS: Pcwstr = w("IsKeyManagementService")
-
-public val SL_INFO_KEY_IS_PRS: Pcwstr = w("IsPRS")
-
-public val SL_INFO_KEY_KMS_CURRENT_COUNT: Pcwstr = w("KeyManagementServiceCurrentCount")
-
-public val SL_INFO_KEY_KMS_FAILED_REQUESTS: Pcwstr = w("KeyManagementServiceFailedRequests")
-
-public val SL_INFO_KEY_KMS_LICENSED_REQUESTS: Pcwstr = w("KeyManagementServiceLicensedRequests")
-
-public val SL_INFO_KEY_KMS_NON_GENUINE_GRACE_REQUESTS: Pcwstr = w("KeyManagementServiceNonGenuineGraceRequests")
-
-public val SL_INFO_KEY_KMS_NOTIFICATION_REQUESTS: Pcwstr = w("KeyManagementServiceNotificationRequests")
-
-public val SL_INFO_KEY_KMS_OOB_GRACE_REQUESTS: Pcwstr = w("KeyManagementServiceOOBGraceRequests")
-
-public val SL_INFO_KEY_KMS_OOT_GRACE_REQUESTS: Pcwstr = w("KeyManagementServiceOOTGraceRequests")
-
-public val SL_INFO_KEY_KMS_REQUIRED_CLIENT_COUNT: Pcwstr = w("KeyManagementServiceRequiredClientCount")
-
-public val SL_INFO_KEY_KMS_TOTAL_REQUESTS: Pcwstr = w("KeyManagementServiceTotalRequests")
-
-public val SL_INFO_KEY_KMS_UNLICENSED_REQUESTS: Pcwstr = w("KeyManagementServiceUnlicensedRequests")
-
-public val SL_INFO_KEY_LICENSE_TYPE: Pcwstr = w("LicenseType")
-
-public val SL_INFO_KEY_LICENSOR_URL: Pcwstr = w("LicensorUrl")
-
-public val SL_INFO_KEY_NAME: Pcwstr = w("Name")
-
-public val SL_INFO_KEY_PARTIAL_PRODUCT_KEY: Pcwstr = w("PartialProductKey")
-
-public val SL_INFO_KEY_PRODUCT_KEY_ACTIVATION_URL: Pcwstr = w("PKCURL")
-
-public val SL_INFO_KEY_PRODUCT_SKU_ID: Pcwstr = w("ProductSkuId")
-
-public val SL_INFO_KEY_RIGHT_ACCOUNT_ACTIVATION_URL: Pcwstr = w("RACURL")
-
-public val SL_INFO_KEY_SECURE_PROCESSOR_ACTIVATION_URL: Pcwstr = w("SPCURL")
-
-public val SL_INFO_KEY_SECURE_STORE_ID: Pcwstr = w("SecureStoreId")
-
-public val SL_INFO_KEY_SYSTEM_STATE: Pcwstr = w("SystemState")
-
-public val SL_INFO_KEY_USE_LICENSE_ACTIVATION_URL: Pcwstr = w("EULURL")
-
-public val SL_INFO_KEY_VERSION: Pcwstr = w("Version")
-
-public val SL_INTERNAL_ZONE: UInt = 57344u
-
-public val SL_I_NONGENUINE_GRACE_PERIOD: Hresult = 0x4004F065u.toInt()
-
-public val SL_I_NONGENUINE_GRACE_PERIOD_2: Hresult = 0x4004F068u.toInt()
-
-public val SL_I_OOB_GRACE_PERIOD: Hresult = 0x4004F00Cu.toInt()
-
-public val SL_I_OOT_GRACE_PERIOD: Hresult = 0x4004F00Du.toInt()
-
-public val SL_I_PERPETUAL_OOB_GRACE_PERIOD: Hresult = 0x4004FC05u.toInt()
-
-public val SL_I_STORE_BASED_ACTIVATION: Hresult = 0x4004F401u.toInt()
-
-public val SL_I_TIMEBASED_EXTENDED_GRACE_PERIOD: Hresult = 0x4004FC06u.toInt()
-
-public val SL_I_TIMEBASED_VALIDITY_PERIOD: Hresult = 0x4004FC04u.toInt()
-
-public val SL_LICENSING_STATUS_IN_GRACE_PERIOD: Sllicensingstatus = 2
-
-public val SL_LICENSING_STATUS_LAST: Sllicensingstatus = 4
-
-public val SL_LICENSING_STATUS_LICENSED: Sllicensingstatus = 1
-
-public val SL_LICENSING_STATUS_NOTIFICATION: Sllicensingstatus = 3
-
-public val SL_LICENSING_STATUS_UNLICENSED: Sllicensingstatus = 0
-
-public val SL_MDOLLAR_ZONE: UInt = 40960u
-
-public val SL_MSCH_ZONE: UInt = 49152u
-
-public val SL_PKEY_DETECT: Pcwstr = w("msft:rm/algorithm/pkey/detect")
-
-public val SL_PKEY_MS2005: Pcwstr = w("msft:rm/algorithm/pkey/2005")
-
-public val SL_PKEY_MS2009: Pcwstr = w("msft:rm/algorithm/pkey/2009")
-
-public val SL_POLICY_EVALUATION_MODE_ENABLED: Pcwstr = w("Security-SPP-EvaluationModeEnabled")
-
-public val SL_PROP_ACTIVATION_VALIDATION_IN_PROGRESS: Pcwstr = w("SL_ACTIVATION_VALIDATION_IN_PROGRESS")
-
-public val SL_PROP_BRT_COMMIT: Pcwstr = w("SL_BRT_COMMIT")
-
-public val SL_PROP_BRT_DATA: Pcwstr = w("SL_BRT_DATA")
-
-public val SL_PROP_GENUINE_RESULT: Pcwstr = w("SL_GENUINE_RESULT")
-
-public val SL_PROP_GET_GENUINE_AUTHZ: Pcwstr = w("SL_GET_GENUINE_AUTHZ")
-
-public val SL_PROP_GET_GENUINE_SERVER_AUTHZ: Pcwstr = w("SL_GET_GENUINE_SERVER_AUTHZ")
-
-public val SL_PROP_LAST_ACT_ATTEMPT_HRESULT: Pcwstr = w("SL_LAST_ACT_ATTEMPT_HRESULT")
-
-public val SL_PROP_LAST_ACT_ATTEMPT_SERVER_FLAGS: Pcwstr = w("SL_LAST_ACT_ATTEMPT_SERVER_FLAGS")
-
-public val SL_PROP_LAST_ACT_ATTEMPT_TIME: Pcwstr = w("SL_LAST_ACT_ATTEMPT_TIME")
-
 public val SL_PROP_NONGENUINE_GRACE_FLAG: Pcwstr = w("SL_NONGENUINE_GRACE_FLAG")
 
 public val SL_REARM_REBOOT_REQUIRED: UInt = 1u
@@ -928,6 +790,144 @@ public val WDIGEST_SP_NAME_A: Pcstr = s("WDigest")
 
 public val WDIGEST_SP_NAME_W: Pcwstr = w("WDigest")
 
-public val WINDOWS_SLID: Guid = Guid.fromU128(U128(0x55c92734d6824d71uL, 0x983ed6ec3f16059fuL))
-
 public val FACILITY_WINDOWS_STORE: UInt = 63u
+
+public val AUDIT_ACCOUNT_LOGON: Guid = Guid.fromU128(U128(0x69979850797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_LOGON_CREDENTIAL_VALIDATION: Guid = Guid.fromU128(U128(0xcce923f69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_LOGON_KERB_CREDENTIAL_VALIDATION: Guid = Guid.fromU128(U128(0xcce924269ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_LOGON_KERBEROS: Guid = Guid.fromU128(U128(0xcce924069ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_LOGON_OTHERS: Guid = Guid.fromU128(U128(0xcce924169ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_MANAGEMENT: Guid = Guid.fromU128(U128(0x6997984e797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_MANAGEMENT_APPLICATION_GROUP: Guid = Guid.fromU128(U128(0xcce923969ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_MANAGEMENT_COMPUTER_ACCOUNT: Guid = Guid.fromU128(U128(0xcce923669ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_MANAGEMENT_DISTRIBUTION_GROUP: Guid = Guid.fromU128(U128(0xcce923869ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_MANAGEMENT_OTHERS: Guid = Guid.fromU128(U128(0xcce923a69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_MANAGEMENT_SECURITY_GROUP: Guid = Guid.fromU128(U128(0xcce923769ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_ACCOUNT_MANAGEMENT_USER_ACCOUNT: Guid = Guid.fromU128(U128(0xcce923569ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DS_ACCESS_DS_ACCESS: Guid = Guid.fromU128(U128(0xcce923b69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DETAILED_TRACKING: Guid = Guid.fromU128(U128(0x6997984c797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DETAILED_TRACKING_DPAPI_ACTIVITY: Guid = Guid.fromU128(U128(0xcce922d69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DETAILED_TRACKING_PNP_ACTIVITY: Guid = Guid.fromU128(U128(0xcce924869ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DETAILED_TRACKING_PROCESS_CREATION: Guid = Guid.fromU128(U128(0xcce922b69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DETAILED_TRACKING_PROCESS_TERMINATION: Guid = Guid.fromU128(U128(0xcce922c69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DETAILED_TRACKING_RPC_CALL: Guid = Guid.fromU128(U128(0xcce922e69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DETAILED_TRACKING_TOKEN_RIGHT_ADJUSTED: Guid = Guid.fromU128(U128(0xcce924a69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DIRECTORY_SERVICE_ACCESS: Guid = Guid.fromU128(U128(0x6997984f797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DS_ACCESS_AD_AUDIT_CHANGES: Guid = Guid.fromU128(U128(0xcce923c69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DS_DETAILED_REPLICATION: Guid = Guid.fromU128(U128(0xcce923e69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_DS_REPLICATION: Guid = Guid.fromU128(U128(0xcce923d69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON: Guid = Guid.fromU128(U128(0x69979849797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_ACCOUNT_LOCKOUT: Guid = Guid.fromU128(U128(0xcce921769ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_CLAIMS: Guid = Guid.fromU128(U128(0xcce924769ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_GROUPS: Guid = Guid.fromU128(U128(0xcce924969ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_IP_SEC_MAIN_MODE: Guid = Guid.fromU128(U128(0xcce921869ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_IP_SEC_QUICK_MODE: Guid = Guid.fromU128(U128(0xcce921969ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_IP_SEC_USER_MODE: Guid = Guid.fromU128(U128(0xcce921a69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_LOGOFF: Guid = Guid.fromU128(U128(0xcce921669ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_LOGON: Guid = Guid.fromU128(U128(0xcce921569ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_NPS: Guid = Guid.fromU128(U128(0xcce924369ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_OTHERS: Guid = Guid.fromU128(U128(0xcce921c69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_LOGON_SPECIAL_LOGON: Guid = Guid.fromU128(U128(0xcce921b69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS: Guid = Guid.fromU128(U128(0x6997984a797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_APPLICATION_GENERATED: Guid = Guid.fromU128(U128(0xcce922269ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_CBAC_STAGING: Guid = Guid.fromU128(U128(0xcce924669ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_CERTIFICATION_SERVICES: Guid = Guid.fromU128(U128(0xcce922169ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_DETAILED_FILE_SHARE: Guid = Guid.fromU128(U128(0xcce924469ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_FILE_SYSTEM: Guid = Guid.fromU128(U128(0xcce921d69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_FIREWALL_CONNECTION: Guid = Guid.fromU128(U128(0xcce922669ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_FIREWALL_PACKET_DROPS: Guid = Guid.fromU128(U128(0xcce922569ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_HANDLE: Guid = Guid.fromU128(U128(0xcce922369ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_KERNEL: Guid = Guid.fromU128(U128(0xcce921f69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_OTHER: Guid = Guid.fromU128(U128(0xcce922769ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_REGISTRY: Guid = Guid.fromU128(U128(0xcce921e69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_REMOVABLE_STORAGE: Guid = Guid.fromU128(U128(0xcce924569ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_SAM: Guid = Guid.fromU128(U128(0xcce922069ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_OBJECT_ACCESS_SHARE: Guid = Guid.fromU128(U128(0xcce922469ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_POLICY_CHANGE: Guid = Guid.fromU128(U128(0x6997984d797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_POLICY_CHANGE_AUDIT_POLICY: Guid = Guid.fromU128(U128(0xcce922f69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_POLICY_CHANGE_AUTHENTICATION_POLICY: Guid = Guid.fromU128(U128(0xcce923069ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_POLICY_CHANGE_AUTHORIZATION_POLICY: Guid = Guid.fromU128(U128(0xcce923169ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_POLICY_CHANGE_MPSSCV_RULE_POLICY: Guid = Guid.fromU128(U128(0xcce923269ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_POLICY_CHANGE_OTHERS: Guid = Guid.fromU128(U128(0xcce923469ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_POLICY_CHANGE_WFP_IP_SEC_POLICY: Guid = Guid.fromU128(U128(0xcce923369ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_PRIVILEGE_USE: Guid = Guid.fromU128(U128(0x6997984b797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_PRIVILEGE_USE_NON_SENSITIVE: Guid = Guid.fromU128(U128(0xcce922969ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_PRIVILEGE_USE_OTHERS: Guid = Guid.fromU128(U128(0xcce922a69ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_PRIVILEGE_USE_SENSITIVE: Guid = Guid.fromU128(U128(0xcce922869ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_SYSTEM: Guid = Guid.fromU128(U128(0x69979848797a11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_SYSTEM_IP_SEC_DRIVER_EVENTS: Guid = Guid.fromU128(U128(0xcce921369ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_SYSTEM_INTEGRITY: Guid = Guid.fromU128(U128(0xcce921269ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_SYSTEM_OTHERS: Guid = Guid.fromU128(U128(0xcce921469ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_SYSTEM_SECURITY_STATE_CHANGE: Guid = Guid.fromU128(U128(0xcce921069ae11d9uL, 0xbed3505054503030uL))
+
+public val AUDIT_SYSTEM_SECURITY_SUBSYSTEM_EXTENSION: Guid = Guid.fromU128(U128(0xcce921169ae11d9uL, 0xbed3505054503030uL))
+
+public val SECPKG_REDIRECTED_LOGON_GUID_INITIALIZER: Guid = Guid.fromU128(U128(0xc2be545782eb483euL, 0xae4e7468ef14d509uL))
+
+public val WINDOWS_SLID: Guid = Guid.fromU128(U128(0x55c92734d6824d71uL, 0x983ed6ec3f16059fuL))

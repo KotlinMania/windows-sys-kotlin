@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
@@ -56,10 +54,6 @@ public val ENCRYPT: OffloadOperationE = 2
 public val ERRED_PACKET_INDICATION: UInt = 1u
 
 public val ETHERNET_LENGTH_OF_ADDRESS: UInt = 6u
-
-public val GUID_NDIS_NDK_CAPABILITIES: Guid = Guid.fromU128(U128(0x7969ba4ddd804bc7uL, 0xb3e668043997e519uL))
-
-public val GUID_NDIS_NDK_STATE: Guid = Guid.fromU128(U128(0x530c69c92f5149deuL, 0xa1af088d54ffa474uL))
 
 public val INDICATE_END_OF_TX: UInt = 32u
 
@@ -3004,3 +2998,7 @@ public val OID_802_11_RSSI: UInt = 218169862u
 public val OID_802_11_RSSI_TRIGGER: UInt = 218169863u
 
 public val OID_802_11_RTS_THRESHOLD: UInt = 218169866u
+
+public val OID_802_11_RX_ANTENNA_SELECTED: UInt = 218169868u
+
+public val OID_802_11_SSID: UInt = 218169602u

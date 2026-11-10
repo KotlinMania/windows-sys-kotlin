@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
@@ -2241,8 +2239,6 @@ public val I_ONE_OR_MORE: TvitemexwChildren = 1
 
 public val I_ZERO: TvitemexwChildren = 0
 
-public val IMAGE_LIST: Guid = Guid.fromU128(U128(0x7c476ba202b148f4uL, 0x8048b24619ddc058uL))
-
 public val LBCP_BORDER_HSCROLL: Listboxparts = 1
 
 public val LBCP_BORDER_HVSCROLL: Listboxparts = 2
@@ -3006,3 +3002,5 @@ public val LVNI_ALL: UInt = 0u
 public val LVNI_BELOW: UInt = 512u
 
 public val LVNI_CUT: UInt = 4u
+
+public val LVNI_DROPHILITED: UInt = 8u

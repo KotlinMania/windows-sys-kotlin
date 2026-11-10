@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -97,10 +95,6 @@ public val AVSTREAMMASTER_AUDIO: UInt = 0u
 public val AVSTREAMMASTER_NONE: UInt = 1u
 
 public val BI_1632: UInt = 842217009u
-
-public val CLSID_AVI_FILE: Guid = Guid.fromU128(U128(0x2000000000000uL, 0xc000000000000046uL))
-
-public val CLSID_AVI_SIMPLE_UN_MARSHAL: Guid = Guid.fromU128(U128(0x2000900000000uL, 0xc000000000000046uL))
 
 public val CONTROLCALLBACK_CAPTURING: UInt = 2u
 
@@ -1069,8 +1063,6 @@ public val JPEG_RGB: UInt = 3u
 public val JPEG_Y: UInt = 1u
 
 public val JPEG_Y_CB_CR: UInt = 2u
-
-public val KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: Guid = Guid.fromU128(U128(0x300000010uL, 0x800000aa00389b71uL))
 
 public val MCIERR_AVI_AUDIOERROR: UInt = 619u
 
@@ -3007,3 +2999,9 @@ public val MM_AZTECH_AUX: UInt = 404u
 public val MM_AZTECH_AUX_CD: UInt = 401u
 
 public val MM_AZTECH_AUX_LINE: UInt = 402u
+
+public val MM_AZTECH_AUX_MIC: UInt = 403u
+
+public val MM_AZTECH_DSP16_FMSYNTH: UInt = 68u
+
+public val MM_AZTECH_DSP16_WAVEIN: UInt = 65u

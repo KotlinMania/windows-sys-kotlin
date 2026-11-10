@@ -564,12 +564,6 @@ public val AUTHZ_CONTEXT_INFO_USER_CLAIMS: AuthzContextInformationClass = 13
 
 public val AUTHZ_CONTEXT_INFO_USER_SID: AuthzContextInformationClass = 1
 
-public val AZ_AUTHORIZATION_STORE: Guid = Guid.fromU128(U128(0xb2bcff59a7574b0buL, 0xa1bcea69981da69euL))
-
-public val AZ_BIZ_RULE_CONTEXT: Guid = Guid.fromU128(U128(0x5c2dc96f8d51434buL, 0xb33c379bccae77c3uL))
-
-public val AZ_PRINCIPAL_LOCATOR: Guid = Guid.fromU128(U128(0x483afb5d70df4e16uL, 0xabdca1de4d015a3euL))
-
 public val DENY_ACCESS: AccessMode = 3
 
 public val GRANT_ACCESS: AccessMode = 1
@@ -983,3 +977,9 @@ public val TRUSTEE_IS_USER: TrusteeType = 1
 public val TRUSTEE_IS_WELL_KNOWN_GROUP: TrusteeType = 5
 
 public val AUTHZ_SS_MAXSIZE: UInt = 128u
+
+public val AZ_AUTHORIZATION_STORE: Guid = Guid.fromU128(U128(0xb2bcff59a7574b0buL, 0xa1bcea69981da69euL))
+
+public val AZ_BIZ_RULE_CONTEXT: Guid = Guid.fromU128(U128(0x5c2dc96f8d51434buL, 0xb33c379bccae77c3uL))
+
+public val AZ_PRINCIPAL_LOCATOR: Guid = Guid.fromU128(U128(0x483afb5d70df4e16uL, 0xabdca1de4d015a3euL))

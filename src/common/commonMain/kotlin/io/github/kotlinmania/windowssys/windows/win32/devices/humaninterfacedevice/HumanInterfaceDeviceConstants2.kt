@@ -7,87 +7,14 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-
-public val DIMSGWP_NEWAPPSTART: UInt = 1u
-
-public val DIPH_BYID: UInt = 2u
-
-public val DIPH_BYOFFSET: UInt = 1u
-
-public val DIPH_BYUSAGE: UInt = 3u
-
-public val DIPH_DEVICE: UInt = 0u
-
-public val DIPOV_ANY_1: UInt = 4278208001u
-
-public val DIPOV_ANY_2: UInt = 4278208002u
-
-public val DIPOV_ANY_3: UInt = 4278208003u
-
-public val DIPOV_ANY_4: UInt = 4278208004u
-
-public val DIPROPAUTOCENTER_OFF: UInt = 0u
-
-public val DIPROPAUTOCENTER_ON: UInt = 1u
-
-public val DIPROPAXISMODE_ABS: UInt = 0u
 
 public val DIPROPAXISMODE_REL: UInt = 1u
 
 public val DIPROPCALIBRATIONMODE_COOKED: UInt = 0u
 
 public val DIPROPCALIBRATIONMODE_RAW: UInt = 1u
-
-public val DIPROP_APPDATA: Guid = Guid.fromU128(U128(0x0uL, 0x16uL))
-
-public val DIPROP_AUTOCENTER: Guid = Guid.fromU128(U128(0x0uL, 0x9uL))
-
-public val DIPROP_AXISMODE: Guid = Guid.fromU128(U128(0x0uL, 0x2uL))
-
-public val DIPROP_BUFFERSIZE: Guid = Guid.fromU128(U128(0x0uL, 0x1uL))
-
-public val DIPROP_CALIBRATION: Guid = Guid.fromU128(U128(0x0uL, 0xbuL))
-
-public val DIPROP_CALIBRATIONMODE: Guid = Guid.fromU128(U128(0x0uL, 0xauL))
-
-public val DIPROP_CPOINTS: Guid = Guid.fromU128(U128(0x0uL, 0x15uL))
-
-public val DIPROP_DEADZONE: Guid = Guid.fromU128(U128(0x0uL, 0x5uL))
-
-public val DIPROP_FFGAIN: Guid = Guid.fromU128(U128(0x0uL, 0x7uL))
-
-public val DIPROP_FFLOAD: Guid = Guid.fromU128(U128(0x0uL, 0x8uL))
-
-public val DIPROP_GETPORTDISPLAYNAME: Guid = Guid.fromU128(U128(0x0uL, 0x10uL))
-
-public val DIPROP_GRANULARITY: Guid = Guid.fromU128(U128(0x0uL, 0x3uL))
-
-public val DIPROP_GUIDANDPATH: Guid = Guid.fromU128(U128(0x0uL, 0xcuL))
-
-public val DIPROP_INSTANCENAME: Guid = Guid.fromU128(U128(0x0uL, 0xduL))
-
-public val DIPROP_JOYSTICKID: Guid = Guid.fromU128(U128(0x0uL, 0xfuL))
-
-public val DIPROP_KEYNAME: Guid = Guid.fromU128(U128(0x0uL, 0x14uL))
-
-public val DIPROP_LOGICALRANGE: Guid = Guid.fromU128(U128(0x0uL, 0x13uL))
-
-public val DIPROP_PHYSICALRANGE: Guid = Guid.fromU128(U128(0x0uL, 0x12uL))
-
-public val DIPROP_PRODUCTNAME: Guid = Guid.fromU128(U128(0x0uL, 0xeuL))
-
-public val DIPROP_RANGE: Guid = Guid.fromU128(U128(0x0uL, 0x4uL))
-
-public val DIPROP_SATURATION: Guid = Guid.fromU128(U128(0x0uL, 0x6uL))
-
-public val DIPROP_SCANCODE: Guid = Guid.fromU128(U128(0x0uL, 0x17uL))
-
-public val DIPROP_TYPENAME: Guid = Guid.fromU128(U128(0x0uL, 0x1auL))
-
-public val DIPROP_USERNAME: Guid = Guid.fromU128(U128(0x0uL, 0x19uL))
-
-public val DIPROP_VIDPID: Guid = Guid.fromU128(U128(0x0uL, 0x18uL))
 
 public val DIRECTINPUT_HEADER_VERSION: UInt = 2048u
 
@@ -362,84 +289,6 @@ public val GPIO_BUTTON_VOLUME_DOWN: GpiobuttonsButtonType = 3
 public val GPIO_BUTTON_VOLUME_UP: GpiobuttonsButtonType = 2
 
 public val GPIO_BUTTON_WINDOWS: GpiobuttonsButtonType = 1
-
-public val GUID_BUTTON: Guid = Guid.fromU128(U128(0xa36d02f0c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_CONSTANT_FORCE: Guid = Guid.fromU128(U128(0x13541c208e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_CUSTOM_FORCE: Guid = Guid.fromU128(U128(0x13541c2b8e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_DEVINTERFACE_HID: Guid = Guid.fromU128(U128(0x4d1e55b2f16f11cfuL, 0x88cb001111000030uL))
-
-public val GUID_DEVINTERFACE_KEYBOARD: Guid = Guid.fromU128(U128(0x884b96c356ef11d1uL, 0xbc8c00a0c91405dduL))
-
-public val GUID_DEVINTERFACE_MOUSE: Guid = Guid.fromU128(U128(0x378de44c56ef11d1uL, 0xbc8c00a0c91405dduL))
-
-public val GUID_DAMPER: Guid = Guid.fromU128(U128(0x13541c288e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_FRICTION: Guid = Guid.fromU128(U128(0x13541c2a8e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_HID_CLASS: Guid = Guid.fromU128(U128(0x745a17a074d311d0uL, 0xb6fe00a0c90f57dauL))
-
-public val GUID_HID_INTERFACE_HIDPARSE: Guid = Guid.fromU128(U128(0xf5c315a569ac4bc2uL, 0x9279d0b64576f44buL))
-
-public val GUID_HID_INTERFACE_NOTIFY: Guid = Guid.fromU128(U128(0x2c4e2e8825e64c33uL, 0x882f3d82e6073681uL))
-
-public val GUID_INERTIA: Guid = Guid.fromU128(U128(0x13541c298e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_JOYSTICK: Guid = Guid.fromU128(U128(0x6f1d2b70d5a011cfuL, 0xbfc7444553540000uL))
-
-public val GUID_KEY: Guid = Guid.fromU128(U128(0x55728220d33c11cfuL, 0xbfc7444553540000uL))
-
-public val GUID_KEYBOARD_CLASS: Guid = Guid.fromU128(U128(0x4d36e96be32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_MEDIA_CLASS: Guid = Guid.fromU128(U128(0x4d36e96ce32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_MOUSE_CLASS: Guid = Guid.fromU128(U128(0x4d36e96fe32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_POV: Guid = Guid.fromU128(U128(0xa36d02f2c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_RAMP_FORCE: Guid = Guid.fromU128(U128(0x13541c218e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_RX_AXIS: Guid = Guid.fromU128(U128(0xa36d02f4c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_RY_AXIS: Guid = Guid.fromU128(U128(0xa36d02f5c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_RZ_AXIS: Guid = Guid.fromU128(U128(0xa36d02e3c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_SAWTOOTH_DOWN: Guid = Guid.fromU128(U128(0x13541c268e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_SAWTOOTH_UP: Guid = Guid.fromU128(U128(0x13541c258e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_SINE: Guid = Guid.fromU128(U128(0x13541c238e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_SLIDER: Guid = Guid.fromU128(U128(0xa36d02e4c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_SPRING: Guid = Guid.fromU128(U128(0x13541c278e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_SQUARE: Guid = Guid.fromU128(U128(0x13541c228e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_SYS_KEYBOARD: Guid = Guid.fromU128(U128(0x6f1d2b61d5a011cfuL, 0xbfc7444553540000uL))
-
-public val GUID_SYS_KEYBOARD_EM: Guid = Guid.fromU128(U128(0x6f1d2b82d5a011cfuL, 0xbfc7444553540000uL))
-
-public val GUID_SYS_KEYBOARD_EM2: Guid = Guid.fromU128(U128(0x6f1d2b83d5a011cfuL, 0xbfc7444553540000uL))
-
-public val GUID_SYS_MOUSE: Guid = Guid.fromU128(U128(0x6f1d2b60d5a011cfuL, 0xbfc7444553540000uL))
-
-public val GUID_SYS_MOUSE_EM: Guid = Guid.fromU128(U128(0x6f1d2b80d5a011cfuL, 0xbfc7444553540000uL))
-
-public val GUID_SYS_MOUSE_EM2: Guid = Guid.fromU128(U128(0x6f1d2b81d5a011cfuL, 0xbfc7444553540000uL))
-
-public val GUID_TRIANGLE: Guid = Guid.fromU128(U128(0x13541c248e3311d0uL, 0x9ad000a0c9a06e35uL))
-
-public val GUID_UNKNOWN: Guid = Guid.fromU128(U128(0xa36d02f3c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_X_AXIS: Guid = Guid.fromU128(U128(0xa36d02e0c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_Y_AXIS: Guid = Guid.fromU128(U128(0xa36d02e1c9f311cfuL, 0xbfc7444553540000uL))
-
-public val GUID_Z_AXIS: Guid = Guid.fromU128(U128(0xa36d02e2c9f311cfuL, 0xbfc7444553540000uL))
 
 public val HIDP_STATUS_BAD_LOG_PHY_VALUES: Ntstatus = 0xC0110006u.toInt()
 
@@ -2020,3 +1869,155 @@ public val WHEELMOUSE_HID_HARDWARE: UInt = 256u
 public val WHEELMOUSE_I8042_HARDWARE: UInt = 32u
 
 public val WHEELMOUSE_SERIAL_HARDWARE: UInt = 64u
+
+public val CLSID_DIRECT_INPUT: Guid = Guid.fromU128(U128(0x25e609e0b25911cfuL, 0xbfc7444553540000uL))
+
+public val CLSID_DIRECT_INPUT8: Guid = Guid.fromU128(U128(0x25e609e4b25911cfuL, 0xbfc7444553540000uL))
+
+public val CLSID_DIRECT_INPUT_DEVICE: Guid = Guid.fromU128(U128(0x25e609e1b25911cfuL, 0xbfc7444553540000uL))
+
+public val CLSID_DIRECT_INPUT_DEVICE8: Guid = Guid.fromU128(U128(0x25e609e5b25911cfuL, 0xbfc7444553540000uL))
+
+public val DEVPKEY_DEVICE_INTERFACE_HID_BACKGROUND_ACCESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 8u)
+
+public val DEVPKEY_DEVICE_INTERFACE_HID_IS_READ_ONLY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 4u)
+
+public val DEVPKEY_DEVICE_INTERFACE_HID_PRODUCT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 6u)
+
+public val DEVPKEY_DEVICE_INTERFACE_HID_USAGE_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 3u)
+
+public val DEVPKEY_DEVICE_INTERFACE_HID_USAGE_PAGE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 2u)
+
+public val DEVPKEY_DEVICE_INTERFACE_HID_VENDOR_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 5u)
+
+public val DEVPKEY_DEVICE_INTERFACE_HID_VERSION_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 7u)
+
+public val DEVPKEY_DEVICE_INTERFACE_HID_WAKE_SCREEN_ON_INPUT_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 9u)
+
+public val DIPROP_APPDATA: Guid = Guid.fromU128(U128(0x0uL, 0x16uL))
+
+public val DIPROP_AUTOCENTER: Guid = Guid.fromU128(U128(0x0uL, 0x9uL))
+
+public val DIPROP_AXISMODE: Guid = Guid.fromU128(U128(0x0uL, 0x2uL))
+
+public val DIPROP_BUFFERSIZE: Guid = Guid.fromU128(U128(0x0uL, 0x1uL))
+
+public val DIPROP_CALIBRATION: Guid = Guid.fromU128(U128(0x0uL, 0xbuL))
+
+public val DIPROP_CALIBRATIONMODE: Guid = Guid.fromU128(U128(0x0uL, 0xauL))
+
+public val DIPROP_CPOINTS: Guid = Guid.fromU128(U128(0x0uL, 0x15uL))
+
+public val DIPROP_DEADZONE: Guid = Guid.fromU128(U128(0x0uL, 0x5uL))
+
+public val DIPROP_FFGAIN: Guid = Guid.fromU128(U128(0x0uL, 0x7uL))
+
+public val DIPROP_FFLOAD: Guid = Guid.fromU128(U128(0x0uL, 0x8uL))
+
+public val DIPROP_GETPORTDISPLAYNAME: Guid = Guid.fromU128(U128(0x0uL, 0x10uL))
+
+public val DIPROP_GRANULARITY: Guid = Guid.fromU128(U128(0x0uL, 0x3uL))
+
+public val DIPROP_GUIDANDPATH: Guid = Guid.fromU128(U128(0x0uL, 0xcuL))
+
+public val DIPROP_INSTANCENAME: Guid = Guid.fromU128(U128(0x0uL, 0xduL))
+
+public val DIPROP_JOYSTICKID: Guid = Guid.fromU128(U128(0x0uL, 0xfuL))
+
+public val DIPROP_KEYNAME: Guid = Guid.fromU128(U128(0x0uL, 0x14uL))
+
+public val DIPROP_LOGICALRANGE: Guid = Guid.fromU128(U128(0x0uL, 0x13uL))
+
+public val DIPROP_PHYSICALRANGE: Guid = Guid.fromU128(U128(0x0uL, 0x12uL))
+
+public val DIPROP_PRODUCTNAME: Guid = Guid.fromU128(U128(0x0uL, 0xeuL))
+
+public val DIPROP_RANGE: Guid = Guid.fromU128(U128(0x0uL, 0x4uL))
+
+public val DIPROP_SATURATION: Guid = Guid.fromU128(U128(0x0uL, 0x6uL))
+
+public val DIPROP_SCANCODE: Guid = Guid.fromU128(U128(0x0uL, 0x17uL))
+
+public val DIPROP_TYPENAME: Guid = Guid.fromU128(U128(0x0uL, 0x1auL))
+
+public val DIPROP_USERNAME: Guid = Guid.fromU128(U128(0x0uL, 0x19uL))
+
+public val DIPROP_VIDPID: Guid = Guid.fromU128(U128(0x0uL, 0x18uL))
+
+public val GUID_BUTTON: Guid = Guid.fromU128(U128(0xa36d02f0c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_CONSTANT_FORCE: Guid = Guid.fromU128(U128(0x13541c208e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_CUSTOM_FORCE: Guid = Guid.fromU128(U128(0x13541c2b8e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_DEVINTERFACE_HID: Guid = Guid.fromU128(U128(0x4d1e55b2f16f11cfuL, 0x88cb001111000030uL))
+
+public val GUID_DEVINTERFACE_KEYBOARD: Guid = Guid.fromU128(U128(0x884b96c356ef11d1uL, 0xbc8c00a0c91405dduL))
+
+public val GUID_DEVINTERFACE_MOUSE: Guid = Guid.fromU128(U128(0x378de44c56ef11d1uL, 0xbc8c00a0c91405dduL))
+
+public val GUID_DAMPER: Guid = Guid.fromU128(U128(0x13541c288e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_FRICTION: Guid = Guid.fromU128(U128(0x13541c2a8e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_HID_CLASS: Guid = Guid.fromU128(U128(0x745a17a074d311d0uL, 0xb6fe00a0c90f57dauL))
+
+public val GUID_HID_INTERFACE_HIDPARSE: Guid = Guid.fromU128(U128(0xf5c315a569ac4bc2uL, 0x9279d0b64576f44buL))
+
+public val GUID_HID_INTERFACE_NOTIFY: Guid = Guid.fromU128(U128(0x2c4e2e8825e64c33uL, 0x882f3d82e6073681uL))
+
+public val GUID_INERTIA: Guid = Guid.fromU128(U128(0x13541c298e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_JOYSTICK: Guid = Guid.fromU128(U128(0x6f1d2b70d5a011cfuL, 0xbfc7444553540000uL))
+
+public val GUID_KEY: Guid = Guid.fromU128(U128(0x55728220d33c11cfuL, 0xbfc7444553540000uL))
+
+public val GUID_KEYBOARD_CLASS: Guid = Guid.fromU128(U128(0x4d36e96be32511ceuL, 0xbfc108002be10318uL))
+
+public val GUID_MEDIA_CLASS: Guid = Guid.fromU128(U128(0x4d36e96ce32511ceuL, 0xbfc108002be10318uL))
+
+public val GUID_MOUSE_CLASS: Guid = Guid.fromU128(U128(0x4d36e96fe32511ceuL, 0xbfc108002be10318uL))
+
+public val GUID_POV: Guid = Guid.fromU128(U128(0xa36d02f2c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_RAMP_FORCE: Guid = Guid.fromU128(U128(0x13541c218e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_RX_AXIS: Guid = Guid.fromU128(U128(0xa36d02f4c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_RY_AXIS: Guid = Guid.fromU128(U128(0xa36d02f5c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_RZ_AXIS: Guid = Guid.fromU128(U128(0xa36d02e3c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_SAWTOOTH_DOWN: Guid = Guid.fromU128(U128(0x13541c268e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_SAWTOOTH_UP: Guid = Guid.fromU128(U128(0x13541c258e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_SINE: Guid = Guid.fromU128(U128(0x13541c238e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_SLIDER: Guid = Guid.fromU128(U128(0xa36d02e4c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_SPRING: Guid = Guid.fromU128(U128(0x13541c278e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_SQUARE: Guid = Guid.fromU128(U128(0x13541c228e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_SYS_KEYBOARD: Guid = Guid.fromU128(U128(0x6f1d2b61d5a011cfuL, 0xbfc7444553540000uL))
+
+public val GUID_SYS_KEYBOARD_EM: Guid = Guid.fromU128(U128(0x6f1d2b82d5a011cfuL, 0xbfc7444553540000uL))
+
+public val GUID_SYS_KEYBOARD_EM2: Guid = Guid.fromU128(U128(0x6f1d2b83d5a011cfuL, 0xbfc7444553540000uL))
+
+public val GUID_SYS_MOUSE: Guid = Guid.fromU128(U128(0x6f1d2b60d5a011cfuL, 0xbfc7444553540000uL))
+
+public val GUID_SYS_MOUSE_EM: Guid = Guid.fromU128(U128(0x6f1d2b80d5a011cfuL, 0xbfc7444553540000uL))
+
+public val GUID_SYS_MOUSE_EM2: Guid = Guid.fromU128(U128(0x6f1d2b81d5a011cfuL, 0xbfc7444553540000uL))
+
+public val GUID_TRIANGLE: Guid = Guid.fromU128(U128(0x13541c248e3311d0uL, 0x9ad000a0c9a06e35uL))
+
+public val GUID_UNKNOWN: Guid = Guid.fromU128(U128(0xa36d02f3c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_X_AXIS: Guid = Guid.fromU128(U128(0xa36d02e0c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_Y_AXIS: Guid = Guid.fromU128(U128(0xa36d02e1c9f311cfuL, 0xbfc7444553540000uL))
+
+public val GUID_Z_AXIS: Guid = Guid.fromU128(U128(0xa36d02e2c9f311cfuL, 0xbfc7444553540000uL))

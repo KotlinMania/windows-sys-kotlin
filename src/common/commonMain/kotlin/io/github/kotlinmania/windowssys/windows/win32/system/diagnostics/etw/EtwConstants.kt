@@ -7,12 +7,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val ALPC_GUID: Guid = Guid.fromU128(U128(0x45d8cccd539f4b72uL, 0xa8b75c683142609auL))
-
-public val CLSID_TRACE_RELOGGER: Guid = Guid.fromU128(U128(0x7b40792d05ff44c4uL, 0x9058f440c71f17d4uL))
-
-public val C_TRACE_RELOGGER: Guid = Guid.fromU128(U128(0x7b40792d05ff44c4uL, 0x9058f440c71f17d4uL))
-
 public val DIAG_LOGGER_NAMEA: Pcstr = s("DiagLog")
 
 public val DIAG_LOGGER_NAMEW: Pcwstr = w("DiagLog")
@@ -26,10 +20,6 @@ public val DECODING_SOURCE_WPP: DecodingSource = 2
 public val DECODING_SOURCE_WBEM: DecodingSource = 1
 
 public val DECODING_SOURCE_XML_FILE: DecodingSource = 0
-
-public val DEFAULT_TRACE_SECURITY_GUID: Guid = Guid.fromU128(U128(0x811c1af7a074a06uL, 0x82ed869455cdf713uL))
-
-public val DISK_IO_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d4fe0511d0uL, 0x9dda00c04fd7ba7cuL))
 
 public val ENABLE_TRACE_PARAMETERS_VERSION: UInt = 1u
 
@@ -699,19 +689,11 @@ public val EVENT_SECURITY_SET_SACL: Eventsecurityoperation = 1
 
 public val EVENT_TASK_INFORMATION: EventFieldType = 3
 
-public val EVENT_TRACE_CONFIG_GUID: Guid = Guid.fromU128(U128(0x1853a65418f4f36uL, 0xaefcdc0f1d2fd235uL))
-
-public val EVENT_TRACE_GUID: Guid = Guid.fromU128(U128(0x68fdd9004a3e11d1uL, 0x84f40000f80464e3uL))
-
-public val FILE_IO_GUID: Guid = Guid.fromU128(U128(0x90cbdc394a3e11d1uL, 0x84f40000f80464e3uL))
-
 public val GLOBAL_LOGGER_NAME: Pcwstr = w("GlobalLogger")
 
 public val GLOBAL_LOGGER_NAMEA: Pcstr = s("GlobalLogger")
 
 public val GLOBAL_LOGGER_NAMEW: Pcwstr = w("GlobalLogger")
-
-public val IMAGE_LOAD_GUID: Guid = Guid.fromU128(U128(0x2cb15d1d5fc111d2uL, 0xabe100a0c911f518uL))
 
 public val KERNEL_LOGGER_NAME: Pcwstr = w("NT Kernel Logger")
 
@@ -775,14 +757,6 @@ public val PROCESS_TRACE_MODE_RAW_TIMESTAMP: UInt = 4096u
 
 public val PROCESS_TRACE_MODE_REAL_TIME: UInt = 256u
 
-public val PAGE_FAULT_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d3fe0511d0uL, 0x9dda00c04fd7ba7cuL))
-
-public val PERF_INFO_GUID: Guid = Guid.fromU128(U128(0xce1dbfb4137e4da6uL, 0x87b03f59aa102cbcuL))
-
-public val PRIVATE_LOGGER_NOTIFICATION_GUID: Guid = Guid.fromU128(U128(0x3595ab5c042a4c8euL, 0xb9422d059bfeb1b1uL))
-
-public val PROCESS_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d0fe0511d0uL, 0x9dda00c04fd7ba7cuL))
-
 public val PROPERTY_HAS_CUSTOM_SCHEMA: PropertyFlags = 128
 
 public val PROPERTY_HAS_TAGS: PropertyFlags = 64
@@ -798,8 +772,6 @@ public val PROPERTY_PARAM_LENGTH: PropertyFlags = 2
 public val PROPERTY_STRUCT: PropertyFlags = 1
 
 public val PROPERTY_WBEM_XML_FRAGMENT: PropertyFlags = 8
-
-public val REGISTRY_GUID: Guid = Guid.fromU128(U128(0xae53722ec86311d2uL, 0x865900c04fa321a1uL))
 
 public val SYSTEM_ALPC_KW_GENERAL: ULong = 1uL
 
@@ -990,44 +962,6 @@ public val SYSTEM_SYSCALL_KW_GENERAL: ULong = 1uL
 public val SYSTEM_TIMER_KW_CLOCK_TIMER: ULong = 2uL
 
 public val SYSTEM_TIMER_KW_GENERAL: ULong = 1uL
-
-public val SPLIT_IO_GUID: Guid = Guid.fromU128(U128(0xd837ca9212b944a5uL, 0xad6a3a65b3578aa8uL))
-
-public val SYSTEM_ALPC_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfcb9baafe5294980uL, 0x92e9ced1a6aadfdfuL))
-
-public val SYSTEM_CONFIG_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfef3a8b6318d4b67uL, 0xa96a3b0f6b8f18feuL))
-
-public val SYSTEM_CPU_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xc6c5265feae84650uL, 0xaae49d48603d8510uL))
-
-public val SYSTEM_HYPERVISOR_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xbafa072a918a4beduL, 0xb622bc152097098fuL))
-
-public val SYSTEM_INTERRUPT_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xd4bbee17b5454888uL, 0x858b744169015b25uL))
-
-public val SYSTEM_IO_FILTER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfbd093639e224661uL, 0xb8bfe7a34b535b8cuL))
-
-public val SYSTEM_IO_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x3d5c43e30f1c4202uL, 0xb817174c0070dc79uL))
-
-public val SYSTEM_LOCK_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x721ddfd3dacc4e1euL, 0xb26aa2cb31d4705auL))
-
-public val SYSTEM_MEMORY_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x82958ca9b6cd47f8uL, 0xa3a803ae85a4bc24uL))
-
-public val SYSTEM_OBJECT_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfebd74603d1d47ebuL, 0xaf49c9eeb1e146f2uL))
-
-public val SYSTEM_POWER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xc134884a32d54488uL, 0x80e514ed7abb8269uL))
-
-public val SYSTEM_PROCESS_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x151f55dc467d471fuL, 0x83b55f889d46ff66uL))
-
-public val SYSTEM_PROFILE_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xbfeb03241cee496fuL, 0xa4092ac2b48a6322uL))
-
-public val SYSTEM_REGISTRY_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x16156bd9fab44cfauL, 0xa23289d1099058e3uL))
-
-public val SYSTEM_SCHEDULER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x599a2a764d914910uL, 0x9ac77d33f2e97a6cuL))
-
-public val SYSTEM_SYSCALL_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x434286f76f1b45bbuL, 0xb37e95f623046c7cuL))
-
-public val SYSTEM_TIMER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x4f061568e215499fuL, 0xab2eeda0ae890a5buL))
-
-public val SYSTEM_TRACE_CONTROL_GUID: Guid = Guid.fromU128(U128(0x9e814aad320411d2uL, 0x9a82006008a86939uL))
 
 public val TDH_CONTEXT_MAXIMUM: TdhContextType = 5
 
@@ -1275,10 +1209,6 @@ public val TRACE_PROVIDER_FLAG_LEGACY: UInt = 1u
 
 public val TRACE_PROVIDER_FLAG_PRE_ENABLE: UInt = 2u
 
-public val TCP_IP_GUID: Guid = Guid.fromU128(U128(0x9a280ac0c8e011d1uL, 0x84e200c04fb998a2uL))
-
-public val THREAD_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d1fe0511d0uL, 0x9dda00c04fd7ba7cuL))
-
 public val TRACE_DISALLOW_LIST_QUERY: TraceQueryInfoClass = 14
 
 public val TRACE_GROUP_QUERY_INFO: TraceQueryInfoClass = 13
@@ -1334,8 +1264,6 @@ public val TRACE_SYSTEM_TRACE_ENABLE_FLAGS_INFO: TraceQueryInfoClass = 4
 public val TRACE_UNIFIED_STACK_CACHING_INFO: TraceQueryInfoClass = 26
 
 public val TRACE_VERSION_INFO: TraceQueryInfoClass = 11
-
-public val UDP_IP_GUID: Guid = Guid.fromU128(U128(0xbf3a50c5a9c94988uL, 0xa0052df0b7c80f80uL))
 
 public val WMIGUID_EXECUTE: UInt = 16u
 
@@ -1444,3 +1372,75 @@ public val WNODE_FLAG_USE_MOF_PTR: UInt = 1048576u
 public val WNODE_FLAG_USE_TIMESTAMP: UInt = 512u
 
 public val WNODE_FLAG_VERSIONED_PROPERTIES: UInt = 8388608u
+
+public val ALPC_GUID: Guid = Guid.fromU128(U128(0x45d8cccd539f4b72uL, 0xa8b75c683142609auL))
+
+public val CLSID_TRACE_RELOGGER: Guid = Guid.fromU128(U128(0x7b40792d05ff44c4uL, 0x9058f440c71f17d4uL))
+
+public val C_TRACE_RELOGGER: Guid = Guid.fromU128(U128(0x7b40792d05ff44c4uL, 0x9058f440c71f17d4uL))
+
+public val DEFAULT_TRACE_SECURITY_GUID: Guid = Guid.fromU128(U128(0x811c1af7a074a06uL, 0x82ed869455cdf713uL))
+
+public val DISK_IO_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d4fe0511d0uL, 0x9dda00c04fd7ba7cuL))
+
+public val EVENT_TRACE_CONFIG_GUID: Guid = Guid.fromU128(U128(0x1853a65418f4f36uL, 0xaefcdc0f1d2fd235uL))
+
+public val EVENT_TRACE_GUID: Guid = Guid.fromU128(U128(0x68fdd9004a3e11d1uL, 0x84f40000f80464e3uL))
+
+public val FILE_IO_GUID: Guid = Guid.fromU128(U128(0x90cbdc394a3e11d1uL, 0x84f40000f80464e3uL))
+
+public val IMAGE_LOAD_GUID: Guid = Guid.fromU128(U128(0x2cb15d1d5fc111d2uL, 0xabe100a0c911f518uL))
+
+public val PAGE_FAULT_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d3fe0511d0uL, 0x9dda00c04fd7ba7cuL))
+
+public val PERF_INFO_GUID: Guid = Guid.fromU128(U128(0xce1dbfb4137e4da6uL, 0x87b03f59aa102cbcuL))
+
+public val PRIVATE_LOGGER_NOTIFICATION_GUID: Guid = Guid.fromU128(U128(0x3595ab5c042a4c8euL, 0xb9422d059bfeb1b1uL))
+
+public val PROCESS_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d0fe0511d0uL, 0x9dda00c04fd7ba7cuL))
+
+public val REGISTRY_GUID: Guid = Guid.fromU128(U128(0xae53722ec86311d2uL, 0x865900c04fa321a1uL))
+
+public val SPLIT_IO_GUID: Guid = Guid.fromU128(U128(0xd837ca9212b944a5uL, 0xad6a3a65b3578aa8uL))
+
+public val SYSTEM_ALPC_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfcb9baafe5294980uL, 0x92e9ced1a6aadfdfuL))
+
+public val SYSTEM_CONFIG_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfef3a8b6318d4b67uL, 0xa96a3b0f6b8f18feuL))
+
+public val SYSTEM_CPU_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xc6c5265feae84650uL, 0xaae49d48603d8510uL))
+
+public val SYSTEM_HYPERVISOR_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xbafa072a918a4beduL, 0xb622bc152097098fuL))
+
+public val SYSTEM_INTERRUPT_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xd4bbee17b5454888uL, 0x858b744169015b25uL))
+
+public val SYSTEM_IO_FILTER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfbd093639e224661uL, 0xb8bfe7a34b535b8cuL))
+
+public val SYSTEM_IO_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x3d5c43e30f1c4202uL, 0xb817174c0070dc79uL))
+
+public val SYSTEM_LOCK_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x721ddfd3dacc4e1euL, 0xb26aa2cb31d4705auL))
+
+public val SYSTEM_MEMORY_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x82958ca9b6cd47f8uL, 0xa3a803ae85a4bc24uL))
+
+public val SYSTEM_OBJECT_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfebd74603d1d47ebuL, 0xaf49c9eeb1e146f2uL))
+
+public val SYSTEM_POWER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xc134884a32d54488uL, 0x80e514ed7abb8269uL))
+
+public val SYSTEM_PROCESS_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x151f55dc467d471fuL, 0x83b55f889d46ff66uL))
+
+public val SYSTEM_PROFILE_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xbfeb03241cee496fuL, 0xa4092ac2b48a6322uL))
+
+public val SYSTEM_REGISTRY_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x16156bd9fab44cfauL, 0xa23289d1099058e3uL))
+
+public val SYSTEM_SCHEDULER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x599a2a764d914910uL, 0x9ac77d33f2e97a6cuL))
+
+public val SYSTEM_SYSCALL_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x434286f76f1b45bbuL, 0xb37e95f623046c7cuL))
+
+public val SYSTEM_TIMER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x4f061568e215499fuL, 0xab2eeda0ae890a5buL))
+
+public val SYSTEM_TRACE_CONTROL_GUID: Guid = Guid.fromU128(U128(0x9e814aad320411d2uL, 0x9a82006008a86939uL))
+
+public val TCP_IP_GUID: Guid = Guid.fromU128(U128(0x9a280ac0c8e011d1uL, 0x84e200c04fb998a2uL))
+
+public val THREAD_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d1fe0511d0uL, 0x9dda00c04fd7ba7cuL))
+
+public val UDP_IP_GUID: Guid = Guid.fromU128(U128(0xbf3a50c5a9c94988uL, 0xa0052df0b7c80f80uL))

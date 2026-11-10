@@ -290,8 +290,6 @@ public val CREDSSP_SUBMIT_BUFFER_BOTH_OLD: CredsppSubmitType = 51
 
 public val FILE_DEVICE_SMARTCARD: UInt = 49u
 
-public val GUID_DEVINTERFACE_SMARTCARD_READER: Guid = Guid.fromU128(U128(0x50dd5230ba8a11d1uL, 0xbf5d0000f805f530uL))
-
 public val KEY_CREDENTIAL_MANAGER_OPERATION_ERROR_STATE_CERTIFICATE_FAILURE: KeyCredentialManagerOperationErrorStates = 4
 
 public val KEY_CREDENTIAL_MANAGER_OPERATION_ERROR_STATE_DEVICE_JOIN_FAILURE: KeyCredentialManagerOperationErrorStates = 1
@@ -537,3 +535,5 @@ public val USERNAME_FOR_PACKED_CREDENTIALS: CredMarshalType = 4
 public val USERNAME_TARGET_CREDENTIAL: CredMarshalType = 2
 
 public val SZ_OID_TS_KP_TS_SERVER_AUTH: Pcstr = s("1.3.6.1.4.1.311.54.1.2")
+
+public val GUID_DEVINTERFACE_SMARTCARD_READER: Guid = Guid.fromU128(U128(0x50dd5230ba8a11d1uL, 0xbf5d0000f805f530uL))

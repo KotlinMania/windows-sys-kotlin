@@ -1,16 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.extensions
 
-public val DEBUG_STACK_COLUMN_NAMES: UInt = 16u
-
-public val DEBUG_STACK_DML: UInt = 2048u
-
-public val DEBUG_STACK_FRAME_ADDRESSES: UInt = 8u
-
-public val DEBUG_STACK_FRAME_ADDRESSES_RA_ONLY: UInt = 256u
-
-public val DEBUG_STACK_FRAME_ARCH: UInt = 16384u
-
-public val DEBUG_STACK_FRAME_MEMORY_USAGE: UInt = 512u
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val DEBUG_STACK_FRAME_NUMBERS: UInt = 64u
 
@@ -801,3 +792,15 @@ public val WIN_NT6_1: OsType = 8
 public val WIN_UNDEFINED: OsType = 255
 
 public val EXTSAPI_VER: UInt = 10u
+
+public val CLSID_DEBUG_FAILURE_ANALYSIS_BASIC: Guid = Guid.fromU128(U128(0xb74eed7f1c7d4c1buL, 0x959fb96dd9175aa4uL))
+
+public val CLSID_DEBUG_FAILURE_ANALYSIS_KERNEL: Guid = Guid.fromU128(U128(0xee43307864af4c33uL, 0xab2fecad7f2a002duL))
+
+public val CLSID_DEBUG_FAILURE_ANALYSIS_TARGET: Guid = Guid.fromU128(U128(0xba9bfb05ef754bbduL, 0xa745a6b5529458b8uL))
+
+public val CLSID_DEBUG_FAILURE_ANALYSIS_USER: Guid = Guid.fromU128(U128(0xe60b0c93cf494a32uL, 0x81470362202dc56buL))
+
+public val CLSID_DEBUG_FAILURE_ANALYSIS_WIN_CE: Guid = Guid.fromU128(U128(0x67d5e86ff5e2462auL, 0x92331bd616fcc7e8uL))
+
+public val CLSID_DEBUG_FAILURE_ANALYSIS_X_BOX360: Guid = Guid.fromU128(U128(0x901625bb95f14318uL, 0xac809d733cee8c8buL))

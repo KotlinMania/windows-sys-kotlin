@@ -8,8 +8,6 @@ public val FACILITY_NONE: UInt = 0u
 
 public val FACILITY_WINBIO: UInt = 9u
 
-public val GUID_DEVINTERFACE_BIOMETRIC_READER: Guid = Guid.fromU128(U128(0xe2b5183a99ea4cc3uL, 0xad6b80ca8d715b80uL))
-
 public val IOCTL_BIOMETRIC_VENDOR: UInt = 4464640u
 
 public val WINBIO_ANSI_381_IMG_BIT_PACKED: UShort = 1u.toUShort()
@@ -309,3 +307,5 @@ public val WINBIO_SETTING_SOURCE_POLICY: WinbioSettingSource = 2u
 public val WINBIO_WBDI_MAJOR_VERSION: UInt = 1u
 
 public val WINBIO_WBDI_MINOR_VERSION: UInt = 0u
+
+public val GUID_DEVINTERFACE_BIOMETRIC_READER: Guid = Guid.fromU128(U128(0xe2b5183a99ea4cc3uL, 0xad6b80ca8d715b80uL))

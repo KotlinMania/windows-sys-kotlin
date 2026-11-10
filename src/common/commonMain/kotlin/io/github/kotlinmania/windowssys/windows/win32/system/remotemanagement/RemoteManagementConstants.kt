@@ -1207,8 +1207,6 @@ public val WSMAN_STREAM_ID_STDIN: Pcwstr = w("stdin")
 
 public val WSMAN_STREAM_ID_STDOUT: Pcwstr = w("stdout")
 
-public val WS_MAN: Guid = Guid.fromU128(U128(0xbced617bec03420buL, 0x8508977dc7a686bduL))
-
 public val WS_MAN_FLAG_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionFlags = 67108864
 
 public val WS_MAN_FLAG_ASSOCIATED_INSTANCE: WSManEnumFlags = 0
@@ -1267,8 +1265,6 @@ public val WS_MAN_FLAG_USE_NO_AUTHENTICATION: WSManSessionFlags = 32768
 
 public val WS_MAN_FLAG_USE_SSL: WSManSessionFlags = 134217728
 
-public val WS_MAN_INTERNAL: Guid = Guid.fromU128(U128(0x7de087a55dcb4df7uL, 0xbb120924ad8fbd9auL))
-
 public val WS_MAN_PROXY_AUTO_DETECT: WSManProxyAccessTypeFlags = 4
 
 public val WS_MAN_PROXY_IE_CONFIG: WSManProxyAccessTypeFlags = 1
@@ -1276,3 +1272,7 @@ public val WS_MAN_PROXY_IE_CONFIG: WSManProxyAccessTypeFlags = 1
 public val WS_MAN_PROXY_NO_PROXY_SERVER: WSManProxyAccessTypeFlags = 8
 
 public val WS_MAN_PROXY_WIN_HTTP_CONFIG: WSManProxyAccessTypeFlags = 2
+
+public val WS_MAN: Guid = Guid.fromU128(U128(0xbced617bec03420buL, 0x8508977dc7a686bduL))
+
+public val WS_MAN_INTERNAL: Guid = Guid.fromU128(U128(0x7de087a55dcb4df7uL, 0xbb120924ad8fbd9auL))

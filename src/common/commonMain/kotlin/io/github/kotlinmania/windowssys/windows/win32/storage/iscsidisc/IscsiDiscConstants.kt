@@ -427,10 +427,10 @@ public val STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: UInt = 2u
 
 public val STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: UInt = 16u
 
-public val SCSI_RAW_INTERFACE_GUID: Guid = Guid.fromU128(U128(0x53f56309b6bf11d0uL, 0x94f200a0c91efb8buL))
-
 public val TARGET_ALIAS: TargetInformationClass = 1
 
 public val TARGET_FLAGS: TargetInformationClass = 6
+
+public val SCSI_RAW_INTERFACE_GUID: Guid = Guid.fromU128(U128(0x53f56309b6bf11d0uL, 0x94f200a0c91efb8buL))
 
 public val WMI_SCSI_ADDRESS_GUID: Guid = Guid.fromU128(U128(0x53f5630fb6bf11d0uL, 0x94f200a0c91efb8buL))

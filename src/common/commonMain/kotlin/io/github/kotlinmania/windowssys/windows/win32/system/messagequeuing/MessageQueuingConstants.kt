@@ -688,10 +688,6 @@ public val MQ_PRIV_LEVEL_NONE: Mqprivlevel = 0
 
 public val MQ_PRIV_LEVEL_OPTIONAL: Mqprivlevel = 1
 
-public val MQ_QTYPE_REPORT: Guid = Guid.fromU128(U128(0x55ee8f32cce911cfuL, 0xb1080020afd61ce9uL))
-
-public val MQ_QTYPE_TEST: Guid = Guid.fromU128(U128(0x55ee8f33cce911cfuL, 0xb1080020afd61ce9uL))
-
 public val MQ_QUEUE_STATE_CONNECTED: QueueState = 6
 
 public val MQ_QUEUE_STATE_DISCONNECTED: QueueState = 1
@@ -743,36 +739,6 @@ public val MQ_XACT_STATUS_UNKNOWN: XactStatus = 2
 public val MQ_XACT_STATUS_XACT: XactStatus = 0
 
 public val MQ_XA_TRANSACTION: Mqtransaction = 2
-
-public val MSMQ_APPLICATION: Guid = Guid.fromU128(U128(0xd7d6e086dccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_COLLECTION: Guid = Guid.fromU128(U128(0xf72b90312f0c43e8uL, 0x924ee6052cdc493fuL))
-
-public val MSMQ_COORDINATED_TRANSACTION_DISPENSER: Guid = Guid.fromU128(U128(0xd7d6e082dccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_DESTINATION: Guid = Guid.fromU128(U128(0xeba96b18216811d3uL, 0x898c00e02c074f6buL))
-
-public val MSMQ_EVENT: Guid = Guid.fromU128(U128(0xd7d6e07adccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_MANAGEMENT: Guid = Guid.fromU128(U128(0x39ce96fef4c54484uL, 0xa1434c2d5d324229uL))
-
-public val MSMQ_MESSAGE: Guid = Guid.fromU128(U128(0xd7d6e075dccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_OUTGOING_QUEUE_MANAGEMENT: Guid = Guid.fromU128(U128(0x188401c247a4feduL, 0x99c6bf14119d7055uL))
-
-public val MSMQ_QUERY: Guid = Guid.fromU128(U128(0xd7d6e073dccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_QUEUE: Guid = Guid.fromU128(U128(0xd7d6e079dccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_QUEUE_INFO: Guid = Guid.fromU128(U128(0xd7d6e07cdccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_QUEUE_INFOS: Guid = Guid.fromU128(U128(0xd7d6e07edccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_QUEUE_MANAGEMENT: Guid = Guid.fromU128(U128(0x33b6d07ef27d42fauL, 0xb2d7bf82e11e9374uL))
-
-public val MSMQ_TRANSACTION: Guid = Guid.fromU128(U128(0xd7d6e080dccd11d0uL, 0xaa4b0060970debaeuL))
-
-public val MSMQ_TRANSACTION_DISPENSER: Guid = Guid.fromU128(U128(0xd7d6e084dccd11d0uL, 0xaa4b0060970debaeuL))
 
 public val MSMQ_CONNECTED: Pcwstr = w("CONNECTED")
 
@@ -1093,3 +1059,37 @@ public val REL_LT: Relops = 3
 public val REL_NEQ: Relops = 2
 
 public val REL_NOP: Relops = 0
+
+public val MQ_QTYPE_REPORT: Guid = Guid.fromU128(U128(0x55ee8f32cce911cfuL, 0xb1080020afd61ce9uL))
+
+public val MQ_QTYPE_TEST: Guid = Guid.fromU128(U128(0x55ee8f33cce911cfuL, 0xb1080020afd61ce9uL))
+
+public val MSMQ_APPLICATION: Guid = Guid.fromU128(U128(0xd7d6e086dccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_COLLECTION: Guid = Guid.fromU128(U128(0xf72b90312f0c43e8uL, 0x924ee6052cdc493fuL))
+
+public val MSMQ_COORDINATED_TRANSACTION_DISPENSER: Guid = Guid.fromU128(U128(0xd7d6e082dccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_DESTINATION: Guid = Guid.fromU128(U128(0xeba96b18216811d3uL, 0x898c00e02c074f6buL))
+
+public val MSMQ_EVENT: Guid = Guid.fromU128(U128(0xd7d6e07adccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_MANAGEMENT: Guid = Guid.fromU128(U128(0x39ce96fef4c54484uL, 0xa1434c2d5d324229uL))
+
+public val MSMQ_MESSAGE: Guid = Guid.fromU128(U128(0xd7d6e075dccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_OUTGOING_QUEUE_MANAGEMENT: Guid = Guid.fromU128(U128(0x188401c247a4feduL, 0x99c6bf14119d7055uL))
+
+public val MSMQ_QUERY: Guid = Guid.fromU128(U128(0xd7d6e073dccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_QUEUE: Guid = Guid.fromU128(U128(0xd7d6e079dccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_QUEUE_INFO: Guid = Guid.fromU128(U128(0xd7d6e07cdccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_QUEUE_INFOS: Guid = Guid.fromU128(U128(0xd7d6e07edccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_QUEUE_MANAGEMENT: Guid = Guid.fromU128(U128(0x33b6d07ef27d42fauL, 0xb2d7bf82e11e9374uL))
+
+public val MSMQ_TRANSACTION: Guid = Guid.fromU128(U128(0xd7d6e080dccd11d0uL, 0xaa4b0060970debaeuL))
+
+public val MSMQ_TRANSACTION_DISPENSER: Guid = Guid.fromU128(U128(0xd7d6e084dccd11d0uL, 0xaa4b0060970debaeuL))

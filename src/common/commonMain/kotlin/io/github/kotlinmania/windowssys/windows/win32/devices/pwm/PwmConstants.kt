@@ -5,8 +5,6 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val GUID_DEVINTERFACE_PWM_CONTROLLER: Guid = Guid.fromU128(U128(0x60824b4ceed14c9cuL, 0xb49c1b961461a819uL))
-
 public val GUID_DEVINTERFACE_PWM_CONTROLLER_WSZ: Pcwstr = w("{60824B4C-EED1-4C9C-B49C-1B961461A819}")
 
 public val IOCTL_PWM_CONTROLLER_GET_ACTUAL_PERIOD: UInt = 262148u
@@ -52,3 +50,5 @@ public val PWM_IOCTL_ID_PIN_SET_POLARITY: Int = 103
 public val PWM_IOCTL_ID_PIN_START: Int = 104
 
 public val PWM_IOCTL_ID_PIN_STOP: Int = 105
+
+public val GUID_DEVINTERFACE_PWM_CONTROLLER: Guid = Guid.fromU128(U128(0x60824b4ceed14c9cuL, 0xb49c1b961461a819uL))

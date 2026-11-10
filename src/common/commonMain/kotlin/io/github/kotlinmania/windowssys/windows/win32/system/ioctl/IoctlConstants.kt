@@ -1,10 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
 public val ABL_5_WO: StorageMediaType = 64
 
@@ -305,22 +304,6 @@ public val DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: UInt = 1u
 public val DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: UInt = 1u
 
 public val DEVICE_STORAGE_NO_ERRORS: UInt = 1u
-
-public val DEVPKEY_STORAGE_DISK_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 5u)
-
-public val DEVPKEY_STORAGE_GPT_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 9u)
-
-public val DEVPKEY_STORAGE_GPT_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 8u)
-
-public val DEVPKEY_STORAGE_MBR_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 7u)
-
-public val DEVPKEY_STORAGE_PARTITION_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 6u)
-
-public val DEVPKEY_STORAGE_PORTABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 2u)
-
-public val DEVPKEY_STORAGE_REMOVABLE_MEDIA: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 3u)
-
-public val DEVPKEY_STORAGE_SYSTEM_CRITICAL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 4u)
 
 public val DISABLE_SMART: UInt = 217u
 
@@ -920,12 +903,6 @@ public val FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: UInt = 1u
 
 public val FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: UInt = 2u
 
-public val FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: Guid = Guid.fromU128(U128(0x9d453eb7d2a64dbduL, 0xa2e3fbd0ed9109a9uL))
-
-public val FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: Guid = Guid.fromU128(U128(0xb7624d64b9a34cf8uL, 0x80115b86c940e7b7uL))
-
-public val FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: Guid = Guid.fromU128(U128(0xd0a64a138fc4db8uL, 0x9fe73f4352cd7c5cuL))
-
 public val FILE_WRITE_ACCESS: UInt = 2u
 
 public val FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: UInt = 1u
@@ -1487,52 +1464,6 @@ public val GPT_BASIC_DATA_ATTRIBUTE_SERVICE: ULong = 144115188075855872uL
 public val GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GptAttributes = 2305843009213693952uL
 
 public val GPT_SPACES_ATTRIBUTE_NO_METADATA: ULong = 9223372036854775808uL
-
-public val GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: Guid = Guid.fromU128(U128(0xda82441d71424bc1uL, 0xb8440807c5a4b67fuL))
-
-public val GUID_DEVICEDUMP_STORAGE_DEVICE: Guid = Guid.fromU128(U128(0xd8e2592f1aab4d56uL, 0xa7461f7585df40f4uL))
-
-public val GUID_DEVINTERFACE_CDCHANGER: Guid = Guid.fromU128(U128(0x53f56312b6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_CDROM: Guid = Guid.fromU128(U128(0x53f56308b6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_COMPORT: Guid = Guid.fromU128(U128(0x86e0d1e0808911d0uL, 0x9ce408003e301f73uL))
-
-public val GUID_DEVINTERFACE_DISK: Guid = Guid.fromU128(U128(0x53f56307b6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_FLOPPY: Guid = Guid.fromU128(U128(0x53f56311b6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_HIDDEN_VOLUME: Guid = Guid.fromU128(U128(0x7f108a2898334b3buL, 0xb7802c6b5fa5c062uL))
-
-public val GUID_DEVINTERFACE_MEDIUMCHANGER: Guid = Guid.fromU128(U128(0x53f56310b6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_PARTITION: Guid = Guid.fromU128(U128(0x53f5630ab6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: Guid = Guid.fromU128(U128(0x4283609d4dc243beuL, 0xbbb44f15dfce2c61uL))
-
-public val GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: Guid = Guid.fromU128(U128(0x4d36e978e32511ceuL, 0xbfc108002be10318uL))
-
-public val GUID_DEVINTERFACE_SERVICE_VOLUME: Guid = Guid.fromU128(U128(0x6ead3d8225ec46bcuL, 0xb7fdc1f0df8f5037uL))
-
-public val GUID_DEVINTERFACE_SES: Guid = Guid.fromU128(U128(0x1790c9ec47d54df3uL, 0xb5af9adf3cf23e48uL))
-
-public val GUID_DEVINTERFACE_STORAGEPORT: Guid = Guid.fromU128(U128(0x2accfe60c13011d2uL, 0xb08200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_TAPE: Guid = Guid.fromU128(U128(0x53f5630bb6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: Guid = Guid.fromU128(U128(0x27447c21bcc34d07uL, 0xa05ba3395bb4eee7uL))
-
-public val GUID_DEVINTERFACE_VMLUN: Guid = Guid.fromU128(U128(0x6f4166199f2942a5uL, 0xb20b37e219ca02b0uL))
-
-public val GUID_DEVINTERFACE_VOLUME: Guid = Guid.fromU128(U128(0x53f5630db6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_WRITEONCEDISK: Guid = Guid.fromU128(U128(0x53f5630cb6bf11d0uL, 0x94f200a0c91efb8buL))
-
-public val GUID_DEVINTERFACE_ZNSDISK: Guid = Guid.fromU128(U128(0xb87941c5ffdb43c7uL, 0xb6b120b632f0b109uL))
-
-public val GUID_SCM_PD_HEALTH_NOTIFICATION: Guid = Guid.fromU128(U128(0x9da2d38672f54ee3uL, 0x8155eca0678e3b06uL))
-
-public val GUID_SCM_PD_PASSTHROUGH_INVDIMM: Guid = Guid.fromU128(U128(0x4309ac300d1111e4uL, 0x91910800200c9a66uL))
 
 public val HIST_NO_OF_BUCKETS: UInt = 24u
 
@@ -3005,3 +2936,71 @@ public val STORAGE_PORT_CODE_SET_SPACEPORT: StoragePortCodeSet = 3
 public val STORAGE_PORT_CODE_SET_STORPORT: StoragePortCodeSet = 1
 
 public val STORAGE_PORT_CODE_SET_US_BPORT: StoragePortCodeSet = 5
+
+public val STORAGE_POWERUP_DEVICE_ATTENTION: StoragePowerupReasonType = 2
+
+public val STORAGE_POWERUP_IO: StoragePowerupReasonType = 1
+
+public val STORAGE_POWERUP_UNKNOWN: StoragePowerupReasonType = 0
+
+public val STORAGE_RESERVE_ID_HARD: StorageReserveId = 1
+
+public val STORAGE_RESERVE_ID_MAX: StorageReserveId = 4
+
+public val STORAGE_RESERVE_ID_NONE: StorageReserveId = 0
+
+public val STORAGE_RESERVE_ID_SOFT: StorageReserveId = 2
+
+public val STORAGE_RESERVE_ID_UPDATE_SCRATCH: StorageReserveId = 3
+
+public val STORAGE_RPMB_FRAME_TYPE_MAX: StorageRpmbFrameType = 2
+
+public val STORAGE_RPMB_FRAME_TYPE_STANDARD: StorageRpmbFrameType = 1
+
+public val STORAGE_RPMB_FRAME_TYPE_UNKNOWN: StorageRpmbFrameType = 0
+
+public val STORAGE_SANITIZE_METHOD_BLOCK_ERASE: StorageSanitizeMethod = 1
+
+public val STORAGE_SANITIZE_METHOD_CRYPTO_ERASE: StorageSanitizeMethod = 2
+
+public val STORAGE_SANITIZE_METHOD_DEFAULT: StorageSanitizeMethod = 0
+
+public val STORAGE_TIER_CLASS_CAPACITY: StorageTierClass = 1
+
+public val STORAGE_TIER_CLASS_MAX: StorageTierClass = 3
+
+public val STORAGE_TIER_CLASS_PERFORMANCE: StorageTierClass = 2
+
+public val STORAGE_TIER_CLASS_UNSPECIFIED: StorageTierClass = 0
+
+public val STORAGE_TIER_MEDIA_TYPE_DISK: StorageTierMediaType = 1
+
+public val STORAGE_TIER_MEDIA_TYPE_MAX: StorageTierMediaType = 5
+
+public val STORAGE_TIER_MEDIA_TYPE_SCM: StorageTierMediaType = 4
+
+public val STORAGE_TIER_MEDIA_TYPE_SSD: StorageTierMediaType = 2
+
+public val STORAGE_TIER_MEDIA_TYPE_UNSPECIFIED: StorageTierMediaType = 0
+
+public val TAPE_RESET_STATISTICS: Int = 2
+
+public val TAPE_RETURN_ENV_INFO: Int = 1
+
+public val TAPE_RETURN_STATISTICS: Int = 0
+
+public val TC_COLLECTION_APPLICATION_REQUESTED: DevicedumpCollectionTypeideNotificationType = 2
+
+public val TC_COLLECTION_BUG_CHECK: DevicedumpCollectionTypeideNotificationType = 1
+
+public val TC_COLLECTION_DEVICE_REQUESTED: DevicedumpCollectionTypeideNotificationType = 3
+
+public val TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH: UInt = 16u
+
+public val TC_PUBLIC_DATA_TYPE_ATAGP: Pcstr = s("ATAGPLogPages")
+
+public val TC_PUBLIC_DATA_TYPE_ATASMART: Pcstr = s("ATASMARTPages")
+
+public val TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG: UInt = 2u
+
+public val TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG_MAX: UInt = 16u

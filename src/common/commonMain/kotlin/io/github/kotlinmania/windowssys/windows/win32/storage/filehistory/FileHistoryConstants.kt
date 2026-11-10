@@ -150,10 +150,6 @@ public val FH_TARGET_URL: FhTargetPropertyType = 1
 
 public val FH_VALID_TARGET: FhDeviceValidationResult = 6
 
-public val FH_CONFIG_MGR: Guid = Guid.fromU128(U128(0xed43bb3c09e9498auL, 0x9df62177244c6db4uL))
-
-public val FH_REASSOCIATION: Guid = Guid.fromU128(U128(0x4d728e3516fa4320uL, 0x9e8bbfd7100a8846uL))
-
 public val MAX_BACKUP_STATUS: FhBackupStatus = 4
 
 public val MAX_LOCAL_POLICY: FhLocalPolicyType = 3
@@ -165,3 +161,7 @@ public val MAX_RETENTION_TYPE: FhRetentionTypes = 3
 public val MAX_TARGET_PROPERTY: FhTargetPropertyType = 3
 
 public val MAX_VALIDATION_RESULT: FhDeviceValidationResult = 7
+
+public val FH_CONFIG_MGR: Guid = Guid.fromU128(U128(0xed43bb3c09e9498auL, 0x9df62177244c6db4uL))
+
+public val FH_REASSOCIATION: Guid = Guid.fromU128(U128(0x4d728e3516fa4320uL, 0x9e8bbfd7100a8846uL))

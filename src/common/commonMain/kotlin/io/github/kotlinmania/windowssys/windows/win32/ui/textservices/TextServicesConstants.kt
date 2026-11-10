@@ -8,45 +8,17 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val ACC_CLIENT_DOC_MGR: Guid = Guid.fromU128(U128(0xfc48cc304f3e4fa1uL, 0x803bad0e196a83b1uL))
-
-public val ACC_DICTIONARY: Guid = Guid.fromU128(U128(0x6572ee165fe54331uL, 0xbb6d76a49c56e423uL))
-
-public val ACC_SERVER_DOC_MGR: Guid = Guid.fromU128(U128(0x6089a37eeb8a482duL, 0xbd6ff9f46904d16duL))
-
-public val ACC_STORE: Guid = Guid.fromU128(U128(0x5440837f4bff4ae5uL, 0xa1b17722ecc6332auL))
-
 public val CAND_CANCELED: TfCandidateResult = 2
 
 public val CAND_FINALIZED: TfCandidateResult = 0
 
 public val CAND_SELECTED: TfCandidateResult = 1
 
-public val CLSID_TF_CATEGORY_MGR: Guid = Guid.fromU128(U128(0xa4b544a1438d4b41uL, 0x9325869523e2d6c7uL))
-
-public val CLSID_TF_CLASSIC_LANG_BAR: Guid = Guid.fromU128(U128(0x3318360c1afc4d09uL, 0xa86b9f9cb6dceb9cuL))
-
-public val CLSID_TF_DISPLAY_ATTRIBUTE_MGR: Guid = Guid.fromU128(U128(0x3ce74de453d34d74uL, 0x8b83431b3828ba53uL))
-
-public val CLSID_TF_INPUT_PROCESSOR_PROFILES: Guid = Guid.fromU128(U128(0x33c53a50f4564884uL, 0xb04985fd643ecfeduL))
-
-public val CLSID_TF_LANG_BAR_ITEM_MGR: Guid = Guid.fromU128(U128(0xb9931692a2b34fabuL, 0xbf339ec6f9fb96acuL))
-
-public val CLSID_TF_LANG_BAR_MGR: Guid = Guid.fromU128(U128(0xebb08c456c4a4fdcuL, 0xae534eb8c4c7db8euL))
-
-public val CLSID_TF_THREAD_MGR: Guid = Guid.fromU128(U128(0x529a9e6b65874f23uL, 0xab9e9c7d683e3c50uL))
-
-public val CLSID_TF_TRANSITORY_EXTENSION_UI_ENTRY: Guid = Guid.fromU128(U128(0xae6be00807fb400duL, 0x8beb337a64f7051fuL))
-
-public val CLSID_TSF_SERVICES: Guid = Guid.fromU128(U128(0x39aedc006b6046dbuL, 0x8d313642be0e4373uL))
-
 public val DCM_FLAGS_CTFMON: UInt = 2u
 
 public val DCM_FLAGS_LOCALTHREADTSF: UInt = 4u
 
 public val DCM_FLAGS_TASKENG: UInt = 1u
-
-public val DOC_WRAP: Guid = Guid.fromU128(U128(0xbf426f7e7a5e44d6uL, 0x830ca390ea9462a3uL))
 
 public val GETIF_DICTGRAM: TfSapiObject = 4
 
@@ -59,148 +31,6 @@ public val GETIF_RECOGNIZERNOINIT: TfSapiObject = 5
 public val GETIF_RESMGR: TfSapiObject = 0
 
 public val GETIF_VOICE: TfSapiObject = 3
-
-public val GUID_APP_FUNCTIONPROVIDER: Guid = Guid.fromU128(U128(0x4caef01e12af4b0euL, 0x9db1a6ec5b881208uL))
-
-public val GUID_COMPARTMENT_CONVERSIONMODEBIAS: Guid = Guid.fromU128(U128(0x5497f516ee91436euL, 0xb946aa2c05f1ac5buL))
-
-public val GUID_COMPARTMENT_EMPTYCONTEXT: Guid = Guid.fromU128(U128(0xd7487dbf804e41c5uL, 0x894dad96fd4eea13uL))
-
-public val GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED: Guid = Guid.fromU128(U128(0x92c1fd48a9ae4a7cuL, 0xbe084329e4723817uL))
-
-public val GUID_COMPARTMENT_HANDWRITING_OPENCLOSE: Guid = Guid.fromU128(U128(0xf9ae2c6b18664361uL, 0xaf727aa30948890euL))
-
-public val GUID_COMPARTMENT_KEYBOARD_DISABLED: Guid = Guid.fromU128(U128(0x71a5b2531951466buL, 0x9fbc9c8808fa84f2uL))
-
-public val GUID_COMPARTMENT_KEYBOARD_INPUTMODE: Guid = Guid.fromU128(U128(0xb6592511bcee4122uL, 0xa7c409f4b3fa4396uL))
-
-public val GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION: Guid = Guid.fromU128(U128(0xccf05dd84a8711d7uL, 0xa6e200065b84435cuL))
-
-public val GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE: Guid = Guid.fromU128(U128(0xccf05dd94a8711d7uL, 0xa6e200065b84435cuL))
-
-public val GUID_COMPARTMENT_KEYBOARD_OPENCLOSE: Guid = Guid.fromU128(U128(0x58273aad01bb4164uL, 0x95c6755ba0b5162duL))
-
-public val GUID_COMPARTMENT_SAPI_AUDIO: Guid = Guid.fromU128(U128(0x51af2086cc6b457duL, 0xb5aa8b19dc290ab4uL))
-
-public val GUID_COMPARTMENT_SPEECH_CFGMENU: Guid = Guid.fromU128(U128(0xfb6c5c2d4e834bb6uL, 0x91a2e019bff6762duL))
-
-public val GUID_COMPARTMENT_SPEECH_DISABLED: Guid = Guid.fromU128(U128(0x56c5c60707034e59uL, 0x8e52cbc84e8bbe35uL))
-
-public val GUID_COMPARTMENT_SPEECH_GLOBALSTATE: Guid = Guid.fromU128(U128(0x2a54fe8e0d08460cuL, 0xa75d87035ff436c5uL))
-
-public val GUID_COMPARTMENT_SPEECH_OPENCLOSE: Guid = Guid.fromU128(U128(0x544d6a63e2e84752uL, 0xbbd1000960bca083uL))
-
-public val GUID_COMPARTMENT_SPEECH_UI_STATUS: Guid = Guid.fromU128(U128(0xd92016f093674fe7uL, 0x9abfbc59dacbe0e3uL))
-
-public val GUID_COMPARTMENT_TIPUISTATUS: Guid = Guid.fromU128(U128(0x148ca3ec0366401cuL, 0x8d75ed978d85fbc9uL))
-
-public val GUID_COMPARTMENT_TRANSITORYEXTENSION: Guid = Guid.fromU128(U128(0x8be347f5c7a011d7uL, 0xb40800065b84435cuL))
-
-public val GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER: Guid = Guid.fromU128(U128(0x8be347f7c7a011d7uL, 0xb40800065b84435cuL))
-
-public val GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT: Guid = Guid.fromU128(U128(0x8be347f8c7a011d7uL, 0xb40800065b84435cuL))
-
-public val GUID_INTEGRATIONSTYLE_SEARCHBOX: Guid = Guid.fromU128(U128(0xe6d1bd1182f74903uL, 0xae211a6397cde2ebuL))
-
-public val GUID_LBI_INPUTMODE: Guid = Guid.fromU128(U128(0x2c77a81e41cc4178uL, 0xa3a75f8a987568e6uL))
-
-public val GUID_LBI_SAPILAYR_CFGMENUBUTTON: Guid = Guid.fromU128(U128(0xd02f24a1942d422euL, 0x8d99b4f2addee999uL))
-
-public val GUID_MODEBIAS_CHINESE: Guid = Guid.fromU128(U128(0x7add26de4328489buL, 0x83ae6493750cad5cuL))
-
-public val GUID_MODEBIAS_CONVERSATION: Guid = Guid.fromU128(U128(0xf4ec1041790443buL, 0x95f1e10f939d6546uL))
-
-public val GUID_MODEBIAS_DATETIME: Guid = Guid.fromU128(U128(0xf2bdb3727f614039uL, 0x92ef1c35599f0222uL))
-
-public val GUID_MODEBIAS_FILENAME: Guid = Guid.fromU128(U128(0xd7f707fe44c64fcauL, 0x8e7686ab50c7931buL))
-
-public val GUID_MODEBIAS_FULLWIDTHALPHANUMERIC: Guid = Guid.fromU128(U128(0x81489fb8b36a473duL, 0x8146e4a2258b24aeuL))
-
-public val GUID_MODEBIAS_FULLWIDTHHANGUL: Guid = Guid.fromU128(U128(0xc01ae6c945b54fd0uL, 0x9cb19f4cebc39feauL))
-
-public val GUID_MODEBIAS_HALFWIDTHKATAKANA: Guid = Guid.fromU128(U128(0x5f6b6378d441ccuL, 0x8859485ca821a795uL))
-
-public val GUID_MODEBIAS_HANGUL: Guid = Guid.fromU128(U128(0x76ef054123b34d77uL, 0xa074691801ccea17uL))
-
-public val GUID_MODEBIAS_HIRAGANA: Guid = Guid.fromU128(U128(0xd73d316e9b9146f1uL, 0xa28031597f52c694uL))
-
-public val GUID_MODEBIAS_KATAKANA: Guid = Guid.fromU128(U128(0x2e0eeddd3a1a499euL, 0x85433c7ee7949811uL))
-
-public val GUID_MODEBIAS_NAME: Guid = Guid.fromU128(U128(0xfddc10f0d23949bfuL, 0xb8fc5410caaa427euL))
-
-public val GUID_MODEBIAS_NONE: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
-
-public val GUID_MODEBIAS_NUMERIC: Guid = Guid.fromU128(U128(0x4021766ce87248fduL, 0x9cee4ec5c75e16c3uL))
-
-public val GUID_MODEBIAS_READING: Guid = Guid.fromU128(U128(0xe31643a364664cbfuL, 0x8d8b0bd4d8545461uL))
-
-public val GUID_MODEBIAS_URLHISTORY: Guid = Guid.fromU128(U128(0x8b0e54d963f24c68uL, 0x84d479aee7a59f09uL))
-
-public val GUID_PROP_ATTRIBUTE: Guid = Guid.fromU128(U128(0x34b45670752611d2uL, 0xa14700105a2799b5uL))
-
-public val GUID_PROP_COMPOSING: Guid = Guid.fromU128(U128(0xe12ac060af1511d2uL, 0xafc500105a2799b5uL))
-
-public val GUID_PROP_INPUTSCOPE: Guid = Guid.fromU128(U128(0x1713dd5a68e74a5buL, 0x9af6592a595c778duL))
-
-public val GUID_PROP_LANGID: Guid = Guid.fromU128(U128(0x3280ce20803211d2uL, 0xb60300105a2799b5uL))
-
-public val GUID_PROP_MODEBIAS: Guid = Guid.fromU128(U128(0x372e0716974f40acuL, 0xa08808cdc92ebfbcuL))
-
-public val GUID_PROP_READING: Guid = Guid.fromU128(U128(0x5463f7c08e3111d2uL, 0xbf4600105a2799b5uL))
-
-public val GUID_PROP_TEXTOWNER: Guid = Guid.fromU128(U128(0xf1e2d520096911d3uL, 0x8df000105a2799b5uL))
-
-public val GUID_PROP_TKB_ALTERNATES: Guid = Guid.fromU128(U128(0x70b2a803968d462euL, 0xb93b2164c91517f7uL))
-
-public val GUID_SYSTEM_FUNCTIONPROVIDER: Guid = Guid.fromU128(U128(0x9a698bb00f2111d3uL, 0x8df100105a2799b5uL))
-
-public val GUID_TFCAT_CATEGORY_OF_TIP: Guid = Guid.fromU128(U128(0x534c48c106074098uL, 0xa5214fc899c73e90uL))
-
-public val GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY: Guid = Guid.fromU128(U128(0xb95f181bea4c4af1uL, 0x80567c321abbb091uL))
-
-public val GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER: Guid = Guid.fromU128(U128(0x46b8c80164740f7uL, 0x9b21b93b81aabc1buL))
-
-public val GUID_TFCAT_PROPSTYLE_STATIC: Guid = Guid.fromU128(U128(0x565fb8d86bd44ca1uL, 0xb2230f2ccb8f4f96uL))
-
-public val GUID_TFCAT_PROP_AUDIODATA: Guid = Guid.fromU128(U128(0x9b7be3a9e8ab4d47uL, 0xa8fe254fa423436duL))
-
-public val GUID_TFCAT_PROP_INKDATA: Guid = Guid.fromU128(U128(0x7c6a82aeb0d74f14uL, 0xa74514f28b009d61uL))
-
-public val GUID_TFCAT_TIPCAP_COMLESS: Guid = Guid.fromU128(U128(0x364215d975bc11d7uL, 0xa6ef00065b84435cuL))
-
-public val GUID_TFCAT_TIPCAP_DUALMODE: Guid = Guid.fromU128(U128(0x3af314a2d79f4b1buL, 0x999215086d339b05uL))
-
-public val GUID_TFCAT_TIPCAP_IMMERSIVEONLY: Guid = Guid.fromU128(U128(0x3a4259ac640d4ad4uL, 0x89f71eb67e7c4ee8uL))
-
-public val GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT: Guid = Guid.fromU128(U128(0x13a016df560b46cduL, 0x947a4c3af1e0e35duL))
-
-public val GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT: Guid = Guid.fromU128(U128(0xccf05dd74a8711d7uL, 0xa6e200065b84435cuL))
-
-public val GUID_TFCAT_TIPCAP_LOCALSERVER: Guid = Guid.fromU128(U128(0x74769ee94a664f9duL, 0x90d6bf8b7c3eb461uL))
-
-public val GUID_TFCAT_TIPCAP_SECUREMODE: Guid = Guid.fromU128(U128(0x49d2f9ce1f5e11d7uL, 0xa6d300065b84435cuL))
-
-public val GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT: Guid = Guid.fromU128(U128(0x25504fb47bab4bc1uL, 0x9c69cf81890f0ef5uL))
-
-public val GUID_TFCAT_TIPCAP_TSF3: Guid = Guid.fromU128(U128(0x7dcb4af98de4548uL, 0xbef725bd45979a1fuL))
-
-public val GUID_TFCAT_TIPCAP_UIELEMENTENABLED: Guid = Guid.fromU128(U128(0x49d2f9cf1f5e11d7uL, 0xa6d300065b84435cuL))
-
-public val GUID_TFCAT_TIPCAP_WOW16: Guid = Guid.fromU128(U128(0x364215da75bc11d7uL, 0xa6ef00065b84435cuL))
-
-public val GUID_TFCAT_TIP_HANDWRITING: Guid = Guid.fromU128(U128(0x246ecb87c2f24abeuL, 0x905bc8b38add2c43uL))
-
-public val GUID_TFCAT_TIP_KEYBOARD: Guid = Guid.fromU128(U128(0x34745c63b2f04784uL, 0x8b675e12c8701a31uL))
-
-public val GUID_TFCAT_TIP_SPEECH: Guid = Guid.fromU128(U128(0xb5a73cd18355426buL, 0xa161259808f26b14uL))
-
-public val GUID_TFCAT_TRANSITORYEXTENSIONUI: Guid = Guid.fromU128(U128(0x6302de22a5cf4b02uL, 0xbfe84d72b2bed3c6uL))
-
-public val GUID_TS_SERVICE_ACCESSIBLE: Guid = Guid.fromU128(U128(0xf9786200a5bf4a0fuL, 0x8c24fb16f5d1aabbuL))
-
-public val GUID_TS_SERVICE_ACTIVEX: Guid = Guid.fromU128(U128(0xea937a50c9a64b7duL, 0x894a49d99b784834uL))
-
-public val GUID_TS_SERVICE_DATAOBJECT: Guid = Guid.fromU128(U128(0x6086fbb5e22546ceuL, 0xa770c1bbd3e05d7buL))
 
 public val GXFPF_NEAREST: UInt = 2u
 
@@ -357,10 +187,6 @@ public val IS_URL: InputScope = 1
 public val IS_XML: InputScope = -4
 
 public val IS_YOMI: InputScope = 56
-
-public val LIBID_MSAATEXT_LIB: Guid = Guid.fromU128(U128(0x150e2d7adac14582uL, 0x947d2a8fd78b82cduL))
-
-public val MSAA_CONTROL: Guid = Guid.fromU128(U128(0x8cd963f7a3e4f5cuL, 0x9bd8d692bb043c5buL))
 
 public val STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = 0
 
@@ -682,34 +508,6 @@ public val TF_PROFILETYPE_INPUTPROCESSOR: UInt = 1u
 
 public val TF_PROFILETYPE_KEYBOARDLAYOUT: UInt = 2u
 
-public val TF_PROFILE_ARRAY: Guid = Guid.fromU128(U128(0xd38eff65aa464fd5uL, 0x91a767845fb02f5buL))
-
-public val TF_PROFILE_CANTONESE: Guid = Guid.fromU128(U128(0xaec109c7e9611d4uL, 0xb2ef0080c882687euL))
-
-public val TF_PROFILE_CHANGJIE: Guid = Guid.fromU128(U128(0x4bdf9f03c7d311d4uL, 0xb2ab0080c882687euL))
-
-public val TF_PROFILE_DAYI: Guid = Guid.fromU128(U128(0x37b2c25480c4d7fuL, 0xb027d6ca6b69788auL))
-
-public val TF_PROFILE_NEWCHANGJIE: Guid = Guid.fromU128(U128(0xf3ba907a6c7e11d4uL, 0x97fa0080c882687euL))
-
-public val TF_PROFILE_NEWPHONETIC: Guid = Guid.fromU128(U128(0xb2f9c502174211d4uL, 0x97900080c882687euL))
-
-public val TF_PROFILE_NEWQUICK: Guid = Guid.fromU128(U128(0xb883ba0c1c711d4uL, 0x87f90080c882687euL))
-
-public val TF_PROFILE_PHONETIC: Guid = Guid.fromU128(U128(0x761309de317a11d4uL, 0x9b5d0080c882687euL))
-
-public val TF_PROFILE_PINYIN: Guid = Guid.fromU128(U128(0xf3ba90776c7e11d4uL, 0x97fa0080c882687euL))
-
-public val TF_PROFILE_QUICK: Guid = Guid.fromU128(U128(0x6024b45f5c5411d4uL, 0xb9210080c882687euL))
-
-public val TF_PROFILE_SIMPLEFAST: Guid = Guid.fromU128(U128(0xfa550b045ad7411fuL, 0xa5acca038ec515d7uL))
-
-public val TF_PROFILE_TIGRINYA: Guid = Guid.fromU128(U128(0x3cab88b7cc3e46a6uL, 0x9765b772ad7761ffuL))
-
-public val TF_PROFILE_WUBI: Guid = Guid.fromU128(U128(0x82590c13f4dd44f4uL, 0xba1d8667246fdf8euL))
-
-public val TF_PROFILE_YI: Guid = Guid.fromU128(U128(0x409c8376007b4357uL, 0xae8e26316ee3fb0duL))
-
 public val TF_PROPUI_STATUS_SAVETOFILE: UInt = 1u
 
 public val TF_RCM_COMLESS: UInt = 1u
@@ -882,6 +680,366 @@ public val TKB_ALTERNATES_FOR_PREDICTION: UInt = 3u
 
 public val TKB_ALTERNATES_STANDARD: UInt = 1u
 
+public val TS_AE_END: TsActiveSelEnd = 2
+
+public val TS_AE_NONE: TsActiveSelEnd = 0
+
+public val TS_AE_START: TsActiveSelEnd = 1
+
+public val TS_AS_ATTR_CHANGE: UInt = 8u
+
+public val TS_AS_LAYOUT_CHANGE: UInt = 4u
+
+public val TS_AS_SEL_CHANGE: UInt = 2u
+
+public val TS_AS_STATUS_CHANGE: UInt = 16u
+
+public val TS_AS_TEXT_CHANGE: UInt = 1u
+
+public val TS_ATTR_FIND_BACKWARDS: UInt = 1u
+
+public val TS_ATTR_FIND_HIDDEN: UInt = 32u
+
+public val TS_ATTR_FIND_UPDATESTART: UInt = 4u
+
+public val TS_ATTR_FIND_WANT_END: UInt = 16u
+
+public val TS_ATTR_FIND_WANT_OFFSET: UInt = 2u
+
+public val TS_ATTR_FIND_WANT_VALUE: UInt = 8u
+
+public val TS_CHAR_EMBEDDED: UInt = 65532u
+
+public val TS_CHAR_REGION: UInt = 0u
+
+public val TS_CHAR_REPLACEMENT: UInt = 65533u
+
+public val TS_CH_FOLLOWING_DEL: AnchorChangeHistoryFlags = 2u
+
+public val TS_CH_PRECEDING_DEL: AnchorChangeHistoryFlags = 1u
+
+public val TS_DEFAULT_SELECTION: UInt = 4294967295u
+
+public val TS_E_FORMAT: Hresult = 0x8004020Au.toInt()
+
+public val TS_E_INVALIDPOINT: Hresult = 0x80040207u.toInt()
+
+public val TS_E_INVALIDPOS: Hresult = 0x80040200u.toInt()
+
+public val TS_E_NOINTERFACE: Hresult = 0x80040204u.toInt()
+
+public val TS_E_NOLAYOUT: Hresult = 0x80040206u.toInt()
+
+public val TS_E_NOLOCK: Hresult = 0x80040201u.toInt()
+
+public val TS_E_NOOBJECT: Hresult = 0x80040202u.toInt()
+
+public val TS_E_NOSELECTION: Hresult = 0x80040205u.toInt()
+
+public val TS_E_NOSERVICE: Hresult = 0x80040203u.toInt()
+
+public val TS_E_READONLY: Hresult = 0x80040209u.toInt()
+
+public val TS_E_SYNCHRONOUS: Hresult = 0x80040208u.toInt()
+
+public val TS_GEA_HIDDEN: UInt = 1u
+
+public val TS_GR_BACKWARD: TsGravity = 0
+
+public val TS_GR_FORWARD: TsGravity = 1
+
+public val TS_GTA_HIDDEN: UInt = 1u
+
+public val TS_IAS_NOQUERY: UInt = 1u
+
+public val TS_IAS_QUERYONLY: UInt = 2u
+
+public val TS_IE_COMPOSITION: UInt = 2u
+
+public val TS_IE_CORRECTION: UInt = 1u
+
+public val TS_LC_CHANGE: TsLayoutCode = 1
+
+public val TS_LC_CREATE: TsLayoutCode = 0
+
+public val TS_LC_DESTROY: TsLayoutCode = 2
+
+public val TS_LF_READ: TextStoreLockFlags = 2u
+
+public val TS_LF_READWRITE: TextStoreLockFlags = 6u
+
+public val TS_LF_SYNC: UInt = 1u
+
+public val TS_RT_HIDDEN: TsRunType = 1
+
+public val TS_RT_OPAQUE: TsRunType = 2
+
+public val TS_RT_PLAIN: TsRunType = 0
+
+public val TS_SD_BACKWARD: TsShiftDir = 0
+
+public val TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: UInt = 128u
+
+public val TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: UInt = 256u
+
+public val TS_SD_FORWARD: TsShiftDir = 1
+
+public val TS_SD_INPUTPANEMANUALDISPLAYENABLE: UInt = 64u
+
+public val TS_SD_LOADING: UInt = 2u
+
+public val TS_SD_READONLY: UInt = 1u
+
+public val TS_SD_RESERVED: UInt = 4u
+
+public val TS_SD_TKBAUTOCORRECTENABLE: UInt = 8u
+
+public val TS_SD_TKBPREDICTIONENABLE: UInt = 16u
+
+public val TS_SD_UIINTEGRATIONENABLE: UInt = 32u
+
+public val TS_SHIFT_COUNT_HIDDEN: UInt = 1u
+
+public val TS_SHIFT_COUNT_ONLY: UInt = 8u
+
+public val TS_SHIFT_HALT_HIDDEN: UInt = 2u
+
+public val TS_SHIFT_HALT_VISIBLE: UInt = 4u
+
+public val TS_SS_DISJOINTSEL: UInt = 1u
+
+public val TS_SS_NOHIDDENTEXT: UInt = 8u
+
+public val TS_SS_REGIONS: UInt = 2u
+
+public val TS_SS_TKBAUTOCORRECTENABLE: UInt = 16u
+
+public val TS_SS_TKBPREDICTIONENABLE: UInt = 32u
+
+public val TS_SS_TRANSITORY: UInt = 4u
+
+public val TS_SS_UWPCONTROL: UInt = 64u
+
+public val TS_STRF_END: UInt = 2u
+
+public val TS_STRF_MID: UInt = 1u
+
+public val TS_STRF_START: UInt = 0u
+
+public val TS_ST_CORRECTION: TextStoreTextChangeFlags = 1u
+
+public val TS_ST_NONE: TextStoreTextChangeFlags = 0u
+
+public val TS_S_ASYNC: Hresult = 0x40300u.toInt()
+
+public val TS_TC_CORRECTION: TextStoreChangeFlags = 1u
+
+public val TS_TC_NONE: TextStoreChangeFlags = 0u
+
+public val TS_VCOOKIE_NUL: UInt = 4294967295u
+
+public val ACC_CLIENT_DOC_MGR: Guid = Guid.fromU128(U128(0xfc48cc304f3e4fa1uL, 0x803bad0e196a83b1uL))
+
+public val ACC_DICTIONARY: Guid = Guid.fromU128(U128(0x6572ee165fe54331uL, 0xbb6d76a49c56e423uL))
+
+public val ACC_SERVER_DOC_MGR: Guid = Guid.fromU128(U128(0x6089a37eeb8a482duL, 0xbd6ff9f46904d16duL))
+
+public val ACC_STORE: Guid = Guid.fromU128(U128(0x5440837f4bff4ae5uL, 0xa1b17722ecc6332auL))
+
+public val CLSID_TF_CATEGORY_MGR: Guid = Guid.fromU128(U128(0xa4b544a1438d4b41uL, 0x9325869523e2d6c7uL))
+
+public val CLSID_TF_CLASSIC_LANG_BAR: Guid = Guid.fromU128(U128(0x3318360c1afc4d09uL, 0xa86b9f9cb6dceb9cuL))
+
+public val CLSID_TF_DISPLAY_ATTRIBUTE_MGR: Guid = Guid.fromU128(U128(0x3ce74de453d34d74uL, 0x8b83431b3828ba53uL))
+
+public val CLSID_TF_INPUT_PROCESSOR_PROFILES: Guid = Guid.fromU128(U128(0x33c53a50f4564884uL, 0xb04985fd643ecfeduL))
+
+public val CLSID_TF_LANG_BAR_ITEM_MGR: Guid = Guid.fromU128(U128(0xb9931692a2b34fabuL, 0xbf339ec6f9fb96acuL))
+
+public val CLSID_TF_LANG_BAR_MGR: Guid = Guid.fromU128(U128(0xebb08c456c4a4fdcuL, 0xae534eb8c4c7db8euL))
+
+public val CLSID_TF_THREAD_MGR: Guid = Guid.fromU128(U128(0x529a9e6b65874f23uL, 0xab9e9c7d683e3c50uL))
+
+public val CLSID_TF_TRANSITORY_EXTENSION_UI_ENTRY: Guid = Guid.fromU128(U128(0xae6be00807fb400duL, 0x8beb337a64f7051fuL))
+
+public val CLSID_TSF_SERVICES: Guid = Guid.fromU128(U128(0x39aedc006b6046dbuL, 0x8d313642be0e4373uL))
+
+public val DOC_WRAP: Guid = Guid.fromU128(U128(0xbf426f7e7a5e44d6uL, 0x830ca390ea9462a3uL))
+
+public val GUID_APP_FUNCTIONPROVIDER: Guid = Guid.fromU128(U128(0x4caef01e12af4b0euL, 0x9db1a6ec5b881208uL))
+
+public val GUID_COMPARTMENT_CONVERSIONMODEBIAS: Guid = Guid.fromU128(U128(0x5497f516ee91436euL, 0xb946aa2c05f1ac5buL))
+
+public val GUID_COMPARTMENT_EMPTYCONTEXT: Guid = Guid.fromU128(U128(0xd7487dbf804e41c5uL, 0x894dad96fd4eea13uL))
+
+public val GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED: Guid = Guid.fromU128(U128(0x92c1fd48a9ae4a7cuL, 0xbe084329e4723817uL))
+
+public val GUID_COMPARTMENT_HANDWRITING_OPENCLOSE: Guid = Guid.fromU128(U128(0xf9ae2c6b18664361uL, 0xaf727aa30948890euL))
+
+public val GUID_COMPARTMENT_KEYBOARD_DISABLED: Guid = Guid.fromU128(U128(0x71a5b2531951466buL, 0x9fbc9c8808fa84f2uL))
+
+public val GUID_COMPARTMENT_KEYBOARD_INPUTMODE: Guid = Guid.fromU128(U128(0xb6592511bcee4122uL, 0xa7c409f4b3fa4396uL))
+
+public val GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION: Guid = Guid.fromU128(U128(0xccf05dd84a8711d7uL, 0xa6e200065b84435cuL))
+
+public val GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE: Guid = Guid.fromU128(U128(0xccf05dd94a8711d7uL, 0xa6e200065b84435cuL))
+
+public val GUID_COMPARTMENT_KEYBOARD_OPENCLOSE: Guid = Guid.fromU128(U128(0x58273aad01bb4164uL, 0x95c6755ba0b5162duL))
+
+public val GUID_COMPARTMENT_SAPI_AUDIO: Guid = Guid.fromU128(U128(0x51af2086cc6b457duL, 0xb5aa8b19dc290ab4uL))
+
+public val GUID_COMPARTMENT_SPEECH_CFGMENU: Guid = Guid.fromU128(U128(0xfb6c5c2d4e834bb6uL, 0x91a2e019bff6762duL))
+
+public val GUID_COMPARTMENT_SPEECH_DISABLED: Guid = Guid.fromU128(U128(0x56c5c60707034e59uL, 0x8e52cbc84e8bbe35uL))
+
+public val GUID_COMPARTMENT_SPEECH_GLOBALSTATE: Guid = Guid.fromU128(U128(0x2a54fe8e0d08460cuL, 0xa75d87035ff436c5uL))
+
+public val GUID_COMPARTMENT_SPEECH_OPENCLOSE: Guid = Guid.fromU128(U128(0x544d6a63e2e84752uL, 0xbbd1000960bca083uL))
+
+public val GUID_COMPARTMENT_SPEECH_UI_STATUS: Guid = Guid.fromU128(U128(0xd92016f093674fe7uL, 0x9abfbc59dacbe0e3uL))
+
+public val GUID_COMPARTMENT_TIPUISTATUS: Guid = Guid.fromU128(U128(0x148ca3ec0366401cuL, 0x8d75ed978d85fbc9uL))
+
+public val GUID_COMPARTMENT_TRANSITORYEXTENSION: Guid = Guid.fromU128(U128(0x8be347f5c7a011d7uL, 0xb40800065b84435cuL))
+
+public val GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER: Guid = Guid.fromU128(U128(0x8be347f7c7a011d7uL, 0xb40800065b84435cuL))
+
+public val GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT: Guid = Guid.fromU128(U128(0x8be347f8c7a011d7uL, 0xb40800065b84435cuL))
+
+public val GUID_INTEGRATIONSTYLE_SEARCHBOX: Guid = Guid.fromU128(U128(0xe6d1bd1182f74903uL, 0xae211a6397cde2ebuL))
+
+public val GUID_LBI_INPUTMODE: Guid = Guid.fromU128(U128(0x2c77a81e41cc4178uL, 0xa3a75f8a987568e6uL))
+
+public val GUID_LBI_SAPILAYR_CFGMENUBUTTON: Guid = Guid.fromU128(U128(0xd02f24a1942d422euL, 0x8d99b4f2addee999uL))
+
+public val GUID_MODEBIAS_CHINESE: Guid = Guid.fromU128(U128(0x7add26de4328489buL, 0x83ae6493750cad5cuL))
+
+public val GUID_MODEBIAS_CONVERSATION: Guid = Guid.fromU128(U128(0xf4ec1041790443buL, 0x95f1e10f939d6546uL))
+
+public val GUID_MODEBIAS_DATETIME: Guid = Guid.fromU128(U128(0xf2bdb3727f614039uL, 0x92ef1c35599f0222uL))
+
+public val GUID_MODEBIAS_FILENAME: Guid = Guid.fromU128(U128(0xd7f707fe44c64fcauL, 0x8e7686ab50c7931buL))
+
+public val GUID_MODEBIAS_FULLWIDTHALPHANUMERIC: Guid = Guid.fromU128(U128(0x81489fb8b36a473duL, 0x8146e4a2258b24aeuL))
+
+public val GUID_MODEBIAS_FULLWIDTHHANGUL: Guid = Guid.fromU128(U128(0xc01ae6c945b54fd0uL, 0x9cb19f4cebc39feauL))
+
+public val GUID_MODEBIAS_HALFWIDTHKATAKANA: Guid = Guid.fromU128(U128(0x5f6b6378d441ccuL, 0x8859485ca821a795uL))
+
+public val GUID_MODEBIAS_HANGUL: Guid = Guid.fromU128(U128(0x76ef054123b34d77uL, 0xa074691801ccea17uL))
+
+public val GUID_MODEBIAS_HIRAGANA: Guid = Guid.fromU128(U128(0xd73d316e9b9146f1uL, 0xa28031597f52c694uL))
+
+public val GUID_MODEBIAS_KATAKANA: Guid = Guid.fromU128(U128(0x2e0eeddd3a1a499euL, 0x85433c7ee7949811uL))
+
+public val GUID_MODEBIAS_NAME: Guid = Guid.fromU128(U128(0xfddc10f0d23949bfuL, 0xb8fc5410caaa427euL))
+
+public val GUID_MODEBIAS_NONE: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
+
+public val GUID_MODEBIAS_NUMERIC: Guid = Guid.fromU128(U128(0x4021766ce87248fduL, 0x9cee4ec5c75e16c3uL))
+
+public val GUID_MODEBIAS_READING: Guid = Guid.fromU128(U128(0xe31643a364664cbfuL, 0x8d8b0bd4d8545461uL))
+
+public val GUID_MODEBIAS_URLHISTORY: Guid = Guid.fromU128(U128(0x8b0e54d963f24c68uL, 0x84d479aee7a59f09uL))
+
+public val GUID_PROP_ATTRIBUTE: Guid = Guid.fromU128(U128(0x34b45670752611d2uL, 0xa14700105a2799b5uL))
+
+public val GUID_PROP_COMPOSING: Guid = Guid.fromU128(U128(0xe12ac060af1511d2uL, 0xafc500105a2799b5uL))
+
+public val GUID_PROP_INPUTSCOPE: Guid = Guid.fromU128(U128(0x1713dd5a68e74a5buL, 0x9af6592a595c778duL))
+
+public val GUID_PROP_LANGID: Guid = Guid.fromU128(U128(0x3280ce20803211d2uL, 0xb60300105a2799b5uL))
+
+public val GUID_PROP_MODEBIAS: Guid = Guid.fromU128(U128(0x372e0716974f40acuL, 0xa08808cdc92ebfbcuL))
+
+public val GUID_PROP_READING: Guid = Guid.fromU128(U128(0x5463f7c08e3111d2uL, 0xbf4600105a2799b5uL))
+
+public val GUID_PROP_TEXTOWNER: Guid = Guid.fromU128(U128(0xf1e2d520096911d3uL, 0x8df000105a2799b5uL))
+
+public val GUID_PROP_TKB_ALTERNATES: Guid = Guid.fromU128(U128(0x70b2a803968d462euL, 0xb93b2164c91517f7uL))
+
+public val GUID_SYSTEM_FUNCTIONPROVIDER: Guid = Guid.fromU128(U128(0x9a698bb00f2111d3uL, 0x8df100105a2799b5uL))
+
+public val GUID_TFCAT_CATEGORY_OF_TIP: Guid = Guid.fromU128(U128(0x534c48c106074098uL, 0xa5214fc899c73e90uL))
+
+public val GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY: Guid = Guid.fromU128(U128(0xb95f181bea4c4af1uL, 0x80567c321abbb091uL))
+
+public val GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER: Guid = Guid.fromU128(U128(0x46b8c80164740f7uL, 0x9b21b93b81aabc1buL))
+
+public val GUID_TFCAT_PROPSTYLE_STATIC: Guid = Guid.fromU128(U128(0x565fb8d86bd44ca1uL, 0xb2230f2ccb8f4f96uL))
+
+public val GUID_TFCAT_PROP_AUDIODATA: Guid = Guid.fromU128(U128(0x9b7be3a9e8ab4d47uL, 0xa8fe254fa423436duL))
+
+public val GUID_TFCAT_PROP_INKDATA: Guid = Guid.fromU128(U128(0x7c6a82aeb0d74f14uL, 0xa74514f28b009d61uL))
+
+public val GUID_TFCAT_TIPCAP_COMLESS: Guid = Guid.fromU128(U128(0x364215d975bc11d7uL, 0xa6ef00065b84435cuL))
+
+public val GUID_TFCAT_TIPCAP_DUALMODE: Guid = Guid.fromU128(U128(0x3af314a2d79f4b1buL, 0x999215086d339b05uL))
+
+public val GUID_TFCAT_TIPCAP_IMMERSIVEONLY: Guid = Guid.fromU128(U128(0x3a4259ac640d4ad4uL, 0x89f71eb67e7c4ee8uL))
+
+public val GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT: Guid = Guid.fromU128(U128(0x13a016df560b46cduL, 0x947a4c3af1e0e35duL))
+
+public val GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT: Guid = Guid.fromU128(U128(0xccf05dd74a8711d7uL, 0xa6e200065b84435cuL))
+
+public val GUID_TFCAT_TIPCAP_LOCALSERVER: Guid = Guid.fromU128(U128(0x74769ee94a664f9duL, 0x90d6bf8b7c3eb461uL))
+
+public val GUID_TFCAT_TIPCAP_SECUREMODE: Guid = Guid.fromU128(U128(0x49d2f9ce1f5e11d7uL, 0xa6d300065b84435cuL))
+
+public val GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT: Guid = Guid.fromU128(U128(0x25504fb47bab4bc1uL, 0x9c69cf81890f0ef5uL))
+
+public val GUID_TFCAT_TIPCAP_TSF3: Guid = Guid.fromU128(U128(0x7dcb4af98de4548uL, 0xbef725bd45979a1fuL))
+
+public val GUID_TFCAT_TIPCAP_UIELEMENTENABLED: Guid = Guid.fromU128(U128(0x49d2f9cf1f5e11d7uL, 0xa6d300065b84435cuL))
+
+public val GUID_TFCAT_TIPCAP_WOW16: Guid = Guid.fromU128(U128(0x364215da75bc11d7uL, 0xa6ef00065b84435cuL))
+
+public val GUID_TFCAT_TIP_HANDWRITING: Guid = Guid.fromU128(U128(0x246ecb87c2f24abeuL, 0x905bc8b38add2c43uL))
+
+public val GUID_TFCAT_TIP_KEYBOARD: Guid = Guid.fromU128(U128(0x34745c63b2f04784uL, 0x8b675e12c8701a31uL))
+
+public val GUID_TFCAT_TIP_SPEECH: Guid = Guid.fromU128(U128(0xb5a73cd18355426buL, 0xa161259808f26b14uL))
+
+public val GUID_TFCAT_TRANSITORYEXTENSIONUI: Guid = Guid.fromU128(U128(0x6302de22a5cf4b02uL, 0xbfe84d72b2bed3c6uL))
+
+public val GUID_TS_SERVICE_ACCESSIBLE: Guid = Guid.fromU128(U128(0xf9786200a5bf4a0fuL, 0x8c24fb16f5d1aabbuL))
+
+public val GUID_TS_SERVICE_ACTIVEX: Guid = Guid.fromU128(U128(0xea937a50c9a64b7duL, 0x894a49d99b784834uL))
+
+public val GUID_TS_SERVICE_DATAOBJECT: Guid = Guid.fromU128(U128(0x6086fbb5e22546ceuL, 0xa770c1bbd3e05d7buL))
+
+public val LIBID_MSAATEXT_LIB: Guid = Guid.fromU128(U128(0x150e2d7adac14582uL, 0x947d2a8fd78b82cduL))
+
+public val MSAA_CONTROL: Guid = Guid.fromU128(U128(0x8cd963f7a3e4f5cuL, 0x9bd8d692bb043c5buL))
+
+public val TF_PROFILE_ARRAY: Guid = Guid.fromU128(U128(0xd38eff65aa464fd5uL, 0x91a767845fb02f5buL))
+
+public val TF_PROFILE_CANTONESE: Guid = Guid.fromU128(U128(0xaec109c7e9611d4uL, 0xb2ef0080c882687euL))
+
+public val TF_PROFILE_CHANGJIE: Guid = Guid.fromU128(U128(0x4bdf9f03c7d311d4uL, 0xb2ab0080c882687euL))
+
+public val TF_PROFILE_DAYI: Guid = Guid.fromU128(U128(0x37b2c25480c4d7fuL, 0xb027d6ca6b69788auL))
+
+public val TF_PROFILE_NEWCHANGJIE: Guid = Guid.fromU128(U128(0xf3ba907a6c7e11d4uL, 0x97fa0080c882687euL))
+
+public val TF_PROFILE_NEWPHONETIC: Guid = Guid.fromU128(U128(0xb2f9c502174211d4uL, 0x97900080c882687euL))
+
+public val TF_PROFILE_NEWQUICK: Guid = Guid.fromU128(U128(0xb883ba0c1c711d4uL, 0x87f90080c882687euL))
+
+public val TF_PROFILE_PHONETIC: Guid = Guid.fromU128(U128(0x761309de317a11d4uL, 0x9b5d0080c882687euL))
+
+public val TF_PROFILE_PINYIN: Guid = Guid.fromU128(U128(0xf3ba90776c7e11d4uL, 0x97fa0080c882687euL))
+
+public val TF_PROFILE_QUICK: Guid = Guid.fromU128(U128(0x6024b45f5c5411d4uL, 0xb9210080c882687euL))
+
+public val TF_PROFILE_SIMPLEFAST: Guid = Guid.fromU128(U128(0xfa550b045ad7411fuL, 0xa5acca038ec515d7uL))
+
+public val TF_PROFILE_TIGRINYA: Guid = Guid.fromU128(U128(0x3cab88b7cc3e46a6uL, 0x9765b772ad7761ffuL))
+
+public val TF_PROFILE_WUBI: Guid = Guid.fromU128(U128(0x82590c13f4dd44f4uL, 0xba1d8667246fdf8euL))
+
+public val TF_PROFILE_YI: Guid = Guid.fromU128(U128(0x409c8376007b4357uL, 0xae8e26316ee3fb0duL))
+
 public val TSATTRID_APP: Guid = Guid.fromU128(U128(0xa80f77df423740e5uL, 0x849cb5fa51c13ac7uL))
 
 public val TSATTRID_APP_INCORRECT_GRAMMAR: Guid = Guid.fromU128(U128(0xbd54e398ad034b74uL, 0xb6b35edb19996388uL))
@@ -1049,161 +1207,3 @@ public val TSATTRID_TEXT_READ_ONLY: Guid = Guid.fromU128(U128(0x85836617de324afd
 public val TSATTRID_TEXT_RIGHT_TO_LEFT: Guid = Guid.fromU128(U128(0xca666e711b08453duL, 0xbfdd28e08c8aaf7auL))
 
 public val TSATTRID_TEXT_VERTICAL_WRITING: Guid = Guid.fromU128(U128(0x6bba8195046f4ea9uL, 0xb31197fd66c4274buL))
-
-public val TS_AE_END: TsActiveSelEnd = 2
-
-public val TS_AE_NONE: TsActiveSelEnd = 0
-
-public val TS_AE_START: TsActiveSelEnd = 1
-
-public val TS_AS_ATTR_CHANGE: UInt = 8u
-
-public val TS_AS_LAYOUT_CHANGE: UInt = 4u
-
-public val TS_AS_SEL_CHANGE: UInt = 2u
-
-public val TS_AS_STATUS_CHANGE: UInt = 16u
-
-public val TS_AS_TEXT_CHANGE: UInt = 1u
-
-public val TS_ATTR_FIND_BACKWARDS: UInt = 1u
-
-public val TS_ATTR_FIND_HIDDEN: UInt = 32u
-
-public val TS_ATTR_FIND_UPDATESTART: UInt = 4u
-
-public val TS_ATTR_FIND_WANT_END: UInt = 16u
-
-public val TS_ATTR_FIND_WANT_OFFSET: UInt = 2u
-
-public val TS_ATTR_FIND_WANT_VALUE: UInt = 8u
-
-public val TS_CHAR_EMBEDDED: UInt = 65532u
-
-public val TS_CHAR_REGION: UInt = 0u
-
-public val TS_CHAR_REPLACEMENT: UInt = 65533u
-
-public val TS_CH_FOLLOWING_DEL: AnchorChangeHistoryFlags = 2u
-
-public val TS_CH_PRECEDING_DEL: AnchorChangeHistoryFlags = 1u
-
-public val TS_DEFAULT_SELECTION: UInt = 4294967295u
-
-public val TS_E_FORMAT: Hresult = 0x8004020Au.toInt()
-
-public val TS_E_INVALIDPOINT: Hresult = 0x80040207u.toInt()
-
-public val TS_E_INVALIDPOS: Hresult = 0x80040200u.toInt()
-
-public val TS_E_NOINTERFACE: Hresult = 0x80040204u.toInt()
-
-public val TS_E_NOLAYOUT: Hresult = 0x80040206u.toInt()
-
-public val TS_E_NOLOCK: Hresult = 0x80040201u.toInt()
-
-public val TS_E_NOOBJECT: Hresult = 0x80040202u.toInt()
-
-public val TS_E_NOSELECTION: Hresult = 0x80040205u.toInt()
-
-public val TS_E_NOSERVICE: Hresult = 0x80040203u.toInt()
-
-public val TS_E_READONLY: Hresult = 0x80040209u.toInt()
-
-public val TS_E_SYNCHRONOUS: Hresult = 0x80040208u.toInt()
-
-public val TS_GEA_HIDDEN: UInt = 1u
-
-public val TS_GR_BACKWARD: TsGravity = 0
-
-public val TS_GR_FORWARD: TsGravity = 1
-
-public val TS_GTA_HIDDEN: UInt = 1u
-
-public val TS_IAS_NOQUERY: UInt = 1u
-
-public val TS_IAS_QUERYONLY: UInt = 2u
-
-public val TS_IE_COMPOSITION: UInt = 2u
-
-public val TS_IE_CORRECTION: UInt = 1u
-
-public val TS_LC_CHANGE: TsLayoutCode = 1
-
-public val TS_LC_CREATE: TsLayoutCode = 0
-
-public val TS_LC_DESTROY: TsLayoutCode = 2
-
-public val TS_LF_READ: TextStoreLockFlags = 2u
-
-public val TS_LF_READWRITE: TextStoreLockFlags = 6u
-
-public val TS_LF_SYNC: UInt = 1u
-
-public val TS_RT_HIDDEN: TsRunType = 1
-
-public val TS_RT_OPAQUE: TsRunType = 2
-
-public val TS_RT_PLAIN: TsRunType = 0
-
-public val TS_SD_BACKWARD: TsShiftDir = 0
-
-public val TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: UInt = 128u
-
-public val TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: UInt = 256u
-
-public val TS_SD_FORWARD: TsShiftDir = 1
-
-public val TS_SD_INPUTPANEMANUALDISPLAYENABLE: UInt = 64u
-
-public val TS_SD_LOADING: UInt = 2u
-
-public val TS_SD_READONLY: UInt = 1u
-
-public val TS_SD_RESERVED: UInt = 4u
-
-public val TS_SD_TKBAUTOCORRECTENABLE: UInt = 8u
-
-public val TS_SD_TKBPREDICTIONENABLE: UInt = 16u
-
-public val TS_SD_UIINTEGRATIONENABLE: UInt = 32u
-
-public val TS_SHIFT_COUNT_HIDDEN: UInt = 1u
-
-public val TS_SHIFT_COUNT_ONLY: UInt = 8u
-
-public val TS_SHIFT_HALT_HIDDEN: UInt = 2u
-
-public val TS_SHIFT_HALT_VISIBLE: UInt = 4u
-
-public val TS_SS_DISJOINTSEL: UInt = 1u
-
-public val TS_SS_NOHIDDENTEXT: UInt = 8u
-
-public val TS_SS_REGIONS: UInt = 2u
-
-public val TS_SS_TKBAUTOCORRECTENABLE: UInt = 16u
-
-public val TS_SS_TKBPREDICTIONENABLE: UInt = 32u
-
-public val TS_SS_TRANSITORY: UInt = 4u
-
-public val TS_SS_UWPCONTROL: UInt = 64u
-
-public val TS_STRF_END: UInt = 2u
-
-public val TS_STRF_MID: UInt = 1u
-
-public val TS_STRF_START: UInt = 0u
-
-public val TS_ST_CORRECTION: TextStoreTextChangeFlags = 1u
-
-public val TS_ST_NONE: TextStoreTextChangeFlags = 0u
-
-public val TS_S_ASYNC: Hresult = 0x40300u.toInt()
-
-public val TS_TC_CORRECTION: TextStoreChangeFlags = 1u
-
-public val TS_TC_NONE: TextStoreChangeFlags = 0u
-
-public val TS_VCOOKIE_NUL: UInt = 4294967295u

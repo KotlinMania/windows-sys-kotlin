@@ -537,14 +537,6 @@ public val DEVICE_STATE_NOTPRESENT: DeviceState = 4u
 
 public val DEVICE_STATE_UNPLUGGED: DeviceState = 8u
 
-public val DEVINTERFACE_AUDIO_CAPTURE: Guid = Guid.fromU128(U128(0x2eef81be33fa4800uL, 0x96701cd474972c3fuL))
-
-public val DEVINTERFACE_AUDIO_RENDER: Guid = Guid.fromU128(U128(0xe6327caddcec4949uL, 0xae8a991e976a79d2uL))
-
-public val DEVINTERFACE_MIDI_INPUT: Guid = Guid.fromU128(U128(0x504be32cccf64d2cuL, 0xb73f6f8b3747e22buL))
-
-public val DEVINTERFACE_MIDI_OUTPUT: Guid = Guid.fromU128(U128(0x6dc23320ab334ce4uL, 0x80d4bbb3ebbf2814uL))
-
 public val DRVM_MAPPER: UInt = 8192u
 
 public val DRVM_MAPPER_STATUS: UInt = 8192u
@@ -552,8 +544,6 @@ public val DRVM_MAPPER_STATUS: UInt = 8192u
 public val DRV_MAPPER_PREFERRED_INPUT_GET: UInt = 16384u
 
 public val DRV_MAPPER_PREFERRED_OUTPUT_GET: UInt = 16386u
-
-public val DEVICE_TOPOLOGY: Guid = Guid.fromU128(U128(0x1df639d05ec147aauL, 0x9379828dc1aa8c59uL))
 
 public val DIGITAL_AUDIO_DISPLAY_DEVICE: EndpointFormFactor = 9
 
@@ -584,8 +574,6 @@ public val ENDPOINT_SYSFX_DISABLED: UInt = 1u
 public val ENDPOINT_SYSFX_ENABLED: UInt = 0u
 
 public val E_ROLE_ENUM_COUNT: ERole = 3
-
-public val EVENTCONTEXT_VOLUMESLIDER: Guid = Guid.fromU128(U128(0xe2c2e9de09b14b04uL, 0x84e507931225ee04uL))
 
 public val ENDPOINT_FORM_FACTOR_ENUM_COUNT: EndpointFormFactor = 11
 
@@ -933,8 +921,6 @@ public val MIXER_SETCONTROLDETAILSF_VALUE: Int = 0
 
 public val MIXER_SHORT_NAME_CHARS: UInt = 16u
 
-public val MM_DEVICE_ENUMERATOR: Guid = Guid.fromU128(U128(0xbcde0395e52f467cuL, 0x8e3dc4579291692euL))
-
 public val MM_ACM_FILTERCHOOSE: UInt = 32768u
 
 public val MM_ACM_FORMATCHOOSE: UInt = 32768u
@@ -958,38 +944,6 @@ public val MICROPHONE: EndpointFormFactor = 4
 public val MUTED: AudioStateMonitorSoundLevel = 0
 
 public val OUT: DataFlow = 1
-
-public val PKEY_AUDIO_ENDPOINT_LOGO_ICON_EFFECTS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xf1ab780d20104ed3uL, 0xa3a68b87f0f0c476uL)), pid = 0u)
-
-public val PKEY_AUDIO_ENDPOINT_LOGO_ICON_PATH: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xf1ab780d20104ed3uL, 0xa3a68b87f0f0c476uL)), pid = 1u)
-
-public val PKEY_AUDIO_ENDPOINT_SETTINGS_LAUNCH_CONTRACT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1424200203204de4uL, 0x9555a7d82b73c286uL)), pid = 1u)
-
-public val PKEY_AUDIO_ENDPOINT_SETTINGS_MENU_TEXT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1424200203204de4uL, 0x9555a7d82b73c286uL)), pid = 0u)
-
-public val PKEY_AUDIO_ENDPOINT_ASSOCIATION: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 2u)
-
-public val PKEY_AUDIO_ENDPOINT_CONTROL_PANEL_PAGE_PROVIDER: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 1u)
-
-public val PKEY_AUDIO_ENDPOINT_DEFAULT_VOLUME_IN_DB: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 9u)
-
-public val PKEY_AUDIO_ENDPOINT_DISABLE_SYS_FX: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 5u)
-
-public val PKEY_AUDIO_ENDPOINT_FORM_FACTOR: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 0u)
-
-public val PKEY_AUDIO_ENDPOINT_FULL_RANGE_SPEAKERS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 6u)
-
-public val PKEY_AUDIO_ENDPOINT_GUID: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 4u)
-
-public val PKEY_AUDIO_ENDPOINT_JACK_SUB_TYPE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 8u)
-
-public val PKEY_AUDIO_ENDPOINT_PHYSICAL_SPEAKERS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 3u)
-
-public val PKEY_AUDIO_ENDPOINT_SUPPORTS_EVENT_DRIVEN_MODE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 7u)
-
-public val PKEY_AUDIO_ENGINE_DEVICE_FORMAT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xf19f064d082c4e27uL, 0xbc736882a1bb8e4cuL)), pid = 0u)
-
-public val PKEY_AUDIO_ENGINE_OEM_FORMAT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xe4870e263cc54cd2uL, 0xba46ca0a9a70ed04uL)), pid = 3u)
 
 public val PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: ProcessLoopbackMode = 1
 
@@ -1288,3 +1242,49 @@ public val E_CONSOLE: ERole = 0
 public val E_MULTIMEDIA: ERole = 1
 
 public val E_RENDER: EDataFlow = 0
+
+public val DEVINTERFACE_AUDIO_CAPTURE: Guid = Guid.fromU128(U128(0x2eef81be33fa4800uL, 0x96701cd474972c3fuL))
+
+public val DEVINTERFACE_AUDIO_RENDER: Guid = Guid.fromU128(U128(0xe6327caddcec4949uL, 0xae8a991e976a79d2uL))
+
+public val DEVINTERFACE_MIDI_INPUT: Guid = Guid.fromU128(U128(0x504be32cccf64d2cuL, 0xb73f6f8b3747e22buL))
+
+public val DEVINTERFACE_MIDI_OUTPUT: Guid = Guid.fromU128(U128(0x6dc23320ab334ce4uL, 0x80d4bbb3ebbf2814uL))
+
+public val DEVICE_TOPOLOGY: Guid = Guid.fromU128(U128(0x1df639d05ec147aauL, 0x9379828dc1aa8c59uL))
+
+public val EVENTCONTEXT_VOLUMESLIDER: Guid = Guid.fromU128(U128(0xe2c2e9de09b14b04uL, 0x84e507931225ee04uL))
+
+public val MM_DEVICE_ENUMERATOR: Guid = Guid.fromU128(U128(0xbcde0395e52f467cuL, 0x8e3dc4579291692euL))
+
+public val PKEY_AUDIO_ENDPOINT_LOGO_ICON_EFFECTS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xf1ab780d20104ed3uL, 0xa3a68b87f0f0c476uL)), pid = 0u)
+
+public val PKEY_AUDIO_ENDPOINT_LOGO_ICON_PATH: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xf1ab780d20104ed3uL, 0xa3a68b87f0f0c476uL)), pid = 1u)
+
+public val PKEY_AUDIO_ENDPOINT_SETTINGS_LAUNCH_CONTRACT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1424200203204de4uL, 0x9555a7d82b73c286uL)), pid = 1u)
+
+public val PKEY_AUDIO_ENDPOINT_SETTINGS_MENU_TEXT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1424200203204de4uL, 0x9555a7d82b73c286uL)), pid = 0u)
+
+public val PKEY_AUDIO_ENDPOINT_ASSOCIATION: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 2u)
+
+public val PKEY_AUDIO_ENDPOINT_CONTROL_PANEL_PAGE_PROVIDER: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 1u)
+
+public val PKEY_AUDIO_ENDPOINT_DEFAULT_VOLUME_IN_DB: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 9u)
+
+public val PKEY_AUDIO_ENDPOINT_DISABLE_SYS_FX: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 5u)
+
+public val PKEY_AUDIO_ENDPOINT_FORM_FACTOR: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 0u)
+
+public val PKEY_AUDIO_ENDPOINT_FULL_RANGE_SPEAKERS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 6u)
+
+public val PKEY_AUDIO_ENDPOINT_GUID: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 4u)
+
+public val PKEY_AUDIO_ENDPOINT_JACK_SUB_TYPE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 8u)
+
+public val PKEY_AUDIO_ENDPOINT_PHYSICAL_SPEAKERS: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 3u)
+
+public val PKEY_AUDIO_ENDPOINT_SUPPORTS_EVENT_DRIVEN_MODE: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL)), pid = 7u)
+
+public val PKEY_AUDIO_ENGINE_DEVICE_FORMAT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xf19f064d082c4e27uL, 0xbc736882a1bb8e4cuL)), pid = 0u)
+
+public val PKEY_AUDIO_ENGINE_OEM_FORMAT: Propertykey = Propertykey(fmtid = Guid.fromU128(U128(0xe4870e263cc54cd2uL, 0xba46ca0a9a70ed04uL)), pid = 3u)

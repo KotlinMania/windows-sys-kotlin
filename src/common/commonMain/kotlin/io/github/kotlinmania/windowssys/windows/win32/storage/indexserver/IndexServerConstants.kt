@@ -88,8 +88,6 @@ public val CI_VERSION_WDS40: UInt = 265u
 
 public val CI_VERSION_WIN70: UInt = 1792u
 
-public val CLSID_INDEX_SERVER_DSO: Guid = Guid.fromU128(U128(0xf9ae89807e5211d0uL, 0x896400c04fd611d7uL))
-
 public val DBKIND_GUID: Dbkindenum = 6
 
 public val DBKIND_GUID_NAME: Dbkindenum = 0
@@ -103,16 +101,6 @@ public val DBKIND_PGUID_NAME: Dbkindenum = 3
 public val DBKIND_PGUID_PROPID: Dbkindenum = 4
 
 public val DBKIND_PROPID: Dbkindenum = 5
-
-public val DBPROPSET_CIFRMWRKCORE_EXT: Guid = Guid.fromU128(U128(0xafafaca5b5d111d0uL, 0x8c6200c04fc2db8duL))
-
-public val DBPROPSET_FSCIFRMWRK_EXT: Guid = Guid.fromU128(U128(0xa9bd15266a8011d0uL, 0x8c9d0020af1d740euL))
-
-public val DBPROPSET_MSIDXS_ROWSETEXT: Guid = Guid.fromU128(U128(0xaa6ee6b0e82811d0uL, 0xb23e00aa0047fc01uL))
-
-public val DBPROPSET_QUERYEXT: Guid = Guid.fromU128(U128(0xa7ac77edf8d711ceuL, 0xa7980020f8008025uL))
-
-public val DBPROPSET_SESS_QUERYEXT: Guid = Guid.fromU128(U128(0x636233092d8b4d17uL, 0xb1526e2956c26a70uL))
 
 public val DBPROP_APPLICATION_NAME: UInt = 11u
 
@@ -294,8 +282,6 @@ public val PROXIMITY_UNIT_SENTENCE: UInt = 1u
 
 public val PROXIMITY_UNIT_WORD: UInt = 0u
 
-public val PSGUID_FILENAME: Guid = Guid.fromU128(U128(0x41cf5ae0f75a4806uL, 0xbd8759c7d9248eb9uL))
-
 public val QUERY_DEEP: UInt = 1u
 
 public val QUERY_PHYSICAL_PATH: UInt = 0u
@@ -363,3 +349,17 @@ public val WORDREP_BREAK_EOP: WordrepBreakType = 2
 public val WORDREP_BREAK_EOS: WordrepBreakType = 1
 
 public val WORDREP_BREAK_EOW: WordrepBreakType = 0
+
+public val CLSID_INDEX_SERVER_DSO: Guid = Guid.fromU128(U128(0xf9ae89807e5211d0uL, 0x896400c04fd611d7uL))
+
+public val DBPROPSET_CIFRMWRKCORE_EXT: Guid = Guid.fromU128(U128(0xafafaca5b5d111d0uL, 0x8c6200c04fc2db8duL))
+
+public val DBPROPSET_FSCIFRMWRK_EXT: Guid = Guid.fromU128(U128(0xa9bd15266a8011d0uL, 0x8c9d0020af1d740euL))
+
+public val DBPROPSET_MSIDXS_ROWSETEXT: Guid = Guid.fromU128(U128(0xaa6ee6b0e82811d0uL, 0xb23e00aa0047fc01uL))
+
+public val DBPROPSET_QUERYEXT: Guid = Guid.fromU128(U128(0xa7ac77edf8d711ceuL, 0xa7980020f8008025uL))
+
+public val DBPROPSET_SESS_QUERYEXT: Guid = Guid.fromU128(U128(0x636233092d8b4d17uL, 0xb1526e2956c26a70uL))
+
+public val PSGUID_FILENAME: Guid = Guid.fromU128(U128(0x41cf5ae0f75a4806uL, 0xbd8759c7d9248eb9uL))

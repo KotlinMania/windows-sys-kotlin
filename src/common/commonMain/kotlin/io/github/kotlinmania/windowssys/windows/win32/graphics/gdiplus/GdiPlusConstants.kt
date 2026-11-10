@@ -27,10 +27,6 @@ public val ADJUST_WHITE_SATURATION: CurveAdjustments = 6
 
 public val BLUE_SHIFT: UInt = 0u
 
-public val BLUR_EFFECT_GUID: Guid = Guid.fromU128(U128(0x633c80a41843482buL, 0x9ef2be2834c5fdd4uL))
-
-public val BRIGHTNESS_CONTRAST_EFFECT_GUID: Guid = Guid.fromU128(U128(0xd3a1dbe18ec44c17uL, 0x9f4cea97ad1c343duL))
-
 public val BRUSH_TYPE_HATCH_FILL: BrushType = 1
 
 public val BRUSH_TYPE_LINEAR_GRADIENT: BrushType = 4
@@ -40,8 +36,6 @@ public val BRUSH_TYPE_PATH_GRADIENT: BrushType = 3
 public val BRUSH_TYPE_SOLID_COLOR: BrushType = 0
 
 public val BRUSH_TYPE_TEXTURE_FILL: BrushType = 2
-
-public val CODEC_I_IMAGE_BYTES: Guid = Guid.fromU128(U128(0x25d18236c7d447buL, 0xbbdba3cbc3dfa2fcuL))
 
 public val COLOR_ADJUST_TYPE_ANY: ColorAdjustType = 6
 
@@ -57,8 +51,6 @@ public val COLOR_ADJUST_TYPE_PEN: ColorAdjustType = 3
 
 public val COLOR_ADJUST_TYPE_TEXT: ColorAdjustType = 4
 
-public val COLOR_BALANCE_EFFECT_GUID: Guid = Guid.fromU128(U128(0x537e597d251e48dauL, 0x966429ca496b70f8uL))
-
 public val COLOR_CHANNEL_FLAGS_C: ColorChannelFlags = 0
 
 public val COLOR_CHANNEL_FLAGS_K: ColorChannelFlags = 3
@@ -68,12 +60,6 @@ public val COLOR_CHANNEL_FLAGS_LAST: ColorChannelFlags = 4
 public val COLOR_CHANNEL_FLAGS_M: ColorChannelFlags = 1
 
 public val COLOR_CHANNEL_FLAGS_Y: ColorChannelFlags = 2
-
-public val COLOR_CURVE_EFFECT_GUID: Guid = Guid.fromU128(U128(0xdd6a002258e44a67uL, 0x9d9bd48eb881a53duL))
-
-public val COLOR_LUT_EFFECT_GUID: Guid = Guid.fromU128(U128(0xa7ce72a90f7f40d7uL, 0xb3ccd0c02d5c3212uL))
-
-public val COLOR_MATRIX_EFFECT_GUID: Guid = Guid.fromU128(U128(0x718f2615793340e3uL, 0xa5115f68fe14dd74uL))
 
 public val COLOR_MATRIX_FLAGS_ALT_GRAY: ColorMatrixFlags = 2
 
@@ -577,18 +563,6 @@ public val EMF_TYPE_EMF_PLUS_DUAL: EmfType = 5
 
 public val EMF_TYPE_EMF_PLUS_ONLY: EmfType = 4
 
-public val ENCODER_CHROMINANCE_TABLE: Guid = Guid.fromU128(U128(0xf2e455dc09b34316uL, 0x8260676ada32481cuL))
-
-public val ENCODER_COLOR_DEPTH: Guid = Guid.fromU128(U128(0x66087055ad664c7cuL, 0x9a1838a2310b8337uL))
-
-public val ENCODER_COLOR_SPACE: Guid = Guid.fromU128(U128(0xae7a62a0ee2c49d8uL, 0x9d071ba8a927596euL))
-
-public val ENCODER_COMPRESSION: Guid = Guid.fromU128(U128(0xe09d739dccd444eeuL, 0x8eba3fbf8be4fc58uL))
-
-public val ENCODER_IMAGE_ITEMS: Guid = Guid.fromU128(U128(0x63875e131f1d45abuL, 0x9195a29b6066a650uL))
-
-public val ENCODER_LUMINANCE_TABLE: Guid = Guid.fromU128(U128(0xedb33bce02664a77uL, 0xb90427216099e717uL))
-
 public val ENCODER_PARAMETER_VALUE_TYPE_ASCII: EncoderParameterValueType = 2
 
 public val ENCODER_PARAMETER_VALUE_TYPE_BYTE: EncoderParameterValueType = 1
@@ -606,18 +580,6 @@ public val ENCODER_PARAMETER_VALUE_TYPE_RATIONAL_RANGE: EncoderParameterValueTyp
 public val ENCODER_PARAMETER_VALUE_TYPE_SHORT: EncoderParameterValueType = 3
 
 public val ENCODER_PARAMETER_VALUE_TYPE_UNDEFINED: EncoderParameterValueType = 7
-
-public val ENCODER_QUALITY: Guid = Guid.fromU128(U128(0x1d5be4b5fa4a452duL, 0x9cdd5db35105e7ebuL))
-
-public val ENCODER_RENDER_METHOD: Guid = Guid.fromU128(U128(0x6d42c53a229a4825uL, 0x8bb75c99e2b9a8b8uL))
-
-public val ENCODER_SAVE_AS_CMYK: Guid = Guid.fromU128(U128(0xa219bbc90a9d4005uL, 0xa3ee3a421b8bb06cuL))
-
-public val ENCODER_SAVE_FLAG: Guid = Guid.fromU128(U128(0x292266fcac4047bfuL, 0x8cfca85b89a655deuL))
-
-public val ENCODER_SCAN_METHOD: Guid = Guid.fromU128(U128(0x3a4e266131094e56uL, 0x853642c156e7dcfauL))
-
-public val ENCODER_TRANSFORMATION: Guid = Guid.fromU128(U128(0x8d0eb2d1a58e4ea8uL, 0xaa14108074b7b6f9uL))
 
 public val ENCODER_VALUE_COLOR_TYPE_CMYK: EncoderValue = 0
 
@@ -671,8 +633,6 @@ public val ENCODER_VALUE_VERSION_GIF87: EncoderValue = 9
 
 public val ENCODER_VALUE_VERSION_GIF89: EncoderValue = 10
 
-public val ENCODER_VERSION: Guid = Guid.fromU128(U128(0x24d18c76814a41a4uL, 0xbf531c219cccf797uL))
-
 public val FILE_NOT_FOUND: Status = 10
 
 public val FILL_MODE_ALTERNATE: FillMode = 0
@@ -700,16 +660,6 @@ public val FONT_STYLE_REGULAR: FontStyle = 0
 public val FONT_STYLE_STRIKEOUT: FontStyle = 8
 
 public val FONT_STYLE_UNDERLINE: FontStyle = 4
-
-public val FORMAT_ID_IMAGE_INFORMATION: Guid = Guid.fromU128(U128(0xe5836cbe5eef4f1duL, 0xacdeae4c43b608ceuL))
-
-public val FORMAT_ID_JPEG_APP_HEADERS: Guid = Guid.fromU128(U128(0x1c4afdcd617743cfuL, 0xabc75f51af39ee85uL))
-
-public val FRAME_DIMENSION_PAGE: Guid = Guid.fromU128(U128(0x7462dc8661804c7euL, 0x8e3fee7333a7a483uL))
-
-public val FRAME_DIMENSION_RESOLUTION: Guid = Guid.fromU128(U128(0x84236f7b3bd3428fuL, 0x8dab4ea1439ca315uL))
-
-public val FRAME_DIMENSION_TIME: Guid = Guid.fromU128(U128(0x6aedbd6d3fb5418auL, 0x83a67f45229dc872uL))
 
 public val GDIP_EMFPLUSFLAGS_DISPLAY: UInt = 1u
 
@@ -873,8 +823,6 @@ public val HOTKEY_PREFIX_NONE: HotkeyPrefix = 0
 
 public val HOTKEY_PREFIX_SHOW: HotkeyPrefix = 1
 
-public val HUE_SATURATION_LIGHTNESS_EFFECT_GUID: Guid = Guid.fromU128(U128(0x8b2dd6c3eb074d87uL, 0xa5f07108e26a9c5fuL))
-
 public val IMAGE_CODEC_FLAGS_BLOCKING_DECODE: ImageCodecFlags = 32
 
 public val IMAGE_CODEC_FLAGS_BUILTIN: ImageCodecFlags = 65536
@@ -921,32 +869,6 @@ public val IMAGE_FLAGS_READ_ONLY: ImageFlags = 65536
 
 public val IMAGE_FLAGS_SCALABLE: ImageFlags = 1
 
-public val IMAGE_FORMAT_BMP: Guid = Guid.fromU128(U128(0xb96b3cab072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_EMF: Guid = Guid.fromU128(U128(0xb96b3cac072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_EXIF: Guid = Guid.fromU128(U128(0xb96b3cb2072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_GIF: Guid = Guid.fromU128(U128(0xb96b3cb0072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_HEIF: Guid = Guid.fromU128(U128(0xb96b3cb6072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_ICON: Guid = Guid.fromU128(U128(0xb96b3cb5072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_JPEG: Guid = Guid.fromU128(U128(0xb96b3cae072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_MEMORY_BMP: Guid = Guid.fromU128(U128(0xb96b3caa072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_PNG: Guid = Guid.fromU128(U128(0xb96b3caf072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_TIFF: Guid = Guid.fromU128(U128(0xb96b3cb1072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_UNDEFINED: Guid = Guid.fromU128(U128(0xb96b3ca9072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_WEBP: Guid = Guid.fromU128(U128(0xb96b3cb7072811d3uL, 0x9d7b0000f81ef32euL))
-
-public val IMAGE_FORMAT_WMF: Guid = Guid.fromU128(U128(0xb96b3cad072811d3uL, 0x9d7b0000f81ef32euL))
-
 public val IMAGE_LOCK_MODE_READ: ImageLockMode = 1
 
 public val IMAGE_LOCK_MODE_USER_INPUT_BUF: ImageLockMode = 4
@@ -986,8 +908,6 @@ public val ITEM_DATA_POSITION_AFTER_BITS: ItemDataPosition = 2
 public val ITEM_DATA_POSITION_AFTER_HEADER: ItemDataPosition = 0
 
 public val ITEM_DATA_POSITION_AFTER_PALETTE: ItemDataPosition = 1
-
-public val LEVELS_EFFECT_GUID: Guid = Guid.fromU128(U128(0x99c354ec2a314f3auL, 0x8c3417a803b33a25uL))
 
 public val LINE_CAP_ANCHOR_MASK: LineCap = 240
 
@@ -1681,8 +1601,6 @@ public val QUALITY_MODE_LOW: QualityMode = 1
 
 public val RED_SHIFT: UInt = 16u
 
-public val RED_EYE_CORRECTION_EFFECT_GUID: Guid = Guid.fromU128(U128(0x74d29d0569a44266uL, 0x95493cc52836b632uL))
-
 public val ROTATE180FLIP_NONE: RotateFlipType = 2
 
 public val ROTATE180FLIP_X: RotateFlipType = 6
@@ -1714,8 +1632,6 @@ public val ROTATE_NONE_FLIP_X: RotateFlipType = 4
 public val ROTATE_NONE_FLIP_XY: RotateFlipType = 2
 
 public val ROTATE_NONE_FLIP_Y: RotateFlipType = 6
-
-public val SHARPEN_EFFECT_GUID: Guid = Guid.fromU128(U128(0x63cbf3eec526402cuL, 0x8f7162c540bf5142uL))
 
 public val SMOOTHING_MODE_ANTI_ALIAS: SmoothingMode = 4
 
@@ -1796,8 +1712,6 @@ public val TEXT_RENDERING_HINT_SINGLE_BIT_PER_PIXEL: TextRenderingHint = 2
 public val TEXT_RENDERING_HINT_SINGLE_BIT_PER_PIXEL_GRID_FIT: TextRenderingHint = 1
 
 public val TEXT_RENDERING_HINT_SYSTEM_DEFAULT: TextRenderingHint = 0
-
-public val TINT_EFFECT_GUID: Guid = Guid.fromU128(U128(0x1077af0028484441uL, 0x948944ad4c2d7a2cuL))
 
 public val UNIT_DISPLAY: Unit = 1
 
@@ -1994,3 +1908,89 @@ public val WRAP_MODE_TILE_FLIP_XY: WrapMode = 3
 public val WRAP_MODE_TILE_FLIP_Y: WrapMode = 2
 
 public val WRONG_STATE: Status = 8
+
+public val BLUR_EFFECT_GUID: Guid = Guid.fromU128(U128(0x633c80a41843482buL, 0x9ef2be2834c5fdd4uL))
+
+public val BRIGHTNESS_CONTRAST_EFFECT_GUID: Guid = Guid.fromU128(U128(0xd3a1dbe18ec44c17uL, 0x9f4cea97ad1c343duL))
+
+public val CODEC_I_IMAGE_BYTES: Guid = Guid.fromU128(U128(0x25d18236c7d447buL, 0xbbdba3cbc3dfa2fcuL))
+
+public val COLOR_BALANCE_EFFECT_GUID: Guid = Guid.fromU128(U128(0x537e597d251e48dauL, 0x966429ca496b70f8uL))
+
+public val COLOR_CURVE_EFFECT_GUID: Guid = Guid.fromU128(U128(0xdd6a002258e44a67uL, 0x9d9bd48eb881a53duL))
+
+public val COLOR_LUT_EFFECT_GUID: Guid = Guid.fromU128(U128(0xa7ce72a90f7f40d7uL, 0xb3ccd0c02d5c3212uL))
+
+public val COLOR_MATRIX_EFFECT_GUID: Guid = Guid.fromU128(U128(0x718f2615793340e3uL, 0xa5115f68fe14dd74uL))
+
+public val ENCODER_CHROMINANCE_TABLE: Guid = Guid.fromU128(U128(0xf2e455dc09b34316uL, 0x8260676ada32481cuL))
+
+public val ENCODER_COLOR_DEPTH: Guid = Guid.fromU128(U128(0x66087055ad664c7cuL, 0x9a1838a2310b8337uL))
+
+public val ENCODER_COLOR_SPACE: Guid = Guid.fromU128(U128(0xae7a62a0ee2c49d8uL, 0x9d071ba8a927596euL))
+
+public val ENCODER_COMPRESSION: Guid = Guid.fromU128(U128(0xe09d739dccd444eeuL, 0x8eba3fbf8be4fc58uL))
+
+public val ENCODER_IMAGE_ITEMS: Guid = Guid.fromU128(U128(0x63875e131f1d45abuL, 0x9195a29b6066a650uL))
+
+public val ENCODER_LUMINANCE_TABLE: Guid = Guid.fromU128(U128(0xedb33bce02664a77uL, 0xb90427216099e717uL))
+
+public val ENCODER_QUALITY: Guid = Guid.fromU128(U128(0x1d5be4b5fa4a452duL, 0x9cdd5db35105e7ebuL))
+
+public val ENCODER_RENDER_METHOD: Guid = Guid.fromU128(U128(0x6d42c53a229a4825uL, 0x8bb75c99e2b9a8b8uL))
+
+public val ENCODER_SAVE_AS_CMYK: Guid = Guid.fromU128(U128(0xa219bbc90a9d4005uL, 0xa3ee3a421b8bb06cuL))
+
+public val ENCODER_SAVE_FLAG: Guid = Guid.fromU128(U128(0x292266fcac4047bfuL, 0x8cfca85b89a655deuL))
+
+public val ENCODER_SCAN_METHOD: Guid = Guid.fromU128(U128(0x3a4e266131094e56uL, 0x853642c156e7dcfauL))
+
+public val ENCODER_TRANSFORMATION: Guid = Guid.fromU128(U128(0x8d0eb2d1a58e4ea8uL, 0xaa14108074b7b6f9uL))
+
+public val ENCODER_VERSION: Guid = Guid.fromU128(U128(0x24d18c76814a41a4uL, 0xbf531c219cccf797uL))
+
+public val FORMAT_ID_IMAGE_INFORMATION: Guid = Guid.fromU128(U128(0xe5836cbe5eef4f1duL, 0xacdeae4c43b608ceuL))
+
+public val FORMAT_ID_JPEG_APP_HEADERS: Guid = Guid.fromU128(U128(0x1c4afdcd617743cfuL, 0xabc75f51af39ee85uL))
+
+public val FRAME_DIMENSION_PAGE: Guid = Guid.fromU128(U128(0x7462dc8661804c7euL, 0x8e3fee7333a7a483uL))
+
+public val FRAME_DIMENSION_RESOLUTION: Guid = Guid.fromU128(U128(0x84236f7b3bd3428fuL, 0x8dab4ea1439ca315uL))
+
+public val FRAME_DIMENSION_TIME: Guid = Guid.fromU128(U128(0x6aedbd6d3fb5418auL, 0x83a67f45229dc872uL))
+
+public val HUE_SATURATION_LIGHTNESS_EFFECT_GUID: Guid = Guid.fromU128(U128(0x8b2dd6c3eb074d87uL, 0xa5f07108e26a9c5fuL))
+
+public val IMAGE_FORMAT_BMP: Guid = Guid.fromU128(U128(0xb96b3cab072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_EMF: Guid = Guid.fromU128(U128(0xb96b3cac072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_EXIF: Guid = Guid.fromU128(U128(0xb96b3cb2072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_GIF: Guid = Guid.fromU128(U128(0xb96b3cb0072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_HEIF: Guid = Guid.fromU128(U128(0xb96b3cb6072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_ICON: Guid = Guid.fromU128(U128(0xb96b3cb5072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_JPEG: Guid = Guid.fromU128(U128(0xb96b3cae072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_MEMORY_BMP: Guid = Guid.fromU128(U128(0xb96b3caa072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_PNG: Guid = Guid.fromU128(U128(0xb96b3caf072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_TIFF: Guid = Guid.fromU128(U128(0xb96b3cb1072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_UNDEFINED: Guid = Guid.fromU128(U128(0xb96b3ca9072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_WEBP: Guid = Guid.fromU128(U128(0xb96b3cb7072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val IMAGE_FORMAT_WMF: Guid = Guid.fromU128(U128(0xb96b3cad072811d3uL, 0x9d7b0000f81ef32euL))
+
+public val LEVELS_EFFECT_GUID: Guid = Guid.fromU128(U128(0x99c354ec2a314f3auL, 0x8c3417a803b33a25uL))
+
+public val RED_EYE_CORRECTION_EFFECT_GUID: Guid = Guid.fromU128(U128(0x74d29d0569a44266uL, 0x95493cc52836b632uL))
+
+public val SHARPEN_EFFECT_GUID: Guid = Guid.fromU128(U128(0x63cbf3eec526402cuL, 0x8f7162c540bf5142uL))
+
+public val TINT_EFFECT_GUID: Guid = Guid.fromU128(U128(0x1077af0028484441uL, 0x948944ad4c2d7a2cuL))

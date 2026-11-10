@@ -1,8 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.Guid
-
 public val ACPI_BUS: InterfaceType = 17
 
 public val ADAPTER_INFO_API_BYPASS: UInt = 2u
@@ -26,8 +23,6 @@ public val ARBITER_FLAG_ROOT_ENUM: UInt = 2u
 public val ARBITER_PARTIAL: UInt = 1u
 
 public val ARM64_PCR_RESERVED_MASK: UInt = 4095u
-
-public val ARM_PROCESSOR_ERROR_SECTION_GUID: Guid = Guid.fromU128(U128(0xe19e3d16bc1111e4uL, 0x9caac2051d5d46b0uL))
 
 public val ATS_DEVICE_SVM_OPTOUT: UInt = 1u
 
@@ -96,10 +91,6 @@ public val ARC_SYSTEM: ConfigurationType = 0
 public val ASSIGN_SECURITY_DESCRIPTOR: SecurityOperationCode = 3
 
 public val AUDIO_CONTROLLER: ConfigurationType = 23
-
-public val BMC_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x487565ba64944367uL, 0x95ca4eff893522f6uL))
-
-public val BOOT_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x3d61a466ab40409auL, 0xa698f362d464b38fuL))
 
 public val BACKGROUND_WORK_QUEUE: WorkQueueType = 4
 
@@ -182,10 +173,6 @@ public val CLOCK2_LEVEL: UInt = 28u
 public val CLOCK_LEVEL: UInt = 28u
 
 public val CMCI_LEVEL: UInt = 5u
-
-public val CMCI_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x919448b237394b7fuL, 0xa8f1e0062805c2a3uL))
-
-public val CMC_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x2dce8bb1bdd7450euL, 0xb9ad9cf4ebd4f890uL))
 
 public val CM_RESOURCE_CONNECTION_CLASS_FUNCTION_CONFIG: UInt = 3u
 
@@ -304,10 +291,6 @@ public val CONNECT_MESSAGE_BASED: UInt = 3u
 public val CONNECT_MESSAGE_BASED_PASSIVE: UInt = 5u
 
 public val CP15_PCR_RESERVED_MASK: UInt = 4095u
-
-public val CPER_EMPTY_GUID: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
-
-public val CPE_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x4e292f96d8434a55uL, 0xa8c2d481f27ebeeeuL))
 
 public val CP_GET_ERROR: UInt = 2u
 
@@ -455,8 +438,6 @@ public val DBG_STATUS_SYSRQ: UInt = 2u
 
 public val DBG_STATUS_WORKER: UInt = 7u
 
-public val DEFAULT_DEVICE_DRIVER_CREATOR_GUID: Guid = Guid.fromU128(U128(0x57217c8d5e6644fbuL, 0x80339b74cacedf5buL))
-
 public val DEVICE_DESCRIPTION_VERSION: UInt = 0u
 
 public val DEVICE_DESCRIPTION_VERSION1: UInt = 1u
@@ -464,8 +445,6 @@ public val DEVICE_DESCRIPTION_VERSION1: UInt = 1u
 public val DEVICE_DESCRIPTION_VERSION2: UInt = 2u
 
 public val DEVICE_DESCRIPTION_VERSION3: UInt = 3u
-
-public val DEVICE_DRIVER_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x33f8032e704e88uL, 0x992c6f26daf3db7auL))
 
 public val DEVICE_INTERFACE_INCLUDE_NONACTIVE: UInt = 1u
 
@@ -757,19 +736,7 @@ public val ERROR_LOG_LIMIT_SIZE: UInt = 240u
 
 public val ERROR_MAJOR_REVISION_SAL_03_00: UInt = 0u
 
-public val ERROR_MEMORY_GUID: Guid = Guid.fromU128(U128(0xe429faf23cb711d4uL, 0xbca70080c73c8881uL))
-
 public val ERROR_MINOR_REVISION_SAL_03_00: UInt = 2u
-
-public val ERROR_PCI_BUS_GUID: Guid = Guid.fromU128(U128(0xe429faf43cb711d4uL, 0xbca70080c73c8881uL))
-
-public val ERROR_PCI_COMPONENT_GUID: Guid = Guid.fromU128(U128(0xe429faf63cb711d4uL, 0xbca70080c73c8881uL))
-
-public val ERROR_PLATFORM_BUS_GUID: Guid = Guid.fromU128(U128(0xe429faf93cb711d4uL, 0xbca70080c73c8881uL))
-
-public val ERROR_PLATFORM_HOST_CONTROLLER_GUID: Guid = Guid.fromU128(U128(0xe429faf83cb711d4uL, 0xbca70080c73c8881uL))
-
-public val ERROR_PLATFORM_SPECIFIC_GUID: Guid = Guid.fromU128(U128(0xe429faf73cb711d4uL, 0xbca70080c73c8881uL))
 
 public val ERROR_PROCESSOR_STATE_PARAMETER_BUS_CHECK_MASK: UInt = 1u
 
@@ -794,10 +761,6 @@ public val ERROR_PROCESSOR_STATE_PARAMETER_TLB_CHECK_SHIFT: UInt = 60u
 public val ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_MASK: UInt = 1u
 
 public val ERROR_PROCESSOR_STATE_PARAMETER_UNKNOWN_CHECK_SHIFT: UInt = 63u
-
-public val ERROR_SMBIOS_GUID: Guid = Guid.fromU128(U128(0xe429faf53cb711d4uL, 0xbca70080c73c8881uL))
-
-public val ERROR_SYSTEM_EVENT_LOG_GUID: Guid = Guid.fromU128(U128(0xe429faf33cb711d4uL, 0xbca70080c73c8881uL))
 
 public val ERRTYP_BUS: UInt = 16u
 
@@ -876,8 +839,6 @@ public val EXCEPTION_SOFTWARE_ORIGINATE: UInt = 128u
 public val EXCEPTION_STACK_FAULT: UInt = 12u
 
 public val EXCEPTION_VIRTUALIZATION_FAULT: UInt = 32u
-
-public val EXTINT_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0xfe84086eb55743cfuL, 0xac1b17982e078470uL))
 
 public val EX_CARR_ALLOCATE_NONPAGED_POOL: UInt = 1u
 
@@ -1031,8 +992,6 @@ public val FILE_WRITE_ONCE_MEDIA: UInt = 8u
 
 public val FILE_WRITE_TO_END_OF_FILE: UInt = 4294967295u
 
-public val FIRMWARE_ERROR_RECORD_REFERENCE_GUID: Guid = Guid.fromU128(U128(0x81212a9609ed4996uL, 0x94718d729c8e69eduL))
-
 public val FLAG_OWNER_POINTER_IS_THREAD: UInt = 1u
 
 public val FLUSH_MULTIPLE_MAXIMUM: UInt = 32u
@@ -1179,10 +1138,6 @@ public val FREE_PAGE: KwaitReason = 1
 
 public val FUNCTION_LEVEL_DEVICE_RESET: DeviceResetType = 0
 
-public val GENERIC_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x3e62a467ab40409auL, 0xa698f362d464b38fuL))
-
-public val GENERIC_SECTION_GUID: Guid = Guid.fromU128(U128(0xe71254e8c1b94940uL, 0xab76909703a4320fuL))
-
 public val GENPROC_FLAGS_CORRECTED: UInt = 8u
 
 public val GENPROC_FLAGS_OVERFLOW: UInt = 4u
@@ -1224,8 +1179,6 @@ public val GENPROC_PROCTYPE_ARM: UInt = 2u
 public val GENPROC_PROCTYPE_IPF: UInt = 1u
 
 public val GENPROC_PROCTYPE_XPF: UInt = 0u
-
-public val GUID_ECP_CREATE_USER_PROCESS: Guid = Guid.fromU128(U128(0xe0e429ff6ddc4e65uL, 0xaab645d05a038a08uL))
 
 public val GART_HIGH: ExtendedAgpRegister = 5
 
@@ -1461,8 +1414,6 @@ public val IMAGE_ADDRESSING_MODE_32BIT: UInt = 3u
 
 public val INITIAL_PRIVILEGE_COUNT: UInt = 3u
 
-public val INIT_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0xcc5263e89308454auL, 0x89d0340bd39bc98euL))
-
 public val INJECT_ERRTYPE_MEMORY_CORRECTABLE: UInt = 8u
 
 public val INJECT_ERRTYPE_MEMORY_UNCORRECTABLEFATAL: UInt = 32u
@@ -1611,11 +1562,7 @@ public val IO_TYPE_VPB: UInt = 10u
 
 public val IO_VIDEO_INCREMENT: UInt = 1u
 
-public val IPF_SAL_RECORD_SECTION_GUID: Guid = Guid.fromU128(U128(0x6f3380d16eb0497fuL, 0xa5784d4c65a71617uL))
-
 public val IPI_LEVEL: UInt = 29u
-
-public val IPMI_MSR_DUMP_SECTION_GUID: Guid = Guid.fromU128(U128(0x1c15b4459b064667uL, 0xac2533c056b88803uL))
 
 public val IRP_ALLOCATED_FIXED_SIZE: UInt = 4u
 
@@ -2233,8 +2180,6 @@ public val MAX_EVENT_COUNTERS: UInt = 31u
 
 public val MCA_EXTREG_V2MAX: UInt = 24u
 
-public val MCE_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0xe8f56ffe919c4cc5uL, 0xba8865abe14913bbuL))
-
 public val MDL_ALLOCATED_FIXED_SIZE: UInt = 8u
 
 public val MDL_DESCRIBES_AWE: UInt = 1024u
@@ -2246,10 +2191,6 @@ public val MDL_INTERNAL: UInt = 32768u
 public val MDL_LOCKED_PAGE_TABLES: UInt = 256u
 
 public val MDL_PAGE_CONTENTS_INVARIANT: UInt = 16384u
-
-public val MEMORY_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: Guid = Guid.fromU128(U128(0xe36c93eca154a83uL, 0xba8acbe80f7f0017uL))
-
-public val MEMORY_ERROR_SECTION_GUID: Guid = Guid.fromU128(U128(0xa5bc11146f644edeuL, 0xb8633e83ed7c83b1uL))
 
 public val MEM_COMMIT: UInt = 4096u
 
@@ -2354,8 +2295,6 @@ public val MPSA_CONFIGURATION: BusDataType = 9
 public val MRL_CLOSED: PciExpressMrlState = 0
 
 public val MRL_OPEN: PciExpressMrlState = 1
-
-public val MU_TELEMETRY_SECTION_GUID: Guid = Guid.fromU128(U128(0x85183a8b9c41429cuL, 0x939c5c3c087ca280uL))
 
 public val MAP_PHYSICAL_ADDRESS_TYPE_CONTIGUOUS_RANGE: IommuMapPhysicalAddressType = 1
 
@@ -2603,10 +2542,6 @@ public val MULTI_FUNCTION_ADAPTER: ConfigurationType = 12
 
 public val NEC98X86: AlternativeArchitectureType = 1
 
-public val NMI_NOTIFY_TYPE_GUID: Guid = Guid.fromU128(U128(0x5bad89ffb7e642c9uL, 0x814acf2485d6e98auL))
-
-public val NMI_SECTION_GUID: Guid = Guid.fromU128(U128(0xe71254e7c1b94940uL, 0xab76909703a4320fuL))
-
 public val NPEM_CONTROL_INTERFACE_CURRENT_VERSION: UInt = 2u
 
 public val NPEM_CONTROL_INTERFACE_VERSION1: UInt = 1u
@@ -2757,12 +2692,6 @@ public val PCI_BUS: InterfaceType = 5
 
 public val PCI_CONFIGURATION: BusDataType = 4
 
-public val PCIEXPRESS_ERROR_SECTION_GUID: Guid = Guid.fromU128(U128(0xd995e954bbc1430fuL, 0xad91b44dcb3c6f35uL))
-
-public val PCIE_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: Guid = Guid.fromU128(U128(0xe96eca9953e24f52uL, 0x9be7d2dbe9508ed0uL))
-
-public val PCIXBUS_ERROR_SECTION_GUID: Guid = Guid.fromU128(U128(0xc57539633b844095uL, 0xbf78eddad3f9c9dduL))
-
 public val PCIXBUS_ERRTYPE_ADDRESSPARITY: UInt = 6u
 
 public val PCIXBUS_ERRTYPE_BUSTIMEOUT: UInt = 4u
@@ -2778,8 +2707,6 @@ public val PCIXBUS_ERRTYPE_MASTERDATAPARITY: UInt = 5u
 public val PCIXBUS_ERRTYPE_SYSTEM: UInt = 2u
 
 public val PCIXBUS_ERRTYPE_UNKNOWN: UInt = 0u
-
-public val PCIXDEVICE_ERROR_SECTION_GUID: Guid = Guid.fromU128(U128(0xeb5e4685ca664769uL, 0xb6a226068b001326uL))
 
 public val PCIX_MODE1_100MHZ: UInt = 2u
 
@@ -3002,3 +2929,73 @@ public val PCI_EXPRESS_RC_INTERNAL_LINK_CONTROL_CAP_ID: UInt = 6u
 public val PCI_EXPRESS_RC_LINK_DECLARATION_CAP_ID: UInt = 5u
 
 public val PCI_EXPRESS_READINESS_TIME_REPORTING_CAP_ID: UInt = 34u
+
+public val PCI_EXPRESS_RESERVED_FOR_AMD_CAP_ID: UInt = 20u
+
+public val PCI_EXPRESS_RESIZABLE_BAR_CAP_ID: UInt = 21u
+
+public val PCI_EXPRESS_ROOT_PORT_INTERFACE_VERSION: UInt = 1u
+
+public val PCI_EXPRESS_SECONDARY_PCI_EXPRESS_CAP_ID: UInt = 25u
+
+public val PCI_EXPRESS_SINGLE_ROOT_IO_VIRTUALIZATION_CAP_ID: UInt = 16u
+
+public val PCI_EXPRESS_TPH_REQUESTER_CAP_ID: UInt = 23u
+
+public val PCI_EXPRESS_TPH_ST_LOCATION_MSIX_TABLE: UInt = 2u
+
+public val PCI_EXPRESS_TPH_ST_LOCATION_NONE: UInt = 0u
+
+public val PCI_EXPRESS_TPH_ST_LOCATION_RESERVED: UInt = 3u
+
+public val PCI_EXPRESS_TPH_ST_LOCATION_TPH_CAPABILITY: UInt = 1u
+
+public val PCI_EXPRESS_VC_AND_MFVC_CAP_ID: UInt = 9u
+
+public val PCI_EXPRESS_VENDOR_SPECIFIC_CAP_ID: UInt = 11u
+
+public val PCI_EXPRESS_VIRTUAL_CHANNEL_CAP_ID: UInt = 2u
+
+public val PCI_EXTENDED_CONFIG_LENGTH: UInt = 4096u
+
+public val PCI_INVALID_ALTERNATE_FUNCTION_NUMBER: UInt = 255u
+
+public val PCI_INVALID_VENDORID: UInt = 65535u
+
+public val PCI_MAX_BRIDGE_NUMBER: UInt = 255u
+
+public val PCI_MAX_DEVICES: UInt = 32u
+
+public val PCI_MAX_FUNCTION: UInt = 8u
+
+public val PCI_MAX_SEGMENT_NUMBER: UInt = 65535u
+
+public val PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: UInt = 1u
+
+public val PCI_MULTIFUNCTION: UInt = 128u
+
+public val PCI_PROGRAMMING_INTERFACE_MSC_NVM_EXPRESS: UInt = 2u
+
+public val PCI_PTM_TIME_SOURCE_AUX: UInt = 4294967295u
+
+public val PCI_ROMADDRESS_ENABLED: UInt = 1u
+
+public val PCI_ROOT_BUS_OSC_METHOD_CAPABILITY_REVISION: UInt = 1u
+
+public val PCI_SECURITY_DIRECT_TRANSLATED_P2P: UInt = 4u
+
+public val PCI_SECURITY_ENHANCED: UInt = 2u
+
+public val PCI_SECURITY_FULLY_SUPPORTED: UInt = 1u
+
+public val PCI_SECURITY_GUEST_ASSIGNED: UInt = 1u
+
+public val PCI_SECURITY_INTERFACE_VERSION: UInt = 1u
+
+public val PCI_SECURITY_INTERFACE_VERSION2: UInt = 2u
+
+public val PCI_SECURITY_SRIOV_DIRECT_TRANSLATED_P2P: UInt = 262144u
+
+public val PCI_STATUS_66MHZ_CAPABLE: UInt = 32u
+
+public val PCI_STATUS_CAPABILITIES_LIST: UInt = 16u

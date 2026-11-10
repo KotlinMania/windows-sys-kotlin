@@ -6,34 +6,6 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val CLSID_IIT_CMD_INT: Guid = Guid.fromU128(U128(0x4662daa2d39311d0uL, 0x9a5600c04fb68bf7uL))
-
-public val CLSID_IIT_DATABASE: Guid = Guid.fromU128(U128(0x666734528c2311d0uL, 0xa84e00aa006c7d01uL))
-
-public val CLSID_IIT_DATABASE_LOCAL: Guid = Guid.fromU128(U128(0x4662daa9d39311d0uL, 0x9a5600c04fb68bf7uL))
-
-public val CLSID_IIT_GROUP_UPDATE: Guid = Guid.fromU128(U128(0x4662daa4d39311d0uL, 0x9a5600c04fb68bf7uL))
-
-public val CLSID_IIT_INDEX_BUILD: Guid = Guid.fromU128(U128(0x8fa0d5aadedf11d0uL, 0x9a6100c04fb68bf7uL))
-
-public val CLSID_IIT_PROP_LIST: Guid = Guid.fromU128(U128(0x4662daaed39311d0uL, 0x9a5600c04fb68bf7uL))
-
-public val CLSID_IIT_RESULT_SET: Guid = Guid.fromU128(U128(0x4662daa7d39311d0uL, 0x9a5600c04fb68bf7uL))
-
-public val CLSID_IIT_SV_MGR: Guid = Guid.fromU128(U128(0x4662daa3d39311d0uL, 0x9a5600c04fb68bf7uL))
-
-public val CLSID_IITWW_FILTER_BUILD: Guid = Guid.fromU128(U128(0x8fa0d5abdedf11d0uL, 0x9a6100c04fb68bf7uL))
-
-public val CLSID_IIT_WORD_WHEEL: Guid = Guid.fromU128(U128(0xd73725c28c1211d0uL, 0xa84e00aa006c7d01uL))
-
-public val CLSID_IIT_WORD_WHEEL_LOCAL: Guid = Guid.fromU128(U128(0x4662daa8d39311d0uL, 0x9a5600c04fb68bf7uL))
-
-public val CLSID_IIT_WORD_WHEEL_UPDATE: Guid = Guid.fromU128(U128(0x4662daa5d39311d0uL, 0x9a5600c04fb68bf7uL))
-
-public val CLSID_IT_ENG_STEMMER: Guid = Guid.fromU128(U128(0x8fa0d5a8dedf11d0uL, 0x9a6100c04fb68bf7uL))
-
-public val CLSID_IT_STD_BREAKER: Guid = Guid.fromU128(U128(0x4662daafd39311d0uL, 0x9a5600c04fb68bf7uL))
-
 public val E_ALL_WILD: Hresult = 0x80001055u.toInt()
 
 public val E_ALREADYINIT: Hresult = 0x80001083u.toInt()
@@ -581,3 +553,31 @@ public val TYPE_POINTER: UInt = 1u
 public val TYPE_STRING: UInt = 2u
 
 public val TYPE_VALUE: UInt = 0u
+
+public val CLSID_IIT_CMD_INT: Guid = Guid.fromU128(U128(0x4662daa2d39311d0uL, 0x9a5600c04fb68bf7uL))
+
+public val CLSID_IIT_DATABASE: Guid = Guid.fromU128(U128(0x666734528c2311d0uL, 0xa84e00aa006c7d01uL))
+
+public val CLSID_IIT_DATABASE_LOCAL: Guid = Guid.fromU128(U128(0x4662daa9d39311d0uL, 0x9a5600c04fb68bf7uL))
+
+public val CLSID_IIT_GROUP_UPDATE: Guid = Guid.fromU128(U128(0x4662daa4d39311d0uL, 0x9a5600c04fb68bf7uL))
+
+public val CLSID_IIT_INDEX_BUILD: Guid = Guid.fromU128(U128(0x8fa0d5aadedf11d0uL, 0x9a6100c04fb68bf7uL))
+
+public val CLSID_IIT_PROP_LIST: Guid = Guid.fromU128(U128(0x4662daaed39311d0uL, 0x9a5600c04fb68bf7uL))
+
+public val CLSID_IIT_RESULT_SET: Guid = Guid.fromU128(U128(0x4662daa7d39311d0uL, 0x9a5600c04fb68bf7uL))
+
+public val CLSID_IIT_SV_MGR: Guid = Guid.fromU128(U128(0x4662daa3d39311d0uL, 0x9a5600c04fb68bf7uL))
+
+public val CLSID_IITWW_FILTER_BUILD: Guid = Guid.fromU128(U128(0x8fa0d5abdedf11d0uL, 0x9a6100c04fb68bf7uL))
+
+public val CLSID_IIT_WORD_WHEEL: Guid = Guid.fromU128(U128(0xd73725c28c1211d0uL, 0xa84e00aa006c7d01uL))
+
+public val CLSID_IIT_WORD_WHEEL_LOCAL: Guid = Guid.fromU128(U128(0x4662daa8d39311d0uL, 0x9a5600c04fb68bf7uL))
+
+public val CLSID_IIT_WORD_WHEEL_UPDATE: Guid = Guid.fromU128(U128(0x4662daa5d39311d0uL, 0x9a5600c04fb68bf7uL))
+
+public val CLSID_IT_ENG_STEMMER: Guid = Guid.fromU128(U128(0x8fa0d5a8dedf11d0uL, 0x9a6100c04fb68bf7uL))
+
+public val CLSID_IT_STD_BREAKER: Guid = Guid.fromU128(U128(0x4662daafd39311d0uL, 0x9a5600c04fb68bf7uL))

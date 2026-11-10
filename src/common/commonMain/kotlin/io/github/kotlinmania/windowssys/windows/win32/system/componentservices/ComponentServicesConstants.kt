@@ -13,10 +13,6 @@ public val APPTYPE_SWC: ComplusApptype = 2
 
 public val APPTYPE_UNKNOWN: ComplusApptype = -1
 
-public val APP_DOMAIN_HELPER: Guid = Guid.fromU128(U128(0xef24f68914f84d92uL, 0xb4afd7b1f0e70fd4uL))
-
-public val BYOT_SERVER_EX: Guid = Guid.fromU128(U128(0xecabb0aa7f1911d2uL, 0x978e0000f8757e2auL))
-
 public val COM_ADMIN32BIT_COMPONENT: COMAdminComponentType = 1
 
 public val COM_ADMIN64BIT_COMPONENT: COMAdminComponentType = 2
@@ -50,12 +46,6 @@ public val COM_ADMIN_AUTHENTICATION_NONE: COMAdminAuthenticationLevelOptions = 1
 public val COM_ADMIN_AUTHENTICATION_PACKET: COMAdminAuthenticationLevelOptions = 4
 
 public val COM_ADMIN_AUTHENTICATION_PRIVACY: COMAdminAuthenticationLevelOptions = 6
-
-public val COM_ADMIN_CATALOG: Guid = Guid.fromU128(U128(0xf618c514dfb811d1uL, 0xa2cf00805fc79235uL))
-
-public val COM_ADMIN_CATALOG_COLLECTION: Guid = Guid.fromU128(U128(0xf618c516dfb811d1uL, 0xa2cf00805fc79235uL))
-
-public val COM_ADMIN_CATALOG_OBJECT: Guid = Guid.fromU128(U128(0xf618c515dfb811d1uL, 0xa2cf00805fc79235uL))
 
 public val COM_ADMIN_COMP_FLAG_ALREADY_INSTALLED: COMAdminComponentFlags = 16
 
@@ -459,10 +449,6 @@ public val COM_ADMIN_TX_ISOLATION_LEVEL_REPEATABLE_READ: COMAdminTxIsolationLeve
 
 public val COM_ADMIN_TX_ISOLATION_LEVEL_SERIALIZABLE: COMAdminTxIsolationLevelOptions = 4
 
-public val COM_EVENTS: Guid = Guid.fromU128(U128(0xecabb0ab7f1911d2uL, 0x978e0000f8757e2auL))
-
-public val CRM_CLERK: Guid = Guid.fromU128(U128(0xecabb0bd7f1911d2uL, 0x978e0000f8757e2auL))
-
 public val CRMFLAG_FORGETTARGET: Crmflags = 1
 
 public val CRMFLAG_REPLAYINPROGRESS: Crmflags = 64
@@ -486,8 +472,6 @@ public val CRMREGFLAG_COMMITPHASE: Crmregflags = 2
 public val CRMREGFLAG_FAILIFINDOUBTSREMAIN: Crmregflags = 16
 
 public val CRMREGFLAG_PREPAREPHASE: Crmregflags = 1
-
-public val CRM_RECOVERY_CLERK: Guid = Guid.fromU128(U128(0xecabb0be7f1911d2uL, 0x978e0000f8757e2auL))
 
 public val CRR_ACTIVATION_LIMIT: UInt = 4294967294u
 
@@ -557,16 +541,6 @@ public val CSC_THREAD_POOL_NONE: CscThreadPool = 0
 
 public val CSC_USE_TRACKER: CscTrackerConfig = 1
 
-public val C_SERVICE_CONFIG: Guid = Guid.fromU128(U128(0xecabb0c87f1911d2uL, 0x978e0000f8757e2auL))
-
-public val CLR_ASSEMBLY_LOCATOR: Guid = Guid.fromU128(U128(0x458aa3b5265a4b75uL, 0xbc059bea4630cf18uL))
-
-public val CO_MTS_LOCATOR: Guid = Guid.fromU128(U128(0xecabb0ac7f1911d2uL, 0x978e0000f8757e2auL))
-
-public val COM_SERVICE_EVENTS: Guid = Guid.fromU128(U128(0xecabb0c37f1911d2uL, 0x978e0000f8757e2auL))
-
-public val COM_SYSTEM_APP_EVENT_DATA: Guid = Guid.fromU128(U128(0xecabb0c67f1911d2uL, 0x978e0000f8757e2auL))
-
 public val DATA_NOT_AVAILABLE: UInt = 4294967295u
 
 public val DUMPTYPE_FULL: Dumptype = 0
@@ -574,12 +548,6 @@ public val DUMPTYPE_FULL: Dumptype = 0
 public val DUMPTYPE_MINI: Dumptype = 1
 
 public val DUMPTYPE_NONE: Dumptype = 2
-
-public val DISPENSER_MANAGER: Guid = Guid.fromU128(U128(0xecabb0c07f1911d2uL, 0x978e0000f8757e2auL))
-
-public val DUMMY30040732: Guid = Guid.fromU128(U128(0xecabb0a97f1911d2uL, 0x978e0000f8757e2auL))
-
-public val EVENT_SERVER: Guid = Guid.fromU128(U128(0xecabafbc7f1911d2uL, 0x978e0000f8757e2auL))
 
 public val GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = 16
 
@@ -593,39 +561,13 @@ public val GATD_INCLUDE_SWC: GetAppTrackerDataFlags = 4
 
 public val GUID_STRING_SIZE: UInt = 40u
 
-public val GET_SECURITY_CALL_CONTEXT_APP_OBJECT: Guid = Guid.fromU128(U128(0xecabb0a87f1911d2uL, 0x978e0000f8757e2auL))
-
-public val LB_EVENTS: Guid = Guid.fromU128(U128(0xecabb0c17f1911d2uL, 0x978e0000f8757e2auL))
-
 public val LOCK_METHOD: LockModes = 1
 
 public val LOCK_SET_GET: LockModes = 0
 
 public val MTXDM_E_ENLISTRESOURCEFAILED: UInt = 2147803392u
 
-public val MESSAGE_MOVER: Guid = Guid.fromU128(U128(0xecabb0bf7f1911d2uL, 0x978e0000f8757e2auL))
-
-public val MTS_GRP: Guid = Guid.fromU128(U128(0x4b2e958d039311d1uL, 0xb1ab00aa00ba3258uL))
-
-public val POOL_MGR: Guid = Guid.fromU128(U128(0xecabafb57f1911d2uL, 0x978e0000f8757e2auL))
-
 public val PROCESS: ReleaseModes = 1
-
-public val SECURITY_CALL_CONTEXT: Guid = Guid.fromU128(U128(0xecabb0a77f1911d2uL, 0x978e0000f8757e2auL))
-
-public val SECURITY_CALLERS: Guid = Guid.fromU128(U128(0xecabb0a67f1911d2uL, 0x978e0000f8757e2auL))
-
-public val SECURITY_IDENTITY: Guid = Guid.fromU128(U128(0xecabb0a57f1911d2uL, 0x978e0000f8757e2auL))
-
-public val SERVICE_POOL: Guid = Guid.fromU128(U128(0xecabb0c97f1911d2uL, 0x978e0000f8757e2auL))
-
-public val SERVICE_POOL_CONFIG: Guid = Guid.fromU128(U128(0xecabb0ca7f1911d2uL, 0x978e0000f8757e2auL))
-
-public val SHARED_PROPERTY: Guid = Guid.fromU128(U128(0x2a005c05a5de11cfuL, 0x9e6600aa00a3f464uL))
-
-public val SHARED_PROPERTY_GROUP: Guid = Guid.fromU128(U128(0x2a005c0ba5de11cfuL, 0x9e6600aa00a3f464uL))
-
-public val SHARED_PROPERTY_GROUP_MANAGER: Guid = Guid.fromU128(U128(0x2a005c11a5de11cfuL, 0x9e6600aa00a3f464uL))
 
 public val STANDARD: ReleaseModes = 0
 
@@ -638,12 +580,6 @@ public val TRKCOLL_APPLICATIONS: TrackingCollType = 1
 public val TRKCOLL_COMPONENTS: TrackingCollType = 2
 
 public val TRKCOLL_PROCESSES: TrackingCollType = 0
-
-public val TRACKER_SERVER: Guid = Guid.fromU128(U128(0xecabafb97f1911d2uL, 0x978e0000f8757e2auL))
-
-public val TRANSACTION_CONTEXT: Guid = Guid.fromU128(U128(0x7999fc25d3c611cfuL, 0xacab00a024a55aefuL))
-
-public val TRANSACTION_CONTEXT_EX: Guid = Guid.fromU128(U128(0x5cb66670d3d411cfuL, 0xacab00a024a55aefuL))
 
 public val TX_ABORT: TransactionVote = 1
 
@@ -708,3 +644,67 @@ public val MTS_ERR_CTX_SYNCH_TIMEOUT: AutoSvcsErrorConstants = 2147803142u
 public val MTS_ERR_CTX_TM_NOT_AVAILABLE: AutoSvcsErrorConstants = 2147803151u
 
 public val MTS_ERR_CTX_WRONG_THREAD: AutoSvcsErrorConstants = 2147803150u
+
+public val APP_DOMAIN_HELPER: Guid = Guid.fromU128(U128(0xef24f68914f84d92uL, 0xb4afd7b1f0e70fd4uL))
+
+public val BYOT_SERVER_EX: Guid = Guid.fromU128(U128(0xecabb0aa7f1911d2uL, 0x978e0000f8757e2auL))
+
+public val COM_ADMIN_CATALOG: Guid = Guid.fromU128(U128(0xf618c514dfb811d1uL, 0xa2cf00805fc79235uL))
+
+public val COM_ADMIN_CATALOG_COLLECTION: Guid = Guid.fromU128(U128(0xf618c516dfb811d1uL, 0xa2cf00805fc79235uL))
+
+public val COM_ADMIN_CATALOG_OBJECT: Guid = Guid.fromU128(U128(0xf618c515dfb811d1uL, 0xa2cf00805fc79235uL))
+
+public val COM_EVENTS: Guid = Guid.fromU128(U128(0xecabb0ab7f1911d2uL, 0x978e0000f8757e2auL))
+
+public val CRM_CLERK: Guid = Guid.fromU128(U128(0xecabb0bd7f1911d2uL, 0x978e0000f8757e2auL))
+
+public val CRM_RECOVERY_CLERK: Guid = Guid.fromU128(U128(0xecabb0be7f1911d2uL, 0x978e0000f8757e2auL))
+
+public val C_SERVICE_CONFIG: Guid = Guid.fromU128(U128(0xecabb0c87f1911d2uL, 0x978e0000f8757e2auL))
+
+public val CLR_ASSEMBLY_LOCATOR: Guid = Guid.fromU128(U128(0x458aa3b5265a4b75uL, 0xbc059bea4630cf18uL))
+
+public val CO_MTS_LOCATOR: Guid = Guid.fromU128(U128(0xecabb0ac7f1911d2uL, 0x978e0000f8757e2auL))
+
+public val COM_SERVICE_EVENTS: Guid = Guid.fromU128(U128(0xecabb0c37f1911d2uL, 0x978e0000f8757e2auL))
+
+public val COM_SYSTEM_APP_EVENT_DATA: Guid = Guid.fromU128(U128(0xecabb0c67f1911d2uL, 0x978e0000f8757e2auL))
+
+public val DISPENSER_MANAGER: Guid = Guid.fromU128(U128(0xecabb0c07f1911d2uL, 0x978e0000f8757e2auL))
+
+public val DUMMY30040732: Guid = Guid.fromU128(U128(0xecabb0a97f1911d2uL, 0x978e0000f8757e2auL))
+
+public val EVENT_SERVER: Guid = Guid.fromU128(U128(0xecabafbc7f1911d2uL, 0x978e0000f8757e2auL))
+
+public val GET_SECURITY_CALL_CONTEXT_APP_OBJECT: Guid = Guid.fromU128(U128(0xecabb0a87f1911d2uL, 0x978e0000f8757e2auL))
+
+public val LB_EVENTS: Guid = Guid.fromU128(U128(0xecabb0c17f1911d2uL, 0x978e0000f8757e2auL))
+
+public val MESSAGE_MOVER: Guid = Guid.fromU128(U128(0xecabb0bf7f1911d2uL, 0x978e0000f8757e2auL))
+
+public val MTS_GRP: Guid = Guid.fromU128(U128(0x4b2e958d039311d1uL, 0xb1ab00aa00ba3258uL))
+
+public val POOL_MGR: Guid = Guid.fromU128(U128(0xecabafb57f1911d2uL, 0x978e0000f8757e2auL))
+
+public val SECURITY_CALL_CONTEXT: Guid = Guid.fromU128(U128(0xecabb0a77f1911d2uL, 0x978e0000f8757e2auL))
+
+public val SECURITY_CALLERS: Guid = Guid.fromU128(U128(0xecabb0a67f1911d2uL, 0x978e0000f8757e2auL))
+
+public val SECURITY_IDENTITY: Guid = Guid.fromU128(U128(0xecabb0a57f1911d2uL, 0x978e0000f8757e2auL))
+
+public val SERVICE_POOL: Guid = Guid.fromU128(U128(0xecabb0c97f1911d2uL, 0x978e0000f8757e2auL))
+
+public val SERVICE_POOL_CONFIG: Guid = Guid.fromU128(U128(0xecabb0ca7f1911d2uL, 0x978e0000f8757e2auL))
+
+public val SHARED_PROPERTY: Guid = Guid.fromU128(U128(0x2a005c05a5de11cfuL, 0x9e6600aa00a3f464uL))
+
+public val SHARED_PROPERTY_GROUP: Guid = Guid.fromU128(U128(0x2a005c0ba5de11cfuL, 0x9e6600aa00a3f464uL))
+
+public val SHARED_PROPERTY_GROUP_MANAGER: Guid = Guid.fromU128(U128(0x2a005c11a5de11cfuL, 0x9e6600aa00a3f464uL))
+
+public val TRACKER_SERVER: Guid = Guid.fromU128(U128(0xecabafb97f1911d2uL, 0x978e0000f8757e2auL))
+
+public val TRANSACTION_CONTEXT: Guid = Guid.fromU128(U128(0x7999fc25d3c611cfuL, 0xacab00a024a55aefuL))
+
+public val TRANSACTION_CONTEXT_EX: Guid = Guid.fromU128(U128(0x5cb66670d3d411cfuL, 0xacab00a024a55aefuL))

@@ -208,14 +208,6 @@ public val DEVHTADJF_ADDITIVE_DEVICE: UInt = 2u
 
 public val DEVHTADJF_COLOR_DEVICE: UInt = 1u
 
-public val DEVPKEY_DEVICE_ACTIVITY_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 4u)
-
-public val DEVPKEY_DEVICE_ADAPTER_LUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 3u)
-
-public val DEVPKEY_DEVICE_TERMINAL_LUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 2u)
-
-public val DEVPKEY_INDIRECT_DISPLAY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 1u)
-
 public val DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DisplayconfigDeviceInfoType = 4
 
 public val DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DisplayconfigDeviceInfoType = 9
@@ -719,16 +711,6 @@ public val GS_16BIT_HANDLES: UInt = 4u
 public val GS_8BIT_HANDLES: UInt = 2u
 
 public val GS_UNICODE_HANDLES: UInt = 1u
-
-public val GUID_DEVINTERFACE_DISPLAY_ADAPTER: Guid = Guid.fromU128(U128(0x5b45201df2f24f3buL, 0x85bb30ff1f953599uL))
-
-public val GUID_DEVINTERFACE_MONITOR: Guid = Guid.fromU128(U128(0xe6f07b5fee974a90uL, 0xb07633f57bf4eaa7uL))
-
-public val GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: Guid = Guid.fromU128(U128(0x1ad9e4f0f88d4360uL, 0xbab94c2d55e564cduL))
-
-public val GUID_DISPLAY_DEVICE_ARRIVAL: Guid = Guid.fromU128(U128(0x1ca05180a699450auL, 0x9a0cde4fbe3ddd89uL))
-
-public val GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: Guid = Guid.fromU128(U128(0xf196c02ff86f4f9auL, 0xaa15e9cebdfe3b96uL))
 
 public val GX_GENERAL: Int = 3
 
@@ -1883,3 +1865,21 @@ public val XO_TABLE: UInt = 2u
 public val XO_TO_MONO: UInt = 4u
 
 public val XO_TRIVIAL: UInt = 1u
+
+public val DEVPKEY_DEVICE_ACTIVITY_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 4u)
+
+public val DEVPKEY_DEVICE_ADAPTER_LUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 3u)
+
+public val DEVPKEY_DEVICE_TERMINAL_LUID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 2u)
+
+public val DEVPKEY_INDIRECT_DISPLAY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 1u)
+
+public val GUID_DEVINTERFACE_DISPLAY_ADAPTER: Guid = Guid.fromU128(U128(0x5b45201df2f24f3buL, 0x85bb30ff1f953599uL))
+
+public val GUID_DEVINTERFACE_MONITOR: Guid = Guid.fromU128(U128(0xe6f07b5fee974a90uL, 0xb07633f57bf4eaa7uL))
+
+public val GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: Guid = Guid.fromU128(U128(0x1ad9e4f0f88d4360uL, 0xbab94c2d55e564cduL))
+
+public val GUID_DISPLAY_DEVICE_ARRIVAL: Guid = Guid.fromU128(U128(0x1ca05180a699450auL, 0x9a0cde4fbe3ddd89uL))
+
+public val GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: Guid = Guid.fromU128(U128(0xf196c02ff86f4f9auL, 0xaa15e9cebdfe3b96uL))

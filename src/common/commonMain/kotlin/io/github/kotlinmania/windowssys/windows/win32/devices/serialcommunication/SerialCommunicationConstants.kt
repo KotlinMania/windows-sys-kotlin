@@ -12,12 +12,6 @@ public val COMDB_MAX_PORTS_ARBITRATED: UInt = 4096u
 
 public val COMDB_MIN_PORTS_ARBITRATED: UInt = 256u
 
-public val DEVPKEY_DEVICE_INTERFACE_SERIAL_PORT_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 4u)
-
-public val DEVPKEY_DEVICE_INTERFACE_SERIAL_USB_PRODUCT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 3u)
-
-public val DEVPKEY_DEVICE_INTERFACE_SERIAL_USB_VENDOR_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 2u)
-
 public val EVEN_PARITY: UInt = 2u
 
 public val IOCTL_INTERNAL_SERENUM_REMOVE_SELF: UInt = 3604999u
@@ -171,3 +165,9 @@ public val SERENUM_FIRST_HALF: SerenumPortion = 0
 public val SERENUM_SECOND_HALF: SerenumPortion = 1
 
 public val SERENUM_WHOLE: SerenumPortion = 2
+
+public val DEVPKEY_DEVICE_INTERFACE_SERIAL_PORT_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 4u)
+
+public val DEVPKEY_DEVICE_INTERFACE_SERIAL_USB_PRODUCT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 3u)
+
+public val DEVPKEY_DEVICE_INTERFACE_SERIAL_USB_VENDOR_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 2u)

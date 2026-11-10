@@ -9,10 +9,6 @@ public val SECURITY_PRODUCT_TYPE_ANTIVIRUS: SecurityProductType = 0
 
 public val SECURITY_PRODUCT_TYPE_FIREWALL: SecurityProductType = 1
 
-public val WSC_DEFAULT_PRODUCT: Guid = Guid.fromU128(U128(0x2981a36ef22d11e5uL, 0x9ce95e5517507c66uL))
-
-public val WSC_PRODUCT_LIST: Guid = Guid.fromU128(U128(0x17072f7b9abe4a74uL, 0xa2611eb76b55107auL))
-
 public val WSC_SECURITY_PRODUCT_OUT_OF_DATE: WscSecuritySignatureStatus = 0
 
 public val WSC_SECURITY_PRODUCT_STATE_EXPIRED: WscSecurityProductState = 3
@@ -58,3 +54,7 @@ public val WSC_SECURITY_PROVIDER_NONE: WscSecurityProvider = 0
 public val WSC_SECURITY_PROVIDER_SERVICE: WscSecurityProvider = 64
 
 public val WSC_SECURITY_PROVIDER_USER_ACCOUNT_CONTROL: WscSecurityProvider = 32
+
+public val WSC_DEFAULT_PRODUCT: Guid = Guid.fromU128(U128(0x2981a36ef22d11e5uL, 0x9ce95e5517507c66uL))
+
+public val WSC_PRODUCT_LIST: Guid = Guid.fromU128(U128(0x17072f7b9abe4a74uL, 0xa2611eb76b55107auL))

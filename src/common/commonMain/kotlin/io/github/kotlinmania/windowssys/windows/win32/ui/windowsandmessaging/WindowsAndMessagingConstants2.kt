@@ -1,72 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
-
-public val SPI_GETLOWPOWERACTIVE: SystemParametersInfoAction = 83u
-
-public val SPI_GETLOWPOWERTIMEOUT: SystemParametersInfoAction = 79u
-
-public val SPI_GETMENUANIMATION: SystemParametersInfoAction = 4098u
-
-public val SPI_GETMENUDROPALIGNMENT: SystemParametersInfoAction = 27u
-
-public val SPI_GETMENUFADE: SystemParametersInfoAction = 4114u
-
-public val SPI_GETMENURECT: SystemParametersInfoAction = 162u
-
-public val SPI_GETMENUSHOWDELAY: SystemParametersInfoAction = 106u
-
-public val SPI_GETMENUUNDERLINES: SystemParametersInfoAction = 4106u
-
-public val SPI_GETMESSAGEDURATION: SystemParametersInfoAction = 8214u
-
-public val SPI_GETMINIMIZEDMETRICS: SystemParametersInfoAction = 43u
-
-public val SPI_GETMINIMUMHITRADIUS: SystemParametersInfoAction = 8212u
-
-public val SPI_GETMOUSE: SystemParametersInfoAction = 3u
-
-public val SPI_GETMOUSECLICKLOCK: SystemParametersInfoAction = 4126u
-
-public val SPI_GETMOUSECLICKLOCKTIME: SystemParametersInfoAction = 8200u
-
-public val SPI_GETMOUSEDOCKTHRESHOLD: SystemParametersInfoAction = 126u
-
-public val SPI_GETMOUSEDRAGOUTTHRESHOLD: SystemParametersInfoAction = 132u
-
-public val SPI_GETMOUSEHOVERHEIGHT: SystemParametersInfoAction = 100u
-
-public val SPI_GETMOUSEHOVERTIME: SystemParametersInfoAction = 102u
-
-public val SPI_GETMOUSEHOVERWIDTH: SystemParametersInfoAction = 98u
-
-public val SPI_GETMOUSEKEYS: SystemParametersInfoAction = 54u
-
-public val SPI_GETMOUSESIDEMOVETHRESHOLD: SystemParametersInfoAction = 136u
-
-public val SPI_GETMOUSESONAR: SystemParametersInfoAction = 4124u
-
-public val SPI_GETMOUSESPEED: SystemParametersInfoAction = 112u
-
-public val SPI_GETMOUSETRAILS: SystemParametersInfoAction = 94u
-
-public val SPI_GETMOUSEVANISH: SystemParametersInfoAction = 4128u
-
-public val SPI_GETMOUSEWHEELROUTING: SystemParametersInfoAction = 8220u
-
-public val SPI_GETNONCLIENTMETRICS: SystemParametersInfoAction = 41u
-
-public val SPI_GETPENARBITRATIONTYPE: SystemParametersInfoAction = 8224u
-
-public val SPI_GETPENDOCKTHRESHOLD: SystemParametersInfoAction = 128u
-
-public val SPI_GETPENDRAGOUTTHRESHOLD: SystemParametersInfoAction = 134u
-
-public val SPI_GETPENSIDEMOVETHRESHOLD: SystemParametersInfoAction = 138u
-
-public val SPI_GETPENVISUALIZATION: SystemParametersInfoAction = 8222u
-
-public val SPI_GETPOWEROFFACTIVE: SystemParametersInfoAction = 84u
 
 public val SPI_GETPOWEROFFTIMEOUT: SystemParametersInfoAction = 80u
 
@@ -1483,3 +1419,69 @@ public val WARNING_RETURNING_BAD_RESULT: UInt = 28196u
 public val WARNING_RETURN_UNINIT_VAR: UInt = 6101u
 
 public val WARNING_USING_UNINIT_VAR: UInt = 6001u
+
+public val GUID_DEVICE_EVENT_RBC: Guid = Guid.fromU128(U128(0xd0744792a98e11d2uL, 0x917a00a0c9068ff3uL))
+
+public val GUID_IO_CDROM_EXCLUSIVE_LOCK: Guid = Guid.fromU128(U128(0xbc56c1397a1047eeuL, 0xa2944c6a38f0149auL))
+
+public val GUID_IO_CDROM_EXCLUSIVE_UNLOCK: Guid = Guid.fromU128(U128(0xa3b6d27d5e354885uL, 0x81e5ee18c00ed779uL))
+
+public val GUID_IO_DEVICE_BECOMING_READY: Guid = Guid.fromU128(U128(0xd07433f0a98e11d2uL, 0x917a00a0c9068ff3uL))
+
+public val GUID_IO_DEVICE_EXTERNAL_REQUEST: Guid = Guid.fromU128(U128(0xd07433d0a98e11d2uL, 0x917a00a0c9068ff3uL))
+
+public val GUID_IO_DISK_CLONE_ARRIVAL: Guid = Guid.fromU128(U128(0x6a61885b7c3943dduL, 0x9b56b8ac22a549aauL))
+
+public val GUID_IO_DISK_HEALTH_NOTIFICATION: Guid = Guid.fromU128(U128(0xf1bd644391649c5uL, 0xb063991940118fb2uL))
+
+public val GUID_IO_DISK_LAYOUT_CHANGE: Guid = Guid.fromU128(U128(0x11dff54c846941f9uL, 0xb3deef836487c54auL))
+
+public val GUID_IO_DRIVE_REQUIRES_CLEANING: Guid = Guid.fromU128(U128(0x7207877c90ed44e5uL, 0xa00081428d4c79bbuL))
+
+public val GUID_IO_MEDIA_ARRIVAL: Guid = Guid.fromU128(U128(0xd07433c0a98e11d2uL, 0x917a00a0c9068ff3uL))
+
+public val GUID_IO_MEDIA_EJECT_REQUEST: Guid = Guid.fromU128(U128(0xd07433d1a98e11d2uL, 0x917a00a0c9068ff3uL))
+
+public val GUID_IO_MEDIA_REMOVAL: Guid = Guid.fromU128(U128(0xd07433c1a98e11d2uL, 0x917a00a0c9068ff3uL))
+
+public val GUID_IO_TAPE_ERASE: Guid = Guid.fromU128(U128(0x852d11eb4bb84507uL, 0x9d9b417cc2b1b438uL))
+
+public val GUID_IO_VOLUME_BACKGROUND_FORMAT: Guid = Guid.fromU128(U128(0xa2e5fc86d5cd4038uL, 0xb2e34445065c2377uL))
+
+public val GUID_IO_VOLUME_CHANGE: Guid = Guid.fromU128(U128(0x7373654a812a11d0uL, 0xbec708002be2092fuL))
+
+public val GUID_IO_VOLUME_CHANGE_SIZE: Guid = Guid.fromU128(U128(0x3a1625bead0349f1uL, 0x8ef86bbac182d1fduL))
+
+public val GUID_IO_VOLUME_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0x53f5630db6bf11d0uL, 0x94f200a0c91efb8buL))
+
+public val GUID_IO_VOLUME_DISMOUNT: Guid = Guid.fromU128(U128(0xd16a55e8105911d2uL, 0x8ffd00a0c9a06d32uL))
+
+public val GUID_IO_VOLUME_DISMOUNT_FAILED: Guid = Guid.fromU128(U128(0xe3c5b178105d11d2uL, 0x8ffd00a0c9a06d32uL))
+
+public val GUID_IO_VOLUME_FORCE_CLOSED: Guid = Guid.fromU128(U128(0x411ad84f433e4dc2uL, 0xa5ae4a2d1a2de654uL))
+
+public val GUID_IO_VOLUME_FVE_STATUS_CHANGE: Guid = Guid.fromU128(U128(0x62998b2ee1f4b6auL, 0xb857e76cbbe9a6dauL))
+
+public val GUID_IO_VOLUME_INFO_MAKE_COMPAT: Guid = Guid.fromU128(U128(0x3ab9a0d2ef8045cfuL, 0x8cdccbe02a212906uL))
+
+public val GUID_IO_VOLUME_LOCK: Guid = Guid.fromU128(U128(0x50708874c9af11d1uL, 0x8fef00a0c9a06d32uL))
+
+public val GUID_IO_VOLUME_LOCK_FAILED: Guid = Guid.fromU128(U128(0xae2eed100ba811d2uL, 0x8ffb00a0c9a06d32uL))
+
+public val GUID_IO_VOLUME_MOUNT: Guid = Guid.fromU128(U128(0xb58048781a9611d2uL, 0x8ffd00a0c9a06d32uL))
+
+public val GUID_IO_VOLUME_NAME_CHANGE: Guid = Guid.fromU128(U128(0x2de97f834c0611d2uL, 0xa53200609713055auL))
+
+public val GUID_IO_VOLUME_NEED_CHKDSK: Guid = Guid.fromU128(U128(0x799a09600a0b4e03uL, 0xad882fa7c6ce748auL))
+
+public val GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: Guid = Guid.fromU128(U128(0x2de97f844c0611d2uL, 0xa53200609713055auL))
+
+public val GUID_IO_VOLUME_PREPARING_EJECT: Guid = Guid.fromU128(U128(0xc79eb16e0dac4e7auL, 0xa86cb25ceeaa88f6uL))
+
+public val GUID_IO_VOLUME_UNIQUE_ID_CHANGE: Guid = Guid.fromU128(U128(0xaf39da42662241f5uL, 0x970b139d092fa3d9uL))
+
+public val GUID_IO_VOLUME_UNLOCK: Guid = Guid.fromU128(U128(0x9a8c3d68d0cb11d1uL, 0x8fef00a0c9a06d32uL))
+
+public val GUID_IO_VOLUME_WEARING_OUT: Guid = Guid.fromU128(U128(0x873113ca14864508uL, 0x82acc3b2e5297aaauL))
+
+public val GUID_IO_VOLUME_WORM_NEAR_FULL: Guid = Guid.fromU128(U128(0xf3bfff82f3de48d2uL, 0xaf95457f80b763f2uL))

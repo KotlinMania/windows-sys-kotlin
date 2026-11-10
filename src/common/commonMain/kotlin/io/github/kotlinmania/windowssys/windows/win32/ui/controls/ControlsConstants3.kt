@@ -1,12 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
 import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-
-public val TDM_NAVIGATE_PAGE: TaskdialogMessages = 1125
 
 public val TDM_SET_BUTTON_ELEVATION_REQUIRED_STATE: TaskdialogMessages = 1139
 
@@ -2353,3 +2353,5 @@ public val STC7: UInt = 1094u
 public val STC8: UInt = 1095u
 
 public val STC9: UInt = 1096u
+
+public val IMAGE_LIST: Guid = Guid.fromU128(U128(0x7c476ba202b148f4uL, 0x8048b24619ddc058uL))

@@ -171,8 +171,6 @@ public val NET_COMPUTER_NAME_TYPE_MAX: NetComputerNameType = 3
 
 public val NET_PRIMARY_COMPUTER_NAME: NetComputerNameType = 0
 
-public val NET_PROVISIONING: Guid = Guid.fromU128(U128(0x2aa2b5feb8464d07uL, 0x810cb21ee45320e3uL))
-
 public val NET_SETUP_DNS_MACHINE: NetsetupNameType = 5
 
 public val NET_SETUP_DOMAIN: NetsetupNameType = 3
@@ -1167,8 +1165,6 @@ public val SW_AUTOPROF_LOAD_MASK: UInt = 1u
 
 public val SW_AUTOPROF_SAVE_MASK: UInt = 2u
 
-public val SERVICE_ACCOUNT_PASSWORD_GUID: Guid = Guid.fromU128(U128(0x262e99c961604871uL, 0xacec4e61736b6f21uL))
-
 public val TITLE_SC_MESSAGE_BOX: Int = -1073734795
 
 public val TRACE_NO_STDINFO: UInt = 1u
@@ -1566,3 +1562,7 @@ public val WZC_PROFILE_XML_ERROR_NO_VERSION: UInt = 1u
 public val WZC_PROFILE_XML_ERROR_SSID_NOT_FOUND: UInt = 4u
 
 public val WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: UInt = 3u
+
+public val NET_PROVISIONING: Guid = Guid.fromU128(U128(0x2aa2b5feb8464d07uL, 0x810cb21ee45320e3uL))
+
+public val SERVICE_ACCOUNT_PASSWORD_GUID: Guid = Guid.fromU128(U128(0x262e99c961604871uL, 0xacec4e61736b6f21uL))
